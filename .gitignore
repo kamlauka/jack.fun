@@ -1,1 +1,10 @@
 puphpet/config-custom.yaml
+/cgi-bin
+/document_errors
+/logs
+/private
+/public_shtml
+/stats
+/html
+.vagrant
+.idea
