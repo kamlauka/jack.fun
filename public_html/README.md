@@ -1,21 +1,10 @@
-<h1 align="center">Yii 2 Advanced Project Template</h1>
-
-<h3>Installation from the lab</h3>
-
-1. Go to the root of project and do 
-`vagrant up` and `vagrant hostmanager`
-2. Open SSH connection to the virtual machine in terminal
-3. Execute:
-    1. `cd /var/www`
-    2. `composer create-project --prefer-dist yiisoft/yii2-app-advanced public_html`
-    3. `cd public_html`
-    4. `php init`
-4. Change DB configs in `/public_html/common/config/main-local.php`
-5. Execute `php yii migrate`
-6. Replace file `/.htaccess` to `/public_html/.htaccess`
-7. Open in browser `http://jackpot.loc`
-
-<h3>Basic readme info</h3>
+<p align="center">
+    <a href="https://github.com/yiisoft" target="_blank">
+        <img src="https://avatars0.githubusercontent.com/u/993323" height="100px">
+    </a>
+    <h1 align="center">Yii 2 Advanced Project Template</h1>
+    <br>
+</p>
 
 Yii 2 Advanced Project Template is a skeleton [Yii 2](http://www.yiiframework.com/) application best for
 developing complex Web applications with multiple tiers.
@@ -68,4 +57,4 @@ frontend
     widgets/             contains frontend widgets
 vendor/                  contains dependent 3rd-party packages
 environments/            contains environment-based overrides
-`
+```
