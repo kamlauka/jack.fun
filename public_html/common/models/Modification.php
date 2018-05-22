@@ -31,7 +31,7 @@ class Modification extends \yii\db\ActiveRecord
             [['name', 'data', 'description'], 'required'],
             [['data'], 'number'],
             [['description'], 'string'],
-            [['name'], 'string', 'max' => 32],
+            [['name'], 'string', 'max' => 255],
         ];
     }
 

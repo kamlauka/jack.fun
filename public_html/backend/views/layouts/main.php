@@ -29,18 +29,25 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => Yii::$app->name,
+        'brandLabel' => 'Control Panel',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
     $menuItems = [
-        ['label' => 'Home', 'url' => ['/site/index']],
+        ['label' => 'Clear cache |', 'url' => ['/site/clear-cache']],
+
     ];
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
+
     } else {
+        $menuItems[] = ['label' => 'Розыгрыши', 'url' => ['/lottery/index']];
+        $menuItems[] = ['label' => 'Споры', 'url' => ['/dispute/index']];
+        $menuItems[] = ['label' => 'Джекпоты', 'url' => ['/jackpot/index']];
+        $menuItems[] = ['label' => 'Пользователи', 'url' => ['/user/index']];
+        $menuItems[] = ['label' => 'Настройки', 'url' => ['/modification/index']];
         $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post')
             . Html::submitButton(
@@ -49,6 +56,7 @@ AppAsset::register($this);
             )
             . Html::endForm()
             . '</li>';
+
     }
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
@@ -58,9 +66,15 @@ AppAsset::register($this);
     ?>
 
     <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
+        <?php
+            if (!Yii::$app->user->isGuest) {
+                echo
+                    Breadcrumbs::widget([
+                        'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+                    ]);
+            }
+        ?>
+
         <?= Alert::widget() ?>
         <?= $content ?>
     </div>
@@ -70,7 +84,7 @@ AppAsset::register($this);
     <div class="container">
         <p class="pull-left">&copy; <?= Html::encode(Yii::$app->name) ?> <?= date('Y') ?></p>
 
-        <p class="pull-right"><?= Yii::powered() ?></p>
+        <p class="pull-right"><a href='https://terlabs.com'>TERLABS.COM</a></p>
     </div>
 </footer>
 

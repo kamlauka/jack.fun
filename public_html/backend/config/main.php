@@ -44,9 +44,12 @@ return [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+
+
             'rules' => [
                 '<action:login>' => 'site/<action>',
                  '/' => 'site/index',
+                'clear-cache' => 'site/clear-cache',
                 '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
                 '<controller:[\w-]+>/' => '<controller>/index',
                 '<controller:[\w-]+>' => '<controller>/index',

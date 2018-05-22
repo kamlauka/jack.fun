@@ -22,11 +22,11 @@ class SiteController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['login', 'error'],
+                        'actions' => ['login', 'error','clear-cache'],
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index'],
+                        'actions' => ['logout', 'index','clear-cache'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -70,12 +70,15 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
+
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
 
         $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+
+        if ( $model->load(Yii::$app->request->post()) && $model->login()) {
+            $dd = $this->goBack();
             return $this->goBack();
         } else {
             $model->password = '';
@@ -97,4 +100,11 @@ class SiteController extends Controller
 
         return $this->goHome();
     }
+
+    public function actionClearCache() {
+        Yii::$app->cache->flush();
+        Yii::$app->session->setFlash('success', 'Кэш очищен!');
+        return $this->redirect(Yii::$app->request->referrer);
+    }
+
 }

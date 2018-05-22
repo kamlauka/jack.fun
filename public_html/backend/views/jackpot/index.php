@@ -4,19 +4,19 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel backend\models\ModificationSearch */
+/* @var $searchModel backend\models\JackpotSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Modifications';
+$this->title = 'Jackpots';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="modification-index">
+<div class="jackpot-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Modification', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Jackpot', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -25,10 +25,11 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-
-            'name',
-            'data',
-            'description:ntext',
+            'id',
+            'total',
+            'status',
+            'date_start',
+            'result',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

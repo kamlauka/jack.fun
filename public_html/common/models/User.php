@@ -4,6 +4,7 @@ namespace common\models;
 
 use yii\behaviors\TimestampBehavior;
 use Yii;
+use yii\web\IdentityInterface;
 
 /**
  * This is the model class for table "user".
@@ -37,11 +38,11 @@ use Yii;
  * @property Tote[] $totes0
  * @property Transaction[] $transactions
  */
-class User extends \yii\db\ActiveRecord
+class User extends \yii\db\ActiveRecord implements IdentityInterface
 {
 
     const STATUS_DELETED = 0;
-    const STATUS_ACTIVE = 10;
+    const STATUS_ACTIVE = 1;
 
 
     /**
@@ -233,11 +234,6 @@ class User extends \yii\db\ActiveRecord
     {
         $this->password_reset_token = null;
     }
-
-
-
-
-
 
 
 
