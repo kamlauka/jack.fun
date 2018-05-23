@@ -8,10 +8,13 @@ use yii\grid\GridView;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Articles';
+$this->params['breadcrumbs'][] = ['label' => 'Modifications', 'url' => ['/modification/index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="article-index">
-
+    <p>
+        <?= Html::a('Llnguage', ['/language/index'], ['class' => 'btn btn-success']) ?>
+    </p>
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 

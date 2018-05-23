@@ -8,6 +8,7 @@ use backend\models\UserSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * UserController implements the CRUD actions for User model.
@@ -64,11 +65,27 @@ class UserController extends Controller
      */
     public function actionCreate()
     {
+
         $model = new User();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post()) && $model->validate() ) {
+
+                $model->setPassword($model->auth_key);
+                $model->generateAuthKey();
+
+                $model->avatar = UploadedFile::getInstance($model, 'avatar');
+                $model->file = UploadedFile::getInstance($model, 'file');
+
+                if($model->avatar !=null && $model->file !=null ){
+                  $model->upload();
+                }
+
+
+                if($model->save()){
+                    return $this->redirect(['view', 'id' => $model->id]);
+                }
         }
+
 
         return $this->render('create', [
             'model' => $model,

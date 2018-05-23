@@ -8,6 +8,8 @@ use yii\grid\GridView;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Languages';
+$this->params['breadcrumbs'][] = ['label' => 'Modifications', 'url' => ['/modification/index']];
+$this->params['breadcrumbs'][] = ['label' => 'Articles', 'url' => ['/article/index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="language-index">
@@ -25,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            //'id',
             'language_id',
             'text:ntext',
 

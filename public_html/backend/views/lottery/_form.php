@@ -14,13 +14,16 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'total')->textInput() ?>
 
-    <?= $form->field($model, 'status')->textInput() ?>
+    <?php if($model->status){
+        echo $form->field($model, 'status')->textInput();
+    } ?>
 
     <?= $form->field($model, 'date_start')->textInput() ?>
 
-    <?= $form->field($model, 'result')->textInput(['maxlength' => true]) ?>
+    <?php if($model->result){
+        echo $form->field($model, 'result')->textInput();
+    } ?>
 
     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
 

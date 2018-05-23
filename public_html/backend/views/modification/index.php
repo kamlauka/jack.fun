@@ -12,12 +12,17 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="modification-index">
 
+
+    <p>
+        <?= Html::a('Texts', ['/article/index'], ['class' => 'btn btn-success']) ?>
+    </p>
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
         <?= Html::a('Create Modification', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
+
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,

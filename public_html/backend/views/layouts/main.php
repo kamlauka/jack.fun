@@ -43,11 +43,11 @@ AppAsset::register($this);
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
 
     } else {
-        $menuItems[] = ['label' => 'Розыгрыши', 'url' => ['/lottery/index']];
-        $menuItems[] = ['label' => 'Споры', 'url' => ['/dispute/index']];
-        $menuItems[] = ['label' => 'Джекпоты', 'url' => ['/jackpot/index']];
-        $menuItems[] = ['label' => 'Пользователи', 'url' => ['/user/index']];
-        $menuItems[] = ['label' => 'Настройки', 'url' => ['/modification/index']];
+        $menuItems[] = ['label' => 'Lottery', 'url' => ['/lottery/index']];
+        $menuItems[] = ['label' => 'Disputes', 'url' => ['/dispute/index']];
+        $menuItems[] = ['label' => 'Jackpots', 'url' => ['/jackpot/index']];
+        $menuItems[] = ['label' => 'Users', 'url' => ['/user/index']];
+        $menuItems[] = ['label' => 'Modifications', 'url' => ['/modification/index']];
         $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post')
             . Html::submitButton(

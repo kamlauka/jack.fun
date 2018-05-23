@@ -14,13 +14,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'img')->textInput(['maxlength' => true]) ?>
-
     <?= $form->field($model, 'rate')->textInput() ?>
 
-    <?= $form->field($model, 'type')->textInput() ?>
+    <?= $form->field($model, 'type')->dropDownList(\common\models\Dispute::getListTypes()) ?>
 
-    <?= $form->field($model, 'active')->textInput() ?>
+    <?= $form->field($model, 'active')->dropDownList(['Активитовать','В одижание']) ?>
 
     <?= $form->field($model, 'executor_id')->textInput() ?>
 
@@ -32,11 +30,21 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'date_end')->textInput() ?>
 
-    <?= $form->field($model, 'result')->textInput() ?>
+    <?php
+    if($model->result){
+        echo$form->field($model, 'result')->textInput();
+    }
+    ?>
 
-    <?= $form->field($model, 'status')->textInput() ?>
+    <?php
+    if($model->status){
+        echo$form->field($model, 'status')->textInput();
+    }
+    ?>
 
     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
+
+    <?= $form->field($model, 'img')->fileInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

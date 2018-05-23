@@ -43,7 +43,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
 
     const STATUS_DELETED = 0;
     const STATUS_ACTIVE = 1;
-
+    const STATUS_HOLD = 2;
 
     /**
      * @inheritdoc
@@ -59,13 +59,14 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
-            [['username', 'auth_key', 'password_hash',  'email'], 'required'],
+            [['username', 'auth_key', ], 'required'],
             [['created_at', 'updated_at'], 'integer'],
             [['balance'], 'number'],
             [['username', 'auth_key', 'password_hash','password_reset_token', 'password_reset_token', 'email', 'phone', 'created_at', 'updated_at', 'type', 'wallet'], 'string'],
             [['status'], 'string', 'max' => 4],
             [['type'], 'string', 'max' => 2],
-            [['avatar', 'wallet', 'file'], 'string', 'max' => 32],
+            [['wallet'], 'string', 'max' => 32],
+            [['avatar','file'], 'file', 'extensions' => 'png, jpg'],
         ];
     }
 
@@ -76,8 +77,8 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     {
         return [
             'id' => 'ID',
-            'username' => 'Nickname',
-            'auth_key' => 'Auth Key',
+            'username' => 'Nickname*',
+            'auth_key' => 'Password*',
             'password_hash' => 'Password Hash',
             'password_reset_token' => 'Password Reset Token',
             'email' => 'Email',
@@ -332,4 +333,35 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     {
         return $this->hasMany(Transaction::className(), ['user_id' => 'id']);
     }
+
+
+    public static function getListTypes() {
+        return [
+            'Gamer',
+            'Moderator',
+            'Administrator',
+
+        ];
+    }
+
+
+    public function upload()
+    {
+        if ($this->validate()) {
+            if($this->avatar){
+
+
+            $this->avatar->saveAs(__DIR__ . '/../uploads/avatar/'. $this->avatar->baseName . '.' . $this->avatar->extension);
+            $this->avatar = __DIR__ . '/../uploads/avatar/'. $this->avatar->baseName . '.' . $this->avatar->extension;
+            }
+            if($this->file){
+                $this->file->saveAs(__DIR__ . '/../uploads/documents/'. $this->file->baseName . '.' . $this->file->extension);
+                $this->file = __DIR__ . '/../uploads/documents/'. '.' . $this->file->extension;
+            }
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }

@@ -8,6 +8,7 @@ use yii\grid\GridView;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Transactions';
+$this->params['breadcrumbs'][] = ['label' => 'User', 'url' => ['/user/index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="transaction-index">

@@ -128,4 +128,15 @@ class Dispute extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Tote::className(), ['dispute_id' => 'id']);
     }
+
+    public static function getListTypes() {
+        return [
+            'От инициатора',
+            'От Исполнителя',
+            'От Админа',
+
+        ];
+    }
+
+
 }

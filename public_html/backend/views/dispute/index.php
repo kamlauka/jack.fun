@@ -11,12 +11,17 @@ $this->title = 'Disputes';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="dispute-index">
-
+    <p>
+        <?= Html::a('Coment', ['/coment/index'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Tote', ['/tote/index'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Log', ['/log/index'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Online', ['/online/index'], ['class' => 'btn btn-success']) ?>
+    </p>
     <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
         <?= Html::a('Create Dispute', ['create'], ['class' => 'btn btn-success']) ?>
+
     </p>
 
     <?= GridView::widget([

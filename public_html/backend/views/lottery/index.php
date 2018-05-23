@@ -11,7 +11,9 @@ $this->title = 'Lotteries';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="lottery-index">
-
+    <p>
+        <?= Html::a('Log', ['/log/index'], ['class' => 'btn btn-success']) ?>
+    </p>
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
@@ -27,14 +29,14 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
             'name',
-            'total',
+           // 'total',
             'status',
             'date_start',
             //'result',
-            //'description:ntext',
-            //'rate',
-            //'name_prize',
-            //'img',
+            'description:ntext',
+            'rate',
+            'name_prize',
+            'img',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
