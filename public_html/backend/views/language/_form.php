@@ -12,7 +12,9 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'language_id')->textInput() ?>
+    <?= $form->field($model, 'language_id')->dropDownList(['Russian','English','Chinese']) ?>
+
+    <?= $form->field($model, 'alias')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'text')->textarea(['rows' => 6]) ?>
 

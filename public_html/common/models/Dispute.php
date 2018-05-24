@@ -46,11 +46,11 @@ class Dispute extends \yii\db\ActiveRecord
     {
         return [
             [['name', 'img', 'rate', 'type', 'moderator_id'], 'required'],
-            [['rate'], 'number'],
+            [['rate', 'total'], 'number'],
             [['executor_id', 'initiator_id', 'moderator_id'], 'integer'],
             [['date_start', 'date_end'], 'safe'],
             [['description'], 'string'],
-            [['name', 'img'], 'string', 'max' => 32],
+            [['name'], 'string', 'max' => 32],
             [['type', 'active', 'result', 'status'], 'string', 'max' => 2],
             [['executor_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['executor_id' => 'id']],
             [['initiator_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['initiator_id' => 'id']],
@@ -68,6 +68,7 @@ class Dispute extends \yii\db\ActiveRecord
             'name' => 'Name',
             'img' => 'Img',
             'rate' => 'Rate',
+            'total' => 'Total',
             'type' => 'Type',
             'active' => 'Active',
             'executor_id' => 'Executor ID',

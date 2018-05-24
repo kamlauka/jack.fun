@@ -11,9 +11,7 @@ $this->title = 'Lotteries';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="lottery-index">
-    <p>
-        <?= Html::a('Log', ['/log/index'], ['class' => 'btn btn-success']) ?>
-    </p>
+
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 

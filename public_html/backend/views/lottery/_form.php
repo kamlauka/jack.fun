@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use dosamigos\datetimepicker\DateTimePicker;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Lottery */
@@ -14,24 +15,35 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-
-    <?php if($model->status){
-        echo $form->field($model, 'status')->textInput();
-    } ?>
-
-    <?= $form->field($model, 'date_start')->textInput() ?>
+    <?= $form->field($model, 'date_start')->widget(DateTimePicker::className(), [
+        'language' => 'en',
+        'size' => 'ms',
+        'clientOptions' => [
+            'autoclose' => true,
+            'format' => 'yyyy.mm.dd hh:ii:ss',
+            'todayBtn' => true
+        ]
+    ]);?>
 
     <?php if($model->result){
         echo $form->field($model, 'result')->textInput();
     } ?>
 
-    <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
-
     <?= $form->field($model, 'rate')->textInput() ?>
+
+    <?= $form->field($model, 'description')->textarea(['rows' => 5]) ?>
 
     <?= $form->field($model, 'name_prize')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'img')->textInput(['maxlength' => true]) ?>
+    <?php
+        if($model->img){
+            echo ' <img src= '.$model->img. '  >' ;
+        }
+    ?>
+
+    <?= $form->field($model, 'img')->fileInput() ?>
+
+    <?= $form->field($model, 'status')->dropDownList(['В ожидание','Публиковать']); ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use dosamigos\datetimepicker\DateTimePicker;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Dispute */
@@ -16,24 +17,34 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'rate')->textInput() ?>
 
-    <?= $form->field($model, 'type')->dropDownList(\common\models\Dispute::getListTypes()) ?>
+    <?= $form->field($model, 'total')->textInput() ?>
 
-    <?= $form->field($model, 'active')->dropDownList(['Активитовать','В одижание']) ?>
+    <?= $form->field($model, 'active')->dropDownList(['В одижание','Активитовать']) ?>
 
-    <?= $form->field($model, 'executor_id')->textInput() ?>
+    <?= $form->field($model, 'date_start')->widget(DateTimePicker::className(), [
+        'language' => 'en',
+        'size' => 'ms',
+        'clientOptions' => [
+            'autoclose' => true,
+            'format' => 'yyyy.mm.dd hh:ii:ss',
+            'todayBtn' => true
+        ]
+    ]);?>
 
-    <?= $form->field($model, 'initiator_id')->textInput() ?>
-
-    <?= $form->field($model, 'moderator_id')->textInput() ?>
-
-    <?= $form->field($model, 'date_start')->textInput() ?>
-
-    <?= $form->field($model, 'date_end')->textInput() ?>
+    <?= $form->field($model, 'date_end')->widget(DateTimePicker::className(), [
+        'language' => 'en',
+        'size' => 'ms',
+        'clientOptions' => [
+            'autoclose' => true,
+            'format' => 'yyyy.mm.dd hh:ii:ss',
+            'todayBtn' => true
+        ]
+    ]);?>
 
     <?php
-    if($model->result){
-        echo$form->field($model, 'result')->textInput();
-    }
+        if($model->result){
+            echo$form->field($model, 'result')->textInput();
+        }
     ?>
 
     <?php

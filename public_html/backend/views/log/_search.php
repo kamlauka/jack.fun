@@ -25,7 +25,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'amount') ?>
 
-    <?php // echo $form->field($model, 'result') ?>
+    <?php  echo $form->field($model, 'result') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

@@ -39,7 +39,7 @@ class Lottery extends \yii\db\ActiveRecord
             [['date_start'], 'safe'],
             [['description'], 'string'],
             [['rate'], 'number'],
-            [['name', 'name_prize', 'img'], 'string', 'max' => 32],
+            [['name', 'name_prize'], 'string', 'max' => 32],
             [['status'], 'string', 'max' => 2],
             [['result'], 'string', 'max' => 10],
         ];

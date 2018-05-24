@@ -29,7 +29,7 @@ class Jackpot extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['total', 'status', 'date_start', 'result'], 'required'],
+            [['total', 'status', 'date_start'], 'required'],
             [['total'], 'number'],
             [['date_start'], 'safe'],
             [['status'], 'string', 'max' => 4],

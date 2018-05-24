@@ -11,12 +11,7 @@ $this->title = 'Disputes';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="dispute-index">
-    <p>
-        <?= Html::a('Coment', ['/coment/index'], ['class' => 'btn btn-success']) ?>
-        <?= Html::a('Tote', ['/tote/index'], ['class' => 'btn btn-success']) ?>
-        <?= Html::a('Log', ['/log/index'], ['class' => 'btn btn-success']) ?>
-        <?= Html::a('Online', ['/online/index'], ['class' => 'btn btn-success']) ?>
-    </p>
+
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
@@ -32,18 +27,18 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
             'name',
-            'img',
+            //'img',
             'rate',
             'type',
-            //'active',
+            'active',
             //'executor_id',
             //'initiator_id',
-            //'moderator_id',
-            //'date_start',
+            'moderator_id',
+            'date_start',
             //'date_end',
             //'result',
             //'status',
-            //'description:ntext',
+            'description:ntext',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

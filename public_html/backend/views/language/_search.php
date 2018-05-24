@@ -19,6 +19,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'language_id') ?>
 
+    <?= $form->field($model, 'alias') ?>
+
     <?= $form->field($model, 'text') ?>
 
     <div class="form-group">

@@ -8,6 +8,7 @@ use backend\models\LotterySearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * LotteryController implements the CRUD actions for Lottery model.
@@ -66,7 +67,15 @@ class LotteryController extends Controller
     {
         $model = new Lottery();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+
+            if($img = UploadedFile::getInstance($model, 'img')){
+
+                $img->saveAs(  __DIR__ . '/../../common/uploads/lottery/'. $img->baseName . '.' . $img->extension);
+                $model->img = __DIR__ . '/../../common/uploads/lottery/'. $img->baseName . '.' . $img->extension;
+                $model->save();
+            }
+
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -86,7 +95,15 @@ class LotteryController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post()) ) {
+
+
+            if($img = UploadedFile::getInstance($model, 'img')){
+
+                $img->saveAs(  __DIR__ . '/../../common/uploads/lottery/'. $img->baseName . '.' . $img->extension);
+                $model->img = __DIR__ . '/../../common/uploads/lottery/'. $img->baseName . '.' . $img->extension;
+                $model->save();
+            }
             return $this->redirect(['view', 'id' => $model->id]);
         }
 

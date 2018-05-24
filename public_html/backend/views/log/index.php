@@ -13,11 +13,6 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="log-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
-    <p>
-        <?= Html::a('Create Log', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -30,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'user_id',
             'target_id',
             'amount',
-            //'result',
+            'result',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

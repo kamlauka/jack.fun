@@ -77,8 +77,8 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     {
         return [
             'id' => 'ID',
-            'username' => 'Nickname*',
-            'auth_key' => 'Password*',
+            'username' => 'Nickname',
+            'auth_key' => 'Password',
             'password_hash' => 'Password Hash',
             'password_reset_token' => 'Password Reset Token',
             'email' => 'Email',
@@ -348,12 +348,12 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     public function upload()
     {
         if ($this->validate()) {
+
             if($this->avatar){
-
-
-            $this->avatar->saveAs(__DIR__ . '/../uploads/avatar/'. $this->avatar->baseName . '.' . $this->avatar->extension);
-            $this->avatar = __DIR__ . '/../uploads/avatar/'. $this->avatar->baseName . '.' . $this->avatar->extension;
+                $this->avatar->saveAs(__DIR__ . '/../uploads/avatar/'. $this->avatar->baseName . '.' . $this->avatar->extension);
+                $this->avatar = __DIR__ . '/../uploads/avatar/'. $this->avatar->baseName . '.' . $this->avatar->extension;
             }
+
             if($this->file){
                 $this->file->saveAs(__DIR__ . '/../uploads/documents/'. $this->file->baseName . '.' . $this->file->extension);
                 $this->file = __DIR__ . '/../uploads/documents/'. '.' . $this->file->extension;

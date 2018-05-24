@@ -13,17 +13,31 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="dispute-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
+    <div class="row">
+        <div class="col-md-4">
+            <p>
+                <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+                <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+                    'class' => 'btn btn-danger',
+                    'data' => [
+                        'confirm' => 'Are you sure you want to delete this item?',
+                        'method' => 'post',
+                    ],
+                ]) ?>
+            </p>
+        </div>
 
-    <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
+        <div class="col-md-4 col-md-offset-4">
+            <p>
+                <?= Html::a('Coment', ['/coment/index'], ['class' => 'btn btn-success']) ?>
+                <?= Html::a('Tote', ['/tote/index'], ['class' => 'btn btn-success']) ?>
+            </p>
+        </div>
+
+    </div>
+
+
+
 
     <?= DetailView::widget([
         'model' => $model,

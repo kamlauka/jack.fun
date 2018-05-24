@@ -43,11 +43,13 @@ AppAsset::register($this);
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
 
     } else {
+        $menuItems[] = ['label' => 'Log', 'url' => ['/log/index']];
+        $menuItems[] = ['label' => 'Translations', 'url' => ['/language/index']];
         $menuItems[] = ['label' => 'Lottery', 'url' => ['/lottery/index']];
         $menuItems[] = ['label' => 'Disputes', 'url' => ['/dispute/index']];
         $menuItems[] = ['label' => 'Jackpots', 'url' => ['/jackpot/index']];
         $menuItems[] = ['label' => 'Users', 'url' => ['/user/index']];
-        $menuItems[] = ['label' => 'Modifications', 'url' => ['/modification/index']];
+        $menuItems[] = ['label' => 'Settings', 'url' => ['/modification/index']];
         $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post')
             . Html::submitButton(

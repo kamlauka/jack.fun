@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\Dispute */
 
-$this->title = 'Create Dispute';
+$this->title = 'Create Dispute by Admin';
 $this->params['breadcrumbs'][] = ['label' => 'Disputes', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

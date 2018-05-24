@@ -8,6 +8,7 @@ use backend\models\DisputeSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * DisputeController implements the CRUD actions for Dispute model.
@@ -66,7 +67,22 @@ class DisputeController extends Controller
     {
         $model = new Dispute();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post()) ) {
+            $model->type = '3';//id = 3 от админа
+            // todo рондомно назначать можератора
+            $model->moderator_id = 1;
+
+            if($img = UploadedFile::getInstance($model, 'img')){
+
+                $img->saveAs(  __DIR__ . '/../../common/uploads/dispute/'. $img->baseName . '.' . $img->extension);
+                $model->img = __DIR__ . '/../../common/uploads/dispute/'. $img->baseName . '.' . $img->extension;
+                $model->save();
+            }
+
+
+
+
+            $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
         }
 

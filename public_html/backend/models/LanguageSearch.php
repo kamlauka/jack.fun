@@ -19,7 +19,7 @@ class LanguageSearch extends Language
     {
         return [
             [['id', 'language_id'], 'integer'],
-            [['text'], 'safe'],
+            [['alias', 'text'], 'safe'],
         ];
     }
 
@@ -63,7 +63,8 @@ class LanguageSearch extends Language
             'language_id' => $this->language_id,
         ]);
 
-        $query->andFilterWhere(['like', 'text', $this->text]);
+        $query->andFilterWhere(['like', 'alias', $this->alias])
+            ->andFilterWhere(['like', 'text', $this->text]);
 
         return $dataProvider;
     }
