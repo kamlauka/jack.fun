@@ -34,7 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'description:ntext',
             'rate',
             'name_prize',
-            'img',
+          //  'img',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

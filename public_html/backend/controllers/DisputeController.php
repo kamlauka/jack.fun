@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use common\models\User;
 use Yii;
 use common\models\Dispute;
 use backend\models\DisputeSearch;
@@ -68,14 +69,14 @@ class DisputeController extends Controller
         $model = new Dispute();
 
         if ($model->load(Yii::$app->request->post()) ) {
-            $model->type = '3';//id = 3 от админа
-            // todo рондомно назначать можератора
-            $model->moderator_id = 1;
+
+            $model->type = '3'; // 3 = спор от админа
+            $model->moderator_id = array_rand(User::find()->where(['type'=>1])->indexBy('id')->column());// 'type'=>1 = модератор
 
             if($img = UploadedFile::getInstance($model, 'img')){
 
-                $img->saveAs(  __DIR__ . '/../../common/uploads/dispute/'. $img->baseName . '.' . $img->extension);
-                $model->img = __DIR__ . '/../../common/uploads/dispute/'. $img->baseName . '.' . $img->extension;
+                $img->saveAs(Yii::getAlias('@common/uploads/dispute/' . $img->baseName . '.' . $img->extension));
+                $model->img = '/../../common/uploads/dispute/'. $img->baseName . '.' . $img->extension;
                 $model->save();
             }
 

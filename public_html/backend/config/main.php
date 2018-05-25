@@ -45,6 +45,7 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
 
+            //'baseUrl' => 'http://jackpot.loc/admin',
 
             'rules' => [
                 '<action:login>' => 'site/<action>',

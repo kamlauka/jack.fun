@@ -35,6 +35,7 @@ class Lottery extends \yii\db\ActiveRecord
     {
         return [
             [['name', 'date_start', 'rate', 'name_prize', 'img'], 'required'],
+           // [['img'],'image','extensions' => 'png, jpg, jpeg, gif','skipOnEmpty' => true, 'on' => 'update-photo-upload'],
             [['total'], 'integer'],
             [['date_start'], 'safe'],
             [['description'], 'string'],
@@ -63,4 +64,14 @@ class Lottery extends \yii\db\ActiveRecord
             'img' => 'Img',
         ];
     }
+
+
+//    function scenario()
+//    {
+//        return [
+//            'create' => ['img ', 'carid','name','coverphoto','status'],
+//            'update' => ['img ', 'carid','name','coverphoto','status'],
+//        ];
+//    }
+
 }

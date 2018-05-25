@@ -31,7 +31,7 @@ class Language extends \yii\db\ActiveRecord
             [['language_id', 'alias', 'text'], 'required'],
             [['language_id'], 'integer'],
             [['text'], 'string'],
-            [['alias'], 'string', 'max' => 255],
+
         ];
     }
 
