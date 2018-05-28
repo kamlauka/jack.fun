@@ -19,10 +19,12 @@ return [
             'schemaCacheDuration' => 3600,
             'schemaCache' => 'cache',
         ],
-
-
-
-
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'rules' => [
+            ],
+        ],
 
     ],
 ];
