@@ -78,72 +78,72 @@ class LotteryForm extends Model
         $lottery->save();
 
         $translations = new Language();
-        $translations->language_id = 0;
-        $translations->target_id = $lottery->id;
+        $translations->language_id = 'ru';
+        $translations->target_id = ''.$lottery->id;
         $translations->alias = 'name';
         $translations->text = $this->name_ru;
         $translations->save();
         $lottery->name = $translations->id.',';
 
         $translations = new Language();
-        $translations->language_id = 1;
-        $translations->target_id = $lottery->id;
+        $translations->language_id = 'en';
+        $translations->target_id = ''.$lottery->id;
         $translations->alias = 'name';
         $translations->text = $this->name_en;
         $translations->save();
         $lottery->name .= $translations->id.',';
 
         $translations = new Language();
-        $translations->language_id = 2;
-        $translations->target_id = $lottery->id;
+        $translations->language_id = 'ch';
+        $translations->target_id = ''.$lottery->id;
         $translations->alias = 'name';
         $translations->text = $this->name_ch;
         $translations->save();
         $lottery->name .= $translations->id.',';
 
         $translations = new Language();
-        $translations->language_id = 0;
-        $translations->target_id = $lottery->id;
+        $translations->language_id = 'ru';
+        $translations->target_id = ''.$lottery->id;
         $translations->alias = 'description';
         $translations->text = $this->description_ru;
         $translations->save();
         $lottery->description = $translations->id.',';
 
         $translations = new Language();
-        $translations->language_id = 1;
-        $translations->target_id = $lottery->id;
+        $translations->language_id = 'en';
+        $translations->target_id = ''.$lottery->id;
         $translations->alias = 'description';
         $translations->text = $this->description_en;
         $translations->save();
         $lottery->description .= $translations->id.',';
 
         $translations = new Language();
-        $translations->language_id = 2;
-        $translations->target_id = $lottery->id;
+        $translations->language_id = 'ch';
+        $translations->target_id = ''.$lottery->id;
         $translations->alias = 'description';
         $translations->text = $this->description_ch;
         $translations->save();
         $lottery->description .= $translations->id.',';
 
         $translations = new Language();
-        $translations->language_id = 0;
-        $translations->target_id = $lottery->id;
+        $translations->language_id = 'ru';
+        $translations->target_id = ''.$lottery->id;
         $translations->alias = 'prize';
         $translations->text = $this->name_prize_ru;
         $translations->save();
         $lottery->name_prize = $translations->id.',';
 
         $translations = new Language();
-        $translations->language_id = 1;
-        $translations->target_id = $lottery->id;
+        $translations->language_id = 'en';
+        $translations->target_id = ''.$lottery->id;
         $translations->alias = 'prize';
         $translations->text = $this->name_prize_en;
         $translations->save();
         $lottery->name_prize .= $translations->id.',';
 
         $translations = new Language();
-        $translations->language_id = 2;
-        $translations->target_id = $lottery->id;
+        $translations->language_id = 'ch';
+        $translations->target_id = ''.$lottery->id;
         $translations->alias = 'prize';
         $translations->text = $this->name_prize_ch;
         $translations->save();

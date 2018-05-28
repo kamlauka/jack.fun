@@ -85,6 +85,7 @@ class LotteryController extends Controller
 
         if ($model->load(Yii::$app->request->post())) {
             $model->saveve();
+            return $this->redirect(['index']);
         }
 
 
