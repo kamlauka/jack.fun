@@ -82,6 +82,7 @@ class LotteryController extends Controller
 //        }
 
         $model = new LotteryForm();
+
         if ($model->load(Yii::$app->request->post())) {
             $model->saveve();
         }
@@ -107,14 +108,16 @@ class LotteryController extends Controller
 
        // $model->scenario = 'update-photo-upload';
 
-        if ($lotery->load(Yii::$app->request->post() && $translations->load(Yii::$app->request->post()) ) {
+        if ($lotery->load(Yii::$app->request->post()) && $translations->load(Yii::$app->request->post()) ) {
 
             $img = UploadedFile::getInstance($lotery, 'img');
             $img->saveAs(  __DIR__ . '/../../common/uploads/lottery/'. $img->baseName . '.' . $img->extension);
             $lotery->img = __DIR__ . '/../../common/uploads/lottery/'. $img->baseName . '.' . $img->extension;
-          $lotery->save();
+            if($lotery->save()){
+                return $this->redirect(['view', 'id' => $lotery->id]);
+            }
 
-            return $this->redirect(['view', 'id' => $lotery->id]);
+
         }
 
         return $this->render('update', [

@@ -31,6 +31,7 @@ class Language extends \yii\db\ActiveRecord
             [['language_id', 'alias', 'text'], 'required'],
             [['language_id'], 'integer'],
             [['text'], 'string'],
+            [['target_id'], 'string'],
 
         ];
     }
@@ -45,6 +46,7 @@ class Language extends \yii\db\ActiveRecord
             'language_id' => 'Language ID',
             'alias' => 'Alias',
             'text' => 'Text',
+            'target_id' => 'target id',
         ];
     }
 }

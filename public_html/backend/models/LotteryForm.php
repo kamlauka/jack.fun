@@ -24,6 +24,7 @@ class LotteryForm extends Model
     public $name_prize_ch;
     public $img;
     public $status;
+    public $target_id;
 
 
 
@@ -34,6 +35,7 @@ class LotteryForm extends Model
     {
         return [
             [['name_ru', 'name_en','name_ch','date_start','description_ru','description_en','description_ch' ,'rate', 'name_prize_ru', 'name_prize_en', 'name_prize_ch', 'img', 'status'], 'required'],
+        [['target_id'], 'safe'],
         ];
     }
 
@@ -57,6 +59,7 @@ class LotteryForm extends Model
             'name_prize_en' => 'Name Prize en',
             'name_prize_ch' => 'Name Prize ch',
             'img' => 'Img',
+            'target_id' => 'target id',
         ];
     }
 
@@ -71,64 +74,81 @@ class LotteryForm extends Model
         $lottery->description = '...';
         $lottery->name_prize = '...';
         $lottery->rate = $this->rate;
-        $lottery->img = 'fgh';
-        $dd = $lottery->save();
-
+        $lottery->img = 'hg';
+        $lottery->save();
 
         $translations = new Language();
         $translations->language_id = 0;
-        $translations->alias = $lottery->id;
+        $translations->target_id = $lottery->id;
+        $translations->alias = 'name';
         $translations->text = $this->name_ru;
         $translations->save();
+        $lottery->name = $translations->id.',';
 
         $translations = new Language();
         $translations->language_id = 1;
-        $translations->alias = $lottery->id;
+        $translations->target_id = $lottery->id;
+        $translations->alias = 'name';
         $translations->text = $this->name_en;
         $translations->save();
+        $lottery->name .= $translations->id.',';
 
         $translations = new Language();
         $translations->language_id = 2;
-        $translations->alias = $lottery->id;
+        $translations->target_id = $lottery->id;
+        $translations->alias = 'name';
         $translations->text = $this->name_ch;
         $translations->save();
+        $lottery->name .= $translations->id.',';
 
         $translations = new Language();
         $translations->language_id = 0;
-        $translations->alias = $lottery->id;
+        $translations->target_id = $lottery->id;
+        $translations->alias = 'description';
         $translations->text = $this->description_ru;
         $translations->save();
+        $lottery->description = $translations->id.',';
 
         $translations = new Language();
         $translations->language_id = 1;
-        $translations->alias = $lottery->id;
+        $translations->target_id = $lottery->id;
+        $translations->alias = 'description';
         $translations->text = $this->description_en;
         $translations->save();
+        $lottery->description .= $translations->id.',';
 
         $translations = new Language();
         $translations->language_id = 2;
-        $translations->alias = $lottery->id;
+        $translations->target_id = $lottery->id;
+        $translations->alias = 'description';
         $translations->text = $this->description_ch;
         $translations->save();
+        $lottery->description .= $translations->id.',';
 
         $translations = new Language();
         $translations->language_id = 0;
-        $translations->alias = $lottery->id;
+        $translations->target_id = $lottery->id;
+        $translations->alias = 'prize';
         $translations->text = $this->name_prize_ru;
         $translations->save();
+        $lottery->name_prize = $translations->id.',';
 
         $translations = new Language();
         $translations->language_id = 1;
-        $translations->alias = $lottery->id;
+        $translations->target_id = $lottery->id;
+        $translations->alias = 'prize';
         $translations->text = $this->name_prize_en;
         $translations->save();
+        $lottery->name_prize .= $translations->id.',';
 
         $translations = new Language();
         $translations->language_id = 2;
-        $translations->alias = $lottery->id;
+        $translations->target_id = $lottery->id;
+        $translations->alias = 'prize';
         $translations->text = $this->name_prize_ch;
         $translations->save();
-
+        $lottery->name_prize .= $translations->id.',';
+        $lottery->save();
 
     }
 
