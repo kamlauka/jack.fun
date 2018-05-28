@@ -101,44 +101,24 @@ ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `total` = VALUES(`total`), `status`
 DROP TABLE IF EXISTS `language`;
 CREATE TABLE `language` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `language_id` int(11) NOT NULL,
+  `language_id` varchar(16) NOT NULL,
+  `target_id` int(11) DEFAULT NULL,
   `alias` varchar(255) NOT NULL,
   `text` text NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `language` (`id`, `language_id`, `alias`, `text`) VALUES
-(1,	1,	'main',	'Информация на главной(какаято)'),
-(2,	2,	'main',	'Information on the main\r\n'),
-(3,	3,	'main',	'主要信息\r\n'),
-(25,	0,	'lottery_',	'Name text ru'),
-(26,	1,	'lottery_',	'Name text en'),
-(27,	2,	'lottery_',	'Name text ch'),
-(28,	0,	'lottery_',	'Description ru'),
-(29,	1,	'lottery_',	'Description en'),
-(30,	2,	'lottery_',	'Description ch'),
-(31,	0,	'lottery_',	'Name Prize ru'),
-(32,	1,	'lottery_',	'Name Prize en'),
-(33,	2,	'lottery_',	'Name Prize ch'),
-(34,	0,	'lottery_',	'Name text ru'),
-(35,	1,	'lottery_',	'Name text en'),
-(36,	2,	'lottery_',	'Name text ch'),
-(37,	0,	'lottery_',	'Description ru'),
-(38,	1,	'lottery_',	'Description en'),
-(39,	2,	'lottery_',	'Description ch'),
-(40,	0,	'lottery_',	'Name Prize ru'),
-(41,	1,	'lottery_',	'Name Prize en'),
-(42,	2,	'lottery_',	'Name Prize ch'),
-(43,	0,	'13',	'Name text ru'),
-(44,	1,	'13',	'Name text en'),
-(45,	2,	'13',	'Name text ch'),
-(46,	0,	'13',	'Description ru'),
-(47,	1,	'13',	'Description en'),
-(48,	2,	'13',	'Description ch'),
-(49,	0,	'13',	'Name Prize ru'),
-(50,	1,	'13',	'Name Prize en'),
-(51,	2,	'13',	'Name Prize ch')
-ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `language_id` = VALUES(`language_id`), `alias` = VALUES(`alias`), `text` = VALUES(`text`);
+INSERT INTO `language` (`id`, `language_id`, `target_id`, `alias`, `text`) VALUES
+(52,	'0',	0,	'name_14',	'имя на русском'),
+(53,	'1',	0,	'name_14',	'name in English'),
+(54,	'2',	0,	'name_14',	'英文名稱'),
+(55,	'0',	0,	'description_14',	'описание на английском'),
+(56,	'1',	0,	'description_14',	'description in english'),
+(57,	'2',	0,	'description_14',	'用英文描述'),
+(58,	'0',	0,	'prize_14',	'айфон 10 черный 256 гб'),
+(59,	'1',	0,	'prize_14',	'iphone 10 black 256 gb'),
+(60,	'2',	0,	'prize_14',	'iPhone 10黑色256 GB')
+ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `language_id` = VALUES(`language_id`), `target_id` = VALUES(`target_id`), `alias` = VALUES(`alias`), `text` = VALUES(`text`);
 
 DROP TABLE IF EXISTS `log`;
 CREATE TABLE `log` (
@@ -172,9 +152,7 @@ CREATE TABLE `lottery` (
 INSERT INTO `lottery` (`id`, `name`, `total`, `status`, `date_start`, `result`, `description`, `rate`, `name_prize`, `img`) VALUES
 (1,	'Розыгрыш ',	0,	1,	'2018-05-26 08:09:00',	NULL,	'Будет разыгран товар ))',	0.1,	'Iphone X 64Gb',	'/../../common/uploads/lottery/43f1799dd0dd.png'),
 (4,	'lott',	0,	0,	'2018-05-25 10:30:04',	NULL,	'татат',	1,	'шалабан',	'/../../common/uploads/lottery/U1sILnSlyAQ.jpg'),
-(5,	'Можен не надо имя?',	0,	0,	'2018-05-26 00:00:29',	NULL,	'какое то описание',	1,	'Ноутбук Asus X551',	'/../../common/uploads/lottery/Без названия.jpeg'),
-(9,	'34, 35, 36',	0,	0,	'2018-05-24 14:50:21',	NULL,	'37, 38, 39, ',	1,	'40, 41, 42, ',	'fgh'),
-(13,	'...',	0,	0,	'2018-05-15 10:50:41',	NULL,	'...',	1,	'...',	'fgh')
+(5,	'Можен не надо имя?',	0,	0,	'2018-05-26 00:00:29',	NULL,	'какое то описание',	1,	'Ноутбук Asus X551',	'/../../common/uploads/lottery/Без названия.jpeg')
 ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `name` = VALUES(`name`), `total` = VALUES(`total`), `status` = VALUES(`status`), `date_start` = VALUES(`date_start`), `result` = VALUES(`result`), `description` = VALUES(`description`), `rate` = VALUES(`rate`), `name_prize` = VALUES(`name_prize`), `img` = VALUES(`img`);
 
 DROP TABLE IF EXISTS `modification`;
@@ -268,8 +246,8 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `user` (`id`, `username`, `auth_key`, `password_hash`, `password_reset_token`, `email`, `status`, `created_at`, `updated_at`, `phone`, `type`, `balance`, `avatar`, `wallet`, `file`) VALUES
-(1,	'admin',	'aJjPiZZkc1KSFbGzqjot7kCMMPHAFATy',	'$2y$13$btNrg8M46QaHyxDeh6GVE.YuaY4u3Rbds5K2OubH7PZii2z8VaC/6',	NULL,	'admin@admin.com',	1,	1526915570,	1526915570,	NULL,	2,	NULL,	NULL,	NULL,	NULL),
+(1,	'admin',	'A1qwgmpDchz5AztmbE-YOaTOLZZkQmDm',	'$2y$13$oMa6rChD.bP0pDJUlVQHr.eP5Lm8eqBzAW0rd3VCWVRqCFaYe.S1O',	NULL,	'admin@admin.com',	1,	1526915570,	1526915570,	NULL,	2,	NULL,	NULL,	NULL,	NULL),
 (2,	'root',	'USa0h80IbiOH9p-lSFFfAl7yvFswoQ0I',	'$2y$13$HgHvhQyMWVROC04blcNrqukRyJQKtiHv1KOcf20DewLsKaJ.n20.a',	NULL,	'root@root.com',	1,	1526983224,	1526983224,	NULL,	1,	NULL,	NULL,	NULL,	NULL)
 ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `username` = VALUES(`username`), `auth_key` = VALUES(`auth_key`), `password_hash` = VALUES(`password_hash`), `password_reset_token` = VALUES(`password_reset_token`), `email` = VALUES(`email`), `status` = VALUES(`status`), `created_at` = VALUES(`created_at`), `updated_at` = VALUES(`updated_at`), `phone` = VALUES(`phone`), `type` = VALUES(`type`), `balance` = VALUES(`balance`), `avatar` = VALUES(`avatar`), `wallet` = VALUES(`wallet`), `file` = VALUES(`file`);
 
--- 2018-05-25 18:48:24
+-- 2018-05-28 11:25:59
