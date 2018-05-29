@@ -1,0 +1,126 @@
+.footer-container {
+  width: 100%;
+  padding: 10px 0;
+  @extend ._font__1-5em;
+  @include mini-font_1-2em($third-width);
+  @include  mini-font_1-2em($mobile-width);
+
+
+  &_gradient {
+    background: linear-gradient(0deg,#ac6037,#6f5145);
+    color: white;
+  }
+
+  &_dark {
+    background-color: #0B181D;
+    color: $main-color;
+  }
+}
+
+
+.footer-block {
+
+  @media (max-width: $fourth-width) {
+    padding-bottom: 20px;
+  }
+
+  &__left-align-block{
+    text-align: left;
+
+    @media (max-width: $fourth-width) {
+      text-align: center;
+    }
+
+    &__margin {
+      margin-right: 7%;
+
+      @media (max-width: $fourth-width) {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__center-align-block {
+    text-align: center;
+  }
+
+  &__right-align-block {
+    text-align: right;
+
+    @media (max-width: $fourth-width) {
+      text-align: center;
+    }
+  }
+
+  &__link {
+    display: block;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    color: white;
+
+    &_font_gold {
+      color: $main-color;
+      &:hover {
+        color: white;
+      }
+    }
+    &_first {
+      @media (max-width: $mobile-width) {
+        margin-top: 0;
+     }
+    }
+    @media (max-width: $fourth-width) {
+      margin-bottom: 0;
+      margin-top: 20px;
+    }
+  }
+
+  &__icon {
+    width: 47px;
+    margin: 10px;
+    -webkit-transition: all 0.2s linear 0s;
+    -o-transition: all 0.2s linear 0s;
+    -ms-transition: all 0.2s linear 0s;
+    -moz-transition: all 0.2s linear 0s;
+    transition: all 0.2s linear 0s;
+
+    &:hover {
+      filter: drop-shadow(0 0 1em $main-color);
+    }
+
+    @media (max-width: $third-width) {
+      width: 30px;
+    }
+
+    @media (max-width: $fourth-width) {
+
+      padding: 30px 0;
+    }
+  }
+
+  &__terlabs-image {
+    @media (max-width: $fourth-width) {
+      width: 170px;
+    }
+  }
+
+  &__terlabs-work {
+    font-family: $add-font;
+    font-size: 0.75em;
+    color: white;
+
+    @media (max-width: $fourth-width) {
+      font-size: 0.85em;
+    }
+  }
+
+  &__small-number {
+    font-size: 0.7em;
+
+    @media (max-width: $fourth-width) {
+      display: none;
+    }
+  }
+}
+
+

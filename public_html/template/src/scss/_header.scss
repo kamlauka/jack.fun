@@ -1,0 +1,199 @@
+.header {
+  position:fixed;
+  z-index:9000;
+  top:0;
+  left:0;
+  right:0;
+  width:100%;
+  margin:0 auto;
+  text-align: center;
+  background-color: $main-color;
+  &__stub {
+    position: static;
+  }
+}
+
+.menu-container {
+  width: 87px;
+  text-align: right;
+}
+
+.flags {
+  width: 8%;
+  padding: 10px;
+  &__image {
+    margin: 0 5px;
+  }
+}
+
+$n: 5;
+$e: cubic-bezier(0,.5,.5,1.1);
+
+
+.menu {
+  position: relative;
+  cursor: pointer;
+  width: 100%;
+  padding: 9px;
+  text-align: right;
+  //@media (max-width: 732px) {
+  //  width: 14%;
+  //}
+  //@media (max-width: 732px) {
+  //  width: 24%;
+  //}
+  &__nav {
+    cursor: pointer;
+  }
+  &__icon {
+    vertical-align: middle;
+  }
+  a {
+    width: 92%;
+    height: 100%;
+    padding: 7px;
+    border: 2px solid $add-color;
+    background-color: #B3C7C2;
+    transform-style: preserve-3d;
+    &:hover, &:focus {
+    }
+    &:active {
+    }
+    @media (max-width: $mobile-width) {
+      padding: 7px 3%;
+    }
+  }
+
+
+  ul {
+    width: 400%;
+    text-align: center;
+    padding: 0;
+    margin-top: 17px;
+    z-index: 1;
+    list-style-type: none;
+    transition: visibility 0ms ease-out 600ms;
+    visibility: hidden;
+    transform-style: preserve-3d;
+    @media (max-width: $mobile-width) {
+      width: 95vw;
+    }
+    @media (max-width: 546px) {
+      width: 92vw;
+    }
+    @media (max-width: 400px) {
+      width: 90vw;
+    }
+    li {
+      background: url(../img/mini-chain.png) left repeat-y, url(../img/mini-chain.png) right repeat-y;
+      opacity: 0;
+      padding: 7px;
+      margin: 0;
+      transform-style: preserve-3d;
+      @for $i from 1 through $n {
+      //  @if $i == 1 {
+      //  transition: opacity 100ms ease-out #{-($i - $n - 1)*100}ms;
+      //}
+        &:nth-child(#{$i}) {
+          transition: transform 150ms $e #{-($i - $n - 1)*100}ms, opacity 100ms ease-out #{-($i - $n - 1)*100}ms;
+        }
+      }
+
+    }
+  }
+
+  > ul {
+    position: absolute;
+    right: 0;
+    > li {
+      transform: translateY(-100%);
+      &:first-child {
+        transform: translateY(-5%);
+      }
+      > h2 {
+        transform: translateZ(0.5px);
+      }
+    }
+    //если будет вложенное меню
+    //ul {
+    //  position: absolute;
+    //  top: 0;
+    //  right: ; //здесь значение ширины с отрицательным значением, здесь же отнимать и падинг, если будет
+    //  > li {
+    //    transform: translateX(-100%);
+    //  }
+    //}
+  }
+  input {
+    appearance: none;
+    opacity: 0;
+    position: absolute;
+    margin: 0;
+    //&:hover, &:focus {
+    //  ~ h2 {
+    //  }
+    //}
+    //&:active {
+    //  ~ h2 {
+    //  }
+    //}
+    &:checked {
+      //~ h2 {
+      //}
+      ~ ul {
+        visibility: visible;
+        transition: visibility 0ms ease-out 0ms;
+        > li {
+          opacity: 1;
+          transform: none;
+          @for $i from 1 through $n {
+            &:nth-child(#{$i}) {
+              transition: transform 150ms $e #{$i*100}ms, opacity 100ms ease-out #{$i*100}ms;
+            }
+          }
+        }
+      }
+    }
+  }
+  //> input {
+  //  z-index: 2;
+  //  top: 0;
+  //  left: 0;
+  //  &:not(:checked) {
+  //    ~ ul {
+  //      > li {
+  //        input:checked ~ ul {
+  //          li {
+  //            opacity: 0;
+  //            transform: translateX(-100%);
+  //            @for $i from 1 through $n {
+  //              &:nth-child(#{$i}) {
+  //                transition: transform 150ms $e #{-($i - $n - 1)*100}ms, opacity 100ms ease-out #{-($i - $n - 1)*100}ms;
+  //              }
+  //            }
+  //          }
+  //        }
+  //      }
+  //    }
+  //  }
+  //}
+
+  //> h2 {
+  //  transform: translateZ(1px);
+  //  z-index: 1;
+  //}
+}
+
+#white-background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(255,255,255,0.8);
+  display: none;
+}
+.container {
+  margin: 0 auto;
+  position: relative;
+}

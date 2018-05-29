@@ -1,0 +1,128 @@
+@import "variables.scss";
+
+@import "extends.scss";
+@import "header.scss";
+@import "first-page.scss";
+@import "awarding-prizes.scss";
+@import "participate.scss";
+@import "prizes.scss";
+@import "lotery.scss";
+@import "terrestrial-world.scss";
+@import "seo-section.scss";
+@import "footer.scss";
+
+
+
+* {
+  //-webkit-tap-highlight-color: rgba(0,0,0,0);
+  &:focus {
+    outline: none!important;
+  }
+}
+
+@font-face {
+  font-family: IceAge;
+  src: url(../fonts/IceAgeRUS.ttf);
+}
+
+@font-face {
+  font-family: ShowCardGothic;
+  src: url(../fonts/SFUIText-RegularG2.otf);
+}
+
+
+body {
+  //min-width: 1070px;
+  margin: 0;
+  text-align: center;
+  font-size: 14px;
+  font-family: $main-font;
+  color: $font-color;
+  a {
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+  }
+
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+  @media (max-width: $first-width) {
+    max-width: 1000px;
+  }
+  @media (max-width: $third-width) {
+    max-width: 900px;
+  }
+}
+
+
+.flex-gorizontal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+
+  &_top {
+    align-items: flex-start;
+  }
+
+  &_bottom {
+    align-items: flex-end;
+  }
+
+  &_none-vertical-desktop {
+    flex-direction: column;
+  }
+
+  @media (max-width: $mobile-width) {
+    flex-direction: column;
+    &_none-vertical {
+      flex-direction: row;
+    }
+  }
+
+}
+
+.orange-border {
+  padding: 10px 0;
+  border-top: 6px solid $add-color;
+  border-bottom: 6px solid $add-color;
+  background: #FFB326 url("../img/pattern1.png") repeat-x;
+  background-size: contain;
+  background-origin: content-box;
+
+  @media (max-width: $first-width) {
+    height: 5px;
+  }
+
+  &_all {
+    height: 50px;
+    @media (max-width: $mobile-width) {
+      height: 10px;
+      background-size: 2.5% auto;
+    }
+  }
+  &_part {
+    height: 10px;
+    background-size: 2.5% auto;
+  }
+  &_edge {
+     height: 5px;
+     padding: 2px 0 0;
+     border-top: 2px solid $add-color;
+     border-bottom: 0;
+     background-size: 2.5% auto;
+  }
+}
+
+
+
+
+
+.border-pattern {
+  border-image: url(../img/pattern.png) 100% 0%/1 0 repeat;
+}
