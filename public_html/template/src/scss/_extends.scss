@@ -1,0 +1,159 @@
+//@include mini-font_2em($mobile-width);
+//@extend ._font_
+
+._font {
+
+  &__10em {
+    font-size: 10em;
+  }
+
+  &__5em {
+    font-size: 5em;
+  }
+
+  &__3em {
+    font-size: 3em;
+  }
+
+  &__2-3em {
+    font-size: 2.3em;
+  }
+
+  &__1-5em {
+    font-size: 1.5em;
+  }
+
+  &__1-3em {
+    font-size: 1.3em;
+  }
+
+  &__1-2em {
+    font-size: 1.2em;
+  }
+
+  &__1em {
+    font-size: 1em;
+  }
+}
+
+@mixin mini-font_7em ($width) {
+  @media (max-width: $width) {
+    font-size: 7em;
+  }
+}
+
+@mixin mini-font_2-4em ($width) {
+  @media (max-width: $width) {
+    font-size: 2.4em;
+  }
+}
+
+@mixin mini-font_3em ($width) {
+  @media (max-width: $width) {
+    font-size: 3em;
+  }
+}
+
+@mixin mini-font_2em ($width) {
+    @media (max-width: $width) {
+      font-size: 2em;
+    }
+  }
+
+@mixin mini-font_1-4em ($width) {
+  @media (max-width: $width) {
+    font-size: 1.4em;
+  }
+}
+
+@mixin mini-font_1-2em ($width) {
+    @media (max-width: $width) {
+      font-size: 1.2em;
+    }
+  }
+
+@mixin mini-font_1-7em ($width) {
+    @media (max-width: $width) {
+      font-size: 1.7em;
+    }
+  }
+
+@mixin mini-font_1-3em ($width) {
+    @media (max-width: $width) {
+      font-size: 1.3em;
+    }
+  }
+
+@mixin mini-font_1em ($width) {
+    @media (max-width: $width) {
+      font-size: 1em;
+    }
+  }
+
+//
+// колонны по бокам блока
+//
+
+.pillar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 15%;
+  z-index: 2000;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  &_color_dark {
+    background: url("../img/dark-pillar-1.png")top left no-repeat, url("../img/dark-pillar-3.png") bottom left no-repeat, url("../img/dark-pillar-2.png") repeat-y;
+  }
+
+  &_color_grey {
+    background: url("../img/grey-pillar-1.png")top left no-repeat, url("../img/grey-pillar-3.png") bottom left no-repeat, url("../img/grey-pillar-2.png") repeat-y;
+  }
+
+  &_color_gold {
+    background: url("../img/gold-pillar-1.png")top left no-repeat, url("../img/gold-pillar-3.png") bottom left no-repeat, url("../img/gold-pillar-2.png") repeat-y;
+  }
+
+  &_position_right {
+    right: 0;
+    transform: scale(-1, 1);
+  }
+  &_position_left {
+    left: 0;
+  }
+
+  @media (max-width: $first-width) {
+    background-size: 47%, 47%, 32.5%;
+  }
+
+  @media (max-width: $mobile-width) {
+    display: none;
+  }
+}
+
+//
+// Занавеси по краям блока
+//
+
+.curtain {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 500;
+  width: 14%;
+  background: url("../img/curtain-2.png") no-repeat;
+  background-size: contain;
+  &_position_left {
+    left: 0;
+    transform: scale(-1, 1);
+    margin-left: 2%;
+  }
+  &_position_right {
+    right: 0;
+    margin-right: 2%;
+  }
+  @media (max-width: $mobile-width) {
+    display: none;
+  }
+}
