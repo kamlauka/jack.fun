@@ -1,0 +1,108 @@
+@font-face {
+  font-family: IceAge;
+  src: url(../fonts/IceAgeRUS.ttf); }
+
+@font-face {
+  font-family: ShowCardGothic;
+  src: url(../fonts/SFUIText-RegularG2.otf); }
+
+body {
+  min-width: 1070px;
+  margin: 0;
+  text-align: center;
+  font-size: 14px;
+  font-family: IceAge; }
+  body a {
+    display: inline-block;
+    text-decoration: none;
+    color: black; }
+
+.container {
+  max-width: 1280px;
+  margin: auto;
+  padding: 0 20px;
+  border: 1px solid transparent; }
+  @media (max-width: 1550px) {
+    .container {
+      max-width: 1000px; } }
+  @media (max-width: 1300px) {
+    .container {
+      max-width: 900px; } }
+
+.flex-gorizontal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+  @media (max-width: 768px) {
+    .flex-gorizontal_transform-to-vertical {
+      flex-direction: column; } }
+
+.height-adaptive {
+  display: block;
+  width: auto;
+  max-height: 100%; }
+
+.orange-border {
+  padding: 10px 0;
+  border-top: 6px solid #B27113;
+  border-bottom: 6px solid #B27113;
+  background: #FFB326 url("../img/pattern1.png") repeat-x;
+  background-size: contain;
+  background-origin: content-box; }
+  .orange-border_all {
+    height: 50px; }
+    @media (max-width: 768px) {
+      .orange-border_all {
+        height: 10px;
+        background-size: 50px auto; } }
+    .orange-border_all_part {
+      height: 10px;
+      background-size: 50px auto; }
+    .orange-border_all_edge {
+      height: 10px;
+      padding: 10px 0 0;
+      background-size: 50px auto; }
+
+.pillar {
+  height: 100%;
+  width: 7%;
+  z-index: 2000;
+  background-size: contain;
+  background-repeat: no-repeat; }
+  .pillar_color_dark {
+    background-image: url("../img/pillar.png"); }
+  .pillar_color_gold {
+    background-image: url("../img/gold-pillar.png"); }
+  .pillar_position_right {
+    transform: scale(-1, 1); }
+
+.participate {
+  padding: 70px 0 10px;
+  background: url("../img/pattern.png") top repeat-x, #B4C3BE; }
+  .participate__text {
+    padding: 0 12%;
+    font-size: 1.3em; }
+    .participate__text_image_dollar {
+      background: url("../img/dollar.png") top left no-repeat, url("../img/dollar.png") top right no-repeat;
+      background-size: contain; }
+    .participate__text_image_apple {
+      background: url("../img/apple.png") top left no-repeat, url("../img/bitten-apple.png") top right no-repeat;
+      background-size: contain; }
+    .participate__text_border_dark {
+      border: 4px solid #4D4D4D; }
+  .participate__button {
+    margin: 10px 70px; }
+
+.button {
+  min-width: 15%;
+  padding: 5px 15px;
+  border: 6px solid;
+  font-size: 1.5em; }
+  .button_gold {
+    color: white;
+    background-color: #FFB326;
+    border-color: #B27113; }
+  .button_dark {
+    color: #FFB326;
+    background-color: #5F6E6E;
+    border-color: #454E4E; }

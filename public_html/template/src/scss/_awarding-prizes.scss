@@ -1,0 +1,131 @@
+.awarding-prizes {
+  width: 100%;
+  background: url("../img/statue-fon.jpg") no-repeat;
+  background-size: cover;
+  &__ivy {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    &_left_ivy {
+      background: url("../img/leaf-1.png") top left no-repeat;
+      background-size: 38%;
+      @media (max-width: $fourth-width) {
+        background: none;
+      }
+    }
+    &_right_ivy {
+      background: url("../img/leaf-2.png") top right no-repeat;
+      background-size: 27%;
+      @media (max-width: $fourth-width) {
+        background: none;
+      }
+    }
+  }
+  &__container {
+    height: 200px;
+    z-index: 100;
+    position: relative;
+    @media (max-width: $fourth-width) {
+      height: 70px;
+    }
+  }
+  &__statue {
+    position: relative;
+    z-index: 1000;
+  }
+  &__text {
+    width: 14%;
+    padding: 5%;
+    margin: auto;
+    font-size: 1.8em;
+    color: white;
+    background: url(../img/dialog.png) no-repeat;
+    background-position: center;
+    background-size: contain;
+    
+    @media (max-width: $fourth-width) {
+      background: none;
+      color: $font-color;
+      width: 100%;
+      padding: 0;
+    }
+  }
+}
+
+.statue {
+  width: 300px;
+
+
+  &_image_gift {
+    position: absolute;
+    top: 0;
+    bottom: -7%;
+    background: url("../img/statue-1.png") no-repeat;
+    background-size: contain;
+    filter: drop-shadow(12px 0 5px rgb(106, 106, 96)) drop-shadow(-20px 0 3px rgb(85, 85, 85));
+
+    @media (max-width: $fourth-width) {
+      background: url("../img/prize (2).png") no-repeat;
+      filter: none;
+      position: static;
+      width: 40px;
+      height: 100%;
+      background-position: center;
+      margin-left: 20px;
+    }
+
+    @keyframes flicker {
+      0% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+
+    &:before {
+      content: url("../img/statue-1-closed-eyes.png");
+      position: absolute;
+      right: 7%;
+      top: 16.5%;
+      opacity: 1;
+      animation: flicker 1.5s cubic-bezier(0, 0.87, 0, 0.99) alternate infinite;
+      @media (max-width: $fourth-width) {
+        content: none;
+      }
+    }
+  }
+  &_image_fan {
+    position: absolute;
+    top: 0;
+    bottom: -10.4%;
+    right: 0;
+    background: url("../img/statue-2.png") no-repeat;
+    background-size: contain;
+    filter: drop-shadow(12px 0 5px rgb(106, 106, 96));
+
+    @media (max-width: $fourth-width) {
+      background: url("../img/prize (2).png") no-repeat;
+      filter: none;
+      position: static;
+      width: 40px;
+      height: 100%;
+      background-position: center;
+      margin-right: 20px;
+    }
+
+    &:before {
+      content: url("../img/statue-2-closed-eyes.png");
+      position: absolute;
+      left: 23%;
+      top: 17%;
+      opacity: 1;
+       animation: flicker 1s cubic-bezier(0, 0.87, 0, 0.99) alternate infinite;
+
+      @media (max-width: $fourth-width) {
+        content: none;
+      }
+    }
+  }
+}

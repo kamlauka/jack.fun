@@ -1,0 +1,133 @@
+
+
+.prizes {
+  position: relative;
+  width: 100%;
+  border-top: 10px solid $add-color;
+  background: rgb(255, 255, 255);
+  background: -webkit-linear-gradient(0deg, rgb(255, 255, 255) 0%, rgb(170, 255, 254) 100%);
+  background: -o-linear-gradient(0deg, rgb(255, 255, 255) 0%, rgb(170, 255, 254) 100%);
+  background: -ms-linear-gradient(0deg, rgb(255, 255, 255) 0%, rgb(170, 255, 254) 100%);
+  background: linear-gradient(0deg, rgb(255, 255, 255) 0%, rgb(170, 255, 254) 100%);
+  &:before {
+    content: '';
+    @extend .pillar;
+    @extend .pillar_color_gold;
+    @extend .pillar_position_left;
+  }
+  &:after {
+    content: '';
+    @extend .pillar;
+    @extend .pillar_color_gold;
+    @extend .pillar_position_right;
+  }
+}
+
+.scene-of-prize {
+  position: relative;
+  overflow: hidden;
+  //padding: 20px 0;
+  &:before {
+    content: '';
+    @extend .curtain;
+    @extend .curtain_position_left;
+  }
+  &:after {
+    content: '';
+    @extend .curtain;
+    @extend .curtain_position_right;
+  }
+
+  &__cloud-rotate {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: url("../img/cloud.png") no-repeat;
+
+    &__one {
+      background-position: -1% 78%;
+      z-index: 80;
+      transform: scale(1.2);
+      background-size: 26%;
+      @media (max-width: $mobile-width) {
+        background-size: 87%;
+        background-position: -257% 97%;
+      }
+    }
+
+    &__two {
+      background-position: 3% 123%;
+      transform: rotateZ(25deg);
+      z-index: 79;
+      background-size: 20%;
+      @media (max-width: $mobile-width) {
+        background-size: 110%;
+        background-position: 540% -92%;
+        transform: rotateZ(0deg);
+      }
+    }
+    &__three {
+      background-position: 103% 22%;
+      background-size: 22%;
+      @media (max-width: $mobile-width) {
+        background-size: 78%;
+        background-position: 200% -16%;
+      }
+    }
+    &__four {
+      background-position:  110% 90%;
+      background-size: 20%;
+      @media (max-width: $mobile-width) {
+        background-size: 204%;
+        background-position: -63% -106%;
+      }
+    }
+  }
+
+  &__empty-block {
+    flex: 1;
+    background: url("../img/cloud.png") bottom left no-repeat,;
+  }
+
+  &__image {
+    position: relative;
+    width: 12%;
+    z-index: 300;
+    margin: 15px 3% 15px 0;
+    @media (max-width: $mobile-width) {
+      width: 30%;
+    }
+  }
+  &__prize-name {
+    position: relative;
+    z-index: 300;
+    margin: 0;
+    line-height: 1em;
+    color: #2A2A2A;
+    font-family: Corbel;
+    font-size: 6.5em;
+    @media (max-width: $mobile-width) {
+      margin: 18% 0;
+      font-size: 3em;
+    }
+  }
+  &__prize-price {
+    position: relative;
+    z-index: 300;
+    padding: 5%;
+    background: url("../img/cloud-5.png") center no-repeat;
+    background-size: contain;
+    font-size: 10em;
+    color: #00CC69;
+    @media (max-width: $second-width) {
+      padding: 10%;
+      font-size: 6em;
+    }
+    @media (max-width: $mobile-width) {
+      position: absolute;
+      top: 40%;
+    }
+  }
+}

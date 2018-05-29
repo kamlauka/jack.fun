@@ -1,0 +1,276 @@
+.lotery {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background:  linear-gradient(#E2FFFF, #fff);
+//url("../img/back.png") no-repeat,
+  @media (max-width: $mobile-width) {
+    background: none;
+  }
+
+
+
+
+  &__sanctuary {
+    position: absolute;
+    z-index: 80;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-image: url(../img/sanctuary.png);
+    background-repeat: no-repeat;
+    background-position: 10% 27%;
+    background-size: 24%;
+    @media (max-width: $mobile-width) {
+      display: none;
+    }
+  }
+
+  &__cloud {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-image: url("../img/cloud.png");
+    background-repeat: no-repeat;
+    &_one {
+      background-position: -1% 52%;
+      z-index: 80;
+      transform: scale(1.2);
+      background-size: 50%;
+      @media (max-width: $mobile-width) {
+        background-position: -89% 12%;
+        z-index: 80;
+        transform: scale(1.2);
+        background-size: 75%;
+      }
+    }
+
+    &_two {
+      background-position: -12% 64%;
+      z-index: 81;
+      background-size: 47%;
+      @media (max-width: $third-width) {
+
+      }
+      @media (max-width: $mobile-width) {
+        display: none;
+      }
+    }
+    &_three {
+      z-index: 81;
+      background-position: 107% 4%;
+      background-size: 25%;
+      opacity: 0.6;
+      @media (max-width: $third-width) {
+        background-position: 107% 8%;
+      }
+      @media (max-width: $mobile-width) {
+        z-index: 81;
+        background-position: 200% 12%;
+        background-size: 75%;
+        opacity: 1;
+        transform: scale(1.2);
+      }
+    }
+    &_four {
+      z-index: 80;
+      background-position: 110% 19%;
+      background-size: 30%;
+      @media (max-width: $mobile-width) {
+        display: none;
+      }
+    }
+    &_five {
+      background-position: -44% 134%;
+      z-index: 81;
+      background-size: 70%;
+      @media (max-width: $mobile-width) {
+        display: none;
+      }
+    }
+    &_six {
+      background-position: 93% 144%;
+      z-index: 8002;
+      background-size: 52%;
+      @media (max-width: 1920px) {
+        background-position: 93% 200%;
+        background-size: 52%;
+      }
+      @media (max-width: 1829px) {
+        background-position: 93% 168%;
+      }
+      @media (max-width: 1710px) {
+        background-position: 94% 149%;
+        background-size: 49%;
+      }
+      @media (max-width: 1550px) {
+        background-position: 84% 135%;
+        background-size: 45%;
+      }
+      @media (max-width: 1462px) {
+        background-position: 85% 128%;
+        background-size: 44%;
+      }
+      @media (max-width: 1326px) {
+        background-position: 93% 130%;
+        background-size: 49%;
+      }
+      @media (max-width: 1252px) {
+        background-position: 93% 138%;
+      }
+      @media (max-width: $mobile-width) {
+        display: none;
+      }
+    }
+
+
+    &_twenty {
+      //background-position: 9% 79%;
+      background-size: 50%;
+      z-index: 8001;
+      transform: scaleX(1.1);
+      background-position: 9% 160%;
+      @media (max-width: $first-width) {
+        background-position: 9% 127%;
+      }
+      @media (max-width: $mobile-width) {
+        transform: scale(2.1);
+        //background-position: center 385px;
+        background-position: center 360px;
+        background-size: contain;
+        opacity: 0.9;
+      }
+      @media (max-width: 764px) {
+        background-position: center 274px;
+      }
+      @media (max-width: 430px) {
+        background-position: center 102%;
+      }
+    }
+  }
+
+
+  &__image {
+    width: 400px;
+    position: relative;
+    z-index: 8000;
+    @media (max-width: $mobile-width) {
+      display: none;
+    }    @media (max-width: $mobile-width) {
+      display: none;
+    }
+  }
+  &__container {
+    position: relative;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+    @media (max-width: $first-width) {
+      max-width: 1000px;
+    }
+    @media (max-width: $third-width) {
+      max-width: 900px;
+    }
+    margin-top: 20px;
+  }
+  &__title {
+    margin: 0;
+  }
+  //&__empty-block {
+  //  flex: 1.7;
+  //  @media (max-width: $fourth-width) {
+  //    display: none;
+  //  }
+  //}
+  &__image-block {
+    flex: 5;
+
+    @media (max-width: $mobile-width) {
+      display: none;
+    }
+  }
+
+    &__timer {
+      flex: 4;
+    }
+}
+.timer {
+  position: relative;
+  display: inline-block;
+  color: $main-color;
+  &__image {
+    width: 100%;
+    position: relative;
+    z-index: 8000;
+  }
+
+  &__days {
+    position: relative;
+    z-index: 8000;
+    margin: 0;
+    line-height: 1.5em;
+    @extend ._font__5em;
+    @include mini-font_3em($mobile-width);
+  }
+
+  &__big-day-digit {  position: relative;
+    z-index: 8000;
+    font-size: 1.8em;
+    @include mini-font_1-4em($mobile-width);
+  }
+
+  &__time {
+    position: relative;
+    z-index: 8000;
+    margin: 0;
+    font-size: 6em;
+    @media (max-width: $mobile-width) {
+      font-size: 3em;
+    }
+  }
+  &__digit {
+    position: relative;
+    z-index: 8000;
+    display: inline-block;
+    width: 20%;
+    @media (max-width: $mobile-width) {
+      width: 15%;
+    }
+  }
+  &__winning-money {
+    position: absolute;
+    z-index: 8005;
+    bottom: 1%;
+    left: 0;
+    right: 0;
+    color: #00956C;
+    font-size: 4em;
+    @media (max-width: $fourth-width) {
+      bottom: 6%;
+    }
+    @media (max-width: $mobile-width-mini) {
+      bottom: 0;
+      font-size: 3.6em;
+    }
+  }
+}
+
+.title-wih-pattern {
+  position: relative;
+  z-index: 8000;
+  display: inline-block;
+  padding: 10px 30px;
+  @extend ._font__3em;
+  @media (max-width: $mobile-width) {
+    font-size: 1.8em;
+  }
+  text-transform: uppercase;
+  color: #333D3C;
+  background-color: $stone-color;
+  @extend .border-pattern;
+  border-top: 0.7em solid;
+  border-bottom: 0.7em solid;
+}
