@@ -45,7 +45,7 @@ class LotteryForm extends Model
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
+
             'name_ru' => 'Name text ru',
             'name_en' => 'Name text en',
             'name_ch' => 'Name text ch',
@@ -151,6 +151,28 @@ class LotteryForm extends Model
         $lottery->save();
 
     }
+
+    public static function fill($lottery,$translations){
+
+        $model = new LotteryForm();
+        $model->name_ru = $translations;
+        $model->name_en = $translations;
+        $model->name_ch = $translations;
+        $model->status = $lottery->status;
+        $model->date_start = $lottery->date_start;
+        $model->description_ru = $translations;
+        $model->description_en = $translations;
+        $model->description_ch = $translations;
+        $model->rate;
+        $model->name_prize_ru = $translations;
+        $model->name_prize_en = $translations;
+        $model->name_prize_ch = $translations;
+        $model->img = $lottery->img;
+        //$model->target_id = $lottery-> target_id;
+
+      return $model;
+    }
+
 
 
 }

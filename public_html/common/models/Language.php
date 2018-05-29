@@ -43,7 +43,7 @@ class Language extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'language_id' => 'Language ID',
+            'language_id' => 'Language',
             'alias' => 'Alias',
             'text' => 'Text',
             'target_id' => 'target id',
