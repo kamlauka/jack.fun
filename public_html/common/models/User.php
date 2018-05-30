@@ -60,12 +60,12 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     {
         return [
             [['username', 'auth_key', ], 'required'],
-            [['created_at', 'updated_at'], 'integer'],
+            //[['created_at', 'updated_at'], 'integer'],
             [['balance'], 'number'],
-            [['username', 'auth_key', 'password_hash','password_reset_token', 'password_reset_token', 'email', 'phone', 'created_at', 'updated_at', 'type', 'wallet'], 'string'],
-            [['status'], 'string', 'max' => 4],
-            [['type'], 'string', 'max' => 2],
-            [['wallet'], 'string', 'max' => 32],
+            [['username', 'auth_key', 'password_hash','password_reset_token', 'password_reset_token', 'email', 'wallet'], 'string'],
+            [['status'], 'integer'],
+            [['type'], 'integer', 'max' => 2],
+            [['wallet','phone'], 'string', 'max' => 32],
             [['avatar','file'], 'file', 'extensions' => 'png, jpg'],
         ];
     }
@@ -83,8 +83,8 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
             'password_reset_token' => 'Password Reset Token',
             'email' => 'Email',
             'status' => 'Status',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+//            'created_at' => 'Created At',
+//            'updated_at' => 'Updated At',
             'phone' => 'Phone',
             'type' => 'Type',
             'balance' => 'Balance',
@@ -362,6 +362,11 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
         } else {
             return false;
         }
+    }
+
+    public static function getListAllGamer(){
+            return User::find()->where(['type' => 0 ])->select(['id'])->indexBy('id')->column();
+
     }
 
 }

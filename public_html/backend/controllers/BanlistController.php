@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use common\models\User;
 use Yii;
 use common\models\Banlist;
 use backend\models\BanlistSearch;
@@ -66,7 +67,14 @@ class BanlistController extends Controller
     {
         $model = new Banlist();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post()) ) {
+
+            $model->moderator_id =  \Yii::$app->user->identity->id;
+            $user = User::findOne($model->user_id);
+            $user->status = 99;
+            $user->save();
+            //изменить статус пользователя в таблице пользователей
+            $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
         }
 

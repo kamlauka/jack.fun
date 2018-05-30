@@ -78,11 +78,6 @@ CREATE TABLE `dispute` (
   CONSTRAINT `dispute_ibfk_3` FOREIGN KEY (`moderator_id`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `dispute` (`id`, `name`, `img`, `rate`, `total`, `type`, `active`, `executor_id`, `initiator_id`, `moderator_id`, `date_start`, `date_end`, `result`, `status`, `description`) VALUES
-(1,	'Спор 1',	'/var/www/public_html/backend/controllers/../../common/uploads/dispute/43f1799dd0dd.png',	1,	400,	3,	1,	NULL,	NULL,	1,	'2018-05-24 14:50:52',	'2018-05-24 15:10:53',	NULL,	0,	'))'),
-(2,	'6546',	'/../../common/uploads/dispute/giphy (1).gif',	45645,	6456,	3,	0,	NULL,	NULL,	1,	'2018-05-07 09:45:24',	'2018-05-11 11:55:24',	NULL,	0,	'45645'),
-(3,	'34345',	'/../../common/uploads/dispute/arm-tattoo-tattoos.jpg',	345,	34534,	3,	1,	NULL,	NULL,	2,	'2018-05-25 15:58:42',	'2018-05-16 10:50:27',	NULL,	0,	'435345')
-ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `name` = VALUES(`name`), `img` = VALUES(`img`), `rate` = VALUES(`rate`), `total` = VALUES(`total`), `type` = VALUES(`type`), `active` = VALUES(`active`), `executor_id` = VALUES(`executor_id`), `initiator_id` = VALUES(`initiator_id`), `moderator_id` = VALUES(`moderator_id`), `date_start` = VALUES(`date_start`), `date_end` = VALUES(`date_end`), `result` = VALUES(`result`), `status` = VALUES(`status`), `description` = VALUES(`description`);
 
 DROP TABLE IF EXISTS `jackpot`;
 CREATE TABLE `jackpot` (
@@ -95,7 +90,8 @@ CREATE TABLE `jackpot` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `jackpot` (`id`, `total`, `status`, `date_start`, `result`) VALUES
-(1,	1,	0,	'2000-01-01 12:12:00',	'0')
+(3,	879789,	1,	'2018-06-01 17:00:09',	NULL),
+(4,	546,	0,	'2018-06-07 09:25:20',	NULL)
 ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `total` = VALUES(`total`), `status` = VALUES(`status`), `date_start` = VALUES(`date_start`), `result` = VALUES(`result`);
 
 DROP TABLE IF EXISTS `language`;
@@ -109,15 +105,15 @@ CREATE TABLE `language` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `language` (`id`, `language_id`, `target_id`, `alias`, `text`) VALUES
-(52,	'0',	0,	'name_14',	'имя на русском'),
-(53,	'1',	0,	'name_14',	'name in English'),
-(54,	'2',	0,	'name_14',	'英文名稱'),
-(55,	'0',	0,	'description_14',	'описание на английском'),
-(56,	'1',	0,	'description_14',	'description in english'),
-(57,	'2',	0,	'description_14',	'用英文描述'),
-(58,	'0',	0,	'prize_14',	'айфон 10 черный 256 гб'),
-(59,	'1',	0,	'prize_14',	'iphone 10 black 256 gb'),
-(60,	'2',	0,	'prize_14',	'iPhone 10黑色256 GB')
+(106,	'ru',	29,	'name',	'русский текст'),
+(107,	'en',	29,	'name',	'engish text'),
+(108,	'ch',	29,	'name',	'英文文本'),
+(109,	'ru',	29,	'description',	'русский текст'),
+(110,	'en',	29,	'description',	'engish text'),
+(111,	'ch',	29,	'description',	'英文文本'),
+(112,	'ru',	29,	'prize',	'русский текст'),
+(113,	'en',	29,	'prize',	'engish text'),
+(114,	'ch',	29,	'prize',	'英文文本')
 ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `language_id` = VALUES(`language_id`), `target_id` = VALUES(`target_id`), `alias` = VALUES(`alias`), `text` = VALUES(`text`);
 
 DROP TABLE IF EXISTS `log`;
@@ -150,9 +146,7 @@ CREATE TABLE `lottery` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `lottery` (`id`, `name`, `total`, `status`, `date_start`, `result`, `description`, `rate`, `name_prize`, `img`) VALUES
-(1,	'Розыгрыш ',	0,	1,	'2018-05-26 08:09:00',	NULL,	'Будет разыгран товар ))',	0.1,	'Iphone X 64Gb',	'/../../common/uploads/lottery/43f1799dd0dd.png'),
-(4,	'lott',	0,	0,	'2018-05-25 10:30:04',	NULL,	'татат',	1,	'шалабан',	'/../../common/uploads/lottery/U1sILnSlyAQ.jpg'),
-(5,	'Можен не надо имя?',	0,	0,	'2018-05-26 00:00:29',	NULL,	'какое то описание',	1,	'Ноутбук Asus X551',	'/../../common/uploads/lottery/Без названия.jpeg')
+(29,	'106,107,108,',	0,	1,	'2018-05-30 19:30:10',	NULL,	'109,110,111,',	2,	'112,113,114,',	'hg')
 ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `name` = VALUES(`name`), `total` = VALUES(`total`), `status` = VALUES(`status`), `date_start` = VALUES(`date_start`), `result` = VALUES(`result`), `description` = VALUES(`description`), `rate` = VALUES(`rate`), `name_prize` = VALUES(`name_prize`), `img` = VALUES(`img`);
 
 DROP TABLE IF EXISTS `modification`;
@@ -165,7 +159,7 @@ CREATE TABLE `modification` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `modification` (`id`, `name`, `data`, `description`) VALUES
-(1,	'% в фонд текущей лотереи',	1,	'Процентов от ставки плюхнется в фонд текшей лотереи'),
+(1,	'% в фонд текущей лотереи',	2,	'Процентов от ставки плюхнется в фонд текшей лотереи'),
 (2,	'% в Джекпот ',	0.2,	'% в Джекпот - общий фонд, который будет разыгрываться, к примеру, раз в месяц между всеми игроками'),
 (3,	'% комиссии за транзакцию от биржи',	0.001,	'биржа https://bitshares.org/ берет комиссию за транзакцию'),
 (4,	'% на содержание сайта',	5,	'5% на содержание сайта и на зп модераторам'),
@@ -236,9 +230,9 @@ CREATE TABLE `user` (
   `status` tinyint(4) NOT NULL DEFAULT '1',
   `created_at` int(11) DEFAULT NULL,
   `updated_at` int(11) DEFAULT NULL,
-  `phone` varchar(11) CHARACTER SET utf8 COLLATE utf8_estonian_ci DEFAULT NULL,
+  `phone` varchar(32) CHARACTER SET utf8 COLLATE utf8_estonian_ci DEFAULT NULL,
   `type` tinyint(2) NOT NULL DEFAULT '0',
-  `balance` float DEFAULT NULL,
+  `balance` float DEFAULT '0',
   `avatar` varchar(255) CHARACTER SET utf8 COLLATE utf8_estonian_ci DEFAULT NULL,
   `wallet` varchar(255) CHARACTER SET utf8 COLLATE utf8_estonian_ci DEFAULT NULL,
   `file` varchar(255) CHARACTER SET utf8 COLLATE utf8_estonian_ci DEFAULT NULL,
@@ -246,8 +240,9 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `user` (`id`, `username`, `auth_key`, `password_hash`, `password_reset_token`, `email`, `status`, `created_at`, `updated_at`, `phone`, `type`, `balance`, `avatar`, `wallet`, `file`) VALUES
-(1,	'admin',	'A1qwgmpDchz5AztmbE-YOaTOLZZkQmDm',	'$2y$13$oMa6rChD.bP0pDJUlVQHr.eP5Lm8eqBzAW0rd3VCWVRqCFaYe.S1O',	NULL,	'admin@admin.com',	1,	1526915570,	1526915570,	NULL,	2,	NULL,	NULL,	NULL,	NULL),
-(2,	'root',	'USa0h80IbiOH9p-lSFFfAl7yvFswoQ0I',	'$2y$13$HgHvhQyMWVROC04blcNrqukRyJQKtiHv1KOcf20DewLsKaJ.n20.a',	NULL,	'root@root.com',	1,	1526983224,	1526983224,	NULL,	1,	NULL,	NULL,	NULL,	NULL)
+(1,	'admin',	'A1qwgmpDchz5AztmbE-YOaTOLZZkQmDm',	'$2y$13$oMa6rChD.bP0pDJUlVQHr.eP5Lm8eqBzAW0rd3VCWVRqCFaYe.S1O',	NULL,	'admin@admin.com',	1,	1526915570,	1527671490,	'0969361424',	2,	NULL,	'',	'',	''),
+(2,	'root',	'USa0h80IbiOH9p-lSFFfAl7yvFswoQ0I',	'$2y$13$HgHvhQyMWVROC04blcNrqukRyJQKtiHv1KOcf20DewLsKaJ.n20.a',	NULL,	'root@root.com',	1,	1526983224,	1526983224,	NULL,	1,	NULL,	NULL,	NULL,	NULL),
+(4,	'stas',	'yqT1Xeh_9INiGRVGmPJG4JgSwCqq9BbM',	'$2y$13$q5U60U2xvEdyuE0CT9pSOOlasH6LtOSxsUNHV2FZGTevdM0dXFN9W',	NULL,	'sd@terlabs.com',	1,	1527671853,	1527673999,	'063-598-52-52',	0,	0,	'',	'dfgfdgdfgfdg',	'')
 ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `username` = VALUES(`username`), `auth_key` = VALUES(`auth_key`), `password_hash` = VALUES(`password_hash`), `password_reset_token` = VALUES(`password_reset_token`), `email` = VALUES(`email`), `status` = VALUES(`status`), `created_at` = VALUES(`created_at`), `updated_at` = VALUES(`updated_at`), `phone` = VALUES(`phone`), `type` = VALUES(`type`), `balance` = VALUES(`balance`), `avatar` = VALUES(`avatar`), `wallet` = VALUES(`wallet`), `file` = VALUES(`file`);
 
--- 2018-05-28 11:25:59
+-- 2018-05-30 09:57:28

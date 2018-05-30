@@ -25,6 +25,10 @@ use common\models\User;
 
     <?= $form->field($model, 'phone')->textInput(['maxlength' => true]) ?>
 
+   <?php if(isset($model->status))  {
+            echo $form->field($model, 'status')->dropDownList(['Waiting','Active']);
+         }
+   ?>
     <?= $form->field($model, 'avatar')->fileInput() ?>
 
     <?= $form->field($model, 'file')->fileInput() ?>
