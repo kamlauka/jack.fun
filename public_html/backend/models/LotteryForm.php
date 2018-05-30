@@ -34,8 +34,9 @@ class LotteryForm extends Model
     public function rules()
     {
         return [
-            [['name_ru', 'name_en','name_ch','date_start','description_ru','description_en','description_ch' ,'rate', 'name_prize_ru', 'name_prize_en', 'name_prize_ch', 'img', 'status'], 'required'],
+            [['name_ru', 'name_en','name_ch','date_start','description_ru','description_en','description_ch' , 'name_prize_ru', 'name_prize_en', 'name_prize_ch', 'img', 'status'], 'required'],
         [['target_id'], 'safe'],
+        [['rate'], 'number'],
         ];
     }
 

@@ -3,7 +3,7 @@ use common\models\Language;
 ?>
 <h2>Raffle of goods</h2>
 <?php
-
+if($lotteries){
 foreach ($lotteries as $lottery){
     $name = Language::find()->where(['target_id' => $lottery->id, 'alias' => 'name' ,'language_id' => 'en'])->one();
     $description = Language::find()->where(['target_id' => $lottery->id, 'alias' => 'description' ,'language_id' => 'en'])->one();
@@ -11,22 +11,26 @@ foreach ($lotteries as $lottery){
 
    echo 'Lottery №'. $lottery->id .'<br>';
     if($name->text) {
-        echo 'Lottery name: ' . $name->text . '<br>';
+        echo  $name->text . '<br>';
     }
-    if($description->text) {
-        echo 'Description: ' . $description->text . '<br>';
+    if($prize->text && $lottery->rate) {
+        echo  $prize->text . ' for only'. $lottery->rate .' ETH<br>';
     }
-   echo 'Rate:'. $lottery->rate .' ETH<br>';
-    if($prize->text) {
-        echo 'Name_prize: '. $prize->text .'<br>';
-        }
+
     if($lottery->img) {
         echo '<img src=' . $lottery->img . ' alt=""><br>';
     }
+
+    if($description->text) {
+        echo 'Description: ' . $description->text . '<br>';
+    }
+
+
    echo '<hr>';
 
-
+    }
+}else{
+    echo '';
 }
-
 ?>
 

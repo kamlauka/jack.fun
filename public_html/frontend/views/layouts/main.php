@@ -35,9 +35,10 @@ AppAsset::register($this);
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
+
     $menuItems = [
         ['label' => 'Jackpot', 'url' => ['/jackpot/index']],
-        ['label' => 'Terms of agreement', 'url' => ['/site/agreement']],
+
         ['label' => 'Lottery', 'url' => ['/lottery/index']],
     ];
     if (Yii::$app->user->isGuest) {
@@ -65,8 +66,8 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
+        <p class="text-center"><a href="/site/agreement">Terms of agreement</a></p>
         <p class="pull-left">&copy; <?= Html::encode(Yii::$app->name) ?> <?= date('Y') ?></p>
-
         <p class="pull-right"><?= Yii::powered() ?></p>
     </div>
 </footer>
