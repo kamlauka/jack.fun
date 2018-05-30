@@ -31,11 +31,29 @@
     content: '';
     @extend .curtain;
     @extend .curtain_position_left;
+    @media (max-width: 930px) {
+      width: 15%;
+    }
+    @media (max-width: 860px) {
+      width: 16%;
+    }
+    @media (max-width: 800px) {
+      width: 17%;
+    }
   }
   &:after {
     content: '';
     @extend .curtain;
     @extend .curtain_position_right;
+    @media (max-width: 930px) {
+      width: 15%;
+    }
+    @media (max-width: 860px) {
+      width: 16%;
+    }
+    @media (max-width: 800px) {
+      width: 17%;
+    }
   }
 
   &__cloud-rotate {
