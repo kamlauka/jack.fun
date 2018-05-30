@@ -100,23 +100,22 @@ class LotteryController extends Controller
     {
 
         $lottery = $this->findModel($id);
-        $translations =  Language::findAll(['target_id'=>$id]);
 
-        $model =  LotteryForm::fill($lottery,$translations);
+       // $model =  LotteryForm::fill($lottery,$translations);
 
-        if ($lottery->load(Yii::$app->request->post()) && $translations->load(Yii::$app->request->post()) ) {
+        if ($lottery->load(Yii::$app->request->post())) {
 
             $img = UploadedFile::getInstance($lottery, 'img');
-            $img->saveAs(  __DIR__ . '/../../common/uploads/lottery/'. $img->baseName . '.' . $img->extension);
-            $lottery->img = __DIR__ . '/../../common/uploads/lottery/'. $img->baseName . '.' . $img->extension;
+            $img->saveAs(  Yii::getAlias('@common/uploads/lottery/' . $img->baseName . '.' . $img->extension));
+            $lottery->img = '/../../common/uploads/lottery/' . $img->baseName . '.' . $img->extension;
             if($lottery->save()){
                 return $this->redirect(['view', 'id' => $lottery->id]);
             }
         }
 
         return $this->render('update', [
-            'lotery' => $lottery,
-            'translations' => $translations,
+            'lottery' => $lottery,
+
         ]);
     }
 

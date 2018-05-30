@@ -29,9 +29,9 @@ class Language extends \yii\db\ActiveRecord
     {
         return [
             [['language_id', 'alias', 'text'], 'required'],
-            //[['language_id'], 'integer'],
+            [['target_id'], 'integer'],
             [['text'], 'string'],
-            [['target_id','language_id'], 'string'],
+            [['language_id'], 'string'],
 
         ];
     }

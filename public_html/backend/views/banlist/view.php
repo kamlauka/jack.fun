@@ -7,6 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model common\models\Banlist */
 
 $this->title = $model->id;
+$this->params['breadcrumbs'][] = ['label' => 'User', 'url' => ['/user/index']];
 $this->params['breadcrumbs'][] = ['label' => 'Banlists', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
