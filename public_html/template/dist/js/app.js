@@ -8,8 +8,64 @@
 //     }
 // }
 
+// window.onscroll = function() {
+//
+// }
+
+// var marker = true;
+//
+// function count() {
+//     var scrolled = window.pageYOffset || document.documentElement.scrollTop;
+//     var logo = document.getElementsByClassName('logo__picture')[0];
+//     var clouds = document.getElementsByClassName('clouds')[0];
+//     console.log(logo);
+//     console.log(clouds);
+//     logo.setAttribute('src', 'dist/img/logo.gif');
+//     clouds.style.display = 'block';
+//     marker = false;
+// }
+//
+// $( window ).on('scroll', function () {
+//     if ( $( window ).scrollTop() > logo.offset().top - $( window ).height() * 0.5 ) {
+//         if ( marker ) {
+//             count();
+//         }
+//     }
+// });
 
 
+window.addEventListener('scroll', function () {
+    // var scrolled = window.pageYOffset || document.documentElement.scrollTop;
+    var logo = $(".logo__picture").first();
+    var clouds = $(".clouds").first();
+    var cloudBottom = $(".cloud-container_bottom-scale").first();
+    var cloudleft = $(".cloud-container_left-big .cloud").first();
+    var cloudright = $(".cloud-container_right-big .cloud").first();
+    function func() {
+        // clouds.css({'display' : 'none'});
+        logo.animate({'top': '-20', 'width': '20%', 'left': '39%'}, 1000);
+        // logo.css({'animation': 'totop 2s 0.5s linear'});
+    }
+    function func1() {
+        cloudleft.animate({'left': '50%', 'width': '50%'}, 2000);
+        cloudright.animate({'right': '50%', 'width': '50%'}, 2000);
+        cloudBottom.animate({'top': '-50%'}, 2000);
+        clouds.css({'display' : 'none'});
+    }
+    if($(this).scrollTop() <= logo.offset().top) {
+        console.log(logo);
+        console.log(clouds);
+        logo.attr('src', 'dist/img/logo.gif');
+        cloudBottom.css({'display' : 'block'});
+        clouds.animate({'opacity': '0.5'}, 4000);
+
+        setTimeout(func, 1000);
+        setTimeout(func1, 700);
+    }
+    this.removeEventListener('scroll', arguments.callee);
+});
+
+// $("div.bigBlock").first()
 //TIMER
 
 function getTimeRemaining(endtime) {
