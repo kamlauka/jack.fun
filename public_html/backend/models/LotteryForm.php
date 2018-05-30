@@ -74,7 +74,15 @@ class LotteryForm extends Model
         $lottery->description = '...';
         $lottery->name_prize = '...';
         $lottery->rate = $this->rate;
-        $lottery->img = 'hg';
+        $lottery->img = $this->img;
+
+        //$lottery->img = 'hg';
+
+
+
+
+
+
         $lottery->save();
 
         $translations = new Language();
