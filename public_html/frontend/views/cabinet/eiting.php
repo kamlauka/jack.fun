@@ -7,21 +7,23 @@ use common\models\User;
 /* @var $this yii\web\View */
 /* @var $model common\models\User */
 
-$this->title = 'Update : ';
+$this->title = 'Eiting : ';
 $this->params['breadcrumbs'][] = ['label' => 'Cabinet', 'url' => ['index']];
-$this->params['breadcrumbs'][] = 'Settings';
+$this->params['breadcrumbs'][] = 'Eiting';
 ?>
 <div class="user-update">
 
     <h1><?= Html::encode($this->title) ?></h1>
-
+    <a class="btn btn-success" href="change-password">Editing Passwoer</a>
     <div class="user-form">
 
         <?php $form = ActiveForm::begin(); ?>
 
         <?= $form->field($model, 'username')->textInput(['maxlength' => true]) ?>
 
-        <?= $form->field($model, 'auth_key')->textInput(['maxlength' => true]) ?>
+        <?php // echo $form->field($model, 'auth_key')->textInput(['maxlength' => true]) ?>
+
+        <?php // echo $form->field($model, 'auth_key_repeat')->textInput(['maxlength' => true]) ?>
 
         <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 
@@ -38,6 +40,7 @@ $this->params['breadcrumbs'][] = 'Settings';
         </div>
 
         <?php ActiveForm::end(); ?>
+        <br>
 
     </div>
 

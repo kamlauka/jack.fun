@@ -1,17 +1,24 @@
 <?php
-
 use yii\helpers\Html;
+?>
 
-    echo 'Username: '.$user->username.'<br>';
-    echo 'Wallet: '. $user->wallet.'<br>';
-    echo 'Status: : '; if($user->status === 1){echo 'Account active ';}else{echo 'Account active ';}
 
+<?php
+    if($user->avatar){
+        echo  '<img src="'.$user->avatar.'" >';
+    }
+    echo '<br>';
+    echo  $user->username.'<br>';
+    if($user->phone){
+        echo 'my phone number: '.$user->phone.'<br>';
+    }
+    if($user->wallet){
+        echo 'my wallet: '. $user->wallet.'<br>';
+    }
+    if($user->email){
+        echo 'my email: '. $user->email;
+    }
 ?>
     <br>
-    <a class="btn" href="/cabinet/settings?id=<?= $user->id ?>">Settinges</a>
-    <?php
-        echo
-          Html::beginForm(['/site/logout'], 'post')
-            . Html::submitButton('Logout (' . Yii::$app->user->identity->username . ')')
-            . Html::endForm();
-        ?>
+    <a class="btn btn-success" href="/cabinet/eiting?id=<?= $user->id ?>">Editing</a>
+

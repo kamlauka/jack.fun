@@ -38,7 +38,6 @@ AppAsset::register($this);
 
     $menuItems = [
         ['label' => 'Jackpot', 'url' => ['/jackpot/index']],
-
         ['label' => 'Lottery', 'url' => ['/lottery/index']],
     ];
     if (Yii::$app->user->isGuest) {
@@ -46,7 +45,16 @@ AppAsset::register($this);
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
     } else {
         $menuItems[] = ['label' => 'Cabinet', 'url' => ['/cabinet/index']];
+        $menuItems[] = ['label' => 'Cabinet', 'url' => ['/cabinet/index']];
 
+        $menuItems[] = '<li>'
+            . Html::beginForm(['/site/logout'], 'post')
+            . Html::submitButton(
+                'Logout (' . Yii::$app->user->identity->username . ')',
+                ['class' => 'btn btn-link logout']
+            )
+            . Html::endForm()
+            . '</li>';
     }
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],

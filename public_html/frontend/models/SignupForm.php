@@ -12,7 +12,7 @@ class SignupForm extends Model
     public $username;
     public $wallet;
     public $password;
-
+    public $password_repeat;
 
     /**
      * {@inheritdoc}
@@ -28,10 +28,16 @@ class SignupForm extends Model
             ['wallet', 'trim'],
             ['wallet', 'required'],
             ['wallet', 'string', 'max' => 255],
-            ['wallet', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This email address has already been taken.'],
+            ['wallet', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This wallet address has already been taken.'],
 
             ['password', 'required'],
             ['password', 'string', 'min' => 6],
+
+            ['password_repeat', 'required'],
+            ['password_repeat', 'compare', 'compareAttribute'=>'password', 'message'=>"Passwords don't match" ],
+
+
+
         ];
     }
 
