@@ -19,16 +19,7 @@ $this->params['breadcrumbs'][] = 'Update';
 
         <?php $form = ActiveForm::begin(); ?>
 
-
-        <?= $form->field($lottery, 'date_start')->widget(DateTimePicker::className(), [
-            'language' => 'en',
-            'size' => 'ms',
-            'clientOptions' => [
-                'autoclose' => true,
-                'format' => 'yyyy.mm.dd hh:ii:ss',
-                'todayBtn' => true
-            ]
-        ]);?>
+        <?= $form->field($lottery, 'currency_start')->textInput();?>
 
         <?php
         //    if($model->result){
