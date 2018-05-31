@@ -88,6 +88,8 @@ body {
 }
 
 .orange-border {
+  z-index: 8000;
+  position: relative;
   padding: 10px 0;
   border-top: 6px solid $add-color;
   border-bottom: 6px solid $add-color;
