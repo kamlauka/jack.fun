@@ -11,7 +11,7 @@ use Yii;
  * @property string $name
  * @property int $total
  * @property int $status
- * @property string $date_start
+ * @property string $currency_start
  * @property string $result
  * @property string $description
  * @property double $rate
@@ -34,12 +34,11 @@ class Lottery extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'date_start', 'rate', 'name_prize', 'img'], 'required'],
+            [['name', 'currency_start', 'rate', 'name_prize', 'img'], 'required'],
            // [['img'],'image','extensions' => 'png, jpg, jpeg, gif','skipOnEmpty' => true, 'on' => 'update-photo-upload'],
             [['total'], 'integer'],
-            [['date_start'], 'safe'],
             [['description'], 'string'],
-            [['rate'], 'number'],
+            [['rate','currency_start'], 'number'],
             [['name', 'name_prize'], 'string', 'max' => 32],
             [['status'], 'string', 'max' => 2],
             [['result'], 'string', 'max' => 10],
@@ -56,7 +55,7 @@ class Lottery extends \yii\db\ActiveRecord
             'name' => 'Name',
             'total' => 'Total',
             'status' => 'Status',
-            'date_start' => 'Date Start',
+            'currency_start' => 'Currency start',
             'result' => 'Result',
             'description' => 'Description',
             'rate' => 'Rate',

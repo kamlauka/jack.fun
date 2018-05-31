@@ -7,6 +7,7 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
+
 $this->title = 'Signup';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -27,6 +28,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <?= $form->field($model, 'password_repeat')->passwordInput() ?>
 
+                <?= $form->field($model, 'agreement')->checkbox(['value'=>1, 'uncheckValue'=>0])->label('I read and agree to the  <a href="/site/agreement"> terms of agreement</a>') ?>
+
+<!--            Html::a(['terms of agreement','/site/agreement'])-->
                 <div class="form-group">
                     <?= Html::submitButton('Signup', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
                 </div>

@@ -13,6 +13,7 @@ class SignupForm extends Model
     public $wallet;
     public $password;
     public $password_repeat;
+    public $agreement = false;
 
     /**
      * {@inheritdoc}
@@ -36,10 +37,13 @@ class SignupForm extends Model
             ['password_repeat', 'required'],
             ['password_repeat', 'compare', 'compareAttribute'=>'password', 'message'=>"Passwords don't match" ],
 
-
+            ['agreement','required'],
+            ['agreement','boolean'],
+            ['agreement', 'compare', 'compareValue' => 1, 'message' => 'You need to accept the terms of the agreement!']
 
         ];
     }
+
 
     /**
      * Signs user up.
@@ -48,16 +52,22 @@ class SignupForm extends Model
      */
     public function signup()
     {
-        if (!$this->validate()) {
-            return null;
-        }
-        
-        $user = new User();
-        $user->username = $this->username;
-        $user->wallet = $this->wallet;
-        $user->setPassword($this->password);
-        $user->generateAuthKey();
 
-        return $user->save() ? $user : null;
+        if ($this->validate()) {
+
+//            if($this->agreement == false){
+//                return null;
+//            }
+
+            $user = new User();
+            $user->username = $this->username;
+            $user->wallet = $this->wallet;
+            $user->setPassword($this->password);
+            $user->generateAuthKey();
+
+            return $user->save() ? $user : null;
+
+        }
+
     }
 }
