@@ -153,7 +153,20 @@
     right: 0;
     margin-right: 2%;
   }
+  &_blue {
+    background: url("../img/curtain-2.png") no-repeat;
+  }
   @media (max-width: $mobile-width) {
     display: none;
   }
+}
+
+@mixin clouds__all-clouds ($url-image, $background-size, $background-pos, $z-index, $animation-time, $animation-delay) {
+  background-image: url($url-image);
+  background-size: $background-size;
+  background-position: $background-pos;
+  z-index: $z-index;
+  -webkit-animation: rotate3 $animation-time $animation-delay infinite linear;
+  -moz-animation: rotate3 $animation-time $animation-delay infinite linear;
+  animation: rotate3 $animation-time $animation-delay infinite linear;
 }
