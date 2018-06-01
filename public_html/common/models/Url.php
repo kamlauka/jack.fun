@@ -44,7 +44,7 @@ class Url extends \yii\db\ActiveRecord
             'id' => 'ID',
             'target_id' => 'Target ID',
             'type' => 'Type',
-            'value' => 'Value',
+            'value' => 'Value url',
         ];
     }
 }
