@@ -44,9 +44,9 @@ use dosamigos\datetimepicker\DateTimePicker;
         }
     ?>
 
-
-
     <?= $form->field($model, 'status')->dropDownList(['В ожидание','Публиковать']); ?>
+
+    http://jackpot.fun/lottery/<?= $form->field($url, 'value')->textInput(); ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

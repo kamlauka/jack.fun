@@ -26,6 +26,17 @@ class LotteryController extends Controller
         ]);
     }
 
+    public function actionView($id)
+    {
+        $lottery = Lottery::findOne($id);
+//        $user_id = \Yii::$app->user->identity->id;
+//        $user = User::findOne($user_id);
+
+        return $this->render('view',[
+            'lottery' => $lottery
+        ]);
+    }
+
 
 
 

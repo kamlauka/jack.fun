@@ -158,6 +158,7 @@ class LotteryForm extends Model
         $translations->save();
         $lottery->name_prize .= $translations->id.',';
         $lottery->save();
+        return $lottery->id;
 
     }
 
