@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+use common\models\Jackpot;
 use common\models\Lottery;
 use common\models\User;
 use yii\web\Controller;
@@ -20,7 +21,7 @@ class JackpotController extends Controller
 //        $user_id = \Yii::$app->user->identity->id;
 //        $user = User::findOne($user_id);
 
-        $model = Lottery::find();
+        $model = Jackpot::find()->where(['status'=>1,'result'=>null])->one();
 
 
         return $this->render('index',[

@@ -15,7 +15,7 @@ use dosamigos\datetimepicker\DateTimePicker;
 
     <?= $form->field($model, 'total')->textInput() ?>
 
-    <?= $form->field($model, 'status')->dropDownList(['Публиковать', 'В ожидании']) ?>
+    <?= $form->field($model, 'status')->dropDownList(['В ожидании','Публиковать']) ?>
 
     <?= $form->field($model, 'date_start')->widget(DateTimePicker::className(), [
         'language' => 'en',

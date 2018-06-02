@@ -33,11 +33,28 @@ $this->params['breadcrumbs'][] = $this->title;
             //'password_hash',
             //'password_reset_token',
             'email:email',
-            'status',
+            'status'=>[
+                'label' => 'Status',
+                'class' => 'yii\grid\DataColumn',
+                'value' => function ($data) {
+                    if($data->status == 1){return 'Active';}
+                    elseif($data->status == 0 ){return 'Waiting';}
+                    elseif($data->status == 99 ){return 'Ban';}
+                },
+
+            ],
             //'created_at',
             //'updated_at',
             'phone',
-            'type',
+            'type'=>[
+                'label' => 'Type',
+                'class' => 'yii\grid\DataColumn',
+                'value' => function ($data) {
+                    if($data->type == 1 ){return 'moderator';}
+                        elseif($data->type == 2 ){return 'administrator';}
+                            else{return 'gamer';}
+                    },
+            ],
             'balance',
             //'avatar',
             //'wallet',

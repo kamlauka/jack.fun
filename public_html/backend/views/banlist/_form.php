@@ -12,9 +12,7 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'user_id')->textInput() ?>
-
-    <?= $form->field($model, 'moderator_id')->textInput() ?>
+    <?= $form->field($model, 'user_id')->dropDownList(\common\models\User::getListAllGamer()) ?>
 
     <?= $form->field($model, 'info')->textarea(['rows' => 6]) ?>
 

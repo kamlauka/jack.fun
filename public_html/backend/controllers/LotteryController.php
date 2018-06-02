@@ -3,6 +3,7 @@
 namespace backend\controllers;
 
 use common\models\Language;
+use common\models\Url;
 use Yii;
 use common\models\Lottery;
 use backend\models\LotterySearch;
@@ -69,15 +70,20 @@ class LotteryController extends Controller
     {
 
         $model = new LotteryForm();
+        $url = new Url();
 
-        if ($model->load(Yii::$app->request->post())) {
+        if ($model->load(Yii::$app->request->post()) && $url->load(Yii::$app->request->post())) {
 
 
             if($img = UploadedFile::getInstance($model, 'img')){
 
                 $img->saveAs(  Yii::getAlias('@common/uploads/lottery/' . $img->baseName . '.' . $img->extension));
                 $model->img = '/../../common/uploads/lottery/' . $img->baseName . '.' . $img->extension;
-                $model->saveve();
+                if($url->target_id = $model->saveve()){
+
+                    $url->type = 'lottery';
+                    $url->save();
+                }
 
                 return $this->redirect(['index']);
             }
@@ -85,7 +91,8 @@ class LotteryController extends Controller
         }
 
         return $this->render('create', [
-            'model' => $model,
+            'model'  => $model,
+            'url' => $url,
         ]);
     }
 
@@ -100,23 +107,22 @@ class LotteryController extends Controller
     {
 
         $lottery = $this->findModel($id);
-        $translations =  Language::findAll(['target_id'=>$id]);
 
-        $model =  LotteryForm::fill($lottery,$translations);
+       // $model =  LotteryForm::fill($lottery,$translations);
 
-        if ($lottery->load(Yii::$app->request->post()) && $translations->load(Yii::$app->request->post()) ) {
+        if ($lottery->load(Yii::$app->request->post())) {
 
             $img = UploadedFile::getInstance($lottery, 'img');
-            $img->saveAs(  __DIR__ . '/../../common/uploads/lottery/'. $img->baseName . '.' . $img->extension);
-            $lottery->img = __DIR__ . '/../../common/uploads/lottery/'. $img->baseName . '.' . $img->extension;
+            $img->saveAs(  Yii::getAlias('@common/uploads/lottery/' . $img->baseName . '.' . $img->extension));
+            $lottery->img = '/../../common/uploads/lottery/' . $img->baseName . '.' . $img->extension;
             if($lottery->save()){
                 return $this->redirect(['view', 'id' => $lottery->id]);
             }
         }
 
         return $this->render('update', [
-            'lotery' => $lottery,
-            'translations' => $translations,
+            'lottery' => $lottery,
+
         ]);
     }
 
