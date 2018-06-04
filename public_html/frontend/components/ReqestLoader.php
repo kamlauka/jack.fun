@@ -19,7 +19,7 @@ class ReqestLoader {
         if(isset($pieces[2])){
             $object = Url::find()->where(['value' => $pieces[2]])->one();
             if($object){
-                header("Location: http://jackpot.loc/lottery/view?id=".$object->target_id   );
+                   header("Location: ".$_SERVER['REQUEST_SCHEME']."://". $_SERVER['SERVER_NAME']."/lottery/view?id=".$object->target_id   );
                 exit();
             }
         }

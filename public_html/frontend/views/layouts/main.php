@@ -63,34 +63,30 @@ AppAsset::register($this);
 </header>
 <div class="wrap">
 
-    <br>
-    <br>
-    <br>
-    <br>
 
-    <div class="breadcrumbs">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
         <?= Alert::widget() ?>
         <?= $content ?>
-    </div>
-
 
     <footer class="footer">
         <div class="footer-container footer-container_gradient">
             <div class="footer-block container  flex-gorizontal">
                 <div class="footer-block__left-align-block">
-                    <a class="footer-block__link footer-block__link_first" href=#>Home page</a>
-                    <a class="footer-block__link" href=#>Lottery "Drawing of goods"</a>
+
+                    <?= Html::a('Home page',Yii::$app->homeUrl,['class'=>'footer-block__link footer-block__link_first']) ?>
+                    <?= Html::a('Lottery "Drawing of goods"','/lottery/index',['class'=>'footer-block__link']) ?>
+
                 </div>
                 <div class="footer-block__center-align-block">
-                    <a class="footer-block__link" href=#>List of disputes</a>
-                    <a class="footer-block__link" href=#>The page of the dispute</a>
+
+                    <?= Html::a('List of disputes','#',['class'=>'footer-block__link']) ?>
+                    <?= Html::a('The page of the dispute','#',['class'=>'footer-block__link']) ?>
+
                 </div>
                 <div class="footer-block__right-align-block">
-                    <a class="footer-block__link" href=#>Terms of agreement</a>
-                    <a class="footer-block__link" href=#>My Account / Login / Register</a>
+
+                    <?= Html::a('Terms of agreement','/site/agreement',['class'=>'footer-block__link']) ?>
+                    <?= Html::a('My Account / Login / Register','/site/signup',['class'=>'footer-block__link']) ?>
+
                 </div>
             </div>
         </div>
@@ -108,8 +104,9 @@ AppAsset::register($this);
                     <a class="footer-block__icon" href="#"><img src="/images/icon-v.svg" alt=""></a>
                 </div>
                 <div class="footer-block__right-align-block">
-                    <a class="footer-block__terlabs" href="#"><img class="footer-block__terlabs-image"
-                                                                   src="/images/terlabs.png" alt="terlabs"></a>
+                    <a class="footer-block__terlabs" href="http://terlabs.com">
+                        <img class="footer-block__terlabs-image"src="/images/terlabs.png" alt="terlabs">
+                    </a>
                     <p>
                         <span class="footer-block__terlabs-work">Создание и разработка сайтов</span>
                         <span class="footer-block__small-number"> +38 048 789 44 54</span>

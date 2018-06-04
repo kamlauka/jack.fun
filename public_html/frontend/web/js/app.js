@@ -20,7 +20,7 @@
 //     var clouds = document.getElementsByClassName('clouds')[0];
 //     console.log(logo);
 //     console.log(clouds);
-//     logo.setAttribute('src', 'dist/img/logo.gif');
+//     logo.setAttribute('src', 'dist/images/logo.gif');
 //     clouds.style.display = 'block';
 //     marker = false;
 // }
@@ -55,7 +55,7 @@ window.addEventListener('scroll', function () {
     if($(this).scrollTop() <= logo.offset().top) {
         console.log(logo);
         console.log(clouds);
-        logo.attr('src', 'dist/img/logo.gif');
+        logo.attr('src', 'dist/images/logo.gif');
         cloudBottom.css({'display' : 'block'});
         clouds.animate({'opacity': '0.5'}, 4000);
 
