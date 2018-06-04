@@ -2,32 +2,10 @@
   position: relative;
   margin-top: 51px;
   overflow: hidden;
-  background: url("../img/common/grass.png") bottom no-repeat, linear-gradient(to bottom, #44dffb 0%,#f9f9f9 73%);
+  background: $pat-grass bottom no-repeat, linear-gradient(to bottom, #44dffb 0%,#f9f9f9 73%);
   background-size: contain;
 }
 
-
-.crumbs {
-  position: relative;
-  top: 0;
-  left: 0;
-  margin-left: 1.2%;
-  text-align: left;
-  font-size: 0;
-  &__link {
-    padding: 5px 2%;
-    outline: 1px solid #596E6A;
-    outline-offset: -3px;
-    font-size: initial;
-    background: url("../img/common/crumb-no-active.png") no-repeat;
-    background-size: cover;
-    &_active {
-      color: $main-color;
-      background: url("../img/common/crumb-active.png") no-repeat;
-      background-size: cover;
-    }
-  }
-}
 
 .terms {
   margin: 8% 0 15%;

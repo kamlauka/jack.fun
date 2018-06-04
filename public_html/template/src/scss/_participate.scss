@@ -45,12 +45,12 @@
 
     &_image_dollar {
       &:before {
-        content: url('../img/dollar.png');
+        content: $pat-dollar;
         @extend .side-image;
         @extend .side-image_left;
       }
       &:after {
-        content: url('../img/dollar.png');
+        content: $pat-dollar;
         @extend .side-image;
         @extend .side-image_right;
       }
@@ -58,12 +58,12 @@
 
     &_image_apple {
       &:before {
-        content: url('../img/apple.png');
+        content: $pat-apple;
         @extend .side-image;
         @extend .side-image_left;
       }
       &:after {
-        content: url('../img/bitten-apple.png');
+        content: $pat-apple;
         @extend .side-image;
         @extend .side-image_right;
       }

@@ -1,44 +1,3 @@
-
-
-
-
-//.parallax {
-//  perspective: 1px;
-//  position: absolute;
-//  top: 0;
-//  bottom: 0;
-//  left: 0;
-//  right: 0;
-//  //height: 100vh;
-//  overflow-x: hidden;
-//  overflow-y: hidden;
-//}
-//.parallax-base {
-//  //transform: translateZ(0);
-//  position: absolute;
-//  top: 0;
-//  right: 0;
-//  bottom: 0;
-//  left: 0;
-//}
-////
-//.parallax-back {
-//  //transform: translateZ(-1px) scale(2);
-//  position: absolute;
-//  top: 0;
-//  right: 0;
-//  bottom: 0;
-//  left: 0;
-//}
-//.parallax-top {
-//  transform: translateZ(90px) scale(.7);
-//  position: absolute;
-//  top: 0;
-//  right: 0;
-//  bottom: 0;
-//  left: 0;
-//}
-
 .parallax-back {
   position: absolute;
   left: 0;
@@ -52,10 +11,10 @@
     width: 100%;
     z-index: 1;
     overflow: hidden;
-    background: url(../img/background-first-page.jpg) no-repeat;
+    background: $pat-first-page no-repeat;
     background-size: cover;
     @media (max-width: $mobile-width) {
-      background: url(../img/cloud.png) center -6% no-repeat, #BEE5EE;
+      background: $pat-cloud-1 center -6% no-repeat, #BEE5EE;
       background-size: 200%;
     }
 
@@ -139,7 +98,7 @@
     //  width: 40%;
     //  height: 399px;
     //  display: block;
-    //  background: url(../img/logo.png) no-repeat;
+    //  background: url(../images/logo.png) no-repeat;
     //}
 
     &__text {
@@ -180,16 +139,16 @@
     //  max-width: 900px;
     //}
     @media (max-width: $mobile-width) {
-      background: url(../img/mini-chain.png) left repeat-y, url(../img/mini-chain.png) right repeat-y;
+      background: url($pat-chain) left repeat-y, url($pat-chain) right repeat-y;
     }
 
     &__item {
 
-      //background: url(../img/colone-stand.png) 50% 40% no-repeat;
+      //background: url(../images/colone-stand.png) 50% 40% no-repeat;
       //border: none;
       //background-size: 30%;
-      //background: url(../img/colone-stand.png) 50% 33% no-repeat;
-      background: url(../img/colone-stand.png) 50% 43% no-repeat;
+      //background: url(../images/colone-stand.png) 50% 33% no-repeat;
+      background: $pat-colon-mini 50% 43% no-repeat;
       border: none;
       background-size: 55%;
 
@@ -211,7 +170,7 @@
       @media (max-width: $mobile-width) {
         background: #B4C3BE;
         border-top: 2em solid;
-        border-image: url(../img/pattern.png) 100% 0%/1 0 repeat;
+        border-image: $pat-greek-pattern 100% 0%/1 0 repeat;
         margin: 10px 0;
         padding: 10px;
       }

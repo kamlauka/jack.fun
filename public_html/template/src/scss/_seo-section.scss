@@ -8,7 +8,7 @@
   //background: -webkit-linear-gradient(0deg, rgb(127, 86, 67) 0%, rgb(255, 255, 255) 79%);
   //background: -o-linear-gradient(0deg, rgb(127, 86, 67) 0%, rgb(255, 255, 255) 79%);
   //background: -ms-linear-gradient(0deg, rgb(127, 86, 67) 0%, rgb(255, 255, 255) 79%);
-  background: url("../img/ferryman.png") 25% bottom no-repeat, url("../img/stone-undeworld.png") 80% bottom no-repeat, linear-gradient(0deg, rgb(127, 86, 67) 0%, rgb(255, 255, 255) 79%);
+  background: $pat-ferryman 25% bottom no-repeat, $pat-underworld 80% bottom no-repeat, linear-gradient(0deg, rgb(127, 86, 67) 0%, rgb(255, 255, 255) 79%);
 
   &:before {
     content: '';

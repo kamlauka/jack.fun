@@ -1,5 +1,3 @@
-
-
 .prizes {
   position: relative;
   width: 100%;
@@ -30,6 +28,7 @@
   &:before {
     content: '';
     @extend .curtain;
+    @extend .curtain_color_red;
     @extend .curtain_position_left;
     @media (max-width: 930px) {
       width: 15%;
@@ -44,6 +43,7 @@
   &:after {
     content: '';
     @extend .curtain;
+    @extend .curtain_color_red;
     @extend .curtain_position_right;
     @media (max-width: 930px) {
       width: 15%;
@@ -62,7 +62,7 @@
     left: 0;
     bottom: 0;
     right: 0;
-    background: url("../img/cloud.png") no-repeat;
+    background: $pat-cloud-1 no-repeat;
 
     &__one {
       background-position: -1% 78%;
@@ -106,7 +106,6 @@
 
   &__empty-block {
     flex: 1;
-    background: url("../img/cloud.png") bottom left no-repeat,;
   }
 
   &__image {
@@ -135,7 +134,7 @@
     position: relative;
     z-index: 300;
     padding: 5%;
-    background: url("../img/cloud-5.png") center no-repeat;
+    background: $pat-cloud-round center no-repeat;
     background-size: contain;
     font-size: 10em;
     color: #00CC69;

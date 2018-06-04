@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/jquery-3.3.1.min.js"></script>
+
+</head>
+<body>
+
+<!---->
+<!--Header-->
+<!---->
+
+<header class="header">
+    <div class="header__container container flex-gorizontal flex-gorizontal_none-vertical">
+        <div class="flags flex-gorizontal flex-gorizontal_none-vertical">
+            <img class="flags__image" src="images/common/flag3.png" alt="">
+            <img class="flags__image" src="images/common/flag2.png" alt="Russian">
+            <img class="flags__image" src="images/common/flag1.png" alt="English">
+        </div>
+        <div class="menu-container flex-gorizontal flex-gorizontal_none-vertical">
+            <nav class="menu" onclick="openbox('white-background')">
+                <input id="link-top" type="checkbox">
+                <label class="menu__down" for="link-top">
+                    <div class="menu__nav"><span>MENU</span> <img class="menu__icon" src="images/common/gamburger.png" alt="hamburger menu"></div>
+                </label>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Registration Login</a></li>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Terms of Agreement</a></li>
+                    <li><a href="#">Contacts</a></li>
+                </ul>
+                <div id="white-background"></div>
+            </nav>
+        </div>
+    </div>
+    <div class="orange-border orange-border_edge"></div>
+    <img class="logo__picture" src="images/common/logo.png" alt="jackpot logotype" >
+</header>
+
+<div class="clouds clouds_fixed">
+    <div class="cloud-container cloud-container_left-big">
+        <div class="cloud">
+            <div class="cloud cloud__cloud1"></div>
+            <div class="cloud cloud__cloud2"></div>
+            <div class="cloud cloud__cloud3"></div>
+        </div>
+    </div>
+    <div class="cloud-container cloud-container_right-big">
+        <div class="cloud">
+            <div class="cloud cloud__cloud1"></div>
+            <div class="cloud cloud__cloud2"></div>
+            <div class="cloud cloud__cloud3"></div>
+        </div>
+    </div>
+    <div class="cloud-container cloud-container_bottom-scale">
+
+            <div class="cloud cloud__cloud2"></div>
+            <div class="cloud cloud__cloud3"></div>
+
+    </div>
+    <!--<div class="cloud cloud__cloud2"></div>-->
+</div>
+
+<section class="first-page">
+    <!--<div class="cloud-container">-->
+        <!--<div class="cloud cloud1"></div>-->
+        <!--<div class="cloud cloud2"></div>-->
+
+        <!--<div class="cloud cloud4"></div>-->
+        <!--<div class="cloud cloud4 cloud4_second"></div>-->
+        <!--<div class="cloud cloud3"></div>-->
+        <!--<div class="cloud cloud3 cloud3_second"></div>-->
+        <!--<div class="cloud cloud5"></div>-->
+        <!--<div class="cloud cloud5 cloud5_second"></div>-->
+    <!--</div>-->
+    <!--<div class="cloud-container">-->
+
+        <!--<div class="cloud cloud2"></div>-->
+
+        <!--<div class="cloud cloud4"></div>-->
+        <!--<div class="cloud cloud4 cloud4_second"></div>-->
+        <!--<div class="cloud cloud3"></div>-->
+        <!--<div class="cloud cloud3 cloud3_second"></div>-->
+        <!--<div class="cloud cloud5"></div>-->
+        <!--<div class="cloud cloud5 cloud5_second"></div>-->
+    <!--</div>-->
+    <div class="parallax">
+        <div class="parallax-base" data-paroller-factor="0.9" data-paroller-type="foreground" data-paroller-direction="vertical">
+            <div class="cloud-container cloud-container_left-big">
+                <div class="cloud">
+                    <div class="cloud cloud__cloud1"></div>
+                    <div class="cloud cloud__cloud2"></div>
+                    <div class="cloud cloud__cloud3"></div>
+                </div>
+            </div>
+            <div class="cloud-container cloud-container_right-big">
+                <div class="cloud">
+                    <div class="cloud cloud__cloud1"></div>
+                    <div class="cloud cloud__cloud2"></div>
+                    <div class="cloud cloud__cloud3"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="parallax-back" data-paroller-factor="0.1" data-paroller-type="foreground">
+            <div class="cloud-container cloud-container_left-small" >
+                <div class="cloud">
+                    <div class="cloud_bottom-big cloud cloud__cloud1"></div>
+                    <div class="cloud cloud__cloud2"></div>
+                    <div class="cloud cloud__cloud3"></div>
+                </div>
+            </div>
+            <div class="cloud-container cloud-container_second-small">
+                <div class="cloud">
+                    <div class="cloud_bottom-big cloud cloud__cloud1"></div>
+                    <div class="cloud cloud__cloud2"></div>
+                    <div class="cloud cloud__cloud3"></div>
+                </div>
+            </div>
+            <div class="cloud-container cloud-container_third-small">
+                <div class="cloud">
+                    <div class="cloud_bottom-big cloud cloud__cloud1"></div>
+                    <div class="cloud cloud__cloud2"></div>
+                    <div class="cloud cloud__cloud3"></div>
+                </div>
+            </div>
+            <div class="cloud-container cloud-container_right-small">
+                <div class="cloud">
+                    <div class="cloud_bottom-big cloud cloud__cloud1"></div>
+                    <div class="cloud cloud__cloud2"></div>
+                    <div class="cloud cloud__cloud3"></div>
+                </div>
+            </div>
+            <div class="cloud-container cloud-container_bottom-big">
+                <div class="cloud">
+                    <div class="cloud_bottom-big cloud cloud__cloud1"></div>
+                    <div class="cloud cloud__cloud2"></div>
+                    <div class="cloud cloud__cloud3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--<div class="first-page__cloud first-page__cloud_left"></div>-->
+    <!--<div class="first-page__cloud first-page__cloud_right"></div>-->
+    <div class="first-page__container">
+        <div class="parallax-top" data-paroller-factor="-0.1" data-paroller-type="foreground" data-paroller-direction="vertical">
+            <div class="logo">
+
+                <img class="logo__picture_mobile" src="images/common/logo_mobile.png" alt="jackpot logotype mobile">
+                <!--<div class="logo__logo"></div>-->
+                <h1 class="logo__text">JACKPOT<span class="logo__text_blue">.FUN</span></h1>
+            </div>
+        </div>
+        <div class="currency">
+            <img class="currency__image" src="images/main/currency.gif" alt="currency">
+        </div>
+        <div class="colons flex-gorizontal flex-gorizontal_top">
+            <div class="colons__item">
+                <div class="colons__image-container">
+                    <img src="images/main/tt.png" alt="t" class="colons__image">
+                </div>
+                <p class="colons__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. </p>
+            </div>
+            <div class="colons__item">
+                <div class="colons__image-container">
+                    <img src="images/main/bitcoin.png" alt="bitcoin" class="colons__image">
+                </div>
+                <p class="colons__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. </p>
+            </div>
+            <div class="colons__item">
+                <div class="colons__image-container">
+                    <img src="images/main/hands.png" alt="hands" class="colons__image colons__image-small">
+                </div>
+                <p class="colons__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. </p>
+            </div>
+            <div class="colons__item">
+                <div class="colons__image-container">
+                    <img src="images/main/play.png" alt="play" class="colons__image">
+                </div>
+                <p class="colons__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. </p>
+            </div>
+            <div class="colons__item">
+                <div class="colons__image-container">
+                    <img src="images/main/prize.png" alt="prize" class="colons__image">
+                </div>
+                <p class="colons__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="awarding-prizes">
+    <div class="awarding-prizes__ivy awarding-prizes__ivy_left_ivy"></div>
+    <div class="awarding-prizes__ivy awarding-prizes__ivy_right_ivy"></div>
+    <div class="orange-border orange-border_part"></div>
+    <div class="awarding-prizes__container container flex-gorizontal flex-gorizontal_none-vertical flex-gorizontal_top">
+        <div class="awarding-prizes__statue statue statue_image_gift"></div>
+        <div class="awarding-prizes__text">AWARDING PRIZES!</div>
+        <div class="awarding-prizes__statue statue statue_image_fan"></div>
+    </div>
+</section>
+
+
+<section class="prizes">
+    <div class="scene-of-prize flex-gorizontal">
+        <div class="scene-of-prize__cloud-rotate scene-of-prize__cloud-rotate__one"></div>
+        <div class="scene-of-prize__cloud-rotate scene-of-prize__cloud-rotate__two"></div>
+        <div class="scene-of-prize__cloud-rotate scene-of-prize__cloud-rotate__three"></div>
+        <div class="scene-of-prize__cloud-rotate scene-of-prize__cloud-rotate__four"></div>
+        <div class="scene-of-prize__empty-block"></div>
+        <img class="scene-of-prize__image" src="images/common/iphone.png" alt="iphone">
+        <div class="scene-of-prize__text">
+            <h2 class="scene-of-prize__prize-name">iphone X</h2>
+            <div class="scene-of-prize__prize-price">1$</div>
+        </div>
+        <div class="scene-of-prize__empty-block"></div>
+    </div>
+    <section class="participate participate_border_dark">
+        <div class="container flex-gorizontal">
+            <p class="participate__text participate__text_image_apple flex-gorizontal">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem eum necessitatibus nulla quisquam ratione reprehenderit rerum voluptate? Ab doloremque, magnam minus nemo pariatur quia saepe vel vero! Distinctio dolores, earum magnam magni quod quos recusandae repudiandae sed! Amet animi eum ex facilis nam obcaecati officiis, omnis quis reprehenderit rerum ullam.</p>
+        </div>
+        <div class="participate__buttons container">
+            <a class="button button_gold participate__button" href="#">Participate</a>
+        </div>
+    </section>
+</section>
+
+<section class="lotery">
+    <div class="lotery__cloud lotery__cloud_one"></div>
+    <div class="lotery__cloud lotery__cloud_two"></div>
+    <div class="lotery__sanctuary"></div>
+    <div class="lotery__cloud lotery__cloud_five"></div>
+    <div class="lotery__cloud lotery__cloud_three"></div>
+    <div class="lotery__cloud lotery__cloud_four"></div>
+    <div class="lotery__cloud-container"></div>
+    <div class="lotery__cloud lotery__cloud_six"></div>
+    <div class="orange-border orange-border_all"></div>
+    <div> <h2 class="title-wih-pattern lotery__title">LOTERY</h2></div>
+    <div class="lotery__container flex-gorizontal">
+        <div class="lotery__cloud lotery__cloud_twenty"></div>
+        <div  class="lotery__image-block">
+            <img src="images/common/oh-boy.gif" alt="oh boy" class="lotery__image"></div>
+        <div class="lotery__timer">
+            <div class="timer">
+                <h3 class="timer__days"><span class="days timer__big-day-digit"></span> DAY</h3>
+                <h3 class="timer__time"><span class="hours timer__digit"></span> : <span class="minutes timer__digit"></span> : <span class="seconds timer__digit"></span> </h3>
+                <img class="timer__image" src="images/common/chalice.png" alt="chalice">
+                <h3 class="timer__winning-money">10 000 000</h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="participate participate_border_dark">
+    <div class="container flex-gorizontal">
+        <p class="participate__text participate__text_image_dollar flex-gorizontal">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem eum necessitatibus nulla quisquam ratione reprehenderit rerum voluptate? Ab doloremque, magnam minus nemo pariatur quia saepe vel vero! Distinctio dolores, earum magnam magni quod quos recusandae repudiandae sed! Amet animi eum ex facilis nam obcaecati officiis, omnis quis reprehenderit rerum ullam.</p>
+    </div>
+    <div class="participate__buttons container">
+        <a class="button button_gold participate__button" href="#">Participate</a>
+    </div>
+</section>
+
+<section class="terrestrial-world">
+    <h2 class="title terrestrial-world__title"> Terrestrial world is under reconstruction</h2>
+    <h3 class="subtitle terrestrial-world__subtitle">Coming soon</h3>
+    <img class="terrestrial-world__image" src="images/main/favn.png" alt="favn">
+</section>
+
+<section class="seo-section flex-gorizontal">
+    <div class="seo-block container">
+        <h2 class="seo-block__title">Lorem ipsum</h2>
+        <p class="seo-block__text scrolling">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum debitis deserunt, dolor earum enim impedit qui tempora! Corporis dolores nostrum quia reprehenderit tenetur totam veniam! Corporis doloribus ea eveniet illum magni molestiae quam quia quo quod vitae. Ab adipisci aliquam aliquid aperiam asperiores corporis deserunt eos, fuga fugiat nam pariatur perferendis praesentium quaerat quis velit vero, voluptatem? A aliquam eum id iste magnam minima nam numquam quibusdam reprehenderit, unde. At consectetur cupiditate doloremque, et maiores maxime nulla ratione. Accusamus aliquam aliquid atque aut consectetur consequatur culpa debitis dolore doloribus enim facere facilis illo impedit ipsa iure laboriosam magnam maxime molestiae mollitia nam nesciunt, nihil nisi non nulla obcaecati odio officia optio quas quis quisquam reiciendis rem repellat reprehenderit tempore veniam veritatis voluptatibus. Ad alias aperiam at doloremque ipsa magni mollitia nulla odio, omnis quasi quod ratione sunt suscipit tempore unde vero voluptatem. Ab accusantium autem dignissimos eaque eligendi, fugit inventore laborum molestiae nesciunt non nulla pariatur possimus quam quasi quisquam rem rerum sunt tempore vel veritatis! Natus perferendis perspiciatis provident quaerat tenetur. Corporis id nemo veniam! Ad facilis neque tenetur. A ab asperiores, deserunt est ipsam provident quos! Asperiores fugiat ipsam iste labore odit quo repellendus saepe similique? Asperiores, aut consectetur consequatur consequuntur doloremque error eveniet excepturi harum illum incidunt iste laudantium magnam modi nam neque officiis perspiciatis porro provident quo ratione recusandae rem reprehenderit saepe sed sint soluta veniam vitae? Accusamus dignissimos ea eius explicabo in inventore, ipsum, odio officia quaerat quisquam suscipit voluptas? Ad aliquid aspernatur consequatur ea earum eligendi hic, itaque iure laboriosam laborum laudantium modi non officia quis quo tempore voluptates. Hic magnam maiores numquam! Ad animi at, atque aut blanditiis consequuntur, cum deleniti distinctio dolores doloribus eos fugiat illum impedit ipsa itaque maxime non perspiciatis placeat possimus qui, quo reiciendis rerum sapiente sed vero. Blanditiis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, amet asperiores at cupiditate dignissimos dolor doloremque dolores fugiat harum nemo numquam odio placeat possimus ratione repudiandae rerum unde voluptatem! Aliquam aliquid architecto distinctio dolores enim esse, facilis fugit harum ipsa itaque labore nemo numquam pariatur, rem tenetur totam vitae voluptate.</p>
+    </div>
+</section>
+
+<footer class="footer">
+        <div class="footer-container footer-container_gradient">
+            <div class="footer-block container  flex-gorizontal">
+                <div class="footer-block__left-align-block">
+                    <a class="footer-block__link footer-block__link_first" href=#>Home page</a>
+                    <a class="footer-block__link" href=#>Lottery "Drawing of goods"</a>
+                </div>
+                <div class="footer-block__center-align-block">
+                    <a class="footer-block__link" href=#>List of disputes</a>
+                    <a class="footer-block__link" href=#>The page of the dispute</a>
+                </div>
+                <div class="footer-block__right-align-block">
+                    <a class="footer-block__link" href=#>Terms of agreement</a>
+                    <a class="footer-block__link" href=#>My Account / Login / Register</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-container footer-container_dark">
+            <div class="footer-block container  flex-gorizontal">
+                <div class="footer-block__left-align-block footer-block__left-align-block__margin">
+                    <p>38 (093) 670 670 70 </p>
+                    <a class="footer-block__link footer-block__link_font_gold" href="#">www.jackpo.fun.com</a>
+                </div>
+                <div class="footer-block__center-align-block">
+                    <a class="footer-block__icon" href="#"><img src="images/common/icon-f.svg" alt=""></a>
+                    <a class="footer-block__icon" href="#"><img src="images/common/icon-t.svg" alt=""></a>
+                    <a class="footer-block__icon" href="#"><img src="images/common/icon-i.svg" alt=""></a>
+                    <a class="footer-block__icon" href="#"><img src="images/common/icon-g.svg" alt=""></a>
+                    <a class="footer-block__icon" href="#"><img src="images/common/icon-v.svg" alt=""></a>
+                </div>
+                <div class="footer-block__right-align-block">
+                    <a class="footer-block__terlabs" href="#"><img class="footer-block__terlabs-image" src="images/common/terlabs.png" alt="terlabs"></a>
+                    <p>
+                        <span class="footer-block__terlabs-work">Создание и разработка сайтов</span>
+                        <span class="footer-block__small-number"> +38 048 789 44 54</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+</footer>
+<script src="js/app.js"></script>
+<script src="js/jquery.paroller.min.js"></script>
+</body>
+</html>

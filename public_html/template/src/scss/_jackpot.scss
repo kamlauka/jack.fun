@@ -1,5 +1,18 @@
+.lotery-page {
+  position: relative;
+  margin-top: 51px;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #44dffb 0%,#f9f9f9 73%);
+}
+
 .participate {
   flex: 1;
+  &_top {
+    margin-top: 7%;
+  }
+  &_bottom {
+    padding-bottom: 10%;
+  }
   &__text {
     max-height: 200px;
     padding: 0 20px;
@@ -10,7 +23,7 @@
   position: relative;
   margin: 0 10% 10%;
   padding: 4%;
-  background: url("../img/jackpot/stone.png") no-repeat;
+  background: $pat-stone-jackpot no-repeat;
   background-size: cover;
   -webkit-box-shadow: 0px 0px 0px 3px #B4C3BE, 0px 0px 0px 3px #8EA29B;
   -moz-box-shadow: 0px 0px 0px 3px #B4C3BE, 0px 0px 0px 3px #8EA29B;
@@ -41,10 +54,16 @@
       left: 4%;
     }
   }
+  &__image {
+    filter: drop-shadow(0 0 1em #CDA957);
+  }
 }
 
 
 
-.timer {
+.lotery-page-timer {
   flex: 1;
+  align-self: flex-end;
+  margin: 0 1%;
+  font-size: 0.9em;
 }

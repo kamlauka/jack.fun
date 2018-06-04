@@ -1,6 +1,8 @@
 .cabinet {
-
-  background: url("../img/grass.png") bottom no-repeat, linear-gradient(to bottom, #44dffb 0%,#f9f9f9 73%);
+  position: relative;
+  margin-top: 51px;
+  overflow: hidden;
+  background: $pat-grass bottom no-repeat, linear-gradient(to bottom, #44dffb 0%,#f9f9f9 73%);
   background-size: contain;
   &__clouds {
     z-index: 0;
@@ -30,37 +32,21 @@
     width: 46%;
     height: 64vh;
     margin: 20% auto auto;
-    padding: 5% 10%;
-    background: url(../img/stone.png) bottom no-repeat;
+    padding: 5% 2%;
+    background: $pat-stone bottom no-repeat;
     background-size: contain;
 
     &:before {
       content: '';
       @extend .curtain;
+      @extend .curtain_color_red-1;
       @extend .curtain_position_left;
-      @media (max-width: 930px) {
-        width: 15%;
       }
-      @media (max-width: 860px) {
-        width: 16%;
-      }
-      @media (max-width: 800px) {
-        width: 17%;
-      }
-    }
     &:after {
       content: '';
       @extend .curtain;
+      @extend .curtain_color_red-1;
       @extend .curtain_position_right;
-      @media (max-width: 930px) {
-        width: 15%;
-      }
-      @media (max-width: 860px) {
-        width: 16%;
-      }
-      @media (max-width: 800px) {
-        width: 17%;
-      }
     }
   }
 }
@@ -69,6 +55,21 @@
 .disputes {
   position: relative;
   width: 50%;
+  height: 100vh;
+  background: $pat-scene bottom no-repeat;
+  background-size: cover;
+  &:before {
+    content: '';
+    @extend .curtain;
+    @extend .curtain_color_blue;
+    @extend .curtain_position_left;
+  }
+  &:after {
+    content: '';
+    @extend .curtain;
+    @extend .curtain_color_blue;
+    @extend .curtain_position_right;
+  }
 }
 
 

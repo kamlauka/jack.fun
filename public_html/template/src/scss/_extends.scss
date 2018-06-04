@@ -1,6 +1,3 @@
-//@include mini-font_2em($mobile-width);
-//@extend ._font_
-
 ._font {
 
   &__10em {
@@ -104,15 +101,15 @@
   background-repeat: no-repeat;
 
   &_color_dark {
-    background: url("../img/dark-pillar-1.png")top left no-repeat, url("../img/dark-pillar-3.png") bottom left no-repeat, url("../img/dark-pillar-2.png") repeat-y;
+    background: $pat-dark-pillar-1 top left no-repeat, $pat-dark-pillar-3 bottom left no-repeat, $pat-dark-pillar-2 repeat-y;
   }
 
   &_color_grey {
-    background: url("../img/grey-pillar-1.png")top left no-repeat, url("../img/grey-pillar-3.png") bottom left no-repeat, url("../img/grey-pillar-2.png") repeat-y;
+    background: $pat-grey-pillar-1 top left no-repeat, $pat-grey-pillar-3 bottom left no-repeat, $pat-grey-pillar-2 repeat-y;
   }
 
   &_color_gold {
-    background: url("../img/gold-pillar-1.png")top left no-repeat, url("../img/gold-pillar-3.png") bottom left no-repeat, url("../img/gold-pillar-2.png") repeat-y;
+    background: $pat-gold-pillar-1 top left no-repeat, $pat-gold-pillar-3 bottom left no-repeat, $pat-gold-pillar-2 repeat-y;
   }
 
   &_position_right {
@@ -142,8 +139,17 @@
   bottom: 0;
   z-index: 500;
   width: 14%;
-  background: url("../img/curtain-2.png") no-repeat;
-  background-size: contain;
+
+
+  @media (max-width: 930px) {
+    width: 15%;
+  }
+  @media (max-width: 860px) {
+    width: 16%;
+  }
+  @media (max-width: 800px) {
+    width: 17%;
+  }
   &_position_left {
     left: 0;
     transform: scale(-1, 1);
@@ -153,20 +159,19 @@
     right: 0;
     margin-right: 2%;
   }
-  &_blue {
-    background: url("../img/curtain-2.png") no-repeat;
+  &_color_red {
+    background: $pat-curtain-red no-repeat;
+    background-size: contain;
+  }
+  &_color_blue {
+    background: $pat-curtain-blue no-repeat;
+    background-size: contain;
+  }
+  &_color_red-1 {
+    background: $pat-curtain-red-little no-repeat;
+    background-size: contain;
   }
   @media (max-width: $mobile-width) {
     display: none;
   }
-}
-
-@mixin clouds__all-clouds ($url-image, $background-size, $background-pos, $z-index, $animation-time, $animation-delay) {
-  background-image: url($url-image);
-  background-size: $background-size;
-  background-position: $background-pos;
-  z-index: $z-index;
-  -webkit-animation: rotate3 $animation-time $animation-delay infinite linear;
-  -moz-animation: rotate3 $animation-time $animation-delay infinite linear;
-  animation: rotate3 $animation-time $animation-delay infinite linear;
 }
