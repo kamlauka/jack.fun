@@ -94,7 +94,7 @@ AppAsset::register($this);
             <div class="footer-block container  flex-gorizontal">
                 <div class="footer-block__left-align-block footer-block__left-align-block__margin">
                     <p>38 (093) 670 670 70 </p>
-                    <a class="footer-block__link footer-block__link_font_gold" href="#">www.jackpo.fun.com</a>
+                    <?= Html::a('www.jackpo.fun.com','#',['class'=>'footer-block__link footer-block__link_font_gold']) ?>
                 </div>
                 <div class="footer-block__center-align-block">
                     <a class="footer-block__icon" href="#"><img src="/images/icon-f.svg" alt=""></a>
