@@ -1,0 +1,39 @@
+.participate {
+  flex: 1; }
+  .participate__text {
+    max-height: 200px;
+    padding: 0 20px; }
+
+.algorithm {
+  position: relative;
+  margin: 0 10% 10%;
+  padding: 4%;
+  background: url("../img/jackpot/stone.png") no-repeat;
+  background-size: cover;
+  -webkit-box-shadow: 0px 0px 0px 3px #B4C3BE, 0px 0px 0px 3px #8EA29B;
+  -moz-box-shadow: 0px 0px 0px 3px #B4C3BE, 0px 0px 0px 3px #8EA29B;
+  box-shadow: 0px 0px 0px 3px #B4C3BE, 0px 0px 0px 3px #8EA29B; }
+  .algorithm_right-background {
+    -webkit-transform: scaleX(-1);
+    -moz-transform: scaleX(-1);
+    -ms-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1); }
+    .algorithm_right-background * {
+      -webkit-transform: scaleX(-1);
+      -moz-transform: scaleX(-1);
+      -ms-transform: scaleX(-1);
+      -o-transform: scaleX(-1);
+      transform: scaleX(-1); }
+  .algorithm__number {
+    position: absolute;
+    top: 4%;
+    color: #FFB400;
+    font-size: 2em; }
+    .algorithm__number_position-right {
+      right: 4%; }
+    .algorithm__number_position-left {
+      left: 4%; }
+
+.timer {
+  flex: 1; }
