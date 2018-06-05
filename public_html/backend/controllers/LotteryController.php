@@ -3,6 +3,7 @@
 namespace backend\controllers;
 
 use common\models\Language;
+use common\models\Translation;
 use common\models\Url;
 use Yii;
 use common\models\Lottery;
@@ -18,6 +19,8 @@ use backend\models\LotteryForm;
  */
 class LotteryController extends Controller
 {
+
+    protected $attributes = ['name','description','name_prize'];// переводимые поля на разные языки
     /**
      * @inheritdoc
      */
@@ -79,20 +82,19 @@ class LotteryController extends Controller
 
                 $img->saveAs(  Yii::getAlias('@common/uploads/lottery/' . $img->baseName . '.' . $img->extension));
                 $model->img = '/../../common/uploads/lottery/' . $img->baseName . '.' . $img->extension;
-                if($url->target_id = $model->saveve()){
+                if($url->target_id = $model->save($this->attributes)){
 
                     $url->type = 'lottery';
                     $url->save();
                 }
-
                 return $this->redirect(['index']);
             }
-
         }
 
         return $this->render('create', [
             'model'  => $model,
             'url' => $url,
+            'attributes' => $this->attributes,
         ]);
     }
 
@@ -107,21 +109,24 @@ class LotteryController extends Controller
     {
 
         $lottery = $this->findModel($id);
+        $url = Url::find()->where(['target_id'=>$lottery->id,'type'=>'lottery'])->one();
+        $model = LotteryForm::fill($lottery,$this->attributes);
 
-       // $model =  LotteryForm::fill($lottery,$translations);
+        if ($model->load(Yii::$app->request->post())) {
 
-        if ($lottery->load(Yii::$app->request->post())) {
-
-            $img = UploadedFile::getInstance($lottery, 'img');
+            $img = UploadedFile::getInstance($model, 'img');
             $img->saveAs(  Yii::getAlias('@common/uploads/lottery/' . $img->baseName . '.' . $img->extension));
             $lottery->img = '/../../common/uploads/lottery/' . $img->baseName . '.' . $img->extension;
-            if($lottery->save()){
+            if($model->update($lottery,$this->attributes,$model)){
+                $url->save();
                 return $this->redirect(['view', 'id' => $lottery->id]);
             }
         }
 
         return $this->render('update', [
-            'lottery' => $lottery,
+            'model' => $model,
+            'url' => $url,
+            'attributes' => $this->attributes,
 
         ]);
     }

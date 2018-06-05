@@ -1,32 +1,32 @@
 <?php
 namespace backend\models;
 
+use common\models\Lang;
+use common\models\Translation;
 use Yii;
+use yii\base\DynamicModel;
 use yii\base\Model;
 use common\models\Language;
 use common\models\Lottery;
 
 /**
- * Login form
+ * создать модель для работы с переводимыми полями
+ * эту и след. модели наследовать от той, что создашь
  */
-class LotteryForm extends Model
+class LotteryForm extends Translations
 {
-    public $name_ru;
-    public $name_en;
-    public $name_ch;
+
+public function __construct()
+{
+    $this->getTranslatable(['name','description','name_prize']);
+
+}
+
     public $currency_start;
     public $rate;
-    public $description_ru;
-    public $description_en;
-    public $description_ch;
-    public $name_prize_ru;
-    public $name_prize_en;
-    public $name_prize_ch;
     public $img;
     public $status;
     public $target_id;
-
-
 
     /**
      * @inheritdoc
@@ -34,9 +34,9 @@ class LotteryForm extends Model
     public function rules()
     {
         return [
-            [['name_ru', 'name_en','name_ch','currency_start','description_ru','description_en','description_ch' , 'name_prize_ru', 'name_prize_en', 'name_prize_ch', 'img', 'status'], 'required'],
-        [['target_id'], 'safe'],
-        [['rate'], 'number'],
+            [['currency_start','img', 'status'], 'required'],
+            [['target_id'], 'number'],
+            [['rate'], 'number'],
         ];
     }
 
@@ -47,142 +47,92 @@ class LotteryForm extends Model
     {
         return [
 
-            'name_ru' => 'Name text ru',
-            'name_en' => 'Name text en',
-            'name_ch' => 'Name text ch',
             'status' => 'Status',
-            'currency_start' => 'Currency_start',
-            'description_ru' => 'Description ru',
-            'description_en' => 'Description en',
-            'description_ch' => 'Description ch',
+            'currency_start' => 'Currency start',
             'rate' => 'Rate',
-            'name_prize_ru' => 'Name Prize ru',
-            'name_prize_en' => 'Name Prize en',
-            'name_prize_ch' => 'Name Prize ch',
             'img' => 'Img',
             'target_id' => 'target id',
         ];
     }
 
-    public function saveve(){
 
+    public function save($attributes){
 
         $lottery = new Lottery();
-
-        $lottery->name = '...';
+        $lottery->name = 'id = ';
         $lottery->currency_start = $this->currency_start;
         $lottery->status = $this->status;
-        $lottery->description = '...';
-        $lottery->name_prize = '...';
+        $lottery->description = 'id = ';
+        $lottery->name_prize = 'id = ';
         $lottery->rate = $this->rate;
         $lottery->img = $this->img;
-
-        //$lottery->img = 'hg';
-
-
-
-
-
-
         $lottery->save();
 
-        $translations = new Language();
-        $translations->language_id = 'ru';
-        $translations->target_id = ''.$lottery->id;
-        $translations->alias = 'name';
-        $translations->text = $this->name_ru;
-        $translations->save();
-        $lottery->name = $translations->id.',';
+        $langs = Language::find()->where(['activ'=>'activ'])->all();
 
-        $translations = new Language();
-        $translations->language_id = 'en';
-        $translations->target_id = ''.$lottery->id;
-        $translations->alias = 'name';
-        $translations->text = $this->name_en;
-        $translations->save();
-        $lottery->name .= $translations->id.',';
+        foreach ($langs as $lang) {
 
-        $translations = new Language();
-        $translations->language_id = 'ch';
-        $translations->target_id = ''.$lottery->id;
-        $translations->alias = 'name';
-        $translations->text = $this->name_ch;
-        $translations->save();
-        $lottery->name .= $translations->id.',';
+            foreach ($attributes as $attribut)
+            {
+                $translations = new Translation();
+                $translations->language_id = $lang->id;
+                $translations->target_id = $lottery->id;
+                $translations->alias = $attribut;
+                $translations->text = $this->{$lang->alias.'_'.$attribut};
+                $translations->save();
+                $lottery->{$attribut} .= $translations->id.',';
+            }
 
-        $translations = new Language();
-        $translations->language_id = 'ru';
-        $translations->target_id = ''.$lottery->id;
-        $translations->alias = 'description';
-        $translations->text = $this->description_ru;
-        $translations->save();
-        $lottery->description = $translations->id.',';
+        }
 
-        $translations = new Language();
-        $translations->language_id = 'en';
-        $translations->target_id = ''.$lottery->id;
-        $translations->alias = 'description';
-        $translations->text = $this->description_en;
-        $translations->save();
-        $lottery->description .= $translations->id.',';
-
-        $translations = new Language();
-        $translations->language_id = 'ch';
-        $translations->target_id = ''.$lottery->id;
-        $translations->alias = 'description';
-        $translations->text = $this->description_ch;
-        $translations->save();
-        $lottery->description .= $translations->id.',';
-
-        $translations = new Language();
-        $translations->language_id = 'ru';
-        $translations->target_id = ''.$lottery->id;
-        $translations->alias = 'prize';
-        $translations->text = $this->name_prize_ru;
-        $translations->save();
-        $lottery->name_prize = $translations->id.',';
-
-        $translations = new Language();
-        $translations->language_id = 'en';
-        $translations->target_id = ''.$lottery->id;
-        $translations->alias = 'prize';
-        $translations->text = $this->name_prize_en;
-        $translations->save();
-        $lottery->name_prize .= $translations->id.',';
-
-        $translations = new Language();
-        $translations->language_id = 'ch';
-        $translations->target_id = ''.$lottery->id;
-        $translations->alias = 'prize';
-        $translations->text = $this->name_prize_ch;
-        $translations->save();
-        $lottery->name_prize .= $translations->id.',';
         $lottery->save();
         return $lottery->id;
 
     }
 
-    public static function fill($lottery,$translations){
+    public static function fill($lottery,$attributes){
 
         $model = new LotteryForm();
-        $model->name_ru = $translations;
-        $model->name_en = $translations;
-        $model->name_ch = $translations;
-        $model->status = $lottery->status;
+
         $model->currency_start = $lottery->currency_start;
-        $model->description_ru = $translations;
-        $model->description_en = $translations;
-        $model->description_ch = $translations;
-        $model->rate;
-        $model->name_prize_ru = $translations;
-        $model->name_prize_en = $translations;
-        $model->name_prize_ch = $translations;
+        $model->status = $lottery->status;
+        $model->rate = $lottery->rate;
         $model->img = $lottery->img;
-        //$model->target_id = $lottery-> target_id;
+
+        $langs = Language::find()->where(['activ'=>'activ'])->all();
+
+        foreach ($langs as $lang) {
+
+            foreach ($attributes as $attribut)
+            {
+                $ob_text = Translation::find()->where(['language_id'=>$lang->id,'target_id'=>$lottery->id,'alias'=>$attribut])->select(['text'])->one();
+                $model->{$lang->alias.'_'.$attribut} = $ob_text->text;
+            }
+        }
 
       return $model;
     }
 
+    public static function update($lottery, $attributes, $model){
 
+        $lottery->currency_start = $model->currency_start;
+        $lottery->status = $model->status;
+        $lottery->rate = $model->rate;
+        $lottery->img = $model->img;
+        $lottery->save();
+
+        $langs = Language::find()->where(['activ'=>'activ'])->all();
+
+        foreach ($langs as $lang) {
+
+            foreach ($attributes as $attribut)
+            {
+                $translations = Translation::find()->where(['language_id'=>$lang->id,'target_id'=>$lottery->id,'alias'=>$attribut])->one(); ;
+                $translations->text = $model->{$lang->alias.'_'.$attribut};
+                $translations->save();
+            }
+        }
+        return $lottery->id;
+    }
 
 }

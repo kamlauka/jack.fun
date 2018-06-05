@@ -44,7 +44,7 @@ AppAsset::register($this);
 
     } else {
         $menuItems[] = ['label' => 'Log', 'url' => ['/log/index']];
-        $menuItems[] = ['label' => 'Translations', 'url' => ['/language/index']];
+        $menuItems[] = ['label' => 'Translations', 'url' => ['/translation/index']];
         $menuItems[] = ['label' => 'Lottery', 'url' => ['/lottery/index']];
         $menuItems[] = ['label' => 'Disputes', 'url' => ['/dispute/index']];
         $menuItems[] = ['label' => 'Jackpots', 'url' => ['/jackpot/index']];

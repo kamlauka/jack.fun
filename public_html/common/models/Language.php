@@ -8,9 +8,9 @@ use Yii;
  * This is the model class for table "language".
  *
  * @property int $id
- * @property int $language_id
  * @property string $alias
- * @property string $text
+ * @property string $name
+ * @property string $activ
  */
 class Language extends \yii\db\ActiveRecord
 {
@@ -28,11 +28,9 @@ class Language extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['language_id', 'alias', 'text'], 'required'],
-            [['target_id'], 'integer'],
-            [['text'], 'string'],
-            [['language_id'], 'string'],
-
+            [['alias', 'name', 'activ'], 'required'],
+            [['alias', 'name'], 'string', 'max' => 32],
+            [['activ','alias'], 'string', 'max' => 8],
         ];
     }
 
@@ -43,10 +41,9 @@ class Language extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'language_id' => 'Language',
             'alias' => 'Alias',
-            'text' => 'Text',
-            'target_id' => 'target id',
+            'name' => 'Name',
+            'activ' => 'Activ',
         ];
     }
 }

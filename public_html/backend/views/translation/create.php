@@ -4,13 +4,13 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model common\models\Language */
+/* @var $model common\models\Translation */
 
-$this->title = Yii::t('app', 'Create Language');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Languages'), 'url' => ['index']];
+$this->title = Yii::t('app', 'Create Translation');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Translations'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="language-create">
+<div class="translation-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

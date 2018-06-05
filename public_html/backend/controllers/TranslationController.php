@@ -3,16 +3,16 @@
 namespace backend\controllers;
 
 use Yii;
-use common\models\Language;
-use backend\models\LanguageSearch;
+use common\models\Translation;
+use backend\models\TranslationSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * LanguageController implements the CRUD actions for Language model.
+ * TranslationController implements the CRUD actions for Translation model.
  */
-class LanguageController extends Controller
+class TranslationController extends Controller
 {
     /**
      * @inheritdoc
@@ -30,12 +30,12 @@ class LanguageController extends Controller
     }
 
     /**
-     * Lists all Language models.
+     * Lists all Translation models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new LanguageSearch();
+        $searchModel = new TranslationSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,7 +45,7 @@ class LanguageController extends Controller
     }
 
     /**
-     * Displays a single Language model.
+     * Displays a single Translation model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -58,13 +58,13 @@ class LanguageController extends Controller
     }
 
     /**
-     * Creates a new Language model.
+     * Creates a new Translation model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Language();
+        $model = new Translation();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -76,7 +76,7 @@ class LanguageController extends Controller
     }
 
     /**
-     * Updates an existing Language model.
+     * Updates an existing Translation model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -96,7 +96,7 @@ class LanguageController extends Controller
     }
 
     /**
-     * Deletes an existing Language model.
+     * Deletes an existing Translation model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -110,15 +110,15 @@ class LanguageController extends Controller
     }
 
     /**
-     * Finds the Language model based on its primary key value.
+     * Finds the Translation model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Language the loaded model
+     * @return Translation the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Language::findOne($id)) !== null) {
+        if (($model = Translation::findOne($id)) !== null) {
             return $model;
         }
 
