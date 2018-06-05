@@ -133,10 +133,10 @@
   &__prize-price {
     position: relative;
     z-index: 300;
-    padding: 5%;
+    padding: 8%;
     background: $pat-cloud-round center no-repeat;
     background-size: contain;
-    font-size: 10em;
+    font-size: 7em;
     color: #00CC69;
     @media (max-width: $second-width) {
       padding: 10%;

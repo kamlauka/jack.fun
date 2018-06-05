@@ -2,7 +2,7 @@
 
 @import "extends.scss";
 
-@import "cabinet.scss";
+
 @import "header.scss";
 @import "first-page.scss";
 @import "awarding-prizes.scss";
@@ -12,8 +12,10 @@
 @import "terrestrial-world.scss";
 @import "seo-section.scss";
 @import "footer.scss";
-@import "terms.scss";
-@import "jackpot.scss";
+@import "terms-page.scss";
+@import "jackpot-page.scss";
+@import "prizes-page.scss";
+@import "cabinet-page.scss";
 
 
 * {
@@ -49,6 +51,21 @@ body {
   }
 
 }
+
+.mobile-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  position: relative;
+  z-index: 1;
+}
+
+.page-container {
+  position: relative;
+  margin-top: 51px;
+  overflow: hidden;
+}
+
 
 .container {
   max-width: 1280px;
@@ -1183,14 +1200,27 @@ body {
     padding: 5px 2%;
     outline: 1px solid #596E6A;
     outline-offset: -3px;
-    font-size: initial;
+    font-size: 14px;
     background: $pat-crumb-no-active no-repeat;
     background-size: cover;
+
+    @media (max-width: $mobile-width) {
+      box-sizing: border-box;
+      width: 50%;
+      text-align: center;
+    }
+    @media (max-width: 450px) {
+      font-size: 11px;
+    }
+
     &_active {
       color: $main-color;
       background: $pat-crumb-active no-repeat;
       background-size: cover;
     }
+  }
+  @media (max-width: $mobile-width) {
+    order: 2;
   }
 }
 
@@ -1231,6 +1261,12 @@ body {
     top: 5.1%;
     bottom: 0;
     z-index: 9000;
+  }
+  &_bottom {
+    top: 70%;
+  }
+  &_over-all {
+    z-index: 50;
   }
 }
 .cloud-container_bottom-scale {
@@ -1356,7 +1392,6 @@ body {
     left: -11%;
     top: -7%;
     z-index: 8001;
-
   }
 
   &_right-big {
@@ -1440,5 +1475,52 @@ body {
     top: -24%;
     width: 70%;
     z-index: 0;
+  }
+  &_center-page {
+    left: 24%;
+    width: 110%;
+    top: 0;
+    opacity: 0.9;
+  }
+  &_left-bottom {
+    left: -8%;
+    top: 64%;
+    width: 81%;
+    z-index: 0;
+  }
+  &_right-bottom {
+    left: 78%;
+    top: 64%;
+    width: 81%;
+    z-index: 0;
+  }
+}
+
+
+.button {
+  min-width: 15%;
+  padding: 5px 15px;
+  margin: 1% 5%;
+  border: 6px solid;
+  font-size: 1.5em;
+  transition: box-shadow 0.3s ease-in-out;
+  position: relative;
+  z-index: 8000;
+  &_gold {
+    color: white;
+    background-color: $main-color;
+    border-color: $add-color;
+    &:hover {
+      box-shadow: inset 0 0 20px 6px $add-color;
+    }
+  }
+
+  &_dark {
+    color: $main-color;
+    background-color: $gray-color;
+    border-color: #454E4E;
+    &:hover {
+      box-shadow: inset 0 0 20px 6px #454E4E;
+    }
   }
 }

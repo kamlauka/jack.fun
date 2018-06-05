@@ -78,6 +78,7 @@
   &__icon {
     width: 47px;
     margin: 10px;
+    border-radius: 50%;
     -webkit-transition: all 0.2s linear 0s;
     -o-transition: all 0.2s linear 0s;
     -ms-transition: all 0.2s linear 0s;
@@ -86,6 +87,7 @@
 
     &:hover {
       filter: drop-shadow(0 0 1em $main-color);
+      background-color: $main-color;
     }
 
     @media (max-width: $third-width) {
@@ -95,6 +97,21 @@
     @media (max-width: $fourth-width) {
 
       padding: 30px 0;
+    }
+    &_facebook {
+      background-color: #3B5998;
+    }
+    &_twitter {
+      background-color: #55ACEE;
+    }
+    &_insta {
+      background-color: #68443A;
+    }
+    &_google-plus {
+      background-color: #DC4E41;
+    }
+    &_vk {
+      background-color: #4D76A1;
     }
   }
 
