@@ -1,0 +1,17 @@
+{
+  "name": "jackpotv2",
+  "version": "1.0.1",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "browser-sync": "^2.24.4",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^4.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

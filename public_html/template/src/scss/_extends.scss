@@ -1,0 +1,177 @@
+._font {
+
+  &__10em {
+    font-size: 10em;
+  }
+
+  &__5em {
+    font-size: 5em;
+  }
+
+  &__3em {
+    font-size: 3em;
+  }
+
+  &__2-3em {
+    font-size: 2.3em;
+  }
+
+  &__1-5em {
+    font-size: 1.5em;
+  }
+
+  &__1-3em {
+    font-size: 1.3em;
+  }
+
+  &__1-2em {
+    font-size: 1.2em;
+  }
+
+  &__1em {
+    font-size: 1em;
+  }
+}
+
+@mixin mini-font_7em ($width) {
+  @media (max-width: $width) {
+    font-size: 7em;
+  }
+}
+
+@mixin mini-font_2-4em ($width) {
+  @media (max-width: $width) {
+    font-size: 2.4em;
+  }
+}
+
+@mixin mini-font_3em ($width) {
+  @media (max-width: $width) {
+    font-size: 3em;
+  }
+}
+
+@mixin mini-font_2em ($width) {
+    @media (max-width: $width) {
+      font-size: 2em;
+    }
+  }
+
+@mixin mini-font_1-4em ($width) {
+  @media (max-width: $width) {
+    font-size: 1.4em;
+  }
+}
+
+@mixin mini-font_1-2em ($width) {
+    @media (max-width: $width) {
+      font-size: 1.2em;
+    }
+  }
+
+@mixin mini-font_1-7em ($width) {
+    @media (max-width: $width) {
+      font-size: 1.7em;
+    }
+  }
+
+@mixin mini-font_1-3em ($width) {
+    @media (max-width: $width) {
+      font-size: 1.3em;
+    }
+  }
+
+@mixin mini-font_1em ($width) {
+    @media (max-width: $width) {
+      font-size: 1em;
+    }
+  }
+
+//
+// колонны по бокам блока
+//
+
+.pillar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 15%;
+  z-index: 2000;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  &_color_dark {
+    background: $pat-dark-pillar-1 top left no-repeat, $pat-dark-pillar-3 bottom left no-repeat, $pat-dark-pillar-2 repeat-y;
+  }
+
+  &_color_grey {
+    background: $pat-grey-pillar-1 top left no-repeat, $pat-grey-pillar-3 bottom left no-repeat, $pat-grey-pillar-2 repeat-y;
+  }
+
+  &_color_gold {
+    background: $pat-gold-pillar-1 top left no-repeat, $pat-gold-pillar-3 bottom left no-repeat, $pat-gold-pillar-2 repeat-y;
+  }
+
+  &_position_right {
+    right: 0;
+    transform: scale(-1, 1);
+  }
+  &_position_left {
+    left: 0;
+  }
+
+  @media (max-width: $first-width) {
+    background-size: 47%, 47%, 32.5%;
+  }
+
+  @media (max-width: $mobile-width) {
+    display: none;
+  }
+}
+
+//
+// Занавеси по краям блока
+//
+
+.curtain {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 500;
+  width: 14%;
+
+
+  @media (max-width: 930px) {
+    width: 15%;
+  }
+  @media (max-width: 860px) {
+    width: 16%;
+  }
+  @media (max-width: 800px) {
+    width: 17%;
+  }
+  &_position_left {
+    left: 0;
+    transform: scale(-1, 1);
+    margin-left: 2%;
+  }
+  &_position_right {
+    right: 0;
+    margin-right: 2%;
+  }
+  &_color_red {
+    background: $pat-curtain-red no-repeat;
+    background-size: contain;
+  }
+  &_color_blue {
+    background: $pat-curtain-blue no-repeat;
+    background-size: contain;
+  }
+  &_color_red-1 {
+    background: $pat-curtain-red-little no-repeat;
+    background-size: contain;
+  }
+  @media (max-width: $mobile-width) {
+    display: none;
+  }
+}
