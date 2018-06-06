@@ -5,12 +5,12 @@ namespace backend\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\Language;
+use common\models\Translation;
 
 /**
- * LanguageSearch represents the model behind the search form of `common\models\Language`.
+ * TranslationSearch represents the model behind the search form of `common\models\Translation`.
  */
-class LanguageSearch extends Language
+class TranslationSearch extends Translation
 {
     /**
      * @inheritdoc
@@ -18,8 +18,8 @@ class LanguageSearch extends Language
     public function rules()
     {
         return [
-            [['id'], 'integer'],
-            [['alias', 'name', 'activ'], 'safe'],
+            [['id', 'language_id', 'target_id'], 'integer'],
+            [['alias', 'text'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class LanguageSearch extends Language
      */
     public function search($params)
     {
-        $query = Language::find();
+        $query = Translation::find();
 
         // add conditions that should always apply here
 
@@ -60,11 +60,12 @@ class LanguageSearch extends Language
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
+            'language_id' => $this->language_id,
+            'target_id' => $this->target_id,
         ]);
 
         $query->andFilterWhere(['like', 'alias', $this->alias])
-            ->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'activ', $this->activ]);
+            ->andFilterWhere(['like', 'text', $this->text]);
 
         return $dataProvider;
     }

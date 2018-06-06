@@ -1,6 +1,10 @@
 <?php
 namespace frontend\controllers;
 
+use common\models\Jackpot;
+use common\models\Language;
+use common\models\Lottery;
+use common\models\Translation;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
@@ -72,7 +76,49 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+
+        //$language = $session->get('language');
+        // $language = $session['language'];
+
+        //$language_alias = isset($_SESSION['language']) ? $_SESSION['language'] : $_SESSION['language'] = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+        //$language =  Language::find()->where(['alias'=>$language_alias])->one();
+        //$lang = $_SESSION['language'];
+
+        $T = Translation::find()->where(['alias'=>'main_T','language_id'=>$_SESSION['language']])->one();
+        $bitcoin = Translation::find()->where(['alias'=>'main_bitcoin','language_id'=>$_SESSION['language']])->one();
+        $hands = Translation::find()->where(['alias'=>'main_hands','language_id'=>$_SESSION['language']])->one();
+        $play = Translation::find()->where(['alias'=>'main_play','language_id'=>$_SESSION['language']])->one();
+        $prize = Translation::find()->where(['alias'=>'main_prize','language_id'=>$_SESSION['language']])->one();
+
+
+        if($lottery =  Lottery::find()->where(['status' => '1' ])->one()){
+            $lottery_name_prize = Translation::find()->where(['alias'=>'name_prize','language_id'=>$_SESSION['language']])->one();
+            $lottery_description = Translation::find()->where(['alias'=>'description','language_id'=>$_SESSION['language']])->one();
+        }
+
+        if($jackpot = Jackpot::find()->where(['status' => 1 ])->one()){
+
+            $jackpot_description = Translation::find()->where(['alias' => 'jackpot_description', 'language_id' => $_SESSION['language']])->one();
+        }
+
+        $seo_block_title = Translation::find()->where(['alias' => 'seo_block_title', 'language_id' => $_SESSION['language']])->one();
+        $seo_block_text = Translation::find()->where(['alias' => 'seo_block_text', 'language_id' => $_SESSION['language']])->one();
+
+        return $this->render('index',[
+
+           'T' => $T,
+           'bitcoin' => $bitcoin,
+           'hands' => $hands,
+           'play' => $play,
+           'prize' => $prize,
+           'lottery' => $lottery,
+           'lottery_name_prize' => $lottery_name_prize,
+           'lottery_description' => $lottery_description,
+           'jackpot' => $jackpot,
+           'jackpot_description' => $jackpot_description,
+           'seo_block_text' => $seo_block_text,
+           'seo_block_title' => $seo_block_title,
+        ]);
     }
 
     /**
@@ -100,7 +146,6 @@ class SiteController extends Controller
 
     /**
      * Logs out the current user.
-     *
      * @return mixed
      */
     public function actionLogout()
@@ -203,5 +248,13 @@ class SiteController extends Controller
         return $this->render('resetPassword', [
             'model' => $model,
         ]);
+    }
+
+    public function actionLanguage($lang){
+
+        $session = Yii::$app->session;
+        $lang =  Language::find()->where(['alias'=>$lang])->one();
+        $session->set('language', $lang->id);
+        return $this->redirect(Yii::$app->request->referrer);
     }
 }

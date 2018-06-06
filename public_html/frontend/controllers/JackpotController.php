@@ -21,7 +21,7 @@ class JackpotController extends Controller
 //        $user_id = \Yii::$app->user->identity->id;
 //        $user = User::findOne($user_id);
 
-        $model = Jackpot::find()->where(['status'=>1,'result'=>null])->one();
+        $model = Jackpot::find()->where(['status'=>1,'result'=>null])->all();
 
 
         return $this->render('index',[
@@ -29,7 +29,14 @@ class JackpotController extends Controller
         ]);
     }
 
+    public function actionView($id)
+    {
+        $model = Jackpot::findOne($id);
 
+        return $this->render('index',[
+            'model'=>$model
+        ]);
+    }
 
 
 }
