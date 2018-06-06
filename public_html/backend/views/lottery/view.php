@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model common\models\Lottery */
 
-$this->title = $model->name;
+$this->title = '№'.$model->id;
 $this->params['breadcrumbs'][] = ['label' => 'Lotteries', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'name',
             'total',
             'status',
-            'date_start',
+            'currency_start',
             'result',
             'description:ntext',
             'rate',

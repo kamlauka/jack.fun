@@ -5,7 +5,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\Banlist */
 
-$this->title = 'Update Banlist: {nameAttribute}';
+$this->title = 'Update User Banlist:';
+$this->params['breadcrumbs'][] = ['label' => 'User', 'url' => ['/user/index']];
 $this->params['breadcrumbs'][] = ['label' => 'Banlists', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';

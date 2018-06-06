@@ -1388,7 +1388,11 @@
 
 @font-face {
   font-family: IceAge;
+<<<<<<< HEAD
   src: url(../fonts/IceAgeRUS.ttf) format("ttf"), url("../fonts/IceAgeRUS.woff") format("woff"); }
+=======
+  src: url(../../../frontend/web/fonts/IceAgeRUS.ttf); }
+>>>>>>> 7f8adf94d8ead9575a255555c973beeab3262a4a
 
 @font-face {
   font-family: ShowCardGothic;

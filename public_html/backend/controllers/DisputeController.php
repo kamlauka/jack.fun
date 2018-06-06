@@ -103,7 +103,15 @@ class DisputeController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+
+            if($img = UploadedFile::getInstance($model, 'img')){
+
+                $img->saveAs(Yii::getAlias('@common/uploads/dispute/' . $img->baseName . '.' . $img->extension));
+                $model->img = '/../../common/uploads/dispute/'. $img->baseName . '.' . $img->extension;
+                $model->save();
+            }
+
             return $this->redirect(['view', 'id' => $model->id]);
         }
 

@@ -17,15 +17,7 @@ use dosamigos\datetimepicker\DateTimePicker;
     <?= $form->field($model, 'name_en')->textInput(['maxlength' => true]) ?>
     <?= $form->field($model, 'name_ch')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'date_start')->widget(DateTimePicker::className(), [
-        'language' => 'en',
-        'size' => 'ms',
-        'clientOptions' => [
-            'autoclose' => true,
-            'format' => 'yyyy.mm.dd hh:ii:ss',
-            'todayBtn' => true
-        ]
-    ]);?>
+    <?= $form->field($model, 'currency_start')->textInput() ?>
 
     <?php
 //    if($model->result){
@@ -52,9 +44,9 @@ use dosamigos\datetimepicker\DateTimePicker;
         }
     ?>
 
-
-
     <?= $form->field($model, 'status')->dropDownList(['В ожидание','Публиковать']); ?>
+
+    http://jackpot.fun/lottery/<?= $form->field($url, 'value')->textInput(); ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

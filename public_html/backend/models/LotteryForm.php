@@ -14,7 +14,7 @@ class LotteryForm extends Model
     public $name_ru;
     public $name_en;
     public $name_ch;
-    public $date_start;
+    public $currency_start;
     public $rate;
     public $description_ru;
     public $description_en;
@@ -34,8 +34,9 @@ class LotteryForm extends Model
     public function rules()
     {
         return [
-            [['name_ru', 'name_en','name_ch','date_start','description_ru','description_en','description_ch' ,'rate', 'name_prize_ru', 'name_prize_en', 'name_prize_ch', 'img', 'status'], 'required'],
+            [['name_ru', 'name_en','name_ch','currency_start','description_ru','description_en','description_ch' , 'name_prize_ru', 'name_prize_en', 'name_prize_ch', 'img', 'status'], 'required'],
         [['target_id'], 'safe'],
+        [['rate'], 'number'],
         ];
     }
 
@@ -45,12 +46,12 @@ class LotteryForm extends Model
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
+
             'name_ru' => 'Name text ru',
             'name_en' => 'Name text en',
             'name_ch' => 'Name text ch',
             'status' => 'Status',
-            'date_start' => 'Date Start',
+            'currency_start' => 'Currency_start',
             'description_ru' => 'Description ru',
             'description_en' => 'Description en',
             'description_ch' => 'Description ch',
@@ -69,12 +70,20 @@ class LotteryForm extends Model
         $lottery = new Lottery();
 
         $lottery->name = '...';
-        $lottery->date_start = $this->date_start;
+        $lottery->currency_start = $this->currency_start;
         $lottery->status = $this->status;
         $lottery->description = '...';
         $lottery->name_prize = '...';
         $lottery->rate = $this->rate;
-        $lottery->img = 'hg';
+        $lottery->img = $this->img;
+
+        //$lottery->img = 'hg';
+
+
+
+
+
+
         $lottery->save();
 
         $translations = new Language();
@@ -149,8 +158,31 @@ class LotteryForm extends Model
         $translations->save();
         $lottery->name_prize .= $translations->id.',';
         $lottery->save();
+        return $lottery->id;
 
     }
+
+    public static function fill($lottery,$translations){
+
+        $model = new LotteryForm();
+        $model->name_ru = $translations;
+        $model->name_en = $translations;
+        $model->name_ch = $translations;
+        $model->status = $lottery->status;
+        $model->currency_start = $lottery->currency_start;
+        $model->description_ru = $translations;
+        $model->description_en = $translations;
+        $model->description_ch = $translations;
+        $model->rate;
+        $model->name_prize_ru = $translations;
+        $model->name_prize_en = $translations;
+        $model->name_prize_ch = $translations;
+        $model->img = $lottery->img;
+        //$model->target_id = $lottery-> target_id;
+
+      return $model;
+    }
+
 
 
 }

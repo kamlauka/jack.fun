@@ -41,6 +41,8 @@ use yii\web\IdentityInterface;
 class User extends \yii\db\ActiveRecord implements IdentityInterface
 {
 
+   // public $auth_key_repeat;
+
     const STATUS_DELETED = 0;
     const STATUS_ACTIVE = 1;
     const STATUS_HOLD = 2;
@@ -60,12 +62,17 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     {
         return [
             [['username', 'auth_key', ], 'required'],
-            [['created_at', 'updated_at'], 'integer'],
+
+//            [['auth_key_repeat'], 'required','on'=>'register'],
+//            ['auth_key_repeat', 'compare', 'on'=>'register'],
+            //['auth_key_repeat', 'compare', 'compareAttribute'=>'auth_key', 'message'=>"Passwords don't match" ],
+
             [['balance'], 'number'],
-            [['username', 'auth_key', 'password_hash','password_reset_token', 'password_reset_token', 'email', 'phone', 'created_at', 'updated_at', 'type', 'wallet'], 'string'],
-            [['status'], 'string', 'max' => 4],
-            [['type'], 'string', 'max' => 2],
-            [['wallet'], 'string', 'max' => 32],
+            [['username', 'auth_key', 'password_hash','password_reset_token', 'password_reset_token', 'wallet'], 'string'],
+            [['status'], 'integer'],
+            [['email'], 'email'],
+            [['type'], 'integer', 'max' => 2],
+            [['wallet','phone'], 'string', 'max' => 32],
             [['avatar','file'], 'file', 'extensions' => 'png, jpg'],
         ];
     }
@@ -83,8 +90,8 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
             'password_reset_token' => 'Password Reset Token',
             'email' => 'Email',
             'status' => 'Status',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+//            'created_at' => 'Created At',
+//            'updated_at' => 'Updated At',
             'phone' => 'Phone',
             'type' => 'Type',
             'balance' => 'Balance',
@@ -355,13 +362,34 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
             }
 
             if($this->file){
-                $this->file->saveAs(__DIR__ . '/../uploads/documents/'. $this->file->baseName . '.' . $this->file->extension);
-                $this->file = __DIR__ . '/../uploads/documents/'. '.' . $this->file->extension;
+                $this->file->saveAs(__DIR__ . '/../uploads/document/' . $this->file->baseName . '.' . $this->file->extension);
+                $this->file = __DIR__ . '/../uploads/document/' . '.' . $this->file->extension;
             }
             return true;
         } else {
             return false;
         }
     }
+
+    public static function getListAllGamer(){
+            return User::find()->where(['type' => 0 ])->select(['id'])->indexBy('id')->column();
+
+    }
+
+//    public function afterSave()
+//    {
+//        parent::afterSave();
+//        Tag::model()->updateFrequency($this->_oldTags, $this->tags);
+//    }
+
+//    private $_oldTags;
+//
+//    public function afterFind()
+//    {
+//        parent::afterFind();
+//      //  $this->_oldTags = $this->tags;
+//    }
+
+
 
 }

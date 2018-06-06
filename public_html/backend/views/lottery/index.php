@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'name',
            // 'total',
             'status',
-            'date_start',
+            'currency_start',
             //'result',
             'description:ntext',
             'rate',

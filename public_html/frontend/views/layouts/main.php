@@ -1,6 +1,7 @@
 <?php
 
 /* @var $this \yii\web\View */
+
 /* @var $content string */
 
 use yii\helpers\Html;
@@ -25,53 +26,97 @@ AppAsset::register($this);
 </head>
 <body>
 <?php $this->beginBody() ?>
+<header class="header">
 
+    <div class="header__container container flex-gorizontal flex-gorizontal_none-vertical">
+        <div class="flags flex-gorizontal flex-gorizontal_none-vertical">
+            <?= Html::img('/images/flag3.png', ['alt' => 'Chinese', 'class' => 'flags__image']) ?>
+            <?= Html::img('/images/flag2.png', ['alt' => 'Russian', 'class' => 'flags__image']) ?>
+            <?= Html::img('/images/flag1.png', ['alt' => 'English', 'class' => 'flags__image']) ?>
+        </div>
+        <div class="menu-container flex-gorizontal flex-gorizontal_none-vertical">
+            <nav class="menu" onclick="openbox('white-background')">
+                <input id="link-top" type="checkbox">
+                <label class="menu__down" for="link-top">
+                    <div class="menu__nav">
+                        <span>MENU</span>
+                        <?= Html::img('/images/gamburger.png', ['alt' => 'hamburger menu','class' => 'menu__icon']) ?>
+                    </div>
+                </label>
+                <ul>
+                    <li><?= Html::a('Jackpot','/jackpot/index') ?></li>
+                    <li><?= Html::a('Lottery','/lottery/index') ?></li>
+                    <?php if (Yii::$app->user->isGuest) { ?>
+                        <li><?= Html::a('Signup','/site/signup') ?></li>
+                        <li><?= Html::a('Login','/site/login') ?></li>
+                    <?php } else { ?>
+                        <li><?= Html::a('Cabinet','/cabinet/index') ?></li>
+                        <li><?= Html::a('Logout('.Yii::$app->user->identity->username .')','/site/logout') ?></li>
+
+                    <?php } ?>
+                </ul>
+                <div id="white-background"></div>
+            </nav>
+        </div>
+    </div>
+    <div class="orange-border orange-border_edge"></div>
+</header>
 <div class="wrap">
-    <?php
-    NavBar::begin([
-        'brandLabel' => Yii::$app->name,
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
-        ],
-    ]);
-    $menuItems = [
-        ['label' => 'Home', 'url' => ['/site/index']],
-        ['label' => 'About', 'url' => ['/site/about']],
-        ['label' => 'Contact', 'url' => ['/site/contact']],
-    ];
-    if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
-        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
-    } else {
-        $menuItems[] = ['label' => 'Cabinet', 'url' => ['/cabinet/index']];
 
-    }
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => $menuItems,
-    ]);
-    NavBar::end();
-    ?>
 
-    <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
         <?= Alert::widget() ?>
         <?= $content ?>
-    </div>
-</div>
 
-<footer class="footer">
-    <div class="container">
-        <p class="pull-left">&copy; <?= Html::encode(Yii::$app->name) ?> <?= date('Y') ?></p>
+    <footer class="footer">
+        <div class="footer-container footer-container_gradient">
+            <div class="footer-block container  flex-gorizontal">
+                <div class="footer-block__left-align-block">
 
-        <p class="pull-right"><?= Yii::powered() ?></p>
-    </div>
-</footer>
+                    <?= Html::a('Home page',Yii::$app->homeUrl,['class'=>'footer-block__link footer-block__link_first']) ?>
+                    <?= Html::a('Lottery "Drawing of goods"','/lottery/index',['class'=>'footer-block__link']) ?>
 
-<?php $this->endBody() ?>
+                </div>
+                <div class="footer-block__center-align-block">
+
+                    <?= Html::a('List of disputes','#',['class'=>'footer-block__link']) ?>
+                    <?= Html::a('The page of the dispute','#',['class'=>'footer-block__link']) ?>
+
+                </div>
+                <div class="footer-block__right-align-block">
+
+                    <?= Html::a('Terms of agreement','/site/agreement',['class'=>'footer-block__link']) ?>
+                    <?= Html::a('My Account / Login / Register','/site/signup',['class'=>'footer-block__link']) ?>
+
+                </div>
+            </div>
+        </div>
+        <div class="footer-container footer-container_dark">
+            <div class="footer-block container  flex-gorizontal">
+                <div class="footer-block__left-align-block footer-block__left-align-block__margin">
+                    <p>38 (093) 670 670 70 </p>
+                    <?= Html::a('www.jackpo.fun.com','#',['class'=>'footer-block__link footer-block__link_font_gold']) ?>
+                </div>
+                <div class="footer-block__center-align-block">
+                    <a class="footer-block__icon" href="#"><img src="/images/icon-f.svg" alt=""></a>
+                    <a class="footer-block__icon" href="#"><img src="/images/icon-t.svg" alt=""></a>
+                    <a class="footer-block__icon" href="#"><img src="/images/icon-i.svg" alt=""></a>
+                    <a class="footer-block__icon" href="#"><img src="/images/icon-g.svg" alt=""></a>
+                    <a class="footer-block__icon" href="#"><img src="/images/icon-v.svg" alt=""></a>
+                </div>
+                <div class="footer-block__right-align-block">
+                    <a class="footer-block__terlabs" href="http://terlabs.com">
+                        <img class="footer-block__terlabs-image"src="/images/terlabs.png" alt="terlabs">
+                    </a>
+                    <p>
+                        <span class="footer-block__terlabs-work">Создание и разработка сайтов</span>
+                        <span class="footer-block__small-number"> +38 048 789 44 54</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div>
+        <?php $this->endBody() ?>
 </body>
 </html>
 <?php $this->endPage() ?>

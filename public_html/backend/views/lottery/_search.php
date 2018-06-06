@@ -23,7 +23,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'status') ?>
 
-    <?= $form->field($model, 'date_start') ?>
+    <?= $form->field($model, 'currency_start') ?>
 
     <?php // echo $form->field($model, 'result') ?>
 
