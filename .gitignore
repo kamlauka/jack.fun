@@ -9,3 +9,6 @@ puphpet/config-custom.yaml
 .vagrant
 .idea
 public_html/template/dist/fonts/IceAgeRUS.ttf
+/node_modules
+/.idea
+

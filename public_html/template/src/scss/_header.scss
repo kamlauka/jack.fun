@@ -54,6 +54,8 @@ $e: cubic-bezier(0,.5,.5,1.1);
     background-color: #B3C7C2;
     transform-style: preserve-3d;
     &:hover, &:focus {
+      background-color: #37423E;
+      color: #B3C7C2;
     }
     &:active {
     }

@@ -120,6 +120,9 @@
     border: 2px solid #DE7300;
     background-color: #B3C7C2;
     transform-style: preserve-3d; }
+    .menu a:hover, .menu a:focus {
+      background-color: #37423E;
+      color: #B3C7C2; }
     @media (max-width: 768px) {
       .menu a {
         padding: 7px 3%; } }
@@ -1183,6 +1186,9 @@
 .terms-page {
   background: url("../images/common/grass.png") bottom no-repeat, linear-gradient(to bottom, #44dffb 0%, #f9f9f9 73%);
   background-size: contain; }
+  @media (max-width: 768px) {
+    .terms-page {
+      background-size: 200%, contain; } }
 
 .terms {
   margin: 8% 0 15%; }
@@ -1197,7 +1203,6 @@
         margin: 1em 0 0.2em;
         font-size: 2.3em; } }
   .terms__text {
-    max-height: 50vh;
     padding: 0 20px; }
 
 .lotery-page {
@@ -1205,15 +1210,43 @@
   margin-top: 51px;
   overflow: hidden;
   background: linear-gradient(to bottom, #44dffb 0%, #f9f9f9 73%); }
+  .lotery-page-timer {
+    flex: 1.3;
+    align-self: flex-end;
+    margin: 0 1%;
+    font-size: 0.9em; }
+    @media (max-width: 768px) {
+      .lotery-page-timer {
+        order: -1;
+        margin: 0 auto; } }
+
+.timer__time_bottom {
+  margin-bottom: 5%; }
+
+.over-all {
+  z-index: 500; }
 
 .participate {
   flex: 1; }
+  @media (max-width: 768px) {
+    .participate {
+      padding-top: 10%; } }
   .participate_top {
     margin-top: 7%; }
+    @media (max-width: 768px) {
+      .participate_top {
+        margin-top: 0%; } }
   .participate_bottom {
     padding-bottom: 10%; }
+    @media (max-width: 768px) {
+      .participate_bottom {
+        padding-bottom: 0; } }
   .participate__text {
     padding: 0 20px; }
+  @media (max-width: 768px) {
+    .participate__second {
+      border-top: 0;
+      padding: 0; } }
 
 .algorithm {
   position: relative;
@@ -1246,18 +1279,6 @@
     .algorithm__number_position-left {
       left: 4%; }
 
-.lotery-page-timer {
-  flex: 1.3;
-  align-self: flex-end;
-  margin: 0 1%;
-  font-size: 0.9em; }
-
-.timer__time_bottom {
-  margin-bottom: 5%; }
-
-.over-all {
-  z-index: 500; }
-
 .prize-page {
   background: linear-gradient(to bottom, #44dffb 0%, #f9f9f9 73%); }
 
@@ -1265,7 +1286,6 @@
   position: relative;
   z-index: 1; }
   .prize-page-without-clouds__small-container {
-    width: 80%;
     display: flex;
     align-items: baseline;
     flex-wrap: nowrap;
@@ -1291,17 +1311,13 @@
         margin: 18% 0;
         font-size: 3em; } }
   .prize-page-without-clouds__prize-price {
-    font-size: 6em;
+    font-size: 5em;
     color: #00CC69;
-    padding-left: 20px; }
-    @media (max-width: 1400px) {
+    padding-left: 20px;
+    font-weight: normal; }
+    @media (max-width: 1052px) {
       .prize-page-without-clouds__prize-price {
-        padding: 10%;
-        font-size: 5em; } }
-    @media (max-width: 768px) {
-      .prize-page-without-clouds__prize-price {
-        position: absolute;
-        top: 40%; } }
+        font-size: 4em; } }
   .prize-page-without-clouds__prize-text {
     margin: 0;
     line-height: 1em;
@@ -1338,6 +1354,9 @@
     height: 100%;
     background: url("../images/prizes/arrow.png") no-repeat;
     background-size: contain; }
+
+.gold-text {
+  color: #FFB400; }
 
 .cabinet {
   position: relative;
@@ -1388,11 +1407,7 @@
 
 @font-face {
   font-family: IceAge;
-<<<<<<< HEAD
   src: url(../fonts/IceAgeRUS.ttf) format("ttf"), url("../fonts/IceAgeRUS.woff") format("woff"); }
-=======
-  src: url(../../../frontend/web/fonts/IceAgeRUS.ttf); }
->>>>>>> 7f8adf94d8ead9575a255555c973beeab3262a4a
 
 @font-face {
   font-family: ShowCardGothic;
@@ -1417,6 +1432,11 @@ body {
   position: relative;
   z-index: 1; }
 
+@media (max-width: 768px) {
+  .mobile-border {
+    margin-top: 28px;
+    box-shadow: 0 -10px 0 0px #FFB400, 0 -18px 0 1px #B17011, 0 -15px 0 15px #FFB400; } }
+
 .page-container {
   position: relative;
   margin-top: 51px;
@@ -1432,6 +1452,9 @@ body {
   @media (max-width: 1052px) {
     .container {
       max-width: 900px; } }
+  @media (max-width: 768px) {
+    .container_mob {
+      padding: 0; } }
 
 .flex-gorizontal, .colons__item {
   display: flex;
@@ -1517,7 +1540,6 @@ body {
   bottom: 0;
   right: 0;
   left: 0;
-  max-height: 100vh;
   z-index: 0; }
   @media (max-width: 1700px) {
     .clouds {
