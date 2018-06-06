@@ -29,7 +29,7 @@ class Translation extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['language_id', 'target_id', 'alias', 'text'], 'required'],
+            [['language_id', 'alias', 'text'], 'required'],
             [['language_id', 'target_id'], 'integer'],
             [['text'], 'string'],
             [['alias'], 'string', 'max' => 64],

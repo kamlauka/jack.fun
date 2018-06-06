@@ -371,8 +371,8 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
         }
     }
 
-    public static function getListAllGamer(){
-            return User::find()->where(['type' => 0 ])->select(['id'])->indexBy('id')->column();
+    public static function getListAllActivGamer(){
+            return User::find()->where(['type' => 0,'status' => 1 ])->select(['id'])->indexBy('id')->column();
 
     }
 

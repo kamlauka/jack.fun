@@ -9,11 +9,16 @@
 namespace frontend\components;
 
 use common\models\Url;
+use common\models\Language;
 
 class ReqestLoader {
 
     public function __construct()
     {
+
+        $language_alias = isset($_SESSION['language']) ? $_SESSION['language'] : $_SESSION['language'] = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+        $language =  Language::find()->where(['alias'=>$language_alias])->one();
+        $_SESSION['language'] = $language->id;
 
         $pieces = explode("/", $_SERVER['REQUEST_URI']);
         if(isset($pieces[2])){
@@ -23,6 +28,7 @@ class ReqestLoader {
                 exit();
             }
         }
+
     }
 
 }

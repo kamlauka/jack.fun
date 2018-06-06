@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
             'language_id',
-            'target_id',
+           // 'target_id',
             'alias',
             'text:ntext',
 

@@ -99,6 +99,11 @@ CREATE TABLE `language` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+INSERT INTO `language` (`id`, `alias`, `name`, `activ`) VALUES
+(1,	'ru',	'Русский',	'activ'),
+(2,	'en',	'English',	'activ'),
+(3,	'ch',	'中国',	'activ')
+ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `alias` = VALUES(`alias`), `name` = VALUES(`name`), `activ` = VALUES(`activ`);
 
 DROP TABLE IF EXISTS `log`;
 CREATE TABLE `log` (
@@ -187,23 +192,12 @@ DROP TABLE IF EXISTS `translation`;
 CREATE TABLE `translation` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `language_id` int(11) NOT NULL,
-  `target_id` int(11) NOT NULL,
+  `target_id` int(11) DEFAULT NULL,
   `alias` varchar(64) NOT NULL,
   `text` text NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `translation` (`id`, `language_id`, `target_id`, `alias`, `text`) VALUES
-(340,	1,	51,	'name',	'Ru Name edit'),
-(341,	1,	51,	'description',	'Ru Description edit'),
-(342,	1,	51,	'name_prize',	'Ru Name Prize edit'),
-(343,	2,	51,	'name',	'En Name edit'),
-(344,	2,	51,	'description',	'En Description edit'),
-(345,	2,	51,	'name_prize',	'En Name Prize edit'),
-(346,	3,	51,	'name',	'Ch Name edit'),
-(347,	3,	51,	'description',	'Ch Description edit'),
-(348,	3,	51,	'name_prize',	'Ch Name Prize edit')
-ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `language_id` = VALUES(`language_id`), `target_id` = VALUES(`target_id`), `alias` = VALUES(`alias`), `text` = VALUES(`text`);
 
 DROP TABLE IF EXISTS `url`;
 CREATE TABLE `url` (
@@ -236,4 +230,4 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
--- 2018-06-05 13:22:11
+-- 2018-06-06 14:22:13

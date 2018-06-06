@@ -34,8 +34,9 @@ public function __construct()
     public function rules()
     {
         return [
-            [['currency_start','img', 'status'], 'required'],
+            [['currency_start', 'status'], 'required'],
             [['target_id'], 'number'],
+            [['img',],'string'],
             [['rate'], 'number'],
         ];
     }
@@ -116,9 +117,9 @@ public function __construct()
     public static function update($lottery, $attributes, $model){
 
         $lottery->currency_start = $model->currency_start;
-        $lottery->status = $model->status;
+        $lottery->status = (string)$model->status;
         $lottery->rate = $model->rate;
-        $lottery->img = $model->img;
+       // $lottery->img = $model->img;
         $lottery->save();
 
         $langs = Language::find()->where(['activ'=>'activ'])->all();

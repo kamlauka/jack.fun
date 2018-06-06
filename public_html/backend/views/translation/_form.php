@@ -12,9 +12,7 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'language_id')->textInput() ?>
-
-    <?= $form->field($model, 'target_id')->textInput() ?>
+    <?= $form->field($model, 'language_id')->dropDownList(\common\models\Language::find()->select(['name','id'])->indexBy('id')->where(['activ'=>'activ'])->column()) ?>
 
     <?= $form->field($model, 'alias')->textInput(['maxlength' => true]) ?>
 

@@ -114,10 +114,17 @@ class LotteryController extends Controller
 
         if ($model->load(Yii::$app->request->post())) {
 
-            $img = UploadedFile::getInstance($model, 'img');
-            $img->saveAs(  Yii::getAlias('@common/uploads/lottery/' . $img->baseName . '.' . $img->extension));
-            $lottery->img = '/../../common/uploads/lottery/' . $img->baseName . '.' . $img->extension;
+            if($img = UploadedFile::getInstance($model, 'img')){
+
+                $img->saveAs(  Yii::getAlias('@common/uploads/lottery/' . $img->baseName . '.' . $img->extension));
+                $lottery->img = '/../../common/uploads/lottery/' . $img->baseName . '.' . $img->extension;
+
+            }else{
+                $lottery->img = $lottery->oldAttributes['img'];
+            }
+
             if($model->update($lottery,$this->attributes,$model)){
+                $url->load(Yii::$app->request->post());
                 $url->save();
                 return $this->redirect(['view', 'id' => $lottery->id]);
             }
