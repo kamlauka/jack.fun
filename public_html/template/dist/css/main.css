@@ -643,15 +643,15 @@
   .scene-of-prize__prize-price {
     position: relative;
     z-index: 300;
-    padding: 8%;
+    padding: 18%;
     background: url("../images/main/cloud-5.png") center no-repeat;
     background-size: contain;
-    font-size: 7em;
+    font-size: 5em;
     color: #00CC69; }
     @media (max-width: 1400px) {
       .scene-of-prize__prize-price {
         padding: 10%;
-        font-size: 6em; } }
+        font-size: 4em; } }
     @media (max-width: 768px) {
       .scene-of-prize__prize-price {
         position: absolute;
@@ -1538,7 +1538,9 @@ body {
     bottom: 0;
     z-index: 9000; }
   .clouds_bottom {
-    top: 70%; }
+    top: 67%;
+    width: 170%;
+    bottom: -10%; }
   .clouds_over-all {
     z-index: 50; }
 
@@ -1723,6 +1725,27 @@ body {
     top: 64%;
     width: 81%;
     z-index: 0; }
+  .cloud-container_left-bottom-jackpot {
+    left: -34%;
+    top: 6%;
+    width: 131%;
+    z-index: 8001; }
+  .cloud-container_right-bottom-jackpot {
+    left: 36%;
+    top: 1%;
+    z-index: 8001; }
+  .cloud-container_right-bottom-middle-jackpot {
+    left: 33%;
+    top: -15%;
+    width: 102%; }
+  .cloud-container_center-middle-jackpot {
+    width: 73%;
+    left: 12%;
+    top: -25%; }
+  .cloud-container_left-middle-jackpot {
+    width: 97%;
+    left: -21%;
+    top: -27%; }
 
 .button {
   min-width: 15%;

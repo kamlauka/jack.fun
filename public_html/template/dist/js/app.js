@@ -33,7 +33,7 @@
 //     }
 // });
 
-
+//ANIMATION LOGO
 window.addEventListener('scroll', function () {
     // var scrolled = window.pageYOffset || document.documentElement.scrollTop;
     var logo = $(".logo__picture").first();
@@ -42,9 +42,7 @@ window.addEventListener('scroll', function () {
     var cloudleft = $(".cloud-container_left-big .cloud").first();
     var cloudright = $(".cloud-container_right-big .cloud").first();
     function func() {
-        // clouds.css({'display' : 'none'});
-        logo.animate({'top': '-20', 'width': '20%', 'left': '39%'}, 1000);
-        // logo.css({'animation': 'totop 2s 0.5s linear'});
+        logo.animate({'top': '-14px', 'width': '16%', 'left': '41%'}, 1000);
     }
     function func1() {
         cloudleft.animate({'left': '50%', 'width': '50%'}, 2000);
@@ -52,15 +50,20 @@ window.addEventListener('scroll', function () {
         cloudBottom.animate({'top': '-50%'}, 2000);
         clouds.css({'display' : 'none'});
     }
-    if($(this).scrollTop() <= logo.offset().top) {
+    if($(this).scrollTop() <= ( logo.offset().top)) {
         console.log(logo);
         console.log(clouds);
-        logo.attr('src', 'dist/images/logo.gif');
+        logo.attr('src', 'images/common/logo.gif');
         cloudBottom.css({'display' : 'block'});
         clouds.animate({'opacity': '0.5'}, 4000);
 
         setTimeout(func, 1000);
         setTimeout(func1, 700);
+    } else {
+        logo.attr('src', 'images/common/logo_mobile.png');
+        logo.css({'top': '-14px', 'width': '16%', 'left': '41%'});
+        cloudBottom.css({'display' : 'none'});
+        clouds.css({'display' : 'none'});
     }
     this.removeEventListener('scroll', arguments.callee);
 });
