@@ -10,21 +10,26 @@ namespace frontend\components;
 
 use common\models\Url;
 use common\models\Language;
+use Yii;
 
 class ReqestLoader {
 
     public function __construct()
     {
 
-        $language_alias = isset($_SESSION['language']) ? $_SESSION['language'] : $_SESSION['language'] = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-        $language =  Language::find()->where(['alias'=>$language_alias])->one();
-        $_SESSION['language'] = $language->id;
+        $session = Yii::$app->session;
+        if(!Yii::$app->session->get('language')) {
 
-        $pieces = explode("/", $_SERVER['REQUEST_URI']);
-        if(isset($pieces[2])){
-            $object = Url::find()->where(['value' => $pieces[2]])->one();
+            $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+            $lang = Language::find()->where(['alias' => $lang])->one();
+            $session->set('language', $lang->id);
+        }
+
+        $path = explode("/", \Yii::$app->request->pathInfo);
+        if($path[0] == 'lottery' || $path[0] == 'jackpot'){
+            $object = Url::find()->where(['value' => $path[1]])->one();
             if($object){
-                   header("Location: ".$_SERVER['REQUEST_SCHEME']."://". $_SERVER['SERVER_NAME']."/lottery/view?id=".$object->target_id   );
+                header("Location: ".$_SERVER['REQUEST_SCHEME']."://". $_SERVER['SERVER_NAME']."/lottery/view?id=".$object->target_id   );
                 exit();
             }
         }

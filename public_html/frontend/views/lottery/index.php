@@ -1,27 +1,28 @@
 <?php
-use common\models\Language;
+    use common\models\Language;
+    use common\models\Translation;
 ?>
 <h2>Raffle of goods</h2>
 <?php
 if($lotteries){
 foreach ($lotteries as $lottery){
-    $name = Language::find()->where(['target_id' => $lottery->id, 'alias' => 'name' ,'language_id' => 'en'])->one();
-    $description = Language::find()->where(['target_id' => $lottery->id, 'alias' => 'description' ,'language_id' => 'en'])->one();
-    $prize = Language::find()->where(['target_id' => $lottery->id, 'alias' => 'prize','language_id' => 'en'])->one();
+    $name = Translation::find()->where(['target_id' => $lottery->id, 'alias' => 'name' ,'language_id' => 2])->one();
+    $description = Translation::find()->where(['target_id' => $lottery->id, 'alias' => 'description' ,'language_id' => 2])->one();
+    $prize = Translation::find()->where(['target_id' => $lottery->id, 'alias' => 'prize','language_id' => 2])->one();
 
    echo 'Lottery №'. $lottery->id .'<br>';
-    if($name->text) {
+    if(isset($name->text)) {
         echo  $name->text . '<br>';
     }
-    if($prize->text && $lottery->rate) {
+    if(isset($prize->text) && isset($lottery->rate)) {
         echo  $prize->text . ' for only'. $lottery->rate .' ETH<br>';
     }
 
-    if($lottery->img) {
+    if(isset($lottery->img)) {
         echo '<img src=' . $lottery->img . ' alt=""><br>';
     }
 
-    if($description->text) {
+    if(isset($description->text)) {
         echo 'Description: ' . $description->text . '<br>';
     }
 

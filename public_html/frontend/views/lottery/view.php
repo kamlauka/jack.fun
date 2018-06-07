@@ -8,8 +8,8 @@
         <div class="prize-page-without-clouds__small-container">
             <h2 class="prize-page-without-clouds__prize-name">iphone X</h2>
             <?php
-                if($lottery->img) {
-                    \yii\helpers\Html::img($lottery->img,['alert'=>'','class'=>'prize-page-without-clouds__image']);
+                if(isset($lottery->img)) {
+                 echo  \yii\helpers\Html::img($lottery->img,['alert'=>'','class'=>'prize-page-without-clouds__image']);
                 }
             ?>
 
