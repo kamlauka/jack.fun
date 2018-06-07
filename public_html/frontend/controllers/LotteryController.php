@@ -16,22 +16,18 @@ use Yii;
 class LotteryController extends Controller
 {
 
-    public function actionIndex()
-    {
+    public function actionIndex(){
+
         $lotteries = Lottery::find()->where(['status' => 1])->all();
-//        $user_id = \Yii::$app->user->identity->id;
-//        $user = User::findOne($user_id);
 
         return $this->render('index',[
             'lotteries' => $lotteries
         ]);
     }
 
-    public function actionView($id)
-    {
+    public function actionView($id){
+
         $lottery = Lottery::findOne($id);
-//        $user_id = \Yii::$app->user->identity->id;
-//        $user = User::findOne($user_id);
 
         return $this->render('view',[
             'lottery' => $lottery
@@ -40,6 +36,9 @@ class LotteryController extends Controller
 
 
     public function actionParticipate($id){
+
+//        $user_id = \Yii::$app->user->identity->id;
+//        $user = User::findOne($user_id);
 
         if(Yii::$app->user->isGuest){
             return $this->redirect('/site/login');
@@ -58,7 +57,7 @@ class LotteryController extends Controller
             $betting->pc_transaction = 0;
             $betting->save();
             Yii::$app->session->setFlash('success', 'Your bid is accepted');
-            return $this->redirect('/');
+            return $this->redirect('/cabinet/index');
         }
 
     }

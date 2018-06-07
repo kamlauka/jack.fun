@@ -249,6 +249,7 @@ class SiteController extends Controller
 
         $lang =  Language::find()->where(['alias'=>$lang])->one();
         $_SESSION['language'] = $lang->id;
+
         return $this->redirect(Yii::$app->request->referrer);
     }
 }
