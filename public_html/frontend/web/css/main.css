@@ -117,11 +117,16 @@
     position: static; }
 
 .menu-container {
-  width: 87px;
-  text-align: right; }
+  text-align: right;
+  font-size: 1.2em; }
 
 .flags__image {
-  margin: 0 5px; }
+  margin: 0 5px;
+  filter: grayscale(1); }
+  .flags__image:hover {
+    filter: none; }
+  .flags__image_active {
+    filter: none; }
 
 .menu {
   position: relative;
@@ -1317,17 +1322,20 @@
   z-index: 1; }
   .prize-page-without-clouds__small-container {
     display: flex;
-    align-items: baseline;
+    align-items: center;
     flex-wrap: nowrap;
     margin: auto;
     padding-left: 3%;
     padding-top: 7%;
     justify-content: center; }
+    @media (max-width: 820px) {
+      .prize-page-without-clouds__small-container {
+        flex-direction: column; } }
   .prize-page-without-clouds__image {
     width: 15%;
     align-self: center;
     margin: 0 20px; }
-    @media (max-width: 768px) {
+    @media (max-width: 820px) {
       .prize-page-without-clouds__image {
         width: 30%; } }
   .prize-page-without-clouds__prize-name {
@@ -1336,10 +1344,14 @@
     color: #2E2E2E;
     font-family: Corbel;
     font-size: 5em; }
-    @media (max-width: 768px) {
+    @media (max-width: 1052px) {
       .prize-page-without-clouds__prize-name {
-        margin: 18% 0;
         font-size: 3em; } }
+    @media (max-width: 820px) {
+      .prize-page-without-clouds__prize-name {
+        order: 2;
+        margin: 0 auto;
+        font-size: 4em; } }
   .prize-page-without-clouds__prize-price {
     font-size: 5em;
     color: #00CC69;
@@ -1347,17 +1359,27 @@
     font-weight: normal; }
     @media (max-width: 1052px) {
       .prize-page-without-clouds__prize-price {
-        font-size: 4em; } }
+        font-size: 3em; } }
+    @media (max-width: 820px) {
+      .prize-page-without-clouds__prize-price {
+        order: 4;
+        margin: auto;
+        font-size: 2em;
+        padding-left: 0; } }
   .prize-page-without-clouds__prize-text {
     margin: 0;
     line-height: 1em;
     color: #616161;
     font-family: Corbel;
     font-size: 5em; }
-    @media (max-width: 768px) {
+    @media (max-width: 1052px) {
       .prize-page-without-clouds__prize-text {
-        margin: 18% 0;
         font-size: 3em; } }
+    @media (max-width: 820px) {
+      .prize-page-without-clouds__prize-text {
+        order: 3;
+        margin: 0 auto;
+        font-size: 2em; } }
   .prize-page-without-clouds__timer {
     font-size: 0.4em; }
   .prize-page-without-clouds__big-font {
@@ -1371,10 +1393,20 @@
   position: relative;
   height: 4vh;
   padding: 20px 0; }
+  @media (max-width: 820px) {
+    .steps-container {
+      height: 100%;
+      padding-bottom: 0; } }
 
 .steps {
+  min-width: 126px;
   padding: 6px 25px;
   background-color: #7C918C; }
+  @media (max-width: 820px) {
+    .steps {
+      margin-bottom: 3%;
+      margin-top: 1%;
+      padding: 6px 50px; } }
   .steps__digit {
     color: #FFB400;
     padding-right: 10px;
@@ -1384,9 +1416,21 @@
     height: 100%;
     background: url("../images/prizes/arrow.png") no-repeat;
     background-size: contain; }
+    @media (max-width: 820px) {
+      .steps-arrow {
+        width: 50px;
+        height: 2.5vh;
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        transform: rotate(90deg); } }
 
 .gold-text {
   color: #FFB400; }
+
+.text-wrap {
+  margin: 0 20px; }
 
 .cabinet {
   position: relative;

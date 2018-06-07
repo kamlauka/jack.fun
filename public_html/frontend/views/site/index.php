@@ -128,7 +128,7 @@ use yii\helpers\Html;
         </div>
     </section>
 
-    <?php if(isset($lottery)){ ?>
+    <?php if(isset($lottery ) && isset($lottery_name_prize->text) && isset($lottery_description->text)){ ?>
     <section class="prizes">
         <div class="scene-of-prize flex-gorizontal">
             <div class="scene-of-prize__cloud-rotate scene-of-prize__cloud-rotate__one"></div>
@@ -138,7 +138,7 @@ use yii\helpers\Html;
             <div class="scene-of-prize__empty-block"></div>
             <img class="scene-of-prize__image" src="<?= $lottery->img ?>" alt="iphone">
             <div class="scene-of-prize__text">
-                <h2 class="scene-of-prize__prize-name"><?= $lottery_name_prize->text ?></h2>
+                <h2 class="scene-of-prize__prize-name"><?= $lottery_name_prize->text?></h2>
                 <div class="scene-of-prize__prize-price"><?= $lottery->rate ?> ETH</div>
             </div>
             <div class="scene-of-prize__empty-block"></div>

@@ -31,7 +31,7 @@ AppAsset::register($this);
 
             <?= Html::a(Html::img('/images/common/flag3.png', ['alt' => 'Chinese', 'class' => 'flags__image']),'/site/language?lang=ch') ?>
             <?= Html::a(Html::img('/images/common/flag2.png', ['alt' => 'Russian', 'class' => 'flags__image']),'/site/language?lang=ru') ?>
-            <?= Html::a(Html::img('/images/common/flag1.png', ['alt' => 'English', 'class' => 'flags__image']),'/site/language?lang=en') ?>
+            <?= Html::a(Html::img('/images/common/flag1.png', ['alt' => 'English', 'class' => 'flags__image flags__image_active']),'/site/language?lang=en') ?>
 
         </div>
         <div class="menu-container flex-gorizontal flex-gorizontal_none-vertical">
