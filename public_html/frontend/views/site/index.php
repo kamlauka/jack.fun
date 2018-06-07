@@ -68,47 +68,47 @@ use yii\helpers\Html;
          <div class="first-page__container">
             <div class="parallax-top" data-paroller-factor="-0.1" data-paroller-type="foreground" data-paroller-direction="vertical">
                 <div class="logo">
-                    <?= Html::img('images/logo_mobile.png', ['alt' => 'jackpot logotype mobile', 'class' => 'logo__picture_mobile']) ?>
+                    <?= Html::img('../../images/main/logo_mobile.png', ['alt' => 'jackpot logotype mobile', 'class' => 'logo__picture_mobile']) ?>
                                        <!--<div class="logo__logo"></div>-->
                     <h1 class="logo__text">JACKPOT<span class="logo__text_blue">.FUN</span></h1>
                 </div>
             </div>
             <div class="currency">
-                <?= Html::img('../../images/currency.gif', ['alt' => 'currency', 'class' => 'currency__image']) ?>
+                <?= Html::img('../../images/main/currency.gif', ['alt' => 'currency', 'class' => 'currency__image']) ?>
             </div>
             <div class="colons flex-gorizontal flex-gorizontal_top">
                 <?php if(isset($T->text)){ ?>
                     <div class="colons__item">
                         <div class="colons__image-container">
-                            <?= Html::img('../../images/tt.png', ['alt' => 'T', 'class' => 'colons__image']) ?>
+                            <?= Html::img('../../images/main/tt.png', ['alt' => 'T', 'class' => 'colons__image']) ?>
                         </div>
                         <p class="colons__text"><?= $T->text ?></p>
                     </div>
                 <?php } if(isset($bitcoin->text)){ ?>
                     <div class="colons__item">
                         <div class="colons__image-container">
-                            <?= Html::img('../../images/bitcoin.png', ['alt' => 'bitcoin', 'class' => 'colons__image']) ?>
+                            <?= Html::img('../../images/main/bitcoin.png', ['alt' => 'bitcoin', 'class' => 'colons__image']) ?>
                         </div>
                         <p class="colons__text"><?= $bitcoin->text ?></p>
                     </div>
                 <?php } if(isset($hands->text)){ ?>
                     <div class="colons__item">
                         <div class="colons__image-container">
-                            <?= Html::img('../../images/hands.png', ['alt' => 'hands', 'class' => 'colons__image colons__image-small']) ?>
+                            <?= Html::img('../../images/main/hands.png', ['alt' => 'hands', 'class' => 'colons__image colons__image-small']) ?>
                         </div>
                         <p class="colons__text"><?= $hands->text ?></p>
                     </div>
                 <?php } if(isset($play->text)){ ?>
                     <div class="colons__item">
                         <div class="colons__image-container">
-                            <?= Html::img('../../images/play.png', ['alt' => 'play', 'class' => 'colons__image']) ?>
+                            <?= Html::img('../../images/main/play.png', ['alt' => 'play', 'class' => 'colons__image']) ?>
                         </div>
                         <p class="colons__text"><?= $play->text ?></p>
                     </div>
                 <?php } if(isset($prize->text)){ ?>
                     <div class="colons__item">
                         <div class="colons__image-container">
-                            <?= Html::img('../../images/prize.png', ['alt' => 'prize', 'class' => 'colons__image']) ?>
+                            <?= Html::img('../../images/main/prize.png', ['alt' => 'prize', 'class' => 'colons__image']) ?>
                         </div>
                         <p class="colons__text"><?= $prize->text ?></p>
                     </div>
@@ -154,24 +154,24 @@ use yii\helpers\Html;
     </section>
     <?php } ?>
     <?php if($jackpot){ ?>
-        <section class="lotery">
-            <div class="lotery__cloud lotery__cloud_one"></div>
-            <div class="lotery__cloud lotery__cloud_two"></div>
-            <div class="lotery__sanctuary"></div>
-            <div class="lotery__cloud lotery__cloud_five"></div>
-            <div class="lotery__cloud lotery__cloud_three"></div>
-            <div class="lotery__cloud lotery__cloud_four"></div>
-            <div class="lotery__cloud-container"></div>
-            <div class="lotery__cloud lotery__cloud_six"></div>
+        <section class="jackpot">
+            <div class="jackpot__cloud jackpot__cloud_one"></div>
+            <div class="jackpot__cloud jackpot__cloud_two"></div>
+            <div class="jackpot__sanctuary"></div>
+            <div class="jackpot__cloud jackpot__cloud_five"></div>
+            <div class="jackpot__cloud jackpot__cloud_three"></div>
+            <div class="jackpot__cloud jackpot__cloud_four"></div>
+            <div class="jackpot__cloud-container"></div>
+            <div class="jackpot__cloud jackpot__cloud_six"></div>
             <div class="orange-border orange-border_all"></div>
-            <div> <h2 class="title-wih-pattern lotery__title">JECKPOT</h2></div>
-            <div class="lotery__container flex-gorizontal">
-                <div class="lotery__cloud lotery__cloud_twenty"></div>
-                <div  class="lotery__image-block">
-                  <?= Html::img('../../images/oh-boy.gif', ['alt' => 'oh boy', 'class' => 'lotery__image']) ?>
+            <div> <h2 class="title-wih-pattern jackpot__title">JECKPOT</h2></div>
+            <div class="jackpot__container flex-gorizontal">
+                <div class="jackpot__cloud jackpot__cloud_twenty"></div>
+                <div  class="jackpot__image-block">
+                  <?= Html::img('../../images/main/oh-boy.gif', ['alt' => 'oh boy', 'class' => 'jackpot__image']) ?>
                 </div>
 
-                <div class="lotery__timer">
+                <div class="jackpot__timer">
                     <div class="timer">
 
                         <h3 class="timer__days" data="<?php $datastart = explode(" ", $jackpot->date_start); echo $datastart[0] ?>">
@@ -182,7 +182,7 @@ use yii\helpers\Html;
                             <span class="minutes timer__digit"></span> :
                             <span class="seconds timer__digit"></span>
                         </h3>
-                        <img class="timer__image" src="../../images/chalice.png" alt="chalice">
+                        <img class="timer__image" src="../../images/main/chalice.png" alt="chalice">
                         <h3 class="timer__winning-money"><?= $jackpot->total ?> ETH</h3>
                     </div>
                 </div>
@@ -203,7 +203,7 @@ use yii\helpers\Html;
     <section class="terrestrial-world">
         <h2 class="title terrestrial-world__title"> Terrestrial world is under reconstruction</h2>
         <h3 class="subtitle terrestrial-world__subtitle">Coming soon</h3>
-        <?= Html::img('../../images/favn.png', ['alt' => 'favn', 'class' => 'terrestrial-world__image']) ?>
+        <?= Html::img('../../images/main/favn.png', ['alt' => 'favn', 'class' => 'terrestrial-world__image']) ?>
     </section>
     <?php if(isset($seo_block_title->text) && isset($seo_block_text->text)){ ?>
     <section class="seo-section flex-gorizontal">

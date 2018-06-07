@@ -29,9 +29,9 @@ AppAsset::register($this);
     <div class="header__container container flex-gorizontal flex-gorizontal_none-vertical">
         <div class="flags flex-gorizontal flex-gorizontal_none-vertical">
 
-            <?= Html::a(Html::img('/images/flag3.png', ['alt' => 'Chinese', 'class' => 'flags__image']),'/site/language?lang=ch') ?>
-            <?= Html::a(Html::img('/images/flag2.png', ['alt' => 'Russian', 'class' => 'flags__image']),'/site/language?lang=ru') ?>
-            <?= Html::a(Html::img('/images/flag1.png', ['alt' => 'English', 'class' => 'flags__image']),'/site/language?lang=en') ?>
+            <?= Html::a(Html::img('/images/common/flag3.png', ['alt' => 'Chinese', 'class' => 'flags__image']),'/site/language?lang=ch') ?>
+            <?= Html::a(Html::img('/images/common/flag2.png', ['alt' => 'Russian', 'class' => 'flags__image']),'/site/language?lang=ru') ?>
+            <?= Html::a(Html::img('/images/common/flag1.png', ['alt' => 'English', 'class' => 'flags__image']),'/site/language?lang=en') ?>
 
         </div>
         <div class="menu-container flex-gorizontal flex-gorizontal_none-vertical">
@@ -40,7 +40,7 @@ AppAsset::register($this);
                 <label class="menu__down" for="link-top">
                     <div class="menu__nav">
                         <span>MENU</span>
-                        <?= Html::img('/images/gamburger.png', ['alt' => 'hamburger menu','class' => 'menu__icon']) ?>
+                        <?= Html::img('/images/common/gamburger.png', ['alt' => 'hamburger menu','class' => 'menu__icon']) ?>
                     </div>
                 </label>
                 <ul>
@@ -100,15 +100,15 @@ AppAsset::register($this);
                     <?= Html::a('www.jackpo.fun.com','#',['class'=>'footer-block__link footer-block__link_font_gold']) ?>
                 </div>
                 <div class="footer-block__center-align-block">
-                    <a class="footer-block__icon" href="#"><img src="/images/icon-f.svg" alt=""></a>
-                    <a class="footer-block__icon" href="#"><img src="/images/icon-t.svg" alt=""></a>
-                    <a class="footer-block__icon" href="#"><img src="/images/icon-i.svg" alt=""></a>
-                    <a class="footer-block__icon" href="#"><img src="/images/icon-g.svg" alt=""></a>
-                    <a class="footer-block__icon" href="#"><img src="/images/icon-v.svg" alt=""></a>
+                    <a class="footer-block__icon" href="#"><img src="/images/common/icon-f.svg" alt=""></a>
+                    <a class="footer-block__icon" href="#"><img src="/images/common/icon-t.svg" alt=""></a>
+                    <a class="footer-block__icon" href="#"><img src="/images/common/icon-i.svg" alt=""></a>
+                    <a class="footer-block__icon" href="#"><img src="/images/common/icon-g.svg" alt=""></a>
+                    <a class="footer-block__icon" href="#"><img src="/images/common/icon-v.svg" alt=""></a>
                 </div>
                 <div class="footer-block__right-align-block">
                     <a class="footer-block__terlabs" href="http://terlabs.com">
-                        <img class="footer-block__terlabs-image"src="/images/terlabs.png" alt="terlabs">
+                        <img class="footer-block__terlabs-image"src="/images/common/terlabs.png" alt="terlabs">
                     </a>
                     <p>
                         <span class="footer-block__terlabs-work">Создание и разработка сайтов</span>
