@@ -19,8 +19,6 @@
 }
 
 .flags {
-  width: 8%;
-  padding: 10px;
   &__image {
     margin: 0 5px;
   }
@@ -51,7 +49,7 @@ $e: cubic-bezier(0,.5,.5,1.1);
   a {
     width: 92%;
     height: 100%;
-    padding: 7px;
+    padding: 7px 3%;
     border: 2px solid $add-color;
     background-color: #B3C7C2;
     transform-style: preserve-3d;
@@ -85,9 +83,9 @@ $e: cubic-bezier(0,.5,.5,1.1);
       width: 90vw;
     }
     li {
-      background: url(../img/mini-chain.png) left repeat-y, url(../img/mini-chain.png) right repeat-y;
+      background: $pat-chain left repeat-y, $pat-chain right repeat-y;
       opacity: 0;
-      padding: 7px;
+      padding: 4px 10px;
       margin: 0;
       transform-style: preserve-3d;
       @for $i from 1 through $n {

@@ -2,7 +2,7 @@
 
 @import "extends.scss";
 
-@import "cabinet.scss";
+
 @import "header.scss";
 @import "first-page.scss";
 @import "awarding-prizes.scss";
@@ -12,8 +12,10 @@
 @import "terrestrial-world.scss";
 @import "seo-section.scss";
 @import "footer.scss";
-@import "terms.scss";
-@import "jackpot.scss";
+@import "terms-page.scss";
+@import "jackpot-page.scss";
+@import "prizes-page.scss";
+@import "cabinet-page.scss";
 
 
 * {
@@ -25,7 +27,7 @@
 
 @font-face {
   font-family: IceAge;
-  src: url(../fonts/IceAgeRUS.ttf);
+  src: url(../fonts/IceAgeRUS.ttf)  format('ttf'), url('../fonts/IceAgeRUS.woff') format('woff');
 }
 
 @font-face {
@@ -49,6 +51,21 @@ body {
   }
 
 }
+
+.mobile-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  position: relative;
+  z-index: 1;
+}
+
+.page-container {
+  position: relative;
+  margin-top: 51px;
+  overflow: hidden;
+}
+
 
 .container {
   max-width: 1280px;
@@ -96,7 +113,7 @@ body {
   padding: 10px 0;
   border-top: 6px solid $add-color;
   border-bottom: 6px solid $add-color;
-  background: #FFB326 url("../img/pattern1.png") repeat-x;
+  background: #FFB326 $pat-orange-border-pattern repeat-x;
   background-size: contain;
   background-origin: content-box;
 
@@ -129,7 +146,7 @@ body {
 
 
 .border-pattern {
-  border-image: url(../img/pattern.png) 100% 0%/1 0 repeat;
+  border-image: $pat-greek-pattern 100% 0%/1 0 repeat;
 }
 
 
@@ -188,7 +205,7 @@ body {
 //      bottom: 0;
 //      right: 0;
 //      z-index: 8100;
-//      background-image: url("../img/cl1.png");
+//      background-image: url("../images/cl1.png");
 //      background-size: 50%;
 //      background-repeat: no-repeat;
 //      @keyframes rotate {
@@ -203,7 +220,7 @@ body {
 //      //  background-size: 80%;
 //      //}
 //      &__cloud1 {
-//        background-image: url(../img/cl2.png);
+//        background-image: url(../images/cl2.png);
 //        background-size: 51%;
 //        background-position: top left;
 //        z-index: 7999;
@@ -220,7 +237,7 @@ body {
 //        }
 //      }
 //      &__cloud2 {
-//        background-image: url(../img/cl3.png);
+//        background-image: url(../images/cl3.png);
 //        background-size: 39%;
 //        background-position: 6% 10%;
 //        z-index: 8102;
@@ -246,7 +263,7 @@ body {
 //        }
 //      }
 //      &__cloud3 {
-//        background-image: url(../img/cl4.png);
+//        background-image: url(../images/cl4.png);
 //        background-size: 28%;
 //        background-position: 9% 16%;
 //        z-index: 8103;
@@ -287,7 +304,7 @@ body {
 //      bottom: 0;
 //      right: 0;
 //      z-index: 8100;
-//      background-image: url("../img/cl1.png");
+//      background-image: url("../images/cl1.png");
 //      background-size: 50%;
 //      background-repeat: no-repeat;
 //      @keyframes rotate {
@@ -302,7 +319,7 @@ body {
 //      //  background-size: 80%;
 //      //}
 //      &__cloud1 {
-//        background-image: url(../img/cl2.png);
+//        background-image: url(../images/cl2.png);
 //        background-size: 51%;
 //        background-position: top left;
 //        z-index: 7999;
@@ -319,7 +336,7 @@ body {
 //        }
 //      }
 //      &__cloud2 {
-//        background-image: url(../img/cl3.png);
+//        background-image: url(../images/cl3.png);
 //        background-size: 39%;
 //        background-position: 6% 10%;
 //        z-index: 8102;
@@ -345,7 +362,7 @@ body {
 //        }
 //      }
 //      &__cloud3 {
-//        background-image: url(../img/cl4.png);
+//        background-image: url(../images/cl4.png);
 //        background-size: 28%;
 //        background-position: 9% 16%;
 //        z-index: 8103;
@@ -385,7 +402,7 @@ body {
 //      bottom: 0;
 //      right: 0;
 //      z-index: 8100;
-//      background-image: url("../img/cl1.png");
+//      background-image: url("../images/cl1.png");
 //      background-size: 50%;
 //      background-repeat: no-repeat;
 //      @keyframes rotate {
@@ -400,7 +417,7 @@ body {
 //      //  background-size: 80%;
 //      //}
 //      &__cloud1 {
-//        background-image: url(../img/cl2.png);
+//        background-image: url(../images/cl2.png);
 //        background-size: 51%;
 //        background-position: top left;
 //        z-index: 7999;
@@ -417,7 +434,7 @@ body {
 //        }
 //      }
 //      &__cloud2 {
-//        background-image: url(../img/cl3.png);
+//        background-image: url(../images/cl3.png);
 //        background-size: 39%;
 //        background-position: 6% 10%;
 //        z-index: 8102;
@@ -443,7 +460,7 @@ body {
 //        }
 //      }
 //      &__cloud3 {
-//        background-image: url(../img/cl4.png);
+//        background-image: url(../images/cl4.png);
 //        background-size: 28%;
 //        background-position: 9% 16%;
 //        z-index: 8103;
@@ -484,7 +501,7 @@ body {
 //      bottom: 0;
 //      right: 0;
 //      z-index: 8100;
-//      background-image: url("../img/cl1.png");
+//      background-image: url("../images/cl1.png");
 //      background-size: 50%;
 //      background-repeat: no-repeat;
 //      -webkit-animation: rotate 30s -1s infinite alternate linear;
@@ -502,7 +519,7 @@ body {
 //      //  background-size: 80%;
 //      //}
 //      &__cloud1 {
-//        background-image: url(../img/cl2.png);
+//        background-image: url(../images/cl2.png);
 //        background-size: 51%;
 //        background-position: top left;
 //        z-index: 7999;
@@ -519,7 +536,7 @@ body {
 //        }
 //      }
 //      &__cloud2 {
-//        background-image: url(../img/cl3.png);
+//        background-image: url(../images/cl3.png);
 //        background-size: 39%;
 //        background-position: 6% 10%;
 //        z-index: 8102;
@@ -545,7 +562,7 @@ body {
 //        }
 //      }
 //      &__cloud3 {
-//        background-image: url(../img/cl4.png);
+//        background-image: url(../images/cl4.png);
 //        background-size: 28%;
 //        background-position: 9% 16%;
 //        z-index: 8103;
@@ -586,7 +603,7 @@ body {
 //      bottom: 0;
 //      right: 0;
 //      z-index: 8100;
-//      background-image: url("../img/cl1.png");
+//      background-image: url("../images/cl1.png");
 //      background-size: 50%;
 //      background-repeat: no-repeat;
 //      -webkit-animation: rotate 30s -1s infinite alternate linear;
@@ -604,7 +621,7 @@ body {
 //      //  background-size: 80%;
 //      //}
 //      &__cloud1 {
-//        @include clouds__all-clouds('../img/cl2.png', 51%, 'top left', 7999, '30s', '-2s');
+//        @include clouds__all-clouds('../images/cl2.png', 51%, 'top left', 7999, '30s', '-2s');
 //        @keyframes rotate1 {
 //          from {
 //            transform: rotateZ(0deg);
@@ -615,7 +632,7 @@ body {
 //        }
 //      }
 //      &__cloud2 {
-//        background-image: url(../img/cl3.png);
+//        background-image: url(../images/cl3.png);
 //        background-size: 39%;
 //        background-position: 6% 10%;
 //        z-index: 8102;
@@ -641,7 +658,7 @@ body {
 //        }
 //      }
 //      &__cloud3 {
-//        background-image: url(../img/cl4.png);
+//        background-image: url(../images/cl4.png);
 //        background-size: 28%;
 //        background-position: 9% 16%;
 //        z-index: 8103;
@@ -681,7 +698,7 @@ body {
 //      bottom: 0;
 //      right: 0;
 //      z-index: 8100;
-//      background-image: url("../img/cl1.png");
+//      background-image: url("../images/cl1.png");
 //      background-size: 50%;
 //      background-repeat: no-repeat;
 //      -webkit-animation: rotate 30s -1s infinite alternate linear;
@@ -699,7 +716,7 @@ body {
 //      //  background-size: 80%;
 //      //}
 //      &__cloud1 {
-//        background-image: url(../img/cl2.png);
+//        background-image: url(../images/cl2.png);
 //        background-size: 51%;
 //        background-position: top left;
 //        z-index: 7999;
@@ -716,7 +733,7 @@ body {
 //        }
 //      }
 //      &__cloud2 {
-//        background-image: url(../img/cl3.png);
+//        background-image: url(../images/cl3.png);
 //        background-size: 39%;
 //        background-position: 6% 10%;
 //        z-index: 8102;
@@ -742,7 +759,7 @@ body {
 //        }
 //      }
 //      &__cloud3 {
-//        background-image: url(../img/cl4.png);
+//        background-image: url(../images/cl4.png);
 //        background-size: 28%;
 //        background-position: 9% 16%;
 //        z-index: 8103;
@@ -782,7 +799,7 @@ body {
 //      bottom: 0;
 //      right: 0;
 //      z-index: 8100;
-//      background-image: url("../img/cl1.png");
+//      background-image: url("../images/cl1.png");
 //      background-size: 50%;
 //      background-repeat: no-repeat;
 //      -webkit-animation: rotate 30s -4s infinite alternate linear;
@@ -800,7 +817,7 @@ body {
 //      //  background-size: 80%;
 //      //}
 //      &__cloud1 {
-//        background-image: url(../img/cl2.png);
+//        background-image: url(../images/cl2.png);
 //        background-size: 51%;
 //        background-position: top left;
 //        z-index: 7999;
@@ -817,7 +834,7 @@ body {
 //        }
 //      }
 //      &__cloud2 {
-//        background-image: url(../img/cl3.png);
+//        background-image: url(../images/cl3.png);
 //        background-size: 39%;
 //        background-position: 6% 10%;
 //        z-index: 8102;
@@ -843,7 +860,7 @@ body {
 //        }
 //      }
 //      &__cloud3 {
-//        background-image: url(../img/cl4.png);
+//        background-image: url(../images/cl4.png);
 //        background-size: 28%;
 //        background-position: 9% 16%;
 //        z-index: 8103;
@@ -884,7 +901,7 @@ body {
 //      bottom: 0;
 //      right: 0;
 //      z-index: 8100;
-//      background-image: url("../img/cl1.png");
+//      background-image: url("../images/cl1.png");
 //      background-size: 50%;
 //      background-repeat: no-repeat;
 //      -webkit-animation: rotate 30s -7s infinite alternate linear;
@@ -899,7 +916,7 @@ body {
 //        }
 //      }
 //      &__cloud1 {
-//        background-image: url(../img/cl2.png);
+//        background-image: url(../images/cl2.png);
 //        background-size: 51%;
 //        background-position: top left;
 //        z-index: 7999;
@@ -916,7 +933,7 @@ body {
 //        }
 //      }
 //      &__cloud2 {
-//        background-image: url(../img/cl3.png);
+//        background-image: url(../images/cl3.png);
 //        background-size: 39%;
 //        background-position: 6% 10%;
 //        z-index: 8102;
@@ -942,7 +959,7 @@ body {
 //        }
 //      }
 //      &__cloud3 {
-//        background-image: url(../img/cl4.png);
+//        background-image: url(../images/cl4.png);
 //        background-size: 28%;
 //        background-position: 9% 16%;
 //        z-index: 8103;
@@ -983,7 +1000,7 @@ body {
 //      bottom: 0;
 //      right: 0;
 //      z-index: 8100;
-//      background-image: url("../img/cl1.png");
+//      background-image: url("../images/cl1.png");
 //      background-size: 50%;
 //      background-repeat: no-repeat;
 //      @keyframes rotate {
@@ -998,7 +1015,7 @@ body {
 //      //  background-size: 80%;
 //      //}
 //      &__cloud1 {
-//        background-image: url(../img/cl2.png);
+//        background-image: url(../images/cl2.png);
 //        background-size: 51%;
 //        background-position: top left;
 //        z-index: 7999;
@@ -1015,7 +1032,7 @@ body {
 //        }
 //      }
 //      &__cloud2 {
-//        background-image: url(../img/cl3.png);
+//        background-image: url(../images/cl3.png);
 //        background-size: 39%;
 //        background-position: 6% 10%;
 //        z-index: 8102;
@@ -1041,7 +1058,7 @@ body {
 //        }
 //      }
 //      &__cloud3 {
-//        background-image: url(../img/cl4.png);
+//        background-image: url(../images/cl4.png);
 //        background-size: 28%;
 //        background-position: 9% 16%;
 //        z-index: 8103;
@@ -1082,7 +1099,7 @@ body {
 //      bottom: 0;
 //      right: 0;
 //      z-index: 8100;
-//      background-image: url("../img/cl1.png");
+//      background-image: url("../images/cl1.png");
 //      background-size: 50%;
 //      background-repeat: no-repeat;
 //      @keyframes rotate {
@@ -1097,7 +1114,7 @@ body {
 //      //  background-size: 80%;
 //      //}
 //      &__cloud1 {
-//        background-image: url(../img/cl2.png);
+//        background-image: url(../images/cl2.png);
 //        background-size: 51%;
 //        background-position: top left;
 //        z-index: 7999;
@@ -1114,7 +1131,7 @@ body {
 //        }
 //      }
 //      &__cloud2 {
-//        background-image: url(../img/cl3.png);
+//        background-image: url(../images/cl3.png);
 //        background-size: 39%;
 //        background-position: 6% 10%;
 //        z-index: 8102;
@@ -1140,7 +1157,7 @@ body {
 //        }
 //      }
 //      &__cloud3 {
-//        background-image: url(../img/cl4.png);
+//        background-image: url(../images/cl4.png);
 //        background-size: 28%;
 //        background-position: 9% 16%;
 //        z-index: 8103;
@@ -1172,6 +1189,42 @@ body {
 //}
 
 
+.crumbs {
+  position: relative;
+  top: 0;
+  left: 0;
+  margin-left: 0.3%;
+  text-align: left;
+  font-size: 0;
+  &__link {
+    padding: 5px 2%;
+    outline: 1px solid #596E6A;
+    outline-offset: -3px;
+    font-size: 14px;
+    background: $pat-crumb-no-active no-repeat;
+    background-size: cover;
+
+    @media (max-width: $mobile-width) {
+      box-sizing: border-box;
+      width: 50%;
+      text-align: center;
+    }
+    @media (max-width: 450px) {
+      font-size: 11px;
+    }
+
+    &_active {
+      color: $main-color;
+      background: $pat-crumb-active no-repeat;
+      background-size: cover;
+    }
+  }
+  @media (max-width: $mobile-width) {
+    order: 2;
+  }
+}
+
+
 .clouds {
   position: absolute;
   top: 0;
@@ -1179,6 +1232,8 @@ body {
   right: 0;
   left: 0;
 
+  max-height: 100vh;
+  z-index: 0;
   @media (max-width: 1700px) {
     top: 3%;
   }
@@ -1206,6 +1261,14 @@ body {
     top: 5.1%;
     bottom: 0;
     z-index: 9000;
+  }
+  &_bottom {
+    top: 67%;
+    width: 170%;
+    bottom: -10%;
+  }
+  &_over-all {
+    z-index: 50;
   }
 }
 .cloud-container_bottom-scale {
@@ -1235,7 +1298,7 @@ body {
     bottom: 0;
     right: 0;
     z-index: 8100;
-    background-image: url("../img/cl1.png");
+    background-image: $pat-cloud-1;
     background-size: 50%;
     background-repeat: no-repeat;
     @keyframes rotate {
@@ -1250,7 +1313,7 @@ body {
     //  background-size: 80%;
     //}
     &__cloud1 {
-      background-image: url(../img/cl2.png);
+      background-image: $pat-cloud-2;
       background-size: 51%;
       background-position: top left;
       z-index: 7999;
@@ -1267,7 +1330,7 @@ body {
       }
     }
     &__cloud2 {
-      background-image: url(../img/cl3.png);
+      background-image: $pat-cloud-3;
       background-size: 39%;
       background-position: 6% 10%;
       z-index: 8102;
@@ -1293,7 +1356,7 @@ body {
       }
     }
     &__cloud3 {
-      background-image: url(../img/cl4.png);
+      background-image: $pat-cloud-4;
       background-size: 28%;
       background-position: 9% 16%;
       z-index: 8103;
@@ -1331,7 +1394,6 @@ body {
     left: -11%;
     top: -7%;
     z-index: 8001;
-
   }
 
   &_right-big {
@@ -1348,100 +1410,6 @@ body {
     -webkit-animation: rotate 30s -1s infinite alternate linear;
     -moz-animation: rotate 30s -1s infinite alternate linear;
     animation: rotate 30s -1s infinite alternate linear;
-    .cloud {
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      z-index: 8100;
-      background-image: url("../img/cl1.png");
-      background-size: 50%;
-      background-repeat: no-repeat;
-
-      @keyframes rotate {
-        from {
-          transform: rotateZ(0deg);
-        }
-        to {
-          transform: rotateZ(0.2deg);
-        }
-      }
-      //&_bottom-big {
-      //  background-size: 80%;
-      //}
-      &__cloud1 {
-        background-image: url(../img/cl2.png);
-        background-size: 51%;
-        background-position: top left;
-        z-index: 7999;
-        -webkit-animation: rotate1 30s -2s infinite alternate linear;
-        -moz-animation: rotate1 30s -2s infinite alternate linear;
-        animation: rotate1 30s -2s infinite alternate linear;
-        @keyframes rotate1 {
-          from {
-            transform: rotateZ(0deg);
-          }
-          to {
-            transform: rotateZ(2deg);
-          }
-        }
-      }
-      &__cloud2 {
-        background-image: url(../img/cl3.png);
-        background-size: 39%;
-        background-position: 6% 10%;
-        z-index: 8102;
-        -webkit-animation: rotate2 20s -2s infinite linear;
-        -moz-animation: rotate2 20s -2s infinite linear;
-        animation: rotate2 20s -2s infinite linear;
-        @keyframes rotate3 {
-          0% {
-            transform: rotate(0deg) translateX(0px) translateY(0px);
-          }
-          25% {
-            transform: rotate(2deg) translateX(70px) translateY(30px);
-          }
-          50% {
-            transform: rotate(0deg) translateX(150px) translateY(0px);
-          }
-          75% {
-            transform: rotate(2deg) translateX(70px) translateY(-30px);
-          }
-          100% {
-            transform: rotate(0deg) translateX(0px) translateY(0px);
-          }
-        }
-      }
-      &__cloud3 {
-        background-image: url(../img/cl4.png);
-        background-size: 28%;
-        background-position: 9% 16%;
-        z-index: 8103;
-        opacity: 0.3;
-        -webkit-animation: rotate3 17s -2s infinite linear;
-        -moz-animation: rotate3 17s -2s infinite linear;
-        animation: rotate3 17s -2s infinite linear;
-
-        @keyframes rotate2 {
-          0% {
-            transform: rotate(0deg) translateX(0px) translateY(0px);
-          }
-          25% {
-            transform: rotate(4deg) translateX(20px) translateY(10px);
-          }
-          50% {
-            transform: rotate(0deg) translateX(40px) translateY(0px);
-          }
-          75% {
-            transform: rotate(4deg) translateX(20px) translateY(-10px);
-          }
-          100% {
-            transform: rotate(0deg) translateX(0px) translateY(0px);
-          }
-        }
-      }
-    }
   }
   &_left-small {
     width: 65%;
@@ -1509,5 +1477,78 @@ body {
     top: -24%;
     width: 70%;
     z-index: 0;
+  }
+  &_center-page {
+    left: 24%;
+    width: 110%;
+    top: 0;
+    opacity: 0.9;
+  }
+  &_left-bottom {
+    left: -8%;
+    top: 64%;
+    width: 81%;
+    z-index: 0;
+  }
+  &_right-bottom {
+    left: 78%;
+    top: 64%;
+    width: 81%;
+    z-index: 0;
+  }
+  &_left-bottom-jackpot {
+    left: -34%;
+    top: 6%;
+    width: 131%;
+    z-index: 8001;
+  }
+  &_right-bottom-jackpot {
+    left: 36%;
+    top: 1%;
+    z-index: 8001;
+  }
+  &_right-bottom-middle-jackpot {
+    left: 33%;
+    top: -15%;
+    width: 102%;
+  }
+  &_center-middle-jackpot {
+    width: 73%;
+    left: 12%;
+    top: -25%;
+  }
+  &_left-middle-jackpot {
+    width: 97%;
+    left: -21%;
+    top: -27%;
+  }
+}
+
+
+.button {
+  min-width: 15%;
+  padding: 5px 15px;
+  margin: 1% 5%;
+  border: 6px solid;
+  font-size: 1.5em;
+  transition: box-shadow 0.3s ease-in-out;
+  position: relative;
+  z-index: 8000;
+  &_gold {
+    color: white;
+    background-color: $main-color;
+    border-color: $add-color;
+    &:hover {
+      box-shadow: inset 0 0 20px 6px $add-color;
+    }
+  }
+
+  &_dark {
+    color: $main-color;
+    background-color: $gray-color;
+    border-color: #454E4E;
+    &:hover {
+      box-shadow: inset 0 0 20px 6px #454E4E;
+    }
   }
 }

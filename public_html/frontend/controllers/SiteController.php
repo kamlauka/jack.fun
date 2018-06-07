@@ -80,9 +80,10 @@ class SiteController extends Controller
         //$language = $session->get('language');
         // $language = $session['language'];
 
-        //$language_alias = isset($_SESSION['language']) ? $_SESSION['language'] : $_SESSION['language'] = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-        //$language =  Language::find()->where(['alias'=>$language_alias])->one();
-        //$lang = $_SESSION['language'];
+        $language_alias = isset($_SESSION['language']) ? $_SESSION['language'] : $_SESSION['language'] = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+        $language =  Language::find()->where(['alias'=>$language_alias])->one();
+
+         $_SESSION['language'] = $language->id;
 
         $T = Translation::find()->where(['alias'=>'main_T','language_id'=>$_SESSION['language']])->one();
         $bitcoin = Translation::find()->where(['alias'=>'main_bitcoin','language_id'=>$_SESSION['language']])->one();

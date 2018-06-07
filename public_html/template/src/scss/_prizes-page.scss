@@ -1,0 +1,94 @@
+.prize-page {
+  background: linear-gradient(to bottom, #44dffb 0%,#f9f9f9 73%);
+}
+
+.prize-page-without-clouds {
+  position: relative;
+  z-index: 1;
+  &__small-container {
+    width: 80%;
+    display: flex;
+    align-items: baseline;
+    flex-wrap: nowrap;
+    margin: auto;
+    padding-left: 3%;
+    padding-top: 7%;
+    justify-content: center;
+  }
+    &__image {
+      width: 15%;
+      align-self: center;
+      margin: 0 20px;
+      @media (max-width: $mobile-width) {
+        width: 30%;
+    }
+  }
+  &__prize-name {
+    margin: 0;
+    line-height: 1em;
+    color: #2E2E2E;
+    font-family: Corbel;
+    font-size: 5em;
+    @media (max-width: $mobile-width) {
+      margin: 18% 0;
+      font-size: 3em;
+    }
+  }
+  &__prize-price {
+    font-size: 6em;
+    color: #00CC69;
+    padding-left: 20px;
+    @media (max-width: $second-width) {
+      padding: 10%;
+      font-size: 5em;
+    }
+    @media (max-width: $mobile-width) {
+      position: absolute;
+      top: 40%;
+    }
+  }
+  &__prize-text {
+    margin: 0;
+    line-height: 1em;
+    color: #616161;
+    font-family: Corbel;
+    font-size: 5em;
+    @media (max-width: $mobile-width) {
+      margin: 18% 0;
+      font-size: 3em;
+    }
+  }
+  &__timer {
+    font-size: 0.4em;
+  }
+  &__big-font {
+    font-size: 1.5em;
+  }
+  &__text {
+    margin: 20px 0;
+  }
+  &__participate {
+    padding: 20px 30px;
+  }
+}
+
+.steps-container {
+  position: relative;
+  height: 4vh;
+  padding: 20px 0;
+}
+.steps {
+  padding: 6px 25px;
+  background-color: #7C918C;
+  &__digit {
+    color: $main-color;
+    padding-right: 10px;
+    font-size: 1.5em;
+  }
+  &-arrow {
+    width: 5%;
+    height: 100%;
+    background: url("../images/prizes/arrow.png") no-repeat;
+    background-size: contain;
+  }
+}
