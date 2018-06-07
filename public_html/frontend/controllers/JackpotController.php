@@ -18,13 +18,12 @@ class JackpotController extends Controller
 
     public function actionIndex()
     {
-//        $user_id = \Yii::$app->user->identity->id;
-//        $user = User::findOne($user_id);
 
-        $model = Jackpot::find()->where(['status'=>1,'result'=>null])->all();
+        $model = Jackpot::find()->where(['status'=>1,'result'=>null])->one();
 
+//      return $this->render('index',[ решить со страницей индекс
 
-        return $this->render('index',[
+        return $this->render('view',[
             'model'=>$model
         ]);
     }
