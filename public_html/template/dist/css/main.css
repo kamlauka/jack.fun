@@ -22,7 +22,7 @@
 ._font__1em {
   font-size: 1em; }
 
-.pillar, .prizes:before, .prizes:after, .terrestrial-world:before, .terrestrial-world:after, .seo-section:before, .seo-section:after, .about-user-info:before, .about-user-info:after, .empty-block_left {
+.pillar, .prizes:before, .prizes:after, .terrestrial-world:before, .terrestrial-world:after, .seo-section:before, .seo-section:after, .about-user-info:before, .about-user-info:after, .empty-block {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -32,20 +32,31 @@
   background-repeat: no-repeat; }
   .pillar_color_dark, .seo-section:before, .seo-section:after {
     background: url("../images/common/dark-pillar-1.png") top left no-repeat, url("../images/common/dark-pillar-3.png") bottom left no-repeat, url("../images/common/dark-pillar-2.png") repeat-y; }
-  .pillar_color_grey, .terrestrial-world:before, .terrestrial-world:after, .about-user-info:before, .about-user-info:after, .empty-block_left {
+    @media (max-width: 1550px) {
+      .pillar_color_dark, .seo-section:before, .seo-section:after {
+        background-size: 47%, 47%, 32.5%; } }
+  .pillar_color_grey, .terrestrial-world:before, .terrestrial-world:after {
     background: url("../images/common/grey-pillar-1.png") top left no-repeat, url("../images/common/grey-pillar-3.png") bottom left no-repeat, url("../images/common/grey-pillar-2.png") repeat-y; }
+    @media (max-width: 1550px) {
+      .pillar_color_grey, .terrestrial-world:before, .terrestrial-world:after {
+        background-size: 47%, 47%, 32.5%; } }
   .pillar_color_gold, .prizes:before, .prizes:after {
     background: url("../images/common/gold-pillar-1.png") top left no-repeat, url("../images/common/gold-pillar-3.png") bottom left no-repeat, url("../images/common/gold-pillar-2.png") repeat-y; }
-  .pillar_position_right, .prizes:after, .terrestrial-world:after, .seo-section:after, .about-user-info:after, .empty-block_left {
+    @media (max-width: 1550px) {
+      .pillar_color_gold, .prizes:before, .prizes:after {
+        background-size: 47%, 47%, 32.5%; } }
+  .pillar_all-pillar, .about-user-info:before, .about-user-info:after, .empty-block {
+    background: url("../images/cabinet/pillar-all-1.png") top left no-repeat, url("../images/cabinet/pillar-all-3.png") bottom left no-repeat, url("../images/cabinet/pillar-all-2.png") top center repeat-y;
+    background-size: 100%, 100%, 67.5%; }
+  .pillar_position_right, .prizes:after, .terrestrial-world:after, .seo-section:after, .about-user-info:after, .empty-block {
     right: 0;
     transform: scale(-1, 1); }
   .pillar_position_left, .prizes:before, .terrestrial-world:before, .seo-section:before, .about-user-info:before {
     left: 0; }
-  @media (max-width: 1550px) {
-    .pillar, .prizes:before, .prizes:after, .terrestrial-world:before, .terrestrial-world:after, .seo-section:before, .seo-section:after, .about-user-info:before, .about-user-info:after, .empty-block_left {
-      background-size: 47%, 47%, 32.5%; } }
+  .pillar_position_top, .about-user-info:after {
+    bottom: 6%; }
   @media (max-width: 768px) {
-    .pillar, .prizes:before, .prizes:after, .terrestrial-world:before, .terrestrial-world:after, .seo-section:before, .seo-section:after, .about-user-info:before, .about-user-info:after, .empty-block_left {
+    .pillar, .prizes:before, .prizes:after, .terrestrial-world:before, .terrestrial-world:after, .seo-section:before, .seo-section:after, .about-user-info:before, .about-user-info:after, .empty-block {
       display: none; } }
 
 .curtain, .scene-of-prize:before, .scene-of-prize:after, .about-user-info__wrapper:before, .about-user-info__wrapper:after, .disputes:before, .disputes:after {
@@ -66,22 +77,31 @@
   .curtain_position_left, .scene-of-prize:before, .about-user-info__wrapper:before, .disputes:before {
     left: 0;
     transform: scale(-1, 1);
-    margin-left: 2%; }
+    margin-left: 2%;
+    background-position: top left; }
   .curtain_position_right, .scene-of-prize:after, .about-user-info__wrapper:after, .disputes:after {
     right: 0;
-    margin-right: 2%; }
+    margin-right: 2%;
+    background-position: top right; }
   .curtain_color_red, .scene-of-prize:before, .scene-of-prize:after {
     background: url("../images/common/curtain-2.png") no-repeat;
     background-size: contain; }
+    @media (max-width: 768px) {
+      .curtain_color_red, .scene-of-prize:before, .scene-of-prize:after {
+        display: none; } }
   .curtain_color_blue, .disputes:before, .disputes:after {
     background: url("../images/common/curtain-blue.png") no-repeat;
-    background-size: contain; }
+    background-size: cover;
+    margin: 0;
+    width: 43%; }
+    @media (max-width: 1250px) {
+      .curtain_color_blue, .disputes:before, .disputes:after {
+        width: 43%; } }
   .curtain_color_red-1, .about-user-info__wrapper:before, .about-user-info__wrapper:after {
     background: url("../images/cabinet/little-red-curtain.png") no-repeat;
-    background-size: contain; }
-  @media (max-width: 768px) {
-    .curtain, .scene-of-prize:before, .scene-of-prize:after, .about-user-info__wrapper:before, .about-user-info__wrapper:after, .disputes:before, .disputes:after {
-      display: none; } }
+    background-size: contain;
+    margin: 0;
+    width: 40%; }
 
 .header {
   position: fixed;
@@ -1367,40 +1387,117 @@
   .cabinet__clouds {
     z-index: 0; }
 
+.grass {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: -3%;
+  z-index: 2000;
+  background: url("../images/common/grass.png") bottom no-repeat; }
+
 .about-user-info {
   position: relative;
-  width: 50%; }
+  width: 50%;
+  height: 100vh;
+  min-height: 770px; }
+  @media (max-width: 1052px) {
+    .about-user-info {
+      width: 57%; } }
+  @media (max-width: 768px) {
+    .about-user-info {
+      width: 100%;
+      min-height: 0;
+      height: 100%; } }
   .about-user-info:before {
     content: ''; }
   .about-user-info:after {
-    content: ''; }
+    content: '';
+    right: -6%; }
   .about-user-info__wrapper {
     position: relative;
     width: 46%;
+    bottom: -23%;
     height: 64vh;
-    margin: 20% auto auto;
-    padding: 5% 2%;
-    background: url("../images/cabinet/stone.png") bottom no-repeat;
-    background-size: contain; }
+    margin: 0 auto;
+    padding: 5% 2% 19%;
+    background: url(../images/cabinet/leaf-3.png) bottom no-repeat, url(../images/cabinet/stone.png) bottom no-repeat;
+    background-size: 70%, cover;
+    border-image: url(../images/common/pattern.png) 100% 0%/1 0 repeat; }
+    @media (max-width: 768px) {
+      .about-user-info__wrapper {
+        width: 100%;
+        margin: 0;
+        min-height: 0;
+        height: 100%;
+        padding: 5% 0%;
+        background: url("../images/cabinet/stone.png") bottom no-repeat;
+        background-size: cover; } }
     .about-user-info__wrapper:before {
       content: ''; }
     .about-user-info__wrapper:after {
       content: ''; }
+  .about-user-info__user-logo {
+    width: 47%;
+    border-radius: 50%;
+    border: 6px solid #DE7300; }
+  .about-user-info__paragraph {
+    font-size: 1.2em;
+    margin: 20px 0; }
+    @media (max-width: 768px) {
+      .about-user-info__paragraph {
+        font-size: 2em; } }
+  .about-user-info__title {
+    font-family: Corbel;
+    font-weight: bold;
+    color: #24445E;
+    margin-bottom: 0; }
+  .about-user-info__info {
+    margin: 5px 0; }
+  .about-user-info__user-name {
+    font-family: Corbel;
+    font-weight: bold;
+    color: #24445E; }
 
 .disputes {
   position: relative;
-  width: 50%;
+  width: 45%;
   height: 100vh;
+  min-height: 770px;
+  margin-right: 5%;
   background: url("../images/common/scene.png") bottom no-repeat;
   background-size: cover; }
+  @media (max-width: 1052px) {
+    .disputes {
+      width: 37%; } }
+  @media (max-width: 768px) {
+    .disputes {
+      width: 100%;
+      margin-right: 0;
+      min-height: 650px;
+      height: 55vh; } }
   .disputes:before {
     content: ''; }
   .disputes:after {
     content: ''; }
+  .disputes__image {
+    position: absolute;
+    bottom: 2%;
+    left: 0;
+    right: 0; }
+  .disputes__title {
+    color: white;
+    position: relative;
+    top: 38%; }
+    @media (max-width: 768px) {
+      .disputes__title {
+        top: 28%; } }
 
 .empty-block {
-  position: relative;
-  width: 5%; }
+  position: absolute;
+  width: 7.5%;
+  height: 100vh;
+  min-height: 770px; }
 
 *:focus {
   outline: none !important; }
