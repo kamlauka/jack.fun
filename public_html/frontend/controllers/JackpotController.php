@@ -33,7 +33,7 @@ class JackpotController extends Controller
     {
         $model = Jackpot::findOne($id);
 
-        return $this->render('index',[
+        return $this->render('view',[
             'model'=>$model
         ]);
     }
