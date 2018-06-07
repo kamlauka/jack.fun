@@ -32,7 +32,7 @@ class Jackpot extends \yii\db\ActiveRecord
             [['total', 'status', 'date_start'], 'required'],
             [['total'], 'number'],
             [['date_start'], 'safe'],
-            [['status'], 'string', 'max' => 4],
+            [['status'], 'number', 'max' => 4],
             [['result'], 'string', 'max' => 255],
         ];
     }

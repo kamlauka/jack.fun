@@ -2,19 +2,17 @@
 
 namespace backend\controllers;
 
-use common\models\Banlist;
 use Yii;
-use common\models\User;
-use backend\models\UserSearch;
+use common\models\Translation;
+use backend\models\TranslationSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\web\UploadedFile;
 
 /**
- * UserController implements the CRUD actions for User model.
+ * TranslationController implements the CRUD actions for Translation model.
  */
-class UserController extends Controller
+class TranslationController extends Controller
 {
     /**
      * @inheritdoc
@@ -32,12 +30,12 @@ class UserController extends Controller
     }
 
     /**
-     * Lists all User models.
+     * Lists all Translation models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new UserSearch();
+        $searchModel = new TranslationSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -47,7 +45,7 @@ class UserController extends Controller
     }
 
     /**
-     * Displays a single User model.
+     * Displays a single Translation model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -60,33 +58,17 @@ class UserController extends Controller
     }
 
     /**
-     * Creates a new User model.
+     * Creates a new Translation model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
+        $model = new Translation();
 
-        $model = new User();
-
-        if ($model->load(Yii::$app->request->post()) && $model->validate() ) {
-
-                $model->setPassword($model->auth_key);
-                $model->generateAuthKey();
-
-                $model->avatar = UploadedFile::getInstance($model, 'avatar');
-                $model->file = UploadedFile::getInstance($model, 'file');
-
-                if($model->avatar !=null && $model->file !=null ){
-                  $model->upload();
-                }
-
-
-                if($model->save()){
-                    return $this->redirect(['view', 'id' => $model->id]);
-                }
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
         }
-
 
         return $this->render('create', [
             'model' => $model,
@@ -94,7 +76,7 @@ class UserController extends Controller
     }
 
     /**
-     * Updates an existing User model.
+     * Updates an existing Translation model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -102,12 +84,9 @@ class UserController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = User::findOne($id);
+        $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-
-            Banlist::deleteAll(['user_id' => $id]);//удаляем пользователя с банлиста
-
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -117,7 +96,7 @@ class UserController extends Controller
     }
 
     /**
-     * Deletes an existing User model.
+     * Deletes an existing Translation model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -131,18 +110,18 @@ class UserController extends Controller
     }
 
     /**
-     * Finds the User model based on its primary key value.
+     * Finds the Translation model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return User the loaded model
+     * @return Translation the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = User::findOne($id)) !== null) {
+        if (($model = Translation::findOne($id)) !== null) {
             return $model;
         }
 
-        throw new NotFoundHttpException('The requested page does not exist.');
+        throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
     }
 }

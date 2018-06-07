@@ -5,8 +5,6 @@
 /* @var $content string */
 
 use yii\helpers\Html;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
@@ -30,9 +28,11 @@ AppAsset::register($this);
 
     <div class="header__container container flex-gorizontal flex-gorizontal_none-vertical">
         <div class="flags flex-gorizontal flex-gorizontal_none-vertical">
-            <?= Html::img('/images/flag3.png', ['alt' => 'Chinese', 'class' => 'flags__image']) ?>
-            <?= Html::img('/images/flag2.png', ['alt' => 'Russian', 'class' => 'flags__image']) ?>
-            <?= Html::img('/images/flag1.png', ['alt' => 'English', 'class' => 'flags__image']) ?>
+
+            <?= Html::a(Html::img('/images/flag3.png', ['alt' => 'Chinese', 'class' => 'flags__image']),'/site/language?lang=ch') ?>
+            <?= Html::a(Html::img('/images/flag2.png', ['alt' => 'Russian', 'class' => 'flags__image']),'/site/language?lang=ru') ?>
+            <?= Html::a(Html::img('/images/flag1.png', ['alt' => 'English', 'class' => 'flags__image']),'/site/language?lang=en') ?>
+
         </div>
         <div class="menu-container flex-gorizontal flex-gorizontal_none-vertical">
             <nav class="menu" onclick="openbox('white-background')">
@@ -62,8 +62,11 @@ AppAsset::register($this);
     <div class="orange-border orange-border_edge"></div>
 </header>
 <div class="wrap">
-
-
+    <div class="crumbs">
+        <?= Breadcrumbs::widget([
+            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+        ]) ?>
+    </div>
         <?= Alert::widget() ?>
         <?= $content ?>
 
@@ -78,8 +81,8 @@ AppAsset::register($this);
                 </div>
                 <div class="footer-block__center-align-block">
 
-                    <?= Html::a('List of disputes','#',['class'=>'footer-block__link']) ?>
-                    <?= Html::a('The page of the dispute','#',['class'=>'footer-block__link']) ?>
+                    <?php //echo Html::a('List of disputes','#',['class'=>'footer-block__link']) ?>
+                    <?php //echo Html::a('The page of the dispute','#',['class'=>'footer-block__link']) ?>
 
                 </div>
                 <div class="footer-block__right-align-block">
