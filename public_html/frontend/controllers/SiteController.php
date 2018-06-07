@@ -77,33 +77,27 @@ class SiteController extends Controller
     public function actionIndex()
     {
 
-        //$language = $session->get('language');
-        // $language = $session['language'];
+        $id_lang = $_SESSION['language'];
 
-        $language_alias = isset($_SESSION['language']) ? $_SESSION['language'] : $_SESSION['language'] = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-        $language =  Language::find()->where(['alias'=>$language_alias])->one();
-
-         $_SESSION['language'] = $language->id;
-
-        $T = Translation::find()->where(['alias'=>'main_T','language_id'=>$_SESSION['language']])->one();
-        $bitcoin = Translation::find()->where(['alias'=>'main_bitcoin','language_id'=>$_SESSION['language']])->one();
-        $hands = Translation::find()->where(['alias'=>'main_hands','language_id'=>$_SESSION['language']])->one();
-        $play = Translation::find()->where(['alias'=>'main_play','language_id'=>$_SESSION['language']])->one();
-        $prize = Translation::find()->where(['alias'=>'main_prize','language_id'=>$_SESSION['language']])->one();
+        $T = Translation::find()->where(['alias' => 'main_T'])->andWhere(['language_id' => 1])->one();
+        $bitcoin = Translation::find()->where(['alias'=>'main_bitcoin','language_id'=>$id_lang])->one();
+        $hands = Translation::find()->where(['alias'=>'main_hands','language_id'=>$id_lang])->one();
+        $play = Translation::find()->where(['alias'=>'main_play','language_id'=>$id_lang])->one();
+        $prize = Translation::find()->where(['alias'=>'main_prize','language_id'=>$id_lang])->one();
 
 
         if($lottery =  Lottery::find()->where(['status' => '1' ])->one()){
-            $lottery_name_prize = Translation::find()->where(['alias'=>'name_prize','language_id'=>$_SESSION['language']])->one();
-            $lottery_description = Translation::find()->where(['alias'=>'description','language_id'=>$_SESSION['language']])->one();
+            $lottery_name_prize = Translation::find()->where(['alias'=>'name_prize','language_id'=>$id_lang])->one();
+            $lottery_description = Translation::find()->where(['alias'=>'description','language_id'=>$id_lang])->one();
         }
 
         if($jackpot = Jackpot::find()->where(['status' => 1 ])->one()){
 
-            $jackpot_description = Translation::find()->where(['alias' => 'jackpot_description', 'language_id' => $_SESSION['language']])->one();
+            $jackpot_description = Translation::find()->where(['alias' => 'jackpot_description', 'language_id' => $id_lang])->one();
         }
 
-        $seo_block_title = Translation::find()->where(['alias' => 'seo_block_title', 'language_id' => $_SESSION['language']])->one();
-        $seo_block_text = Translation::find()->where(['alias' => 'seo_block_text', 'language_id' => $_SESSION['language']])->one();
+        $seo_block_title = Translation::find()->where(['alias' => 'seo_block_title', 'language_id' => $id_lang])->one();
+        $seo_block_text = Translation::find()->where(['alias' => 'seo_block_text', 'language_id' => $id_lang])->one();
 
         return $this->render('index',[
 
@@ -253,9 +247,8 @@ class SiteController extends Controller
 
     public function actionLanguage($lang){
 
-        $session = Yii::$app->session;
         $lang =  Language::find()->where(['alias'=>$lang])->one();
-        $session->set('language', $lang->id);
+        $_SESSION['language'] = $lang->id;
         return $this->redirect(Yii::$app->request->referrer);
     }
 }
