@@ -32,15 +32,17 @@ AppAsset::register($this);
             <?php
                 $ru = $en = $ch = ['class' => 'flags__image'];
                 if(Yii::$app->session->get('language') == 1 )
-                    {Html::addCssClass($ru, 'flags__image_active');}
+                    {Html::addCssClass($ru , ['flags__image_active']);}
                 elseif(Yii::$app->session->get('language') == 2 )
-                    {Html::addCssClass($en, 'flags__image_active');}
-                else{Html::addCssClass($ch, 'flags__image_active');}
+                    {Html::addCssClass($en , ['flags__image_active']);
+                        Html::addCssClass($en, ['btn-success', 'btn-lg']);}
+
+                else{Html::addCssClass($ch , ['flags__image_active']);}
             ?>
 
-            <?= Html::a(Html::img('/images/common/flag3.png', ['alt' => 'Chinese', $ch ]),'/site/language?lang=ch') ?>
-            <?= Html::a(Html::img('/images/common/flag2.png', ['alt' => 'Russian', $ru ]),'/site/language?lang=ru') ?>
-            <?= Html::a(Html::img('/images/common/flag1.png', ['alt' => 'English', $en ]),'/site/language?lang=en') ?>
+            <?= Html::a(Html::img('/images/common/flag3.png',  $ch ),'/site/language?lang=ch') ?>
+            <?= Html::a(Html::img('/images/common/flag2.png',  $ru ),'/site/language?lang=ru') ?>
+            <?= Html::a(Html::img('/images/common/flag1.png',  $en ),'/site/language?lang=en') ?>
 
         </div>
         <div class="menu-container flex-gorizontal flex-gorizontal_none-vertical">

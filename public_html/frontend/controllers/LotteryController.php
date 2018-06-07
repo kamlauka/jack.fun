@@ -17,11 +17,12 @@ class LotteryController extends Controller
 {
 
     public function actionIndex(){
-
+        //решить по лотереям
+        $lottery =  Lottery::find()->where(['status' => '1' ])->one();
         $lotteries = Lottery::find()->where(['status' => 1])->all();
 
-        return $this->render('index',[
-            'lotteries' => $lotteries
+        return $this->render('view',[
+            'lottery' => $lottery
         ]);
     }
 
