@@ -60,6 +60,15 @@ body {
   z-index: 1;
 }
 
+.mobile-border {
+  @media (max-width: $mobile-width) {
+    margin-top: 28px;
+    box-shadow: 0 -10px 0 0px $main-color, 0 -18px 0 1px #B17011, 0 -15px 0 15px $main-color;
+  }
+
+}
+
+
 .page-container {
   position: relative;
   margin-top: 51px;
@@ -76,6 +85,11 @@ body {
   }
   @media (max-width: $third-width) {
     max-width: 900px;
+  }
+  &_mob {
+    @media (max-width: $mobile-width) {
+      padding: 0;
+    }
   }
 }
 
@@ -1232,7 +1246,7 @@ body {
   right: 0;
   left: 0;
 
-  max-height: 100vh;
+  //max-height: 100vh;
   z-index: 0;
   @media (max-width: 1700px) {
     top: 3%;
