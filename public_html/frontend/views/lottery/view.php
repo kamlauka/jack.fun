@@ -1,6 +1,6 @@
 <section class="prize-page page-container">
 
-    <div class="prize-page-without-clouds container">
+    <div class="prize-page-without-clouds container container_mob mobile-container">
         <div class="crumbs">
             <a class="crumbs__link" href="#">Home</a>
             <a class="crumbs__link crumbs__link_active" href="#">Terms of Agreement</a>
@@ -8,23 +8,27 @@
         <div class="prize-page-without-clouds__small-container">
             <h2 class="prize-page-without-clouds__prize-name">iphone X</h2>
             <?php
+<<<<<<< HEAD
+                if($lottery->img) {
+                 echo   \yii\helpers\Html::img($lottery->img,['alert'=>'','class'=>'prize-page-without-clouds__image']);
+=======
                 if(isset($lottery->img)) {
                  echo  \yii\helpers\Html::img($lottery->img,['alert'=>'','class'=>'prize-page-without-clouds__image']);
+>>>>>>> 474cf80e697761bfff69780ddf60e36b800e64cf
                 }
             ?>
 
             <h2 class="prize-page-without-clouds__prize-text">for only</h2>
+
             <h2 class="prize-page-without-clouds__prize-price">
             <?php if($lottery->rate ) {
-                echo ' for only'. $lottery->rate .' ETH<br>';
+                echo $lottery->rate .' ETH<br>';
             } ?>
             </h2>
 
         </div>
-        <div class="timer prize-page-without-clouds__timer">
-            <h3 class="timer__days"><span class="days prize-page-without-clouds__big-font"></span> DAY <span class="hours"></span> : <span class="minutes"></span> : <span class="seconds"></span></h3>
-        </div>
-        <p class="prize-page-without-clouds__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio ducimus ipsa nemo numquam quas quibusdam tempora voluptate! Consectetur distinctio eligendi ratione sapiente. Accusantium alias debitis, deserunt, dolor eveniet facilis ipsa laboriosam molestias nisi nobis quisquam quod repellat sapiente. A alias architecto aut cupiditate deleniti dolore ea error est explicabo in natus nostrum nulla numquam, perspiciatis reprehenderit soluta sunt unde velit! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusantium aliquid aperiam asperiores aut autem consectetur consequatur cumque dicta doloribus esse et, eum eveniet explicabo fugit hic illo impedit iure iusto mollitia non nostrum obcaecati officiis optio porro, possimus quisquam recusandae rem repellat reprehenderit sapiente suscipit voluptas voluptatibus!</p>
+        <p class="prize-page-without-clouds__text text-wrap"><span class="gold-text">990 000</span> out of <span class="gold-text">1 000 000</span> left before the draw of the prize</p>
+        <p class="prize-page-without-clouds__text text-wrap">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio ducimus ipsa nemo numquam quas quibusdam tempora voluptate! Consectetur distinctio eligendi ratione sapiente. Accusantium alias debitis, deserunt, dolor eveniet facilis ipsa laboriosam molestias nisi nobis quisquam quod repellat sapiente. A alias architecto aut cupiditate deleniti dolore ea error est explicabo in natus nostrum nulla numquam, perspiciatis reprehenderit soluta sunt unde velit! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusantium aliquid aperiam asperiores aut autem consectetur consequatur cumque dicta doloribus esse et, eum eveniet explicabo fugit hic illo impedit iure iusto mollitia non nostrum obcaecati officiis optio porro, possimus quisquam recusandae rem repellat reprehenderit sapiente suscipit voluptas voluptatibus!</p>
         <div class="participate prize-page-without-clouds__participate">
             <div class="participate__buttons container">
                 <a class="button button_gold participate__button" href="/lottery/participate?id=<?= $lottery->id ?>">Participate</a>

@@ -14,13 +14,21 @@
 }
 
 .menu-container {
-  width: 87px;
+  //width: 87px;
   text-align: right;
+  font-size: 1.2em;
 }
 
 .flags {
   &__image {
     margin: 0 5px;
+    filter: grayscale(1);
+    &:hover {
+      filter: none;
+    }
+    &_active {
+      filter: none;
+    }
   }
 }
 
