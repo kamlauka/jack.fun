@@ -23,6 +23,9 @@
   font-size: 1em; }
 
 .pillar, .prizes:before, .prizes:after, .terrestrial-world:before, .terrestrial-world:after, .seo-section:before, .seo-section:after, .about-user-info:before, .about-user-info:after, .empty-block_left {
+
+/*.pillar, .prizes:before, .prizes:after, .terrestrial-world:before, .terrestrial-world:after, .seo-section:before, .seo-section:after, .about-user-info:before, .about-user-info:after, .empty-block {*/
+
   position: absolute;
   top: 0;
   bottom: 0;
@@ -32,11 +35,30 @@
   background-repeat: no-repeat; }
   .pillar_color_dark, .seo-section:before, .seo-section:after {
     background: url("../images/common/dark-pillar-1.png") top left no-repeat, url("../images/common/dark-pillar-3.png") bottom left no-repeat, url("../images/common/dark-pillar-2.png") repeat-y; }
+
   .pillar_color_grey, .terrestrial-world:before, .terrestrial-world:after, .about-user-info:before, .about-user-info:after, .empty-block_left {
     background: url("../images/common/grey-pillar-1.png") top left no-repeat, url("../images/common/grey-pillar-3.png") bottom left no-repeat, url("../images/common/grey-pillar-2.png") repeat-y; }
   .pillar_color_gold, .prizes:before, .prizes:after {
     background: url("../images/common/gold-pillar-1.png") top left no-repeat, url("../images/common/gold-pillar-3.png") bottom left no-repeat, url("../images/common/gold-pillar-2.png") repeat-y; }
   .pillar_position_right, .prizes:after, .terrestrial-world:after, .seo-section:after, .about-user-info:after, .empty-block_left {
+
+    @media (max-width: 1550px) {
+      .pillar_color_dark, .seo-section:before, .seo-section:after {
+        background-size: 47%, 47%, 32.5%; } }
+  .pillar_color_grey, .terrestrial-world:before, .terrestrial-world:after {
+    background: url("../images/common/grey-pillar-1.png") top left no-repeat, url("../images/common/grey-pillar-3.png") bottom left no-repeat, url("../images/common/grey-pillar-2.png") repeat-y; }
+    @media (max-width: 1550px) {
+      .pillar_color_grey, .terrestrial-world:before, .terrestrial-world:after {
+        background-size: 47%, 47%, 32.5%; } }
+  .pillar_color_gold, .prizes:before, .prizes:after {
+    background: url("../images/common/gold-pillar-1.png") top left no-repeat, url("../images/common/gold-pillar-3.png") bottom left no-repeat, url("../images/common/gold-pillar-2.png") repeat-y; }
+    @media (max-width: 1550px) {
+      .pillar_color_gold, .prizes:before, .prizes:after {
+        background-size: 47%, 47%, 32.5%; } }
+  .pillar_all-pillar, .about-user-info:before, .about-user-info:after, .empty-block {
+    background: url("../images/cabinet/pillar-all-1.png") top left no-repeat, url("../images/cabinet/pillar-all-3.png") bottom left no-repeat, url("../images/cabinet/pillar-all-2.png") top center repeat-y;
+    background-size: 100%, 100%, 67.5%; }
+  .pillar_position_right, .prizes:after, .terrestrial-world:after, .seo-section:after, .about-user-info:after, .empty-block {
     right: 0;
     transform: scale(-1, 1); }
   .pillar_position_left, .prizes:before, .terrestrial-world:before, .seo-section:before, .about-user-info:before {
@@ -46,6 +68,10 @@
       background-size: 47%, 47%, 32.5%; } }
   @media (max-width: 768px) {
     .pillar, .prizes:before, .prizes:after, .terrestrial-world:before, .terrestrial-world:after, .seo-section:before, .seo-section:after, .about-user-info:before, .about-user-info:after, .empty-block_left {
+  .pillar_position_top, .about-user-info:after {
+    bottom: 6%; }
+  @media (max-width: 768px) {
+    .pillar, .prizes:before, .prizes:after, .terrestrial-world:before, .terrestrial-world:after, .seo-section:before, .seo-section:after, .about-user-info:before, .about-user-info:after, .empty-block {
       display: none; } }
 
 .curtain, .scene-of-prize:before, .scene-of-prize:after, .about-user-info__wrapper:before, .about-user-info__wrapper:after, .disputes:before, .disputes:after {
@@ -82,7 +108,31 @@
   @media (max-width: 768px) {
     .curtain, .scene-of-prize:before, .scene-of-prize:after, .about-user-info__wrapper:before, .about-user-info__wrapper:after, .disputes:before, .disputes:after {
       display: none; } }
-
+    margin-left: 2%;
+    background-position: top left; }
+  .curtain_position_right, .scene-of-prize:after, .about-user-info__wrapper:after, .disputes:after {
+    right: 0;
+    margin-right: 2%;
+    background-position: top right; }
+  .curtain_color_red, .scene-of-prize:before, .scene-of-prize:after {
+    background: url("../images/common/curtain-2.png") no-repeat;
+    background-size: contain; }
+    @media (max-width: 768px) {
+      .curtain_color_red, .scene-of-prize:before, .scene-of-prize:after {
+        display: none; } }
+  .curtain_color_blue, .disputes:before, .disputes:after {
+    background: url("../images/common/curtain-blue.png") no-repeat;
+    background-size: cover;
+    margin: 0;
+    width: 43%; }
+    @media (max-width: 1250px) {
+      .curtain_color_blue, .disputes:before, .disputes:after {
+        width: 43%; } }
+  .curtain_color_red-1, .about-user-info__wrapper:before, .about-user-info__wrapper:after {
+    background: url("../images/cabinet/little-red-curtain.png") no-repeat;
+    background-size: contain;
+    margin: 0;
+    width: 40%; }
 .header {
   position: fixed;
   z-index: 9000;
@@ -120,6 +170,9 @@
     border: 2px solid #DE7300;
     background-color: #B3C7C2;
     transform-style: preserve-3d; }
+    .menu a:hover, .menu a:focus {
+      background-color: #37423E;
+      color: #B3C7C2; }
     @media (max-width: 768px) {
       .menu a {
         padding: 7px 3%; } }
@@ -539,6 +592,16 @@
   .participate__button {
     margin-top: 10px; }
 
+.registration {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  background-color: #91AAA9; }
+
+.label {
+  display: inline-block;
+  background-color: #587070; }
+
 .prizes {
   position: relative;
   width: 100%;
@@ -657,15 +720,15 @@
         position: absolute;
         top: 40%; } }
 
-.lotery {
+.jackpot {
   position: relative;
   width: 100%;
   overflow: hidden;
   background: linear-gradient(#E2FFFF, #fff); }
   @media (max-width: 768px) {
-    .lotery {
+    .jackpot {
       background: none; } }
-  .lotery__sanctuary {
+  .jackpot__sanctuary {
     position: absolute;
     z-index: 80;
     top: 0;
@@ -677,18 +740,18 @@
     background-position: 10% 27%;
     background-size: 24%; }
     @media (max-width: 1200px) {
-      .lotery__sanctuary {
+      .jackpot__sanctuary {
         background-position: 10% 44%; } }
     @media (max-width: 974px) {
-      .lotery__sanctuary {
+      .jackpot__sanctuary {
         background-position: 10% 46%; } }
     @media (max-width: 871px) {
-      .lotery__sanctuary {
+      .jackpot__sanctuary {
         background-position: 10% 48%; } }
     @media (max-width: 768px) {
-      .lotery__sanctuary {
+      .jackpot__sanctuary {
         display: none; } }
-  .lotery__cloud {
+  .jackpot__cloud {
     position: absolute;
     top: 0;
     left: 0;
@@ -696,213 +759,213 @@
     right: 0;
     background-image: url("../images/common/cl1.png");
     background-repeat: no-repeat; }
-    .lotery__cloud_one {
+    .jackpot__cloud_one {
       background-position: -1% 52%;
       z-index: 80;
       transform: scale(1.2);
       background-size: 47%; }
       @media (max-width: 768px) {
-        .lotery__cloud_one {
+        .jackpot__cloud_one {
           background-position: -89% 12%;
           z-index: 80;
           transform: scale(1.2);
           background-size: 75%; } }
-    .lotery__cloud_two {
+    .jackpot__cloud_two {
       background-position: -12% 64%;
       z-index: 81;
       background-size: 47%; }
       @media (min-width: 1921px) {
-        .lotery__cloud_two {
+        .jackpot__cloud_two {
           background-position: -12% 88%; } }
       @media (max-width: 1920px) {
-        .lotery__cloud_two {
+        .jackpot__cloud_two {
           background-position: -12% 85%; } }
       @media (max-width: 1801px) {
-        .lotery__cloud_two {
+        .jackpot__cloud_two {
           background-position: -12% 77%; } }
       @media (max-width: 1553px) {
-        .lotery__cloud_two {
+        .jackpot__cloud_two {
           background-position: -12% 64%; } }
       @media (max-width: 1227px) {
-        .lotery__cloud_two {
+        .jackpot__cloud_two {
           background-position: -12% 53%; } }
       @media (max-width: 1200px) {
-        .lotery__cloud_two {
+        .jackpot__cloud_two {
           background-position: -12% 70%; } }
       @media (max-width: 1116px) {
-        .lotery__cloud_two {
+        .jackpot__cloud_two {
           background-position: -12% 73%; } }
       @media (max-width: 1052px) {
-        .lotery__cloud_two {
+        .jackpot__cloud_two {
           background-position: -12% 71%; } }
       @media (max-width: 932px) {
-        .lotery__cloud_two {
+        .jackpot__cloud_two {
           background-position: -12% 67%; } }
       @media (max-width: 768px) {
-        .lotery__cloud_two {
+        .jackpot__cloud_two {
           display: none; } }
-    .lotery__cloud_three {
+    .jackpot__cloud_three {
       z-index: 81;
       background-position: 107% 4%;
       background-size: 25%;
       opacity: 0.6; }
       @media (max-width: 1052px) {
-        .lotery__cloud_three {
+        .jackpot__cloud_three {
           background-position: 107% 8%; } }
       @media (max-width: 768px) {
-        .lotery__cloud_three {
+        .jackpot__cloud_three {
           z-index: 81;
           background-position: 200% 12%;
           background-size: 75%;
           opacity: 1;
           transform: scale(1.2); } }
-    .lotery__cloud_four {
+    .jackpot__cloud_four {
       z-index: 80;
       background-position: 110% 19%;
       background-size: 30%; }
       @media (max-width: 768px) {
-        .lotery__cloud_four {
+        .jackpot__cloud_four {
           display: none; } }
-    .lotery__cloud_five {
+    .jackpot__cloud_five {
       background-position: -44% 134%;
       z-index: 81;
       background-size: 70%; }
       @media (max-width: 1990px) {
-        .lotery__cloud_five {
+        .jackpot__cloud_five {
           background-position: -44% 321%; } }
       @media (max-width: 1829px) {
-        .lotery__cloud_five {
+        .jackpot__cloud_five {
           background-position: -44% 168%; } }
       @media (max-width: 1710px) {
-        .lotery__cloud_five {
+        .jackpot__cloud_five {
           background-position: -44% 149%; } }
       @media (max-width: 1550px) {
-        .lotery__cloud_five {
+        .jackpot__cloud_five {
           background-position: -44% 135%; } }
       @media (max-width: 1462px) {
-        .lotery__cloud_five {
+        .jackpot__cloud_five {
           background-position: -44% 123%; } }
       @media (max-width: 1326px) {
-        .lotery__cloud_five {
+        .jackpot__cloud_five {
           background-position: -44% 130%; } }
       @media (max-width: 1252px) {
-        .lotery__cloud_five {
+        .jackpot__cloud_five {
           background-position: -44% 119%; } }
       @media (max-width: 1238px) {
-        .lotery__cloud_five {
+        .jackpot__cloud_five {
           background-position: -44% 119%; } }
       @media (max-width: 1155px) {
-        .lotery__cloud_five {
+        .jackpot__cloud_five {
           background-position: -44% 118%; } }
       @media (max-width: 1043px) {
-        .lotery__cloud_five {
+        .jackpot__cloud_five {
           background-position: -44% 113%; } }
       @media (max-width: 970x) {
-        .lotery__cloud_five {
+        .jackpot__cloud_five {
           background-position: -44% 111%; } }
       @media (max-width: 768px) {
-        .lotery__cloud_five {
+        .jackpot__cloud_five {
           display: none; } }
-    .lotery__cloud_six {
+    .jackpot__cloud_six {
       background-position: 93% 144%;
       z-index: 8002;
       background-size: 52%; }
       @media (max-width: 1920px) {
-        .lotery__cloud_six {
+        .jackpot__cloud_six {
           background-position: 93% 200%;
           background-size: 52%; } }
       @media (max-width: 1829px) {
-        .lotery__cloud_six {
+        .jackpot__cloud_six {
           background-position: 93% 168%; } }
       @media (max-width: 1710px) {
-        .lotery__cloud_six {
+        .jackpot__cloud_six {
           background-position: 94% 149%;
           background-size: 49%; } }
       @media (max-width: 1550px) {
-        .lotery__cloud_six {
+        .jackpot__cloud_six {
           background-position: 84% 135%;
           background-size: 45%; } }
       @media (max-width: 1462px) {
-        .lotery__cloud_six {
+        .jackpot__cloud_six {
           background-position: 85% 123%;
           background-size: 43%; } }
       @media (max-width: 1326px) {
-        .lotery__cloud_six {
+        .jackpot__cloud_six {
           background-position: 93% 130%;
           background-size: 49%; } }
       @media (max-width: 1252px) {
-        .lotery__cloud_six {
+        .jackpot__cloud_six {
           background-position: 93% 119%;
           background-size: 46%; } }
       @media (max-width: 1238px) {
-        .lotery__cloud_six {
+        .jackpot__cloud_six {
           background-position: 93% 119%;
           background-size: 46%; } }
       @media (max-width: 1155px) {
-        .lotery__cloud_six {
+        .jackpot__cloud_six {
           background-position: 97% 118%;
           background-size: 46%; } }
       @media (max-width: 1043px) {
-        .lotery__cloud_six {
+        .jackpot__cloud_six {
           background-position: 97% 113%;
           background-size: 47%; } }
       @media (max-width: 970x) {
-        .lotery__cloud_six {
+        .jackpot__cloud_six {
           background-position: 100% 111%;
           background-size: 47%; } }
       @media (max-width: 768px) {
-        .lotery__cloud_six {
+        .jackpot__cloud_six {
           display: none; } }
-    .lotery__cloud_twenty {
+    .jackpot__cloud_twenty {
       background-size: 50%;
       z-index: 8001;
       transform: scaleX(1.1);
       background-position: 9% 160%; }
       @media (max-width: 1550px) {
-        .lotery__cloud_twenty {
+        .jackpot__cloud_twenty {
           background-position: 9% 127%; } }
       @media (max-width: 768px) {
-        .lotery__cloud_twenty {
+        .jackpot__cloud_twenty {
           transform: scale(2.1);
           background-position: center 360px;
           background-size: contain;
           opacity: 0.9; } }
       @media (max-width: 764px) {
-        .lotery__cloud_twenty {
+        .jackpot__cloud_twenty {
           background-position: center 274px; } }
       @media (max-width: 430px) {
-        .lotery__cloud_twenty {
+        .jackpot__cloud_twenty {
           background-position: center 102%; } }
-  .lotery__image {
+  .jackpot__image {
     width: 400px;
     position: relative;
     z-index: 8000; }
     @media (max-width: 768px) {
-      .lotery__image {
+      .jackpot__image {
         display: none; } }
     @media (max-width: 768px) {
-      .lotery__image {
+      .jackpot__image {
         display: none; } }
-  .lotery__container {
+  .jackpot__container {
     position: relative;
     max-width: 1280px;
     margin: 0 auto;
     padding: 0 20px;
     margin-top: 20px; }
     @media (max-width: 1550px) {
-      .lotery__container {
+      .jackpot__container {
         max-width: 1000px; } }
     @media (max-width: 1052px) {
-      .lotery__container {
+      .jackpot__container {
         max-width: 900px; } }
-  .lotery__title {
+  .jackpot__title {
     margin: 0; }
-  .lotery__image-block {
+  .jackpot__image-block {
     flex: 5; }
     @media (max-width: 768px) {
-      .lotery__image-block {
+      .jackpot__image-block {
         display: none; } }
-  .lotery__timer {
+  .jackpot__timer {
     flex: 4; }
 
 .timer {
@@ -1183,6 +1246,9 @@
 .terms-page {
   background: url("../images/common/grass.png") bottom no-repeat, linear-gradient(to bottom, #44dffb 0%, #f9f9f9 73%);
   background-size: contain; }
+  @media (max-width: 768px) {
+    .terms-page {
+      background-size: 200%, contain; } }
 
 .terms {
   margin: 8% 0 15%; }
@@ -1197,7 +1263,6 @@
         margin: 1em 0 0.2em;
         font-size: 2.3em; } }
   .terms__text {
-    max-height: 50vh;
     padding: 0 20px; }
 
 .lotery-page {
@@ -1206,14 +1271,52 @@
   overflow: hidden;
   background: linear-gradient(to bottom, #44dffb 0%, #f9f9f9 73%); }
 
+
 .participate {
   flex: 1; }
   .participate_top {
     margin-top: 7%; }
   .participate_bottom {
     padding-bottom: 10%; }
+
+  .lotery-page-timer {
+    flex: 1.3;
+    align-self: flex-end;
+    margin: 0 1%;
+    font-size: 0.9em; }
+    @media (max-width: 768px) {
+      .lotery-page-timer {
+        order: -1;
+        margin: 0 auto; } }
+
+.timer__time_bottom {
+  margin-bottom: 5%; }
+
+.over-all {
+  z-index: 500; }
+
+.participate {
+  flex: 1; }
+  @media (max-width: 768px) {
+    .participate {
+      padding-top: 10%; } }
+  .participate_top {
+    margin-top: 7%; }
+    @media (max-width: 768px) {
+      .participate_top {
+        margin-top: 0%; } }
+  .participate_bottom {
+    padding-bottom: 10%; }
+    @media (max-width: 768px) {
+      .participate_bottom {
+        padding-bottom: 0; } }
+>>>>>>> as
   .participate__text {
     padding: 0 20px; }
+  @media (max-width: 768px) {
+    .participate__second {
+      border-top: 0;
+      padding: 0; } }
 
 .algorithm {
   position: relative;
@@ -1246,6 +1349,7 @@
     .algorithm__number_position-left {
       left: 4%; }
 
+
 .lotery-page-timer {
   flex: 1.3;
   align-self: flex-end;
@@ -1258,6 +1362,7 @@
 .over-all {
   z-index: 500; }
 
+
 .prize-page {
   background: linear-gradient(to bottom, #44dffb 0%, #f9f9f9 73%); }
 
@@ -1265,7 +1370,9 @@
   position: relative;
   z-index: 1; }
   .prize-page-without-clouds__small-container {
+
     width: 80%;
+
     display: flex;
     align-items: baseline;
     flex-wrap: nowrap;
@@ -1291,6 +1398,7 @@
         margin: 18% 0;
         font-size: 3em; } }
   .prize-page-without-clouds__prize-price {
+
     font-size: 6em;
     color: #00CC69;
     padding-left: 20px; }
@@ -1302,6 +1410,15 @@
       .prize-page-without-clouds__prize-price {
         position: absolute;
         top: 40%; } }
+
+    font-size: 5em;
+    color: #00CC69;
+    padding-left: 20px;
+    font-weight: normal; }
+    @media (max-width: 1052px) {
+      .prize-page-without-clouds__prize-price {
+        font-size: 4em; } }
+
   .prize-page-without-clouds__prize-text {
     margin: 0;
     line-height: 1em;
@@ -1339,6 +1456,9 @@
     background: url("../images/prizes/arrow.png") no-repeat;
     background-size: contain; }
 
+.gold-text {
+  color: #FFB400; }
+
 .cabinet {
   position: relative;
   margin-top: 51px;
@@ -1363,31 +1483,137 @@
     padding: 5% 2%;
     background: url("../images/cabinet/stone.png") bottom no-repeat;
     background-size: contain; }
+.grass {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: -3%;
+  z-index: 2000;
+  background: url("../images/common/grass.png") bottom no-repeat; }
+
+.about-user-info {
+  position: relative;
+  width: 50%;
+  height: 100vh;
+  min-height: 770px; }
+  @media (max-width: 1052px) {
+    .about-user-info {
+      width: 57%; } }
+  @media (max-width: 768px) {
+    .about-user-info {
+      width: 100%;
+      min-height: 0;
+      height: 100%; } }
+  .about-user-info:before {
+    content: ''; }
+  .about-user-info:after {
+    content: '';
+    right: -6%; }
+  .about-user-info__wrapper {
+    position: relative;
+    width: 46%;
+    bottom: -23%;
+    height: 64vh;
+    margin: 0 auto;
+    padding: 5% 2% 19%;
+    background: url(../images/cabinet/leaf-3.png) bottom no-repeat, url(../images/cabinet/stone.png) bottom no-repeat;
+    background-size: 70%, cover;
+    border-image: url(../images/common/pattern.png) 100% 0%/1 0 repeat; }
+    @media (max-width: 768px) {
+      .about-user-info__wrapper {
+        width: 100%;
+        margin: 0;
+        min-height: 0;
+        height: 100%;
+        padding: 5% 0%;
+        background: url("../images/cabinet/stone.png") bottom no-repeat;
+        background-size: cover; } }
+
     .about-user-info__wrapper:before {
       content: ''; }
     .about-user-info__wrapper:after {
       content: ''; }
-
 .disputes {
   position: relative;
   width: 50%;
   height: 100vh;
   background: url("../images/common/scene.png") bottom no-repeat;
   background-size: cover; }
+  .about-user-info__user-logo {
+    width: 47%;
+    border-radius: 50%;
+    border: 6px solid #DE7300; }
+  .about-user-info__paragraph {
+    font-size: 1.2em;
+    margin: 20px 0; }
+    @media (max-width: 768px) {
+      .about-user-info__paragraph {
+        font-size: 2em; } }
+  .about-user-info__title {
+    font-family: Corbel;
+    font-weight: bold;
+    color: #24445E;
+    margin-bottom: 0; }
+  .about-user-info__info {
+    margin: 5px 0; }
+  .about-user-info__user-name {
+    font-family: Corbel;
+    font-weight: bold;
+    color: #24445E; }
+
+.disputes {
+  position: relative;
+  width: 45%;
+  height: 100vh;
+  min-height: 770px;
+  margin-right: 5%;
+  background: url("../images/common/scene.png") bottom no-repeat;
+  background-size: cover; }
+  @media (max-width: 1052px) {
+    .disputes {
+      width: 37%; } }
+  @media (max-width: 768px) {
+    .disputes {
+      width: 100%;
+      margin-right: 0;
+      min-height: 650px;
+      height: 55vh; } }
+
   .disputes:before {
     content: ''; }
   .disputes:after {
     content: ''; }
 
+
 .empty-block {
   position: relative;
   width: 5%; }
+  .disputes__image {
+    position: absolute;
+    bottom: 2%;
+    left: 0;
+    right: 0; }
+  .disputes__title {
+    color: white;
+    position: relative;
+    top: 38%; }
+    @media (max-width: 768px) {
+      .disputes__title {
+        top: 28%; } }
+
+.empty-block {
+  position: absolute;
+  width: 7.5%;
+  height: 100vh;
+  min-height: 770px; }
 
 *:focus {
   outline: none !important; }
 
 @font-face {
   font-family: IceAge;
+
 
   src: url(../fonts/IceAgeRUS.ttf) format("ttf"), url("../fonts/IceAgeRUS.woff") format("woff"); }
 
@@ -1414,6 +1640,13 @@ body {
   position: relative;
   z-index: 1; }
 
+
+@media (max-width: 768px) {
+  .mobile-border {
+    margin-top: 28px;
+    box-shadow: 0 -10px 0 0px #FFB400, 0 -18px 0 1px #B17011, 0 -15px 0 15px #FFB400; } }
+
+
 .page-container {
   position: relative;
   margin-top: 51px;
@@ -1429,6 +1662,9 @@ body {
   @media (max-width: 1052px) {
     .container {
       max-width: 900px; } }
+  @media (max-width: 768px) {
+    .container_mob {
+      padding: 0; } }
 
 .flex-gorizontal, .colons__item {
   display: flex;
@@ -1514,7 +1750,9 @@ body {
   bottom: 0;
   right: 0;
   left: 0;
+
   max-height: 100vh;
+
   z-index: 0; }
   @media (max-width: 1700px) {
     .clouds {
