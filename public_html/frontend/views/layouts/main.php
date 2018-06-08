@@ -72,8 +72,8 @@ AppAsset::register($this);
     </div>
     <div class="orange-border orange-border_edge"></div>
 </header>
-<div class="wrap">
-    <div class="crumbs">
+<div class="wrap page-container">
+    <div class="crumbs container">
         <?php
         if(isset($this->params['breadcrumbs'])){
 

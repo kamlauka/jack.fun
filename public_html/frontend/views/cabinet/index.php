@@ -4,7 +4,7 @@
     $this->params['breadcrumbs'][] = ['label' =>'Cabinet','template' => "<span class='crumbs__link crumbs__link_active'>{link}</span>"];
 ?>
 
-<section class="cabinet flex-gorizontal page-container">
+<section class="cabinet flex-gorizontal">
     <div class="grass"></div>
     <div class="cabinet__about-user about-user-info">
         <div class="about-user-info__wrapper">
