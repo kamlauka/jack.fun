@@ -8,32 +8,33 @@ use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
 $this->title = 'Login';
-$this->params['breadcrumbs'][] = $this->title;
+
 ?>
 <div class="site-login">
-    <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>Please fill out the following fields to login:</p>
+    <div class="registration">
+        <h3 class="registration__title title-h3"><?= Html::encode($this->title) ?></h3>
+        <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
+        <label class="label registration__label">
+            <?= $form->field($model, 'username')->textInput(['autofocus' => true,'class'=>'label__input input-text'])->label('Username',['class'=>'label__name']) ?>
+        </label>
 
-    <div class="row">
-        <div class="col-lg-5">
-            <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
+        <label class="label registration__label">
+            <?= $form->field($model, 'password')->passwordInput(['class'=>'label__input input-text'])->label('password',['class'=>'label__name']) ?>
+        </label>
 
-                <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
+            If you forgot your password you can <?= Html::a('reset it', ['site/request-password-reset']) ?>.
+            <br> <br>
 
-                <?= $form->field($model, 'password')->passwordInput() ?>
+        <?= Html::submitButton('Enter', ['class' => 'button button_gold button_little registration__button ', 'name' => 'signup-button']) ?>
 
-                <?= $form->field($model, 'rememberMe')->checkbox() ?>
-
-                <div style="color:#999;margin:1em 0">
-                    If you forgot your password you can <?= Html::a('reset it', ['site/request-password-reset']) ?>.
-                </div>
-
-                <div class="form-group">
-                    <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
-                </div>
-
-            <?php ActiveForm::end(); ?>
-        </div>
+        <?php ActiveForm::end(); ?>
     </div>
+
+
+
+
+
+
+
 </div>
