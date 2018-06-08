@@ -8,8 +8,21 @@
 //     }
 // }
 
+//ACTIVE CHECKBOX
+// var checkbox = document.getElementsByClassName('pseudo-checkbox');
+// checkbox.onclick = "this.style.backgroundColor = '#FFB400'";
+// $('.pseudo-checkbox').click($('.pseudo-checkbox').css('background-color','#FFB400'));
+
+function checkboxClick() {
+    var checkbox = $('.pseudo-checkbox');
+    if (checkbox.css('background-color') !== '#FFB400') {
+        checkbox.css('background-color','#FFB400')
+    } else if (checkbox.css('background-color') === '#FFB400') {
+        checkbox.css('background-color','#5D6C6C')
+    }
 
 
+}
 //TIMER
 
 function getTimeRemaining(endtime) {
@@ -30,7 +43,11 @@ function getTimeRemaining(endtime) {
 function initializeClock(endtime) {
     function updateClock() {
         var t = getTimeRemaining(endtime);
-
+        var clock = document.getElementsByClassName('timer')[0];
+        var daysSpan = clock.querySelector('.days');
+        var hoursSpan = clock.querySelector('.hours');
+        var minutesSpan = clock.querySelector('.minutes');
+        var secondsSpan = clock.querySelector('.seconds');
         daysSpan.innerHTML = t.days;
         hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
         minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
@@ -45,15 +62,11 @@ function initializeClock(endtime) {
     var timeinterval = setInterval(updateClock, 1000);
 }
 
-var clock = document.getElementsByClassName('timer')[0];
-var daysSpan = clock.querySelector('.days');
-var hoursSpan = clock.querySelector('.hours');
-var minutesSpan = clock.querySelector('.minutes');
-var secondsSpan = clock.querySelector('.seconds');
-var phpDays = daysSpan.text();
-var phpHours = hoursSpan.text();
-var phpMinutes = minutesSpan.text();
-var phpSeconds = secondsSpan.text();
+
+// var phpDays = daysSpan.text();
+// var phpHours = hoursSpan.text();
+// var phpMinutes = minutesSpan.text();
+// var phpSeconds = secondsSpan.text();
 
 var deadline = '2018-07-17T03:24:00'; //CURRENT DEADLINE OF TIMER
 //var deadline = '2015-12-31'; // DEADLINE OF TIMER, TEMPLATE YEAR-MONTH-DAY

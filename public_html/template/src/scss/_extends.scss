@@ -122,8 +122,10 @@
   }
 
   &_all-pillar {
+    position: absolute;
+    z-index: 8000;
     background: $pat-all-pillar-1 top left no-repeat, $pat-all-pillar-3 bottom left no-repeat, $pat-all-pillar-2 top center repeat-y;
-    background-size: 100%, 100%, 67.5%;
+    background-size: 100%, 100%, 68.5%;
     @media (max-width: $first-width) {
 
     }
@@ -188,9 +190,12 @@
     background: $pat-curtain-blue no-repeat;
     background-size: cover;
     margin: 0;
-    width: 43%;
-    @media (max-width: 1250px) {
-      width: 43%;
+    width: 33%;
+    @media (max-width: 1500px) {
+      width: 37%;
+    }
+    @media (max-width: 1276px) {
+      width: 41%;
     }
   }
   &_color_red-1 {

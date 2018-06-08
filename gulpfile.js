@@ -8,8 +8,8 @@ var rename = require('gulp-rename');
 gulp.task('default', function () {
     return gulp.src('public_html/template/src/scss/*.scss')
         .pipe(sass().on('error', sass.logError))
-        .pipe(cssnano()) // Сжимаем
-        .pipe(rename({suffix: '.min'})) // Добавляем суффикс .min
+        // .pipe(cssnano()) // Сжимаем
+        // .pipe(rename({suffix: '.min'})) // Добавляем суффикс .min
         .pipe(gulp.dest('public_html/template/dist/css'))
         .pipe(reload({
             stream: true
