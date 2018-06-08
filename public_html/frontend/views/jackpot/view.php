@@ -13,12 +13,12 @@
                 <div class="algorithm">
                     <span class="algorithm__number algorithm__number_position-left">I</span>
                     <img class="algorithm__image" src="../../images/jackpot/procent.png" alt="percents">
-                    <p class="algorithm__text"><?= $model['text_1']->text ?></p>
+                    <p class="algorithm__text"><?php if(isset($model['text_1']->text))echo $model['text_1']->text ?></p>
                 </div>
                 <div class="algorithm">
                     <span class="algorithm__number algorithm__number_position-left">II</span>
                     <img class="algorithm__image" src="../../images/jackpot/hand.png" alt="hand">
-                    <p class="algorithm__text"><?= $model['text_2']->text ?></p>
+                    <p class="algorithm__text"><?php if(isset($model['text_2']->text))echo $model['text_2']->text ?></p>
                 </div>
             </div>
 
@@ -38,12 +38,12 @@
                 <div class="algorithm algorithm_right-background">
                     <span class="algorithm__number algorithm__number_position-right">III</span>
                     <img class="algorithm__image" src="../../images/jackpot/clock.png" alt="clock">
-                    <p class="algorithm__text"><?= $model['text_3']->text ?></p>
+                    <p class="algorithm__text"><?php if(isset($model['text_3']->text)) echo $model['text_3']->text ?></p>
                 </div>
                 <div class="algorithm algorithm_right-background">
                     <span class="algorithm__number algorithm__number_position-right">IV</span>
                     <img class="algorithm__image" src="../../images/jackpot/purse.png" alt="purse">
-                    <p class="algorithm__text"><?= $model['text_4']->text ?></p>
+                    <p class="algorithm__text"><?php if(isset($model['text_4']->text))echo $model['text_4']->text  ?></p>
                 </div>
             </div>
         </div>
