@@ -421,7 +421,7 @@
 
 .awarding-prizes {
   width: 100%;
-  background: url("../images/statue-fon.jpg") no-repeat;
+  background: url("../images/main/statue-fon.jpg") no-repeat;
   background-size: cover; }
   .awarding-prizes__ivy {
     position: absolute;

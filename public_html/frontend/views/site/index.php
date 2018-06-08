@@ -177,11 +177,16 @@ use yii\helpers\Html;
                         <h3 class="timer__days" data="<?php $datastart = explode(" ", $jackpot['data']->date_start); echo $datastart[0] ?>">
                             <span class="days timer__big-day-digit"></span> DAY
                         </h3>
+<!--                        <h3 class="timer__time" data="--><?//=  $datastart[1] ?><!--">-->
+<!--                            <span class="hours timer__digit"></span> :-->
+<!--                            <span class="minutes timer__digit"></span> :-->
+<!--                            <span class="seconds timer__digit"></span>-->
+<!--                        </h3>s-->
                         <h3 class="timer__time" data="<?=  $datastart[1] ?>">
                             <span class="hours timer__digit"></span> :
                             <span class="minutes timer__digit"></span> :
                             <span class="seconds timer__digit"></span>
-                        </h3>s
+                        </h3>
                         <img class="timer__image" src="../../images/main/chalice.png" alt="chalice">
                         <h3 class="timer__winning-money"><?= $jackpot['data']->total ?> ETH</h3>
                     </div>
