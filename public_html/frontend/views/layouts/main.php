@@ -55,7 +55,7 @@ AppAsset::register($this);
                     </div>
                 </label>
                 <ul>
-                    <li><?= Html::a('Jackpot','/jackpot/index') ?></li>
+                    <li><?= Html::a('Jackpot','/jackpot/view') ?></li>
                     <li><?= Html::a('Lottery','/lottery/index') ?></li>
                     <?php if (Yii::$app->user->isGuest) { ?>
                         <li><?= Html::a('Signup','/site/signup') ?></li>
@@ -92,6 +92,7 @@ AppAsset::register($this);
                 </div>
                 <div class="footer-block__center-align-block">
 
+                    <?= Html::a('Jackpot','/jackpot/view',['class'=>'footer-block__link']) ?>
                     <?php //echo Html::a('List of disputes','#',['class'=>'footer-block__link']) ?>
                     <?php //echo Html::a('The page of the dispute','#',['class'=>'footer-block__link']) ?>
 
@@ -99,8 +100,12 @@ AppAsset::register($this);
                 <div class="footer-block__right-align-block">
 
                     <?= Html::a('Terms of agreement','/site/agreement',['class'=>'footer-block__link']) ?>
-                    <?= Html::a('My Account / Login / Register','/site/signup',['class'=>'footer-block__link']) ?>
 
+                    <?php if (Yii::$app->user->isGuest) { ?>
+                        <?= Html::a('My Account / Login / Register','/site/signup',['class'=>'footer-block__link']) ?>
+                    <?php } else { ?>
+                        <?= Html::a('Cabinet','/cabinet/index',['class'=>'footer-block__link']) ?>
+                    <?php } ?>
                 </div>
             </div>
         </div>

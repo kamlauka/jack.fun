@@ -64,13 +64,26 @@ class Lottery extends \yii\db\ActiveRecord
         ];
     }
 
+    public static function getActiveLottery(){
 
-//    function scenario()
-//    {
-//        return [
-//            'create' => ['img ', 'carid','name','coverphoto','status'],
-//            'update' => ['img ', 'carid','name','coverphoto','status'],
-//        ];
-//    }
+        $id_lang = $_SESSION['language'];
+
+        $lottery = [];
+
+        // todo переделать выборорку
+
+        if($lotteries=  Lottery::find()->where(['status' => '1', 'result'=>null])->all()){
+
+            $lottery['data'] =  Lottery::find()->where(['status' => '1', 'result'=>null ])->one();
+            $lottery['name_prize'] = Translation::find()->where(['alias'=>'name_prize','target_id'=>$lottery['data']->id,'language_id'=>$id_lang])->one();
+            $lottery['description'] = Translation::find()->where(['alias'=>'description','target_id'=>$lottery['data']->id,'language_id'=>$id_lang])->one();
+
+            //для вюхи
+            $lottery['text'] = Translation::find()->where(['alias'=>'lottery_view_text','language_id'=>$id_lang])->one();
+            return $lottery;
+        }
+
+        return null;
+    }
 
 }

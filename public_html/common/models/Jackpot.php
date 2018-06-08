@@ -50,4 +50,32 @@ class Jackpot extends \yii\db\ActiveRecord
             'result' => 'Result',
         ];
     }
+
+    public static function getActiveJackpot(){
+
+        $id_lang = $_SESSION['language'];
+
+        $jackpot = [];
+
+        // todo переделать выборорку
+        if($jackpots = Jackpot::find()->where(['status' => 1,'result'=>null ])->all()){
+
+            $jackpot['data'] = Jackpot::find()->where(['status' => 1,'result'=>null ])->one();
+            $jackpot['description'] = Translation::find()->where(['alias' => 'jackpot_description','language_id' => $id_lang])->one();
+
+            //для вюхи
+            $jackpot['text_1'] = Translation::find()->where(['alias' => 'jackpot_view_text_1','language_id' => $id_lang])->one();
+            $jackpot['text_2'] = Translation::find()->where(['alias' => 'jackpot_view_text_2','language_id' => $id_lang])->one();
+            $jackpot['text_3'] = Translation::find()->where(['alias' => 'jackpot_view_text_3','language_id' => $id_lang])->one();
+            $jackpot['text_4'] = Translation::find()->where(['alias' => 'jackpot_view_text_4','language_id' => $id_lang])->one();
+
+
+            return $jackpot;
+        }
+
+        return null;
+    }
+
+
+
 }

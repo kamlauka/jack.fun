@@ -16,19 +16,9 @@ use Yii;
 class LotteryController extends Controller
 {
 
-    public function actionIndex(){
-        //решить по лотереям
-        $lottery =  Lottery::find()->where(['status' => '1' ])->one();
-        $lotteries = Lottery::find()->where(['status' => 1])->all();
+    public function actionView(){
 
-        return $this->render('view',[
-            'lottery' => $lottery
-        ]);
-    }
-
-    public function actionView($id){
-
-        $lottery = Lottery::findOne($id);
+        $lottery = Lottery::getActiveLottery();
 
         return $this->render('view',[
             'lottery' => $lottery

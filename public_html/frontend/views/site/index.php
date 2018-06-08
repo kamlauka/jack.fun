@@ -128,7 +128,7 @@ use yii\helpers\Html;
         </div>
     </section>
 
-    <?php if(isset($lottery ) && isset($lottery_name_prize->text) && isset($lottery_description->text)){ ?>
+    <?php if(isset($lottery)){ ?>
     <section class="prizes">
         <div class="scene-of-prize flex-gorizontal">
             <div class="scene-of-prize__cloud-rotate scene-of-prize__cloud-rotate__one"></div>
@@ -136,19 +136,19 @@ use yii\helpers\Html;
             <div class="scene-of-prize__cloud-rotate scene-of-prize__cloud-rotate__three"></div>
             <div class="scene-of-prize__cloud-rotate scene-of-prize__cloud-rotate__four"></div>
             <div class="scene-of-prize__empty-block"></div>
-            <img class="scene-of-prize__image" src="<?= $lottery->img ?>" alt="iphone">
+            <img class="scene-of-prize__image" src="<?= $lottery['data']->img ?>" alt="iphone">
             <div class="scene-of-prize__text">
-                <h2 class="scene-of-prize__prize-name"><?= $lottery_name_prize->text?></h2>
-                <div class="scene-of-prize__prize-price"><?= $lottery->rate ?> ETH</div>
+                <h2 class="scene-of-prize__prize-name"><?= $lottery['name_prize']->text?></h2>
+                <div class="scene-of-prize__prize-price"><?= $lottery['data']->rate ?> ETH</div>
             </div>
             <div class="scene-of-prize__empty-block"></div>
         </div>
         <section class="participate participate_border_dark">
             <div class="container flex-gorizontal">
-                <p class="participate__text participate__text_image_apple flex-gorizontal"><?= $lottery_description->text ?></p>
+                <p class="participate__text participate__text_image_apple flex-gorizontal"><?= $lottery['description']->text ?></p>
             </div>
             <div class="participate__buttons container">
-                <a class="button button_gold participate__button" href="/lottery/view?id=<?= $lottery->id ?>">Participate</a>
+                <a class="button button_gold participate__button" href="/lottery/view">Participate</a>
             </div>
         </section>
     </section>
@@ -174,16 +174,16 @@ use yii\helpers\Html;
                 <div class="jackpot__timer">
                     <div class="timer">
 
-                        <h3 class="timer__days" data="<?php $datastart = explode(" ", $jackpot->date_start); echo $datastart[0] ?>">
+                        <h3 class="timer__days" data="<?php $datastart = explode(" ", $jackpot['data']->date_start); echo $datastart[0] ?>">
                             <span class="days timer__big-day-digit"></span> DAY
                         </h3>
                         <h3 class="timer__time" data="<?=  $datastart[1] ?>">
                             <span class="hours timer__digit"></span> :
                             <span class="minutes timer__digit"></span> :
                             <span class="seconds timer__digit"></span>
-                        </h3>
+                        </h3>s
                         <img class="timer__image" src="../../images/main/chalice.png" alt="chalice">
-                        <h3 class="timer__winning-money"><?= $jackpot->total ?> ETH</h3>
+                        <h3 class="timer__winning-money"><?= $jackpot['data']->total ?> ETH</h3>
                     </div>
                 </div>
             </div>
@@ -191,10 +191,10 @@ use yii\helpers\Html;
 
         <section class="participate participate_border_dark">
             <div class="container flex-gorizontal">
-                <p class="participate__text participate__text_image_dollar flex-gorizontal"><?= $jackpot_description->text ?></p>
+                <p class="participate__text participate__text_image_dollar flex-gorizontal"><?= $jackpot['description']->text ?></p>
             </div>
             <div class="participate__buttons container">
-                <a class="button button_gold participate__button" href="/jackpot/view?id=<?= $jackpot->id ?>">Participate</a>
+                <a class="button button_gold participate__button" href="/jackpot/view">Participate</a>
             </div>
         </section>
 

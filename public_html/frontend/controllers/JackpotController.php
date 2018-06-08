@@ -16,21 +16,10 @@ use Yii;
 class JackpotController extends Controller
 {
 
-    public function actionIndex()
+      public function actionView()
     {
 
-        $model = Jackpot::find()->where(['status'=>1,'result'=>null])->one();
-
-//      return $this->render('index',[ решить со страницей индекс
-
-        return $this->render('view',[
-            'model'=>$model
-        ]);
-    }
-
-    public function actionView($id)
-    {
-        $model = Jackpot::findOne($id);
+        $model = Jackpot::getActiveJackpot();
 
         return $this->render('view',[
             'model'=>$model

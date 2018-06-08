@@ -85,16 +85,8 @@ class SiteController extends Controller
         $play = Translation::find()->where(['alias'=>'main_play','language_id'=>$id_lang])->one();
         $prize = Translation::find()->where(['alias'=>'main_prize','language_id'=>$id_lang])->one();
 
-
-        if($lottery =  Lottery::find()->where(['status' => '1' ])->one()){
-            $lottery_name_prize = Translation::find()->where(['alias'=>'name_prize','language_id'=>$id_lang])->one();
-            $lottery_description = Translation::find()->where(['alias'=>'description','language_id'=>$id_lang])->one();
-        }
-
-        if($jackpot = Jackpot::find()->where(['status' => 1 ])->one()){
-
-            $jackpot_description = Translation::find()->where(['alias' => 'jackpot_description', 'language_id' => $id_lang])->one();
-        }
+        $lottery = Lottery::getActiveLottery();
+        $jackpot = Jackpot::getActiveJackpot();
 
         $seo_block_title = Translation::find()->where(['alias' => 'seo_block_title', 'language_id' => $id_lang])->one();
         $seo_block_text = Translation::find()->where(['alias' => 'seo_block_text', 'language_id' => $id_lang])->one();
@@ -107,10 +99,7 @@ class SiteController extends Controller
            'play' => $play,
            'prize' => $prize,
            'lottery' => $lottery,
-           'lottery_name_prize' => $lottery_name_prize,
-           'lottery_description' => $lottery_description,
            'jackpot' => $jackpot,
-           'jackpot_description' => $jackpot_description,
            'seo_block_text' => $seo_block_text,
            'seo_block_title' => $seo_block_title,
         ]);
