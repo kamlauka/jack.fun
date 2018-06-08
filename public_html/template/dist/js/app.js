@@ -67,7 +67,10 @@ function initializeClock(endtime) {
 // var phpHours = hoursSpan.text();
 // var phpMinutes = minutesSpan.text();
 // var phpSeconds = secondsSpan.text();
-
+var date = $('.timer__days').attr('data');
+var time = $('.timer__time').attr('data');
+console.log(date);
+console.log(time);
 var deadline = '2018-07-17T03:24:00'; //CURRENT DEADLINE OF TIMER
 //var deadline = '2015-12-31'; // DEADLINE OF TIMER, TEMPLATE YEAR-MONTH-DAY
 //var deadline = new Date(Date.parse(new Date()) + 15 * 24 * 60 * 60 * 1000); //when the page is loaded, the timer always displays 15 days
