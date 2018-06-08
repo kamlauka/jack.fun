@@ -28,10 +28,11 @@
         <label class="label-for-checkbox registration__label" onclick="checkboxClick()">
 
             <?= $form->field($model, 'agreement')->checkbox(['value'=>1, 'uncheckValue'=>0,'class'=>'label-for-checkbox__checkbox checkbox']) ?>
-
-            <a class="pseudo-checkbox"></a>
-
-            <span class="label-for-checkbox__name">I accept the <a class="white-link-underlining" href="/site/agreement">Terms of agreement</a></span></label>
+            <div class="label-for-checkbox__wrap">
+                <a class="pseudo-checkbox"></a>
+                <span class="label-for-checkbox__name">I accept the <a class="white-link-underlining" href="/site/agreement">Terms of agreement</a></span>
+            </div>
+        </label>
 
         <?= Html::submitButton('Signup', ['class' => 'button button_gold button_little registration__button ', 'name' => 'signup-button']) ?>
         <?php ActiveForm::end(); ?>
