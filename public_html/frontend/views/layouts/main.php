@@ -116,11 +116,11 @@ AppAsset::register($this);
                     <?= Html::a('www.jackpo.fun.com','#',['class'=>'footer-block__link footer-block__link_font_gold']) ?>
                 </div>
                 <div class="footer-block__center-align-block">
-                    <a class="footer-block__icon" href="#"><img src="/images/common/icon-f.svg" alt=""></a>
-                    <a class="footer-block__icon" href="#"><img src="/images/common/icon-t.svg" alt=""></a>
-                    <a class="footer-block__icon" href="#"><img src="/images/common/icon-i.svg" alt=""></a>
-                    <a class="footer-block__icon" href="#"><img src="/images/common/icon-g.svg" alt=""></a>
-                    <a class="footer-block__icon" href="#"><img src="/images/common/icon-v.svg" alt=""></a>
+                    <a class="footer-block__icon footer-block__icon_facebook" href="#"><img src="/images/common/icon-f.svg" alt=""></a>
+                    <a class="footer-block__icon footer-block__icon_twitter" href="#"><img src="/images/common/icon-t.svg" alt=""></a>
+                    <a class="footer-block__icon footer-block__icon_insta" href="#"><img src="/images/common/icon-i.svg" alt=""></a>
+                    <a class="footer-block__icon footer-block__icon_google-plus" href="#"><img src="/images/common/icon-g.svg" alt=""></a>
+                    <a class="footer-block__icon footer-block__icon_vk" href="#"><img src="/images/common/icon-v.svg" alt=""></a>
                 </div>
                 <div class="footer-block__right-align-block">
                     <a class="footer-block__terlabs" href="http://terlabs.com">
