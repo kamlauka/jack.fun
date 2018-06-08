@@ -56,7 +56,7 @@ AppAsset::register($this);
                 </label>
                 <ul>
                     <li><?= Html::a('Jackpot','/jackpot/view') ?></li>
-                    <li><?= Html::a('Lottery','/lottery/index') ?></li>
+                    <li><?= Html::a('Lottery','/lottery/view') ?></li>
                     <?php if (Yii::$app->user->isGuest) { ?>
                         <li><?= Html::a('Signup','/site/signup') ?></li>
                         <li><?= Html::a('Login','/site/login') ?></li>
@@ -87,7 +87,7 @@ AppAsset::register($this);
                 <div class="footer-block__left-align-block">
 
                     <?= Html::a('Home page',Yii::$app->homeUrl,['class'=>'footer-block__link footer-block__link_first']) ?>
-                    <?= Html::a('Lottery "Drawing of goods"','/lottery/index',['class'=>'footer-block__link']) ?>
+                    <?= Html::a('Lottery "Drawing of goods"','/lottery/view',['class'=>'footer-block__link']) ?>
 
                 </div>
                 <div class="footer-block__center-align-block">
