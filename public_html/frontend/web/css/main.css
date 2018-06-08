@@ -588,11 +588,12 @@
   text-align: left;
   padding: 10px 10px; }
 
-.label-for-checkbox {
+.label-for-checkbox__wrap {
   text-align: left;
   padding: 35px 0 20px; }
-  .label-for-checkbox__name {
-    margin-left: 20px; }
+
+.label-for-checkbox__name {
+  margin-left: 20px; }
 
 .pseudo-checkbox {
   display: inline;
@@ -2002,7 +2003,6 @@ body {
     top: -27%; }
 
 .button {
-  display: block;
   min-width: 15%;
   padding: 5px 15px;
   margin: 1% 5%;

@@ -26,8 +26,10 @@
 
 
 .label-for-checkbox {
-  text-align: left;
-  padding: 35px 0 20px;
+  &__wrap {
+    text-align: left;
+    padding: 35px 0 20px;
+  }
   &__name {
     margin-left: 20px;
   }
