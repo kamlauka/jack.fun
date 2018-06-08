@@ -1,14 +1,10 @@
 <?php
     $this->params['breadcrumbs'][] = ['label' =>'Jackpot','template' => "<span class='crumbs__link crumbs__link_active'>{link}</span>"];
 ?>
-<section class="jackpot-page page-container">
+<section class="jackpot-page">
     <?php if($model){?>
 
     <div class="container container_mob mobile-container">
-        <div class="crumbs">
-            <a class="crumbs__link" href="#">Home</a>
-            <a class="crumbs__link crumbs__link_active" href="#">Terms of Agreement</a>
-        </div>
 
         <div class="flex-gorizontal">
             <div class="participate participate_bottom participate_top mobile-border ">
@@ -24,8 +20,8 @@
                 </div>
             </div>
             <div class="timer lotery-page-timer">
-                <h3 class="timer__days" data = ''><span class="days timer__big-day-digit"></span> DAY</h3>
-                <h3 class="timer__time timer__time_bottom" data ''><span class="hours timer__digit"></span><span class="colon">:</span>  <span class="minutes timer__digit"></span><span class="colon">:</span><span class="seconds timer__digit"></span></h3>
+                <h3 class="timer__days" data="<?php $datastart = explode(" ", $model['data']->date_start); echo $datastart[0] ?>"><span class="days timer__big-day-digit"></span> DAY</h3>
+                <h3 class="timer__time timer__time_bottom" data="<?=  $datastart[1] ?>"><span class="hours timer__digit"></span><span class="colon">:</span>  <span class="minutes timer__digit"></span><span class="colon">:</span><span class="seconds timer__digit"></span></h3>
                 <img class="lotery-page-timer__image" src="../../images/jackpot/chalice-with-money.png" alt="chalice">
                 <div class="cloud">
                     <div class="cloud cloud__cloud1"></div>

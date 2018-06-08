@@ -4,7 +4,7 @@
 $this->params['breadcrumbs'][] = ['label' =>'Lottery','template' => "<span class='crumbs__link crumbs__link_active'>{link}</span>"];
 
 ?>
-<section class="prize-page page-container">
+<section class="prize-page ">
 
     <div class="prize-page-without-clouds container container_mob mobile-container">
 <!--        <div class="crumbs">-->
