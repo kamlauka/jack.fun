@@ -74,9 +74,15 @@ AppAsset::register($this);
 </header>
 <div class="wrap">
     <div class="crumbs">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
+        <?php
+        if(isset($this->params['breadcrumbs'])){
+
+          echo  Breadcrumbs::widget([
+                'homeLink' => ['label' => 'Home','template' => '<span class="crumbs__link">{link}</span>', 'url' => '/'],
+                'links' => $this->params['breadcrumbs'],
+            ]);
+
+        }?>
     </div>
         <?= Alert::widget() ?>
         <?= $content ?>

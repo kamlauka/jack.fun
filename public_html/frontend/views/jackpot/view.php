@@ -1,4 +1,6 @@
-
+<?php
+    $this->params['breadcrumbs'][] = ['label' =>'Jackpot','template' => "<span class='crumbs__link crumbs__link_active'>{link}</span>"];
+?>
 <section class="jackpot-page page-container">
     <?php if($model){?>
 
