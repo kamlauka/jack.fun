@@ -4,38 +4,39 @@
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model \frontend\models\SignupForm */
 
-use yii\helpers\Html;
-use yii\bootstrap\ActiveForm;
+    use yii\helpers\Html;
+    use yii\bootstrap\ActiveForm;
 
-
-$this->title = 'Signup';
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-signup">
-    <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>Please fill out the following fields to signup:</p>
+    <div class="registration">
+        <h3 class="registration__title title-h3">Registration</h3>
+        <?php $form = ActiveForm::begin(['id' => 'form-signup']); ?>
+        <label class="label registration__label">
+            <?= $form->field($model, 'username')->textInput(['autofocus' => true,'class'=>'label__input input-text'])->label('Username',['class'=>'label__name']) ?>
+        </label>
+        <label class="label registration__label">
+            <?= $form->field($model, 'wallet')->textInput(['class'=>'label__input input-text'])->label('wallet',['class'=>'label__name']) ?>
+        </label>
+        <label class="label registration__label">
+            <?= $form->field($model, 'password')->passwordInput(['class'=>'label__input input-text'])->label('password',['class'=>'label__name']) ?>
+           </label>
+        <label class="label registration__label">
+            <?= $form->field($model, 'password_repeat')->passwordInput(['class'=>'label__input input-text'])->label('repeat password',['class'=>'label__name']) ?>
+        </label>
+        <label class="label-for-checkbox registration__label" onclick="checkboxClick()">
 
-    <div class="row">
-        <div class="col-lg-5">
-            <?php $form = ActiveForm::begin(['id' => 'form-signup']); ?>
+            <?= $form->field($model, 'agreement')->checkbox(['value'=>1, 'uncheckValue'=>0,'class'=>'label-for-checkbox__checkbox checkbox']) ?>
 
-                <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
+            <a class="pseudo-checkbox"></a>
 
-                <?= $form->field($model, 'wallet') ?>
+            <span class="label-for-checkbox__name">I accept the <a class="white-link-underlining" href="/site/agreement">Terms of agreement</a></span></label>
 
-                <?= $form->field($model, 'password')->passwordInput() ?>
-
-                <?= $form->field($model, 'password_repeat')->passwordInput() ?>
-
-                <?= $form->field($model, 'agreement')->checkbox(['value'=>1, 'uncheckValue'=>0])->label('I read and agree to the  <a href="/site/agreement"> terms of agreement</a>') ?>
-
-<!--            Html::a(['terms of agreement','/site/agreement'])-->
-                <div class="form-group">
-                    <?= Html::submitButton('Signup', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
-                </div>
-
-            <?php ActiveForm::end(); ?>
-        </div>
+        <?= Html::submitButton('Signup', ['class' => 'button button_gold button_little registration__button ', 'name' => 'signup-button']) ?>
+        <?php ActiveForm::end(); ?>
     </div>
-</div>
+
+
+
+
