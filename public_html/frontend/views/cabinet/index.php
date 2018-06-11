@@ -1,11 +1,14 @@
 <?php
     use yii\helpers\Html;
 
-    $this->params['breadcrumbs'][] = ['label' =>'Cabinet','template' => "<span class='crumbs__link crumbs__link_active'>{link}</span>"];
+    $this->params['breadcrumbs'][] = ['label' =>'Cabinet','template' => "<li class='crumbs__link crumbs__link_active'><span class='crumb-active'>{link}</span></li>"];
 ?>
 
 <section class="cabinet flex-gorizontal">
     <div class="grass"></div>
+    <div class="empty-block empty-block_left"></div>
+<!--    <div class="container wrap_cabinet">-->
+
     <div class="cabinet__about-user about-user-info">
         <div class="about-user-info__wrapper">
             <div class="user-info about-user-info__paragraph">
@@ -49,8 +52,9 @@
         <div class="disputes__image" ><img src="../../images/cabinet/favn2.png" alt="favn"></div>
 
     </div>
-    <div class="empty-block empty-block_right"></div>
 
+<!--    </div>-->
+    <div class="empty-block empty-block_right"></div>
     <div class="clouds cabinet__clouds ">
         <div class="cloud-container cloud-container_left-medium">
             <div class="cloud">

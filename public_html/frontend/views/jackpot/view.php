@@ -1,16 +1,10 @@
 <?php
-    $this->params['breadcrumbs'][] = ['label' =>'Jackpot','template' => "<span class='crumbs__link crumbs__link_active'>{link}</span>"];
+    $this->params['breadcrumbs'][] = ['label' =>'Jackpot','template' => "<li class='crumbs__link crumbs__link_active'><span class='crumb-active'>{link}</span></li>"];
 ?>
-<section class="jackpot-page page-container">
+
     <?php if($model){?>
 
-    <div class="container container_mob mobile-container">
-        <div class="crumbs">
-            <a class="crumbs__link" href="#">Home</a>
-            <a class="crumbs__link crumbs__link_active" href="#">Terms of Agreement</a>
-        </div>
-
-        <div class="flex-gorizontal">
+        <div class="flex-gorizontal container">
             <div class="participate participate_bottom participate_top mobile-border ">
                 <div class="algorithm">
                     <span class="algorithm__number algorithm__number_position-left">I</span>
@@ -87,11 +81,11 @@
             </div>
         </div>
 
-        <div class="participate participate_top over-all  mobile-border ">
+        <div class="participate participate_top over-all  mobile-border container ">
             <p class="participate__text"><?= $model['description']->text ?></p>
 
         </div>
-    </div>
+
         <div class="clouds">
             <div class="cloud-container cloud-container_center-center-medium">
                 <div class="cloud">
@@ -132,4 +126,4 @@
 
     </div>
      <?php }else{echo 'Активных джекпотов не найдено';}?>
-</section>
+

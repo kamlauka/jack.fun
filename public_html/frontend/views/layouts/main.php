@@ -72,13 +72,13 @@ AppAsset::register($this);
     </div>
     <div class="orange-border orange-border_edge"></div>
 </header>
-<div class="wrap page-container">
-    <div class="crumbs container">
+<div class="page-container mobile-container">
+    <div class="crumbs container container_mob">
         <?php
         if(isset($this->params['breadcrumbs'])){
 
           echo  Breadcrumbs::widget([
-                'homeLink' => ['label' => 'Home','template' => '<span class="crumbs__link">{link}</span>', 'url' => '/'],
+                'homeLink' => ['label' => 'Home','template' => '<li class="crumbs__link">{link}</li>', 'url' => '/'],
                 'links' => $this->params['breadcrumbs'],
             ]);
 
@@ -86,7 +86,7 @@ AppAsset::register($this);
     </div>
         <?= Alert::widget() ?>
         <?= $content ?>
-
+    </div>
     <footer class="footer">
         <div class="footer-container footer-container_gradient">
             <div class="footer-block container  flex-gorizontal">
@@ -140,7 +140,7 @@ AppAsset::register($this);
             </div>
         </div>
     </footer>
-    <div>
+
         <?php $this->endBody() ?>
 </body>
 </html>

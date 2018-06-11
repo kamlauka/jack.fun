@@ -1,10 +1,8 @@
 <?php
     use yii\helpers\Html;
-
-$this->params['breadcrumbs'][] = ['label' =>'Lottery','template' => "<span class='crumbs__link crumbs__link_active'>{link}</span>"];
-
+    $this->params['breadcrumbs'][] = ['label' =>'Lottery','template' => "<li class='crumbs__link crumbs__link_active'><span class='crumb-active'>{link}</span></li>"];
 ?>
-<section class="prize-page page-container">
+<section class="prize-page">
 
     <div class="prize-page-without-clouds container container_mob mobile-container">
 <!--        <div class="crumbs">-->
