@@ -2,7 +2,11 @@
     use yii\helpers\Html;
     $this->params['breadcrumbs'][] = ['label' =>'Lottery','template' => "<li class='crumbs__link crumbs__link_active'><span class='crumb-active'>{link}</span></li>"];
 ?>
+<<<<<<< HEAD
 <section class="prize-page">
+=======
+<section class="prize-page ">
+>>>>>>> 7827e7bb7d9eb06ad851b7e9ba9da6e358d2553b
 
     <div class="prize-page-without-clouds container container_mob mobile-container">
 <!--        <div class="crumbs">-->
