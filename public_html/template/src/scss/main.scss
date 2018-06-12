@@ -81,6 +81,7 @@ body {
   position: relative;
   margin-top: 51px;
   overflow: hidden;
+  background: linear-gradient(to bottom, #44dffb 0%,#f9f9f9 73%);
 }
 
 
@@ -1210,43 +1211,70 @@ body {
 //  }
 //}
 
-
 .crumbs {
-  position: relative;
+  position: absolute;
   top: 0;
   left: 0;
-  margin-left: 0.3%;
-  text-align: left;
-  font-size: 0;
-  &__link {
-    padding: 5px 2%;
-    outline: 1px solid #596E6A;
-    outline-offset: -3px;
-    font-size: 14px;
-    background: $pat-crumb-no-active no-repeat;
-    background-size: cover;
-    &:hover {
-      color: $main-color;
-    }
-    @media (max-width: $mobile-width) {
-      box-sizing: border-box;
-      width: 50%;
-      text-align: center;
-    }
-    @media (max-width: 450px) {
-      font-size: 11px;
-    }
+  right: 0;
+  bottom: 0;
+  width: 100%;
 
-    &_active {
-      color: $main-color;
-      background: $pat-crumb-active no-repeat;
-      background-size: cover;
-    }
-  }
   @media (max-width: $mobile-width) {
+    position: relative;
     order: 2;
+    margin: 0;
+  }
+
+}
+
+.hidden {
+  display: none;
+}
+
+
+.breadcrumb {
+  list-style-type: none;
+  padding: 0;.
+
+  margin: 0;
+  text-align: left;
+  .crumb-active {
+    color: $main-color;
+    background: #8AA59F;
+  }
+  .crumbs__link {
+    display: inline;
+    position: relative;
+    z-index: 8000;
+    a, .crumb-active {
+      padding: 5px 2%;
+      outline: 1px solid #596E6A;
+      outline-offset: -3px;
+      font-size: 14px;
+      background-size: cover;
+      cursor: pointer;
+      display: inline-block;
+      &:hover {
+        color: $main-color;
+      }
+      @media (max-width: $mobile-width) {
+        box-sizing: border-box;
+        width: 50%;
+        text-align: center;
+        order: 2;
+      }
+      @media (max-width: 450px) {
+        font-size: 11px;
+      }
+    }
+    a {
+      background-color: #70918C;
+    }
   }
 }
+
+
+
 
 
 .clouds {

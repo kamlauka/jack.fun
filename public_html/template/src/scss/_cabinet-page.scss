@@ -31,12 +31,7 @@
     min-height: 0;
     height: 100%;
   }
-  &:before {
-    content: '';
-    @extend .pillar;
-    @extend .pillar_all-pillar;
-    @extend .pillar_position_left;
-  }
+
   &:after {
     content: '';
     @extend .pillar;
@@ -167,7 +162,9 @@
   }
 }
 
-
+.wrap_cabinet {
+  width: 100%;
+}
 
 .empty-block {
   position: absolute;
@@ -177,4 +174,9 @@
   @extend .pillar;
   @extend .pillar_all-pillar;
   @extend .pillar_position_right;
+  &_left {
+      @extend .pillar;
+      @extend .pillar_all-pillar;
+      @extend .pillar_position_left;
+  }
 }

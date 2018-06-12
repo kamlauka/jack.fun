@@ -56,7 +56,7 @@ AppAsset::register($this);
                 </label>
                 <ul>
                     <li><?= Html::a('Jackpot','/jackpot/view') ?></li>
-                    <li><?= Html::a('Lottery','/lottery/index') ?></li>
+                    <li><?= Html::a('Lottery','/lottery/view') ?></li>
                     <?php if (Yii::$app->user->isGuest) { ?>
                         <li><?= Html::a('Signup','/site/signup') ?></li>
                         <li><?= Html::a('Login','/site/login') ?></li>
@@ -72,22 +72,28 @@ AppAsset::register($this);
     </div>
     <div class="orange-border orange-border_edge"></div>
 </header>
-<div class="wrap">
-    <div class="crumbs">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
+<div class="page-container mobile-container">
+    <div class="crumbs container container_mob">
+        <?php
+        if(isset($this->params['breadcrumbs'])){
+
+          echo  Breadcrumbs::widget([
+                'homeLink' => ['label' => 'Home','template' => '<li class="crumbs__link">{link}</li>', 'url' => '/'],
+                'links' => $this->params['breadcrumbs'],
+            ]);
+
+        }?>
     </div>
         <?= Alert::widget() ?>
         <?= $content ?>
-
+    </div>
     <footer class="footer">
         <div class="footer-container footer-container_gradient">
             <div class="footer-block container  flex-gorizontal">
                 <div class="footer-block__left-align-block">
 
                     <?= Html::a('Home page',Yii::$app->homeUrl,['class'=>'footer-block__link footer-block__link_first']) ?>
-                    <?= Html::a('Lottery "Drawing of goods"','/lottery/index',['class'=>'footer-block__link']) ?>
+                    <?= Html::a('Lottery "Drawing of goods"','/lottery/view',['class'=>'footer-block__link']) ?>
 
                 </div>
                 <div class="footer-block__center-align-block">
@@ -134,7 +140,7 @@ AppAsset::register($this);
             </div>
         </div>
     </footer>
-    <div>
+
         <?php $this->endBody() ?>
 </body>
 </html>

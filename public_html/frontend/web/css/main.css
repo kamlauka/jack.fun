@@ -22,7 +22,7 @@
 ._font__1em {
   font-size: 1em; }
 
-.pillar, .prizes:before, .prizes:after, .terrestrial-world:before, .terrestrial-world:after, .seo-section:before, .seo-section:after, .about-user-info:before, .about-user-info:after, .empty-block {
+.pillar, .prizes:before, .prizes:after, .terrestrial-world:before, .terrestrial-world:after, .seo-section:before, .seo-section:after, .about-user-info:after, .empty-block, .empty-block_left {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -45,7 +45,7 @@
     @media (max-width: 1550px) {
       .pillar_color_gold, .prizes:before, .prizes:after {
         background-size: 47%, 47%, 32.5%; } }
-  .pillar_all-pillar, .about-user-info:before, .about-user-info:after, .empty-block {
+  .pillar_all-pillar, .about-user-info:after, .empty-block, .empty-block_left {
     position: absolute;
     z-index: 8000;
     background: url("../images/cabinet/pillar-all-1.png") top left no-repeat, url("../images/cabinet/pillar-all-3.png") bottom left no-repeat, url("../images/cabinet/pillar-all-2.png") top center repeat-y;
@@ -53,12 +53,12 @@
   .pillar_position_right, .prizes:after, .terrestrial-world:after, .seo-section:after, .about-user-info:after, .empty-block {
     right: 0;
     transform: scale(-1, 1); }
-  .pillar_position_left, .prizes:before, .terrestrial-world:before, .seo-section:before, .about-user-info:before {
+  .pillar_position_left, .prizes:before, .terrestrial-world:before, .seo-section:before, .empty-block_left {
     left: 0; }
   .pillar_position_top {
     bottom: 6%; }
   @media (max-width: 768px) {
-    .pillar, .prizes:before, .prizes:after, .terrestrial-world:before, .terrestrial-world:after, .seo-section:before, .seo-section:after, .about-user-info:before, .about-user-info:after, .empty-block {
+    .pillar, .prizes:before, .prizes:after, .terrestrial-world:before, .terrestrial-world:after, .seo-section:before, .seo-section:after, .about-user-info:after, .empty-block, .empty-block_left {
       display: none; } }
 
 .curtain, .scene-of-prize:before, .scene-of-prize:after, .about-user-info__wrapper:before, .about-user-info__wrapper:after, .disputes:before, .disputes:after {
@@ -421,7 +421,7 @@
 
 .awarding-prizes {
   width: 100%;
-  background: url("../images/statue-fon.jpg") no-repeat;
+  background: url("../images/main/statue-fon.jpg") no-repeat;
   background-size: cover; }
   .awarding-prizes__ivy {
     position: absolute;
@@ -588,11 +588,12 @@
   text-align: left;
   padding: 10px 10px; }
 
-.label-for-checkbox {
+.label-for-checkbox__wrap {
   text-align: left;
   padding: 35px 0 20px; }
-  .label-for-checkbox__name {
-    margin-left: 20px; }
+
+.label-for-checkbox__name {
+  margin-left: 20px; }
 
 .pseudo-checkbox {
   display: inline;
@@ -1267,7 +1268,7 @@
       display: none; } }
 
 .terms-page {
-  background: url("../images/common/grass.png") bottom no-repeat, linear-gradient(to bottom, #44dffb 0%, #f9f9f9 73%);
+  background: url("../images/common/grass.png") bottom no-repeat;
   background-size: contain; }
   @media (max-width: 768px) {
     .terms-page {
@@ -1291,8 +1292,7 @@
 .jackpot-page {
   position: relative;
   margin-top: 51px;
-  overflow: hidden;
-  background: linear-gradient(to bottom, #44dffb 0%, #f9f9f9 73%); }
+  overflow: hidden; }
   .jackpot-page-timer {
     flex: 1.3;
     align-self: flex-end;
@@ -1381,9 +1381,6 @@
 
 .colon {
   width: 7%; }
-
-.prize-page {
-  background: linear-gradient(to bottom, #44dffb 0%, #f9f9f9 73%); }
 
 .prize-page-without-clouds {
   position: relative;
@@ -1530,8 +1527,6 @@
       width: 100%;
       min-height: 0;
       height: 100%; } }
-  .about-user-info:before {
-    content: ''; }
   .about-user-info:after {
     content: '';
     right: -6%; }
@@ -1618,6 +1613,9 @@
       .disputes__title {
         top: 28%; } }
 
+.wrap_cabinet {
+  width: 100%; }
+
 .empty-block {
   position: absolute;
   width: 7.5%;
@@ -1666,7 +1664,8 @@ body {
 .page-container {
   position: relative;
   margin-top: 51px;
-  overflow: hidden; }
+  overflow: hidden;
+  background: linear-gradient(to bottom, #44dffb 0%, #f9f9f9 73%); }
 
 .container {
   max-width: 1280px;
@@ -1731,36 +1730,54 @@ body {
   border-image: url("../images/common/pattern.png") 100% 0%/1 0 repeat; }
 
 .crumbs {
-  position: relative;
+  position: absolute;
   top: 0;
   left: 0;
-  margin-left: 0.3%;
-  text-align: left;
-  font-size: 0; }
-  .crumbs__link {
-    padding: 5px 2%;
-    outline: 1px solid #596E6A;
-    outline-offset: -3px;
-    font-size: 14px;
-    background: url("../images/common/crumb-no-active.png") no-repeat;
-    background-size: cover; }
-    .crumbs__link:hover {
-      color: #FFB400; }
-    @media (max-width: 768px) {
-      .crumbs__link {
-        box-sizing: border-box;
-        width: 50%;
-        text-align: center; } }
-    @media (max-width: 450px) {
-      .crumbs__link {
-        font-size: 11px; } }
-    .crumbs__link_active {
-      color: #FFB400;
-      background: url("../images/common/crumb-active.png") no-repeat;
-      background-size: cover; }
+  right: 0;
+  bottom: 0;
+  width: 100%; }
   @media (max-width: 768px) {
     .crumbs {
-      order: 2; } }
+      position: relative;
+      order: 2;
+      margin: 0; } }
+
+.hidden {
+  display: none; }
+
+.breadcrumb {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  text-align: left; }
+  .breadcrumb .crumb-active {
+    color: #FFB400;
+    background: #8AA59F; }
+  .breadcrumb .crumbs__link {
+    display: inline;
+    position: relative;
+    z-index: 8000; }
+    .breadcrumb .crumbs__link a, .breadcrumb .crumbs__link .crumb-active {
+      padding: 5px 2%;
+      outline: 1px solid #596E6A;
+      outline-offset: -3px;
+      font-size: 14px;
+      background-size: cover;
+      cursor: pointer;
+      display: inline-block; }
+      .breadcrumb .crumbs__link a:hover, .breadcrumb .crumbs__link .crumb-active:hover {
+        color: #FFB400; }
+      @media (max-width: 768px) {
+        .breadcrumb .crumbs__link a, .breadcrumb .crumbs__link .crumb-active {
+          box-sizing: border-box;
+          width: 50%;
+          text-align: center;
+          order: 2; } }
+      @media (max-width: 450px) {
+        .breadcrumb .crumbs__link a, .breadcrumb .crumbs__link .crumb-active {
+          font-size: 11px; } }
+    .breadcrumb .crumbs__link a {
+      background-color: #70918C; }
 
 .clouds {
   position: absolute;

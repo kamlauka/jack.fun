@@ -1,29 +1,32 @@
+<?php
+    $this->params['breadcrumbs'][] = ['label' =>'Jackpot','template' => "<li class='crumbs__link crumbs__link_active'><span class='crumb-active'>{link}</span></li>"];
+?>
+<<<<<<< HEAD
 
-<section class="jackpot-page page-container">
+    <?php if($model){?>
+=======
+<section class="jackpot-page">
     <?php if($model){?>
 
     <div class="container container_mob mobile-container">
-        <div class="crumbs">
-            <a class="crumbs__link" href="#">Home</a>
-            <a class="crumbs__link crumbs__link_active" href="#">Terms of Agreement</a>
-        </div>
+>>>>>>> 7827e7bb7d9eb06ad851b7e9ba9da6e358d2553b
 
-        <div class="flex-gorizontal">
+        <div class="flex-gorizontal container">
             <div class="participate participate_bottom participate_top mobile-border ">
                 <div class="algorithm">
                     <span class="algorithm__number algorithm__number_position-left">I</span>
                     <img class="algorithm__image" src="../../images/jackpot/procent.png" alt="percents">
-                    <p class="algorithm__text"><?= $model['text_1']->text ?></p>
+                    <p class="algorithm__text"><?php if(isset($model['text_1']->text))echo $model['text_1']->text ?></p>
                 </div>
                 <div class="algorithm">
                     <span class="algorithm__number algorithm__number_position-left">II</span>
                     <img class="algorithm__image" src="../../images/jackpot/hand.png" alt="hand">
-                    <p class="algorithm__text"><?= $model['text_2']->text ?></p>
+                    <p class="algorithm__text"><?php if(isset($model['text_2']->text))echo $model['text_2']->text ?></p>
                 </div>
             </div>
             <div class="timer lotery-page-timer">
-                <h3 class="timer__days" data = ''><span class="days timer__big-day-digit"></span> DAY</h3>
-                <h3 class="timer__time timer__time_bottom" data ''><span class="hours timer__digit"></span><span class="colon">:</span>  <span class="minutes timer__digit"></span><span class="colon">:</span><span class="seconds timer__digit"></span></h3>
+                <h3 class="timer__days" data="<?php $datastart = explode(" ", $model['data']->date_start); echo $datastart[0] ?>"><span class="days timer__big-day-digit"></span> DAY</h3>
+                <h3 class="timer__time timer__time_bottom" data="<?=  $datastart[1] ?>"><span class="hours timer__digit"></span><span class="colon">:</span>  <span class="minutes timer__digit"></span><span class="colon">:</span><span class="seconds timer__digit"></span></h3>
                 <img class="lotery-page-timer__image" src="../../images/jackpot/chalice-with-money.png" alt="chalice">
                 <div class="cloud">
                     <div class="cloud cloud__cloud1"></div>
@@ -37,12 +40,12 @@
                 <div class="algorithm algorithm_right-background">
                     <span class="algorithm__number algorithm__number_position-right">III</span>
                     <img class="algorithm__image" src="../../images/jackpot/clock.png" alt="clock">
-                    <p class="algorithm__text"><?= $model['text_3']->text ?></p>
+                    <p class="algorithm__text"><?php if(isset($model['text_3']->text)) echo $model['text_3']->text ?></p>
                 </div>
                 <div class="algorithm algorithm_right-background">
                     <span class="algorithm__number algorithm__number_position-right">IV</span>
                     <img class="algorithm__image" src="../../images/jackpot/purse.png" alt="purse">
-                    <p class="algorithm__text"><?= $model['text_4']->text ?></p>
+                    <p class="algorithm__text"><?php if(isset($model['text_4']->text))echo $model['text_4']->text  ?></p>
                 </div>
             </div>
         </div>
@@ -85,11 +88,11 @@
             </div>
         </div>
 
-        <div class="participate participate_top over-all  mobile-border ">
+        <div class="participate participate_top over-all  mobile-border container ">
             <p class="participate__text"><?= $model['description']->text ?></p>
 
         </div>
-    </div>
+
         <div class="clouds">
             <div class="cloud-container cloud-container_center-center-medium">
                 <div class="cloud">
@@ -130,4 +133,4 @@
 
     </div>
      <?php }else{echo 'Активных джекпотов не найдено';}?>
-</section>
+

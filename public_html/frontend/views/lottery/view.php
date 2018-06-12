@@ -1,13 +1,18 @@
 <?php
     use yii\helpers\Html;
+    $this->params['breadcrumbs'][] = ['label' =>'Lottery','template' => "<li class='crumbs__link crumbs__link_active'><span class='crumb-active'>{link}</span></li>"];
 ?>
-<section class="prize-page page-container">
+<<<<<<< HEAD
+<section class="prize-page">
+=======
+<section class="prize-page ">
+>>>>>>> 7827e7bb7d9eb06ad851b7e9ba9da6e358d2553b
 
     <div class="prize-page-without-clouds container container_mob mobile-container">
-        <div class="crumbs">
-            <a class="crumbs__link" href="#">Home</a>
-            <a class="crumbs__link crumbs__link_active" href="#">Terms of Agreement</a>
-        </div>
+<!--        <div class="crumbs">-->
+<!--            <span class="crumbs__link"><a href="#">Home</a></span>-->
+<!--            <a class="crumbs__link crumbs__link_active" href="#">Terms of Agreement</a>-->
+<!--        </div>-->
         <div class="prize-page-without-clouds__small-container">
             <h2 class="prize-page-without-clouds__prize-name"><?= $lottery['name_prize']->text ?></h2>
             <?php
@@ -27,9 +32,9 @@
 
         </div>
         <br>
-        <p class="prize-page-without-clouds__text text-wrap"><span class="gold-text">990 000</span> out of <span class="gold-text">1 000 000</span> left before the draw of the prize</p>
+        <p class="prize-page-without-clouds__text text-wrap"><span class="gold-text"><?= $lottery['data']->total ?> ETH</span> out of <span class="gold-text"><?= $lottery['data']->currency_start ?> ETH</span> left before the draw of the prize</p>
         <br>
-        <p class="prize-page-without-clouds__text text-wrap"><?= $lottery['description']->text ?></p>
+        <p class="prize-page-without-clouds__text text-wrap"><?php if(isset($lottery['description']->text)) echo $lottery['description']->text  ?></p>
         <div class="participate prize-page-without-clouds__participate">
             <div class="participate__buttons container">
                 <a class="button button_gold participate__button" href="/lottery/participate?id=<?= $lottery['data']->id ?>">Participate</a>
@@ -43,7 +48,7 @@
                 <div class="steps-arrow"></div>
                 <div class="steps"><span class="steps__digit">IV</span>Lorem ipsum</div>
             </div>
-            <p class="prize-page-without-clouds__text"><?= $lottery['text']->text ?></p>
+            <p class="prize-page-without-clouds__text"><?php if(isset($lottery['text']->text))echo $lottery['text']->text  ?></p>
         </div>
     </div>
     <div class="clouds">

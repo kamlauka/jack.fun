@@ -62,11 +62,6 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     {
         return [
             [['username', 'auth_key', ], 'required'],
-
-//            [['auth_key_repeat'], 'required','on'=>'register'],
-//            ['auth_key_repeat', 'compare', 'on'=>'register'],
-            //['auth_key_repeat', 'compare', 'compareAttribute'=>'auth_key', 'message'=>"Passwords don't match" ],
-
             [['balance'], 'number'],
             [['username', 'auth_key', 'password_hash','password_reset_token', 'password_reset_token', 'wallet'], 'string'],
             [['status'], 'integer'],
