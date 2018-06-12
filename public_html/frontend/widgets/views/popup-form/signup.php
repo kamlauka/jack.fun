@@ -4,19 +4,19 @@
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model \frontend\models\SignupForm */
 
-    use yii\helpers\Html;
-    use yii\bootstrap\ActiveForm;
+use yii\helpers\Html;
+use yii\bootstrap\ActiveForm;
 
 $this->title = 'Registration';
 ?>
-<div class="site-signup">
+<div class="site-signup hidden">
 
     <div class="registration">
         <h3 class="registration__title title-h3"><?= $this->title ?></h3>
         <?php $form = ActiveForm::begin([
-                'id' => 'form-signup',
-                'action' => '/site/signup',
-                ]); ?>
+            'id' => 'form-signup',
+            'action' => '/site/signup',
+        ]); ?>
         <label class="label registration__label">
             <?= $form->field($model, 'username')->textInput(['autofocus' => true,'class'=>'label__input input-text'])->label('Username',['class'=>'label__name']) ?>
         </label>
@@ -25,7 +25,7 @@ $this->title = 'Registration';
         </label>
         <label class="label registration__label">
             <?= $form->field($model, 'password')->passwordInput(['class'=>'label__input input-text'])->label('password',['class'=>'label__name']) ?>
-           </label>
+        </label>
         <label class="label registration__label">
             <?= $form->field($model, 'password_repeat')->passwordInput(['class'=>'label__input input-text'])->label('repeat password',['class'=>'label__name']) ?>
         </label>
