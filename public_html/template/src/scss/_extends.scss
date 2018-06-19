@@ -181,7 +181,7 @@
   }
   &_color_red {
     background: $pat-curtain-red no-repeat;
-    background-size: contain;
+    background-size: 100% 100%;
     @media (max-width: $mobile-width) {
       display: none;
     }
@@ -203,6 +203,25 @@
     background-size: contain;
     margin: 0;
     width: 40%;
+    &_position_left {
+      left: -2%;
+      transform: scale(-1, 1);
+      margin-left: 2%;
+      background-position: top left;
+    }
+    &_position_right {
+      right: -2%;
+      margin-right: 2%;
+      background-position: top right;
+    }
+    @media (max-width: $mobile-width) {
+      &_position_left {
+        left: 0%;
+      }
+      &_position_right {
+        right: 0;
+      }
+    }
   }
 
 }

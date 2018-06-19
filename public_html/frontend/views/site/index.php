@@ -7,9 +7,7 @@ use yii\helpers\Html;
 <div class="site-index">
 
     <section class="first-page">
-
-        <div class="parallax">
-            <div class="parallax-base" data-paroller-factor="0.9" data-paroller-type="foreground" data-paroller-direction="vertical">
+         <div class="clouds">
                 <div class="cloud-container cloud-container_left-big">
                     <div class="cloud">
                         <div class="cloud cloud__cloud1"></div>
@@ -24,46 +22,42 @@ use yii\helpers\Html;
                         <div class="cloud cloud__cloud3"></div>
                     </div>
                 </div>
+             <div class="cloud-container cloud-container_left-small" >
+                 <div class="cloud">
+                     <div class="cloud_bottom-big cloud cloud__cloud1"></div>
+                     <div class="cloud cloud__cloud2"></div>
+                     <div class="cloud cloud__cloud3"></div>
+                 </div>
+             </div>
+             <div class="cloud-container cloud-container_second-small">
+                 <div class="cloud">
+                     <div class="cloud_bottom-big cloud cloud__cloud1"></div>
+                     <div class="cloud cloud__cloud2"></div>
+                     <div class="cloud cloud__cloud3"></div>
+                 </div>
+             </div>
+             <div class="cloud-container cloud-container_third-small">
+                 <div class="cloud">
+                     <div class="cloud_bottom-big cloud cloud__cloud1"></div>
+                     <div class="cloud cloud__cloud2"></div>
+                     <div class="cloud cloud__cloud3"></div>
+                 </div>
+             </div>
+             <div class="cloud-container cloud-container_right-small">
+                 <div class="cloud">
+                     <div class="cloud_bottom-big cloud cloud__cloud1"></div>
+                     <div class="cloud cloud__cloud2"></div>
+                     <div class="cloud cloud__cloud3"></div>
+                 </div>
+             </div>
+             <div class="cloud-container cloud-container_bottom-big">
+                 <div class="cloud">
+                     <div class="cloud_bottom-big cloud cloud__cloud1"></div>
+                     <div class="cloud cloud__cloud2"></div>
+                     <div class="cloud cloud__cloud3"></div>
+                 </div>
+             </div>
             </div>
-
-            <div class="parallax-back" data-paroller-factor="0.1" data-paroller-type="foreground">
-                <div class="cloud-container cloud-container_left-small" >
-                    <div class="cloud">
-                        <div class="cloud_bottom-big cloud cloud__cloud1"></div>
-                        <div class="cloud cloud__cloud2"></div>
-                        <div class="cloud cloud__cloud3"></div>
-                    </div>
-                </div>
-                <div class="cloud-container cloud-container_second-small">
-                    <div class="cloud">
-                        <div class="cloud_bottom-big cloud cloud__cloud1"></div>
-                        <div class="cloud cloud__cloud2"></div>
-                        <div class="cloud cloud__cloud3"></div>
-                    </div>
-                </div>
-                <div class="cloud-container cloud-container_third-small">
-                    <div class="cloud">
-                        <div class="cloud_bottom-big cloud cloud__cloud1"></div>
-                        <div class="cloud cloud__cloud2"></div>
-                        <div class="cloud cloud__cloud3"></div>
-                    </div>
-                </div>
-                <div class="cloud-container cloud-container_right-small">
-                    <div class="cloud">
-                        <div class="cloud_bottom-big cloud cloud__cloud1"></div>
-                        <div class="cloud cloud__cloud2"></div>
-                        <div class="cloud cloud__cloud3"></div>
-                    </div>
-                </div>
-                <div class="cloud-container cloud-container_bottom-big">
-                    <div class="cloud">
-                        <div class="cloud_bottom-big cloud cloud__cloud1"></div>
-                        <div class="cloud cloud__cloud2"></div>
-                        <div class="cloud cloud__cloud3"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
          <div class="first-page__container">
             <div class="parallax-top" data-paroller-factor="-0.1" data-paroller-type="foreground" data-paroller-direction="vertical">

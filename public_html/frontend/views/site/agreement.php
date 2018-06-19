@@ -7,15 +7,11 @@ use yii\widgets\Breadcrumbs;
 
 $this->params['breadcrumbs'][] = ['label' =>'Terms of agreement','template' => "<li class='crumbs__link crumbs__link_active'><span class='crumb-active'>{link}</span></li>"];
 
-//$this->title = 'Terms of agreement';
+$this->title = 'Terms of agreement';
 //$this->params['breadcrumbs'][] = $this->title;
 ?>
 <section class="terms-page">
     <div class="container container_mob mobile-container">
-<<<<<<< HEAD
-=======
-
->>>>>>> 7827e7bb7d9eb06ad851b7e9ba9da6e358d2553b
         <div class="terms">
             <h2 class="terms__title"><?= $this->title ?></h2>
             <div class="terms__text">
