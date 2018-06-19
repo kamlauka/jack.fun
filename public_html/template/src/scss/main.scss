@@ -1216,9 +1216,9 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: 96%;
   width: 100%;
-
+  z-index: 9000;
   @media (max-width: $mobile-width) {
     position: relative;
     order: 2;
@@ -1234,8 +1234,7 @@ body {
 
 .breadcrumb {
   list-style-type: none;
-  padding: 0;.
-
+  padding: 0;
   margin: 0;
   text-align: left;
   .crumb-active {
@@ -1303,6 +1302,9 @@ body {
       opacity: 0;
     }
   }
+  &_jackpot {
+    top: 4%;
+  }
   //animation: opacityc 1s 1s linear;
   &_fixed {
     //display: none;
@@ -1315,7 +1317,7 @@ body {
     z-index: 9000;
   }
   &_bottom {
-    top: 67%;
+    top: 75%;
     width: 170%;
     bottom: -10%;
     @media (max-width: $third-width) {
@@ -1325,9 +1327,10 @@ body {
   &_over-all {
     z-index: 50;
   }
-  &_cabinet {
-    z-index: 0;
-    top: -12%;
+  &__cabinet {
+    @media (max-width: 1700px) {
+      top: 0;
+    }
   }
 }
 .cloud-container_bottom-scale {

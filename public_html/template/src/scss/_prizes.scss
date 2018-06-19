@@ -134,12 +134,14 @@
     position: relative;
     z-index: 300;
     padding: 18%;
+    width: 34%;
+    margin: auto;
     background: $pat-cloud-round center no-repeat;
     background-size: contain;
     font-size: 5em;
     color: #00CC69;
     @media (max-width: $second-width) {
-      padding: 10%;
+      padding: 12%;
       font-size: 4em;
     }
     @media (max-width: $mobile-width) {

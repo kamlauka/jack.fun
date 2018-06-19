@@ -6,7 +6,7 @@
     align-items: center;
     flex-wrap: nowrap;
     margin: auto;
-    padding-left: 3%;
+    //padding-left: 3%;
     padding-top: 7%;
     justify-content: center;
     @media (max-width: $fourth-width) {
@@ -73,7 +73,7 @@
     font-size: 1.5em;
   }
   &__text {
-    margin: 20px 0;
+    margin: 20px 10px;
   }
   &__participate {
     padding: 20px 30px;
@@ -126,5 +126,5 @@
   color: $main-color;
 }
 .text-wrap {
-  margin: 0 20px;
+  margin: 20px 10px;
 }

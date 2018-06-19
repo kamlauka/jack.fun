@@ -5,12 +5,12 @@
 ?>
 
 <section class="cabinet flex-gorizontal">
-    <div class="grass"></div>
+    <div class="grass" ></div>
     <div class="empty-block empty-block_left"></div>
 <!--    <div class="container wrap_cabinet">-->
 
     <div class="cabinet__about-user about-user-info">
-        <div class="about-user-info__wrapper">
+        <div class="about-user-info__wrapper onclick="event.stopPropagation()"">
             <div class="user-info about-user-info__paragraph">
                 <?php
                 if(isset($user->avatar)){
@@ -55,23 +55,24 @@
 
 <!--    </div>-->
     <div class="empty-block empty-block_right"></div>
-    <div class="clouds cabinet__clouds ">
-        <div class="cloud-container cloud-container_left-medium">
-            <div class="cloud">
-                <div class="cloud cloud__cloud1"></div>
-                <div class="cloud cloud__cloud2"></div>
-                <!--                <div class="cloud cloud__cloud3"></div>-->
-            </div>
-        </div>
-        <div class="cloud-container cloud-container_around-left-medium">
-            <div class="cloud">
-                <div class="cloud cloud__cloud1"></div>
-                <div class="cloud cloud__cloud2"></div>
-                <!--                <div class="cloud cloud__cloud3"></div>-->
-            </div>
+
+</section>
+<div class="clouds clouds__cabinet ">
+    <div class="cloud-container cloud-container_left-medium">
+        <div class="cloud">
+            <div class="cloud cloud__cloud1"></div>
+            <div class="cloud cloud__cloud2"></div>
+            <!--                <div class="cloud cloud__cloud3"></div>-->
         </div>
     </div>
-</section>
+    <div class="cloud-container cloud-container_around-left-medium">
+        <div class="cloud">
+            <div class="cloud cloud__cloud1"></div>
+            <div class="cloud cloud__cloud2"></div>
+            <!--                <div class="cloud cloud__cloud3"></div>-->
+        </div>
+    </div>
+</div>
 
 
 

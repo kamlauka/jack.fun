@@ -13,7 +13,10 @@ $this->title = 'Registration';
 
     <div class="registration">
         <h3 class="registration__title title-h3"><?= $this->title ?></h3>
-        <?php $form = ActiveForm::begin(['id' => 'form-signup']); ?>
+        <?php $form = ActiveForm::begin([
+                'id' => 'form-signup',
+                'action' => '/site/signup',
+                ]); ?>
         <label class="label registration__label">
             <?= $form->field($model, 'username')->textInput(['autofocus' => true,'class'=>'label__input input-text'])->label('Username',['class'=>'label__name']) ?>
         </label>
