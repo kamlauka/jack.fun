@@ -2,6 +2,10 @@
     $this->params['breadcrumbs'][] = ['label' =>'Jackpot','template' => "<li class='crumbs__link crumbs__link_active'><span class='crumb-active'>{link}</span></li>"];
 ?>
 
+<<<<<<< HEAD
+=======
+<section class="jackpot-page">
+>>>>>>> 0e87d9608daa600fbcb5ca988020edd61754ec05
     <?php if($model){?>
 
     <div class="container container_mob mobile-container">

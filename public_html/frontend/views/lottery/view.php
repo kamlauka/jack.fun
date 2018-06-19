@@ -2,12 +2,15 @@
     use yii\helpers\Html;
     $this->params['breadcrumbs'][] = ['label' =>'Lottery','template' => "<li class='crumbs__link crumbs__link_active'><span class='crumb-active'>{link}</span></li>"];
 ?>
+<<<<<<< HEAD
 <section class="prize-page">
+=======
+
+<section class="prize-page">
+
+>>>>>>> 0e87d9608daa600fbcb5ca988020edd61754ec05
     <div class="prize-page-without-clouds container container_mob mobile-container">
-<!--        <div class="crumbs">-->
-<!--            <span class="crumbs__link"><a href="#">Home</a></span>-->
-<!--            <a class="crumbs__link crumbs__link_active" href="#">Terms of Agreement</a>-->
-<!--        </div>-->
+
         <div class="prize-page-without-clouds__small-container">
             <h2 class="prize-page-without-clouds__prize-name"><?= $lottery['name_prize']->text ?></h2>
             <?php
