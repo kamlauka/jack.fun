@@ -34,6 +34,40 @@ if($('#sign-in-popup').css('display') !== 'none') {
     e.stopPropagation();
 }
 
+
+window.addEventListener('scroll', function () {
+    // var scrolled = window.pageYOffset || document.documentElement.scrollTop;
+    var logo = $(".logo__picture").first();
+    var clouds = $(".clouds").first();
+    var cloudBottom = $(".cloud-container_bottom-scale").first();
+    var cloudleft = $(".cloud-container_left-big .cloud").first();
+    var cloudright = $(".cloud-container_right-big .cloud").first();
+    function func() {
+        // clouds.css({'display' : 'none'});
+        logo.animate({'top': '-20', 'width': '20%', 'left': '39%'}, 1000);
+        // logo.css({'animation': 'totop 2s 0.5s linear'});
+    }
+    function func1() {
+        cloudleft.animate({'left': '50%', 'width': '50%'}, 2000);
+        cloudright.animate({'right': '50%', 'width': '50%'}, 2000);
+        cloudBottom.animate({'top': '-50%'}, 2000);
+        clouds.css({'display' : 'none'}, 3000);
+    }
+    if($(this).scrollTop() <= logo.offset().top) {
+        console.log(logo);
+        console.log(clouds);
+        logo.attr('src', '../images/common/logo.gif');
+        cloudBottom.css({'display' : 'block'});
+        clouds.animate({'opacity': '0.5'}, 4000);
+
+        setTimeout(func, 1000);
+        setTimeout(func1, 700);
+    }
+    this.removeEventListener('scroll', arguments.callee);
+});
+
+
+
 //
 // function targetFuncU(e) {
 //     if($('#sign-up-popup').css('display') !== 'none') {
