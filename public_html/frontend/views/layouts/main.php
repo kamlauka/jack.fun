@@ -8,7 +8,6 @@ use yii\helpers\Html;
 use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
-use yii\bootstrap\Modal;
 
 AppAsset::register($this);
 ?>
@@ -84,12 +83,16 @@ AppAsset::register($this);
         'view' => 'signup'
     ]) ?>
     <!-- end div registration-->
-
     <div class="logo-mini">
         <div class="logo-mini__container">
-            <img src="/images/common/logo-mini.png" alt="" class="logo-mini__image">
+            <?php if(Yii::$app->controller->route === 'site/index'){ $dd = 1;?>
+<!--            если главнкая то показать картинку-->
+                <img src="#" alt="fdbvf" class="logo-mini__image">
+            <?php }else{ ?>
+<!--            если не главнкая то показать картинку-->
+                <img src="/images/common/logo-mini.png" alt="" class="logo-mini__image">
+            <?php } ?>
         </div>
-
     </div>
     <div class="orange-border orange-border_edge"></div>
 </header>
