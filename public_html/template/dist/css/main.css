@@ -1699,6 +1699,18 @@
     .logo-mini {
       display: none; } }
 
+.logo__container {
+  width: 539px;
+  margin: auto;
+  padding: 66px 0 25px 0;
+  background-size: contain;
+  background-position: center; }
+
+.logo__image {
+  width: 100%;
+  z-index: 9001;
+  position: relative; }
+
 *:focus {
   outline: none !important; }
 
@@ -1882,7 +1894,8 @@ body {
     right: 0;
     top: 5.1%;
     bottom: 0;
-    z-index: 9000; }
+    z-index: 9002;
+    overflow: hidden; }
   .clouds_bottom {
     top: 75%;
     width: 170%;
@@ -2002,10 +2015,11 @@ body {
     transform: rotate(4deg) translateX(20px) translateY(-10px); }
   100% {
     transform: rotate(0deg) translateX(0px) translateY(0px); } }
-    .cloud-container .cloud_bottom-scale {
-      left: 26%;
-      top: 27%;
-      z-index: 8001; }
+  .cloud-container_bottom-scale {
+    left: 26%;
+    top: 27%;
+    z-index: 8001;
+    display: none; }
   .cloud-container_left-big {
     left: -11%;
     top: -7%;

@@ -62,6 +62,21 @@
   }
 }
 
+.logo {
+  &__container {
+    width: 539px;
+    margin: auto;
+    padding: 66px 0 25px 0;
+    background-size: contain;
+    background-position: center;
+  }
+  &__image {
+    width: 100%;
+    z-index: 9001;
+    position: relative;
+  }
+}
+
 
 * {
   //-webkit-tap-highlight-color: rgba(0,0,0,0);
@@ -1356,7 +1371,9 @@ body {
     //top: 8%;
     top: 5.1%;
     bottom: 0;
-    z-index: 9000;
+    z-index: 9002;
+    overflow: hidden;
+
   }
   &_bottom {
     top: 75%;
@@ -1507,13 +1524,14 @@ body {
         }
       }
     }
-    &_bottom-scale {
-      left: 26%;
-      top: 27%;
-      z-index: 8001;
-    }
-  }
 
+  }
+  &_bottom-scale {
+    left: 26%;
+    top: 27%;
+    z-index: 8001;
+    display: none;
+  }
   &_left-big {
     left: -11%;
     top: -7%;
