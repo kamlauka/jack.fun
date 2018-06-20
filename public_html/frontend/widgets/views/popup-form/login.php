@@ -14,7 +14,7 @@ $this->title = 'Login';
 
     <div class="registration">
         <h3 class="registration__title title-h3"><?= Html::encode($this->title) ?></h3>
-        <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
+        <?php $form = ActiveForm::begin(['id' => 'login-form','action'=>'/site/login']); ?>
         <label class="label registration__label">
             <?= $form->field($model, 'username')->textInput(['autofocus' => true,'class'=>'label__input input-text'])->label('Username',['class'=>'label__name']) ?>
         </label>

@@ -121,10 +121,9 @@ class SiteController extends Controller
             return $this->goBack();
         } else {
             $model->password = '';
-
-            return $this->render('login', [
-                'model' => $model,
-            ]);
+            //Yii::$app->session->setFlash('error', 'Wrong password or username');
+            //доделалать  чтоб при переходе всплывал попап
+            return $this->redirect('/');
         }
     }
 
@@ -179,10 +178,10 @@ class SiteController extends Controller
                 }
             }
         }
-
-        return $this->render('signup', [
-            'model' => $model,
-        ]);
+        return $this->redirect('/');
+//        return $this->render('signup', [
+//            'model' => $model,
+//        ]);
     }
 
     /**
