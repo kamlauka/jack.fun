@@ -2,10 +2,10 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use dosamigos\datetimepicker\DateTimePicker;
+use common\widgets\TranslationForm;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\Lottery */
+/* @var $model backend\models\LotteryForm */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
@@ -13,35 +13,9 @@ use dosamigos\datetimepicker\DateTimePicker;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'name_ru')->textInput(['maxlength' => true]) ?>
-    <?= $form->field($model, 'name_en')->textInput(['maxlength' => true]) ?>
-    <?= $form->field($model, 'name_ch')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'date_start')->widget(DateTimePicker::className(), [
-        'language' => 'en',
-        'size' => 'ms',
-        'clientOptions' => [
-            'autoclose' => true,
-            'format' => 'yyyy.mm.dd hh:ii:ss',
-            'todayBtn' => true
-        ]
-    ]);?>
-
-    <?php
-//    if($model->result){
-    //        echo $form->field($model, 'result')->textInput();
-    //    }
-    ?>
+    <?= $form->field($model, 'currency_start')->textInput() ?>
 
     <?= $form->field($model, 'rate')->textInput() ?>
-
-    <?= $form->field($model, 'description_ru')->textarea(['rows' => 5]) ?>
-    <?= $form->field($model, 'description_en')->textarea(['rows' => 5]) ?>
-    <?= $form->field($model, 'description_ch')->textarea(['rows' => 5]) ?>
-
-    <?= $form->field($model, 'name_prize_ru')->textInput(['maxlength' => true]) ?>
-    <?= $form->field($model, 'name_prize_en')->textInput(['maxlength' => true]) ?>
-    <?= $form->field($model, 'name_prize_ch')->textInput(['maxlength' => true]) ?>
 
     <?php
         if($model->img){ ?>
@@ -52,9 +26,17 @@ use dosamigos\datetimepicker\DateTimePicker;
         }
     ?>
 
-
-
     <?= $form->field($model, 'status')->dropDownList(['В ожидание','Публиковать']); ?>
+
+
+    <?= TranslationForm::widget([
+        'attributes' => $attributes,
+        'form' => $form,
+        'model'=> $model
+
+    ]) ?>
+
+   <?= $form->field($url, 'value')->textInput()->label(' http://jackpot.fun/lottery/'); ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

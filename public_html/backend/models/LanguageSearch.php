@@ -18,8 +18,8 @@ class LanguageSearch extends Language
     public function rules()
     {
         return [
-            [['id', 'language_id'], 'integer'],
-            [['alias', 'text'], 'safe'],
+            [['id'], 'integer'],
+            [['alias', 'name', 'activ'], 'safe'],
         ];
     }
 
@@ -60,11 +60,11 @@ class LanguageSearch extends Language
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'language_id' => $this->language_id,
         ]);
 
         $query->andFilterWhere(['like', 'alias', $this->alias])
-            ->andFilterWhere(['like', 'text', $this->text]);
+            ->andFilterWhere(['like', 'name', $this->name])
+            ->andFilterWhere(['like', 'activ', $this->activ]);
 
         return $dataProvider;
     }

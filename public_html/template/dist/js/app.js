@@ -8,31 +8,21 @@
 //     }
 // }
 
-// window.onscroll = function() {
-//
-// }
+//ACTIVE CHECKBOX
+// var checkbox = document.getElementsByClassName('pseudo-checkbox');
+// checkbox.onclick = "this.style.backgroundColor = '#FFB400'";
+// $('.pseudo-checkbox').click($('.pseudo-checkbox').css('background-color','#FFB400'));
 
-// var marker = true;
-//
-// function count() {
-//     var scrolled = window.pageYOffset || document.documentElement.scrollTop;
-//     var logo = document.getElementsByClassName('logo__picture')[0];
-//     var clouds = document.getElementsByClassName('clouds')[0];
-//     console.log(logo);
-//     console.log(clouds);
-//     logo.setAttribute('src', 'dist/img/logo.gif');
-//     clouds.style.display = 'block';
-//     marker = false;
-// }
-//
-// $( window ).on('scroll', function () {
-//     if ( $( window ).scrollTop() > logo.offset().top - $( window ).height() * 0.5 ) {
-//         if ( marker ) {
-//             count();
-//         }
-//     }
-// });
+function checkboxClick() {
+    var checkbox = $('.pseudo-checkbox');
+    if (checkbox.css('background-color') !== '#FFB400') {
+        checkbox.css('background-color','#FFB400')
+    } else if (checkbox.css('background-color') === '#FFB400') {
+        checkbox.css('background-color','#5D6C6C')
+    }
 
+
+}
 
 window.addEventListener('scroll', function () {
     // var scrolled = window.pageYOffset || document.documentElement.scrollTop;
@@ -43,19 +33,19 @@ window.addEventListener('scroll', function () {
     var cloudright = $(".cloud-container_right-big .cloud").first();
     function func() {
         // clouds.css({'display' : 'none'});
-        logo.animate({'top': '-20', 'width': '20%', 'left': '39%'}, 1000);
+        logo.animate({'top': '-20', 'width': '100px', 'left': '39%'}, 1000);
         // logo.css({'animation': 'totop 2s 0.5s linear'});
     }
     function func1() {
         cloudleft.animate({'left': '50%', 'width': '50%'}, 2000);
         cloudright.animate({'right': '50%', 'width': '50%'}, 2000);
         cloudBottom.animate({'top': '-50%'}, 2000);
-        clouds.css({'display' : 'none'});
+        clouds.css({'display' : 'none'}, 3000);
     }
     if($(this).scrollTop() <= logo.offset().top) {
         console.log(logo);
         console.log(clouds);
-        logo.attr('src', 'dist/img/logo.gif');
+        logo.attr('src', '../dist/images/common/logo.gif');
         cloudBottom.css({'display' : 'block'});
         clouds.animate({'opacity': '0.5'}, 4000);
 
@@ -65,7 +55,7 @@ window.addEventListener('scroll', function () {
     this.removeEventListener('scroll', arguments.callee);
 });
 
-// $("div.bigBlock").first()
+
 //TIMER
 
 function getTimeRemaining(endtime) {
@@ -84,15 +74,13 @@ function getTimeRemaining(endtime) {
 }
 
 function initializeClock(endtime) {
-    var clock = document.getElementsByClassName('timer')[0];
-    var daysSpan = clock.querySelector('.days');
-    var hoursSpan = clock.querySelector('.hours');
-    var minutesSpan = clock.querySelector('.minutes');
-    var secondsSpan = clock.querySelector('.seconds');
-
     function updateClock() {
         var t = getTimeRemaining(endtime);
-
+        var clock = document.getElementsByClassName('timer')[0];
+        var daysSpan = clock.querySelector('.days');
+        var hoursSpan = clock.querySelector('.hours');
+        var minutesSpan = clock.querySelector('.minutes');
+        var secondsSpan = clock.querySelector('.seconds');
         daysSpan.innerHTML = t.days;
         hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
         minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
@@ -107,6 +95,15 @@ function initializeClock(endtime) {
     var timeinterval = setInterval(updateClock, 1000);
 }
 
+
+// var phpDays = daysSpan.text();
+// var phpHours = hoursSpan.text();
+// var phpMinutes = minutesSpan.text();
+// var phpSeconds = secondsSpan.text();
+var date = $('.timer__days').attr('data');
+var time = $('.timer__time').attr('data');
+console.log(date);
+console.log(time);
 var deadline = '2018-07-17T03:24:00'; //CURRENT DEADLINE OF TIMER
 //var deadline = '2015-12-31'; // DEADLINE OF TIMER, TEMPLATE YEAR-MONTH-DAY
 //var deadline = new Date(Date.parse(new Date()) + 15 * 24 * 60 * 60 * 1000); //when the page is loaded, the timer always displays 15 days

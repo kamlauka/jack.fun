@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use common\models\Banlist;
 use Yii;
 use common\models\User;
 use backend\models\UserSearch;
@@ -104,6 +105,9 @@ class UserController extends Controller
         $model = User::findOne($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+
+            Banlist::deleteAll(['user_id' => $id]);//удаляем пользователя с банлиста
+
             return $this->redirect(['view', 'id' => $model->id]);
         }
 

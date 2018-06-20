@@ -11,7 +11,7 @@ use Yii;
  * @property string $name
  * @property int $total
  * @property int $status
- * @property string $date_start
+ * @property string $currency_start
  * @property string $result
  * @property string $description
  * @property double $rate
@@ -34,12 +34,11 @@ class Lottery extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'date_start', 'rate', 'name_prize', 'img'], 'required'],
+            [['name', 'currency_start', 'rate', 'name_prize', 'img'], 'required'],
            // [['img'],'image','extensions' => 'png, jpg, jpeg, gif','skipOnEmpty' => true, 'on' => 'update-photo-upload'],
             [['total'], 'integer'],
-            [['date_start'], 'safe'],
             [['description'], 'string'],
-            [['rate'], 'number'],
+            [['rate','currency_start'], 'number'],
             [['name', 'name_prize'], 'string', 'max' => 32],
             [['status'], 'string', 'max' => 2],
             [['result'], 'string', 'max' => 10],
@@ -56,7 +55,7 @@ class Lottery extends \yii\db\ActiveRecord
             'name' => 'Name',
             'total' => 'Total',
             'status' => 'Status',
-            'date_start' => 'Date Start',
+            'currency_start' => 'Currency start',
             'result' => 'Result',
             'description' => 'Description',
             'rate' => 'Rate',
@@ -65,13 +64,26 @@ class Lottery extends \yii\db\ActiveRecord
         ];
     }
 
+    public static function getActiveLottery(){
 
-//    function scenario()
-//    {
-//        return [
-//            'create' => ['img ', 'carid','name','coverphoto','status'],
-//            'update' => ['img ', 'carid','name','coverphoto','status'],
-//        ];
-//    }
+        $id_lang = $_SESSION['language'];
+
+        $lottery = [];
+
+        // todo переделать выборорку
+
+        if($lotteries=  Lottery::find()->where(['status' => '1', 'result'=>null])->all()){
+
+            $lottery['data'] =  Lottery::find()->where(['status' => '1', 'result'=>null ])->one();
+            $lottery['name_prize'] = Translation::find()->where(['alias'=>'name_prize','target_id'=>$lottery['data']->id,'language_id'=>$id_lang])->one();
+            $lottery['description'] = Translation::find()->where(['alias'=>'description','target_id'=>$lottery['data']->id,'language_id'=>$id_lang])->one();
+
+            //для вюхи
+            $lottery['text'] = Translation::find()->where(['alias'=>'lottery_view_text','language_id'=>$id_lang])->one();
+            return $lottery;
+        }
+
+        return null;
+    }
 
 }

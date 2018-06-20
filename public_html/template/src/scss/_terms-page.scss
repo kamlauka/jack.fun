@@ -1,0 +1,29 @@
+.terms-page {
+  background: $pat-grass bottom no-repeat;
+  background-size: contain;
+  @media (max-width: $mobile-width) {
+    background-size: 200%, contain;
+  }
+}
+
+
+.terms {
+  margin: 8% 0 15%;
+  @media (max-width: $mobile-width) {
+    margin: 0 0 15%;
+  }
+
+  &__title {
+    margin: 2em 0 0.2em;
+    font-size: 3em;
+    @media (max-width: $mobile-width) {
+      margin: 1em 0 0.2em;
+      font-size: 2.3em;
+    }
+  }
+  &__text {
+    //max-height: 50vh;
+    padding: 0 20px;
+  }
+}
+

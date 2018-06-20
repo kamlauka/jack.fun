@@ -1,0 +1,117 @@
+.jackpot-page {
+  position: relative;
+  margin-top: 51px;
+  overflow: hidden;
+  &-timer {
+    flex: 1.3;
+    align-self: flex-end;
+    margin: 0 1%;
+    font-size: 0.9em;
+    @media (max-width: $third-width) {
+      order: -1;
+      margin: 0 auto;
+    }
+    &__image {
+      width: 100%;
+    }
+  }
+
+}
+
+
+.jackpot-flex-gorizontal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  @media (max-width: $third-width) {
+    flex-direction: column;
+  }
+}
+
+
+.timer__time_bottom {
+  margin-bottom: 5%;
+  position: relative;
+  z-index: 8000;
+  font-size: 6em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.over-all {
+  z-index: 500;
+}
+
+.participate {
+  flex: 1;
+  @media (max-width: $third-width) {
+    padding-top: 10%;
+  }
+  &_top {
+    margin-top: 7%;
+    @media (max-width: $third-width) {
+      margin-top: 0%;
+    }
+  }
+  &_bottom {
+    padding-bottom: 10%;
+    @media (max-width: $third-width) {
+      padding-bottom: 0;
+    }
+  }
+  &__text {
+    padding: 0 20px;
+  }
+  &__second {
+    @media (max-width: $third-width) {
+      border-top: 0;
+      padding: 0;
+    }
+  }
+}
+
+.algorithm {
+  position: relative;
+  margin: 0 10% 10%;
+  padding: 4%;
+  background: $pat-stone-jackpot no-repeat;
+  background-size: cover;
+  -webkit-box-shadow: 0px 0px 0px 3px #B4C3BE, 0px 0px 0px 3px #8EA29B;
+  -moz-box-shadow: 0px 0px 0px 3px #B4C3BE, 0px 0px 0px 3px #8EA29B;
+  box-shadow: 0px 0px 0px 3px #B4C3BE, 0px 0px 0px 3px #8EA29B;
+  &_right-background {
+    -webkit-transform:scaleX(-1);
+    -moz-transform:scaleX(-1);
+    -ms-transform:scaleX(-1);
+    -o-transform:scaleX(-1);
+    transform:scaleX(-1);
+    & * {
+      -webkit-transform:scaleX(-1);
+      -moz-transform:scaleX(-1);
+      -ms-transform:scaleX(-1);
+      -o-transform:scaleX(-1);
+      transform:scaleX(-1);
+    }
+  }
+  &__number {
+    position: absolute;
+    top: 4%;
+    color: #FFB400;
+    font-size: 2em;
+    &_position-right {
+      right: 4%;
+    }
+    &_position-left {
+      left: 4%;
+    }
+  }
+  //&__image {
+  //  filter: drop-shadow(0 0 1em #CDA957);
+  //}
+}
+
+.colon {
+  width: 7%;
+}

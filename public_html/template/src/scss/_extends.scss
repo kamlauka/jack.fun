@@ -1,6 +1,3 @@
-//@include mini-font_2em($mobile-width);
-//@extend ._font_
-
 ._font {
 
   &__10em {
@@ -55,10 +52,10 @@
 }
 
 @mixin mini-font_2em ($width) {
-    @media (max-width: $width) {
-      font-size: 2em;
-    }
+  @media (max-width: $width) {
+    font-size: 2em;
   }
+}
 
 @mixin mini-font_1-4em ($width) {
   @media (max-width: $width) {
@@ -67,28 +64,28 @@
 }
 
 @mixin mini-font_1-2em ($width) {
-    @media (max-width: $width) {
-      font-size: 1.2em;
-    }
+  @media (max-width: $width) {
+    font-size: 1.2em;
   }
+}
 
 @mixin mini-font_1-7em ($width) {
-    @media (max-width: $width) {
-      font-size: 1.7em;
-    }
+  @media (max-width: $width) {
+    font-size: 1.7em;
   }
+}
 
 @mixin mini-font_1-3em ($width) {
-    @media (max-width: $width) {
-      font-size: 1.3em;
-    }
+  @media (max-width: $width) {
+    font-size: 1.3em;
   }
+}
 
 @mixin mini-font_1em ($width) {
-    @media (max-width: $width) {
-      font-size: 1em;
-    }
+  @media (max-width: $width) {
+    font-size: 1em;
   }
+}
 
 //
 // колонны по бокам блока
@@ -104,15 +101,34 @@
   background-repeat: no-repeat;
 
   &_color_dark {
-    background: url("../img/dark-pillar-1.png")top left no-repeat, url("../img/dark-pillar-3.png") bottom left no-repeat, url("../img/dark-pillar-2.png") repeat-y;
+    background: $pat-dark-pillar-1 top left no-repeat, $pat-dark-pillar-3 bottom left no-repeat, $pat-dark-pillar-2 repeat-y;
+    @media (max-width: $first-width) {
+      background-size: 47%, 47%, 32.5%;
+    }
   }
 
   &_color_grey {
-    background: url("../img/grey-pillar-1.png")top left no-repeat, url("../img/grey-pillar-3.png") bottom left no-repeat, url("../img/grey-pillar-2.png") repeat-y;
+    background: $pat-grey-pillar-1 top left no-repeat, $pat-grey-pillar-3 bottom left no-repeat, $pat-grey-pillar-2 repeat-y;
+    @media (max-width: $first-width) {
+      background-size: 47%, 47%, 32.5%;
+    }
   }
 
   &_color_gold {
-    background: url("../img/gold-pillar-1.png")top left no-repeat, url("../img/gold-pillar-3.png") bottom left no-repeat, url("../img/gold-pillar-2.png") repeat-y;
+    background: $pat-gold-pillar-1 top left no-repeat, $pat-gold-pillar-3 bottom left no-repeat, $pat-gold-pillar-2 repeat-y;
+    @media (max-width: $first-width) {
+      background-size: 47%, 47%, 32.5%;
+    }
+  }
+
+  &_all-pillar {
+    position: absolute;
+    z-index: 8000;
+    background: $pat-all-pillar-1 top left no-repeat, $pat-all-pillar-3 bottom left no-repeat, $pat-all-pillar-2 top center repeat-y;
+    background-size: 100%, 100%, 68.5%;
+    @media (max-width: $first-width) {
+
+    }
   }
 
   &_position_right {
@@ -122,9 +138,8 @@
   &_position_left {
     left: 0;
   }
-
-  @media (max-width: $first-width) {
-    background-size: 47%, 47%, 32.5%;
+  &_position_top {
+    bottom: 6%;
   }
 
   @media (max-width: $mobile-width) {
@@ -142,18 +157,72 @@
   bottom: 0;
   z-index: 500;
   width: 14%;
-  background: url("../img/curtain-2.png") no-repeat;
-  background-size: contain;
+
+
+  @media (max-width: 930px) {
+    width: 15%;
+  }
+  @media (max-width: 860px) {
+    width: 16%;
+  }
+  @media (max-width: 800px) {
+    width: 17%;
+  }
   &_position_left {
     left: 0;
     transform: scale(-1, 1);
     margin-left: 2%;
+    background-position: top left;
   }
   &_position_right {
     right: 0;
     margin-right: 2%;
+    background-position: top right;
   }
-  @media (max-width: $mobile-width) {
-    display: none;
+  &_color_red {
+    background: $pat-curtain-red no-repeat;
+    background-size: 100% 100%;
+    @media (max-width: $mobile-width) {
+      display: none;
+    }
   }
+  &_color_blue {
+    background: $pat-curtain-blue no-repeat;
+    background-size: 100% 100%;
+    margin: 0;
+    width: 33%;
+    @media (max-width: 1500px) {
+      width: 37%;
+    }
+    @media (max-width: 1276px) {
+      width: 41%;
+    }
+  }
+  &_color_red-1 {
+    background: $pat-curtain-red-little no-repeat;
+    background-size: contain;
+    margin: 0;
+    width: 40%;
+    top: -6px;
+    &_position_left {
+      left: -2%;
+      transform: scale(-1, 1);
+      //margin-left: 2%;
+      background-position: top left;
+    }
+    &_position_right {
+      right: -2%;
+      //margin-right: 2%;
+      background-position: top right;
+    }
+    @media (max-width: $mobile-width) {
+      &_position_left {
+        left: 0%;
+      }
+      &_position_right {
+        right: 0;
+      }
+    }
+  }
+
 }

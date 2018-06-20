@@ -45,12 +45,12 @@
 
     &_image_dollar {
       &:before {
-        content: url('../img/dollar.png');
+        content: $pat-dollar;
         @extend .side-image;
         @extend .side-image_left;
       }
       &:after {
-        content: url('../img/dollar.png');
+        content: $pat-dollar;
         @extend .side-image;
         @extend .side-image_right;
       }
@@ -58,12 +58,12 @@
 
     &_image_apple {
       &:before {
-        content: url('../img/apple.png');
+        content: $pat-apple;
         @extend .side-image;
         @extend .side-image_left;
       }
       &:after {
-        content: url('../img/bitten-apple.png');
+        content: $pat-apple;
         @extend .side-image;
         @extend .side-image_right;
       }
@@ -78,26 +78,3 @@
   }
 }
 
-.button {
-  min-width: 15%;
-  padding: 5px 15px;
-  border: 6px solid;
-  font-size: 1.5em;
-  transition: box-shadow 0.3s ease-in-out;
-  position: relative;
-  z-index: 8000;
-  &_gold {
-    color: white;
-    background-color: $main-color;
-    border-color: $add-color;
-    &:hover {
-      box-shadow: inset 0 0 20px 6px $add-color;
-    }
-  }
-
-  &_dark {
-    color: $main-color;
-    background-color: $gray-color;
-    border-color: #454E4E;
-  }
-}

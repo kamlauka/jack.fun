@@ -57,6 +57,9 @@
     margin-top: 30px;
     margin-bottom: 30px;
     color: white;
+    &:hover {
+      color: $main-color;
+    }
 
     &_font_gold {
       color: $main-color;
@@ -76,8 +79,10 @@
   }
 
   &__icon {
-    width: 47px;
+    width: 45px;
+    height: 45px;
     margin: 10px;
+    border-radius: 50%;
     -webkit-transition: all 0.2s linear 0s;
     -o-transition: all 0.2s linear 0s;
     -ms-transition: all 0.2s linear 0s;
@@ -86,15 +91,29 @@
 
     &:hover {
       filter: drop-shadow(0 0 1em $main-color);
+      background-color: $main-color;
     }
 
     @media (max-width: $third-width) {
       width: 30px;
+      height: 30px;
+      margin: 20px 10px;
     }
 
-    @media (max-width: $fourth-width) {
-
-      padding: 30px 0;
+    &_facebook {
+      background-color: #3B5998;
+    }
+    &_twitter {
+      background-color: #55ACEE;
+    }
+    &_insta {
+      background-color: #68443A;
+    }
+    &_google-plus {
+      background-color: #DC4E41;
+    }
+    &_vk {
+      background-color: #4D76A1;
     }
   }
 

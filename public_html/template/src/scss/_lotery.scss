@@ -1,9 +1,9 @@
-.lotery {
+.jackpot {
   position: relative;
   width: 100%;
   overflow: hidden;
   background:  linear-gradient(#E2FFFF, #fff);
-//url("../img/back.png") no-repeat,
+//url("../images/back.png") no-repeat,
   @media (max-width: $mobile-width) {
     background: none;
   }
@@ -67,7 +67,7 @@
     left: 0;
     bottom: 0;
     right: 0;
-    background-image: url(../img/sanctuary.png);
+    background-image: $pat-sanctuary;
     background-repeat: no-repeat;
     background-position: 10% 27%;
     background-size: 24%;
@@ -91,7 +91,7 @@
     left: 0;
     bottom: 0;
     right: 0;
-    background-image: url("../img/cloud.png");
+    background-image: $pat-cloud-1;
     background-repeat: no-repeat;
     &_one {
       background-position: -1% 52%;

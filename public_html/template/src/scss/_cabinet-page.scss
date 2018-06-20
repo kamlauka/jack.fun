@@ -1,0 +1,200 @@
+.cabinet {
+  background: $pat-grass bottom no-repeat, linear-gradient(to bottom, #44dffb 0%,#f9f9f9 73%);
+  background-size: contain;
+
+}
+
+
+.user-logo-container {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 6px solid #DE7300;
+  margin: auto;
+}
+
+.grass {
+  position: absolute;
+  top: 77%;
+  left: 0;
+  right: 0;
+  bottom: -3%;
+  z-index: 2000;
+  background: $pat-grass bottom no-repeat;
+  background-size: 100%;
+  @media (max-width: $mobile-width) {
+    background-size: cover;
+  }
+}
+
+.about-user-info {
+  position: relative;
+  width: 50%;
+  height: 100vh;
+  //min-height: 770px;
+  max-height: 700px;
+  @media (max-width: $third-width) {
+    width: 57%;
+  }
+  @media (max-width: $mobile-width) {
+    width: 100%;
+    min-height: 0;
+    height: 100%;
+  }
+
+  &:after {
+    content: '';
+    @extend .pillar;
+    @extend .pillar_all-pillar;
+    @extend .pillar_position_right;
+    //@extend .pillar_position_top;
+    right: -6%;
+  }
+
+
+  &__wrapper {
+    position: relative;
+    width: 46%;
+    bottom: -14%;
+    /* height: 64vh; */
+    margin: 0 auto;
+    padding: 5% 2% 145px;
+    z-index: 200;
+    background: url(../images/cabinet/leaf-3.png) bottom no-repeat, url(../images/cabinet/stone.png) bottom no-repeat;
+    background-size: 70%, cover;
+    border-image: url(../images/common/pattern.png) 100% 0%/1 0 repeat;
+    @media (max-width: $first-width) {
+      bottom: -19%;
+    }
+    @media (max-width: 1100px) {
+      margin-left: 24%;
+      width: 52%;
+    }
+
+    @media (max-width: $mobile-width) {
+      width: 100%;
+      margin: 0;
+      min-height: 0;
+      height: 100%;
+      padding: 5% 0%;
+      background: $pat-stone bottom no-repeat;
+      background-size: cover;
+    }
+    &:before {
+      content: '';
+      @extend .curtain;
+      @extend .curtain_color_red-1;
+      @extend .curtain_color_red-1_position_left;
+    }
+    &:after {
+      content: '';
+      @extend .curtain;
+      @extend .curtain_color_red-1;
+      @extend .curtain_color_red-1_position_right;
+    }
+  }
+
+  &__user-logo {
+    width: 100px;
+  }
+
+  &__paragraph {
+    font-size: 1.2em;
+    margin: 20px 0;
+    @media (max-width: $mobile-width) {
+      font-size: 2em;
+    }
+  }
+  &__title {
+    font-family: Corbel;
+    font-weight: bold;
+    color: #24445E;
+    margin-bottom: 0;
+  }
+
+  &__info {
+    margin: 5px 0;
+  }
+
+
+  &__user-name {
+    font-family: Corbel;
+    font-weight: bold;
+    color: #24445E;
+  }
+}
+
+
+
+.disputes {
+  position: relative;
+  //display: flex;
+  //justify-content: flex-end;
+  //flex-direction: column;
+  //flex-wrap: nowrap;
+  width: 45%;
+  height: 100vh;
+  //min-height: 770px;
+  max-height: 700px;
+  margin-right: 5%;
+  background: $pat-scene bottom no-repeat;
+  background-size: cover;
+  @media (max-width: $third-width) {
+    width: 37%;
+  }
+  @media (max-width: $mobile-width) {
+    width: 100%;
+    margin-right: 0;
+    min-height: 650px;
+    height: 55vh;
+  }
+  &:before {
+    content: '';
+    @extend .curtain;
+    @extend .curtain_color_blue;
+    @extend .curtain_color_red-1_position_left;
+  }
+  &:after {
+    content: '';
+    @extend .curtain;
+    @extend .curtain_color_blue;
+    @extend .curtain_color_red-1_position_right;
+  }
+  &__image {
+    position: absolute;
+    bottom: 2%;
+    left: 0;
+    right: 0;
+    @media (max-width: $mobile-width) {
+      bottom: -2%;
+    }
+  }
+  &__title {
+    color: white;
+    position: relative;
+    top: 38%;
+    @media (max-width: $mobile-width) {
+      top: 28%;
+    }
+  }
+}
+
+.wrap_cabinet {
+  width: 100%;
+}
+
+.empty-block {
+  position: absolute;
+  width: 7.5%;
+  //height: 100vh;
+  min-height: 700px;
+  @extend .pillar;
+  @extend .pillar_all-pillar;
+  @extend .pillar_position_right;
+  &_left {
+      @extend .pillar;
+      @extend .pillar_all-pillar;
+      @extend .pillar_position_left;
+  }
+}

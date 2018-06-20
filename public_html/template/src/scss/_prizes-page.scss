@@ -1,0 +1,144 @@
+.prize-page-without-clouds {
+  position: relative;
+  z-index: 1;
+  &__small-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    margin: auto;
+    //padding-left: 3%;
+    padding-top: 7%;
+    justify-content: center;
+    @media (max-width: $fourth-width) {
+      flex-direction: column;
+    }
+  }
+    &__image {
+      width: 15%;
+      align-self: center;
+      margin: 0 20px;
+      @media (max-width:$fourth-width) {
+        width: 30%;
+    }
+  }
+  &__prize-name {
+    margin: 0;
+    line-height: 1em;
+    color: #2E2E2E;
+    font-family: Corbel;
+    font-size: 5em;
+    @media (max-width: $third-width) {
+      font-size: 3em;
+    }
+    @media (max-width: $fourth-width) {
+      order: 2;
+      margin: 0 auto;
+      font-size: 4em;
+    }
+  }
+  &__prize-price {
+    font-size: 5em;
+    color: #00CC69;
+    padding-left: 20px;
+    font-weight: normal;
+    @media (max-width: $third-width) {
+      font-size: 3em;
+    }
+     @media (max-width: $fourth-width) {
+      order: 4;
+      margin: auto;
+      font-size: 2em;
+      padding-left: 0;
+    }
+  }
+  &__prize-text {
+    margin: 0;
+    line-height: 1em;
+    color: #616161;
+    font-family: Corbel;
+    font-size: 5em;
+    @media (max-width: $third-width) {
+      font-size: 3em;
+    }
+    @media (max-width: $fourth-width) {
+      order: 3;
+      margin: 0 auto;
+      font-size: 2em;
+    }
+  }
+  &__timer {
+    font-size: 0.4em;
+  }
+  &__big-font {
+    font-size: 1.5em;
+  }
+  &__text {
+    margin: 20px 10px;
+  }
+  &__participate {
+    padding: 20px 30px;
+  }
+}
+
+
+.prize-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+  @media (max-width: $first-width) {
+    max-width: 1000px;
+  }
+  @media (max-width: $third-width) {
+    padding: 0;
+  }
+}
+
+.steps-container {
+  position: relative;
+  height: 4vh;
+  padding: 20px 0;
+  @media (max-width: $fourth-width) {
+    height: 100%;
+    padding-bottom: 0;
+  }
+}
+.steps {
+  min-width: 126px;
+  padding: 6px 25px;
+  background-color: #7C918C;
+
+  @media (max-width: $fourth-width) {
+    margin-bottom: 2%;
+    margin-top: 2%;
+    padding: 6px 50px;
+  }
+
+  &__digit {
+    color: $main-color;
+    padding-right: 10px;
+    font-size: 1.5em;
+  }
+  &-arrow {
+    width: 5%;
+    height: 25px;
+    background: url(../images/prizes/arrow.png) no-repeat;
+    background-size: contain;
+    margin: auto;
+    @media (max-width: $fourth-width) {
+      width: 32px;
+      height: 22px;
+      -webkit-transform: rotate(90deg);
+      -moz-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+      -o-transform: rotate(90deg);
+      transform: rotate(90deg);
+    }
+  }
+}
+
+.gold-text {
+  color: $main-color;
+}
+.text-wrap {
+  margin: 20px 10px;
+}

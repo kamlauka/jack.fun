@@ -19,7 +19,7 @@ class LotterySearch extends Lottery
     {
         return [
             [['id', 'total'], 'integer'],
-            [['name', 'status', 'date_start', 'result', 'description', 'name_prize', 'img'], 'safe'],
+            [['name', 'status', 'currency_start', 'result', 'description', 'name_prize', 'img'], 'safe'],
             [['rate'], 'number'],
         ];
     }
@@ -62,7 +62,7 @@ class LotterySearch extends Lottery
         $query->andFilterWhere([
             'id' => $this->id,
             'total' => $this->total,
-            'date_start' => $this->date_start,
+            'currency_start' => $this->currency_start,
             'rate' => $this->rate,
         ]);
 

@@ -1,6 +1,10 @@
 <?php
 namespace frontend\controllers;
 
+use common\models\Jackpot;
+use common\models\Language;
+use common\models\Lottery;
+use common\models\Translation;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
@@ -18,36 +22,36 @@ use frontend\models\ContactForm;
  */
 class SiteController extends Controller
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function behaviors()
-    {
-        return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'only' => ['logout', 'signup'],
-                'rules' => [
-                    [
-                        'actions' => ['signup'],
-                        'allow' => true,
-                        'roles' => ['?'],
-                    ],
-                    [
-                        'actions' => ['logout'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
-            ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'logout' => ['post'],
-                ],
-            ],
-        ];
-    }
+//    /**
+//     * {@inheritdoc}
+//     */
+//    public function behaviors()
+//    {
+//        return [
+//            'access' => [
+//                'class' => AccessControl::className(),
+//                'only' => ['logout', 'signup'],
+//                'rules' => [
+//                    [
+//                        'actions' => ['signup'],
+//                        'allow' => true,
+//                        'roles' => ['?'],
+//                    ],
+//                    [
+//                        'actions' => ['logout'],
+//                        'allow' => true,
+//                        'roles' => ['@'],
+//                    ],
+//                ],
+//            ],
+//            'verbs' => [
+//                'class' => VerbFilter::className(),
+//                'actions' => [
+//                    'logout' => ['post'],
+//                ],
+//            ],
+//        ];
+//    }
 
     /**
      * {@inheritdoc}
@@ -72,7 +76,33 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+
+        $id_lang = $_SESSION['language'];
+
+        $T = Translation::find()->where(['alias' => 'main_T'])->andWhere(['language_id' => 1])->one();
+        $bitcoin = Translation::find()->where(['alias'=>'main_bitcoin','language_id'=>$id_lang])->one();
+        $hands = Translation::find()->where(['alias'=>'main_hands','language_id'=>$id_lang])->one();
+        $play = Translation::find()->where(['alias'=>'main_play','language_id'=>$id_lang])->one();
+        $prize = Translation::find()->where(['alias'=>'main_prize','language_id'=>$id_lang])->one();
+
+        $lottery = Lottery::getActiveLottery();
+        $jackpot = Jackpot::getActiveJackpot();
+
+        $seo_block_title = Translation::find()->where(['alias' => 'seo_block_title', 'language_id' => $id_lang])->one();
+        $seo_block_text = Translation::find()->where(['alias' => 'seo_block_text', 'language_id' => $id_lang])->one();
+
+        return $this->render('index',[
+
+           'T' => $T,
+           'bitcoin' => $bitcoin,
+           'hands' => $hands,
+           'play' => $play,
+           'prize' => $prize,
+           'lottery' => $lottery,
+           'jackpot' => $jackpot,
+           'seo_block_text' => $seo_block_text,
+           'seo_block_title' => $seo_block_title,
+        ]);
     }
 
     /**
@@ -91,16 +121,14 @@ class SiteController extends Controller
             return $this->goBack();
         } else {
             $model->password = '';
-
-            return $this->render('login', [
-                'model' => $model,
-            ]);
+            //Yii::$app->session->setFlash('error', 'Wrong password or username');
+            //доделалать  чтоб при переходе всплывал попап
+            return $this->redirect('/');
         }
     }
 
     /**
      * Logs out the current user.
-     *
      * @return mixed
      */
     public function actionLogout()
@@ -150,10 +178,10 @@ class SiteController extends Controller
                 }
             }
         }
-
-        return $this->render('signup', [
-            'model' => $model,
-        ]);
+        return $this->redirect('/');
+//        return $this->render('signup', [
+//            'model' => $model,
+//        ]);
     }
 
     /**
@@ -203,5 +231,13 @@ class SiteController extends Controller
         return $this->render('resetPassword', [
             'model' => $model,
         ]);
+    }
+
+    public function actionLanguage($lang){
+
+        $lang =  Language::find()->where(['alias'=>$lang])->one();
+        $_SESSION['language'] = $lang->id;
+
+        return $this->redirect(Yii::$app->request->referrer);
     }
 }

@@ -5,6 +5,40 @@ SET time_zone = '+00:00';
 SET foreign_key_checks = 0;
 SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
+
+
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(32) NOT NULL,
+  `auth_key` varchar(64) NOT NULL,
+  `password_hash` varchar(255) NOT NULL,
+  `password_reset_token` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT '1',
+  `created_at` int(11) DEFAULT NULL,
+  `updated_at` int(11) DEFAULT NULL,
+  `phone` varchar(32) CHARACTER SET utf8 COLLATE utf8_estonian_ci DEFAULT NULL,
+  `type` tinyint(2) NOT NULL DEFAULT '0',
+  `balance` float DEFAULT '0',
+  `avatar` varchar(255) CHARACTER SET utf8 COLLATE utf8_estonian_ci DEFAULT NULL,
+  `wallet` varchar(255) CHARACTER SET utf8 COLLATE utf8_estonian_ci DEFAULT NULL,
+  `file` varchar(255) CHARACTER SET utf8 COLLATE utf8_estonian_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `user` (`id`, `username`, `auth_key`, `password_hash`, `password_reset_token`, `email`, `status`, `created_at`, `updated_at`, `phone`, `type`, `balance`, `avatar`, `wallet`, `file`) VALUES
+(1,	'admin',	'A1qwgmpDchz5AztmbE-YOaTOLZZkQmDm',	'$2y$13$oMa6rChD.bP0pDJUlVQHr.eP5Lm8eqBzAW0rd3VCWVRqCFaYe.S1O',	NULL,	'admin@admin.com',	1,	1526915570,	1527671490,	'0969361424',	2,	NULL,	'',	'',	''),
+(2,	'root',	'USa0h80IbiOH9p-lSFFfAl7yvFswoQ0I',	'$2y$13$JPd9tIBbfdbrGCZ14P1asefCc0dNaYxLbTBWJuulYpCUchxEhF4vi',	NULL,	'root@terlabs.com',	1,	1526983224,	1528464074,	'0969361424',	1,	NULL,	'/../../common/uploads/avatar/log1o (1)-min.gif',	'1111111111111111111111111111',	''),
+(4,	'stas',	'yqT1Xeh_9INiGRVGmPJG4JgSwCqq9BbM',	'$2y$13$q5U60U2xvEdyuE0CT9pSOOlasH6LtOSxsUNHV2FZGTevdM0dXFN9W',	NULL,	'sd@terlabs.com',	1,	1527671853,	1527673999,	'063-598-52-52',	0,	0,	'',	'dfgfdgdfgfdg',	''),
+(5,	'antoshka',	'cob2oHjSdtFVGq0iOoM4ADjWH6JMYL1v',	'$2y$13$3yqII9CCzCyECY85LGF.cuWY9M3wqK7SVY7aP73xLqkaV2Unt6J6q',	NULL,	NULL,	1,	1527771944,	1527771944,	NULL,	0,	0,	NULL,	'dsg43rt34v43vt4ftc43c34c43crt43',	NULL),
+(6,	'12345678',	'cCo_FPRm9fIljH9zJ5VpTvtBWadyLiW4',	'$2y$13$Op74koF1nyEHYAjZO7ou..q.fd1oT/WNXF5VDY6I6I/5ajK7W1Vsq',	NULL,	NULL,	1,	1527777279,	1527777279,	NULL,	0,	0,	NULL,	'12345678',	NULL),
+(7,	'admin_jackpot',	'_Rmatu9LUxcd7dqQKh_bYGHsV6h7SMV9',	'$2y$13$WlkXYVpSVAIsk.Bdnh4mgunEuxcMQ0jqnU1XUTIdey6HdBaDgk3I.',	NULL,	'',	0,	1527780296,	1528206002,	'',	0,	0,	'',	'compareValue',	''),
+(8,	'tttt',	'CnL9k00DLJv-I20MUqJCnRAMRsmJHhh5',	'$2y$13$6qHpmGZZGUi8VdRn0qw0mu4gX9/INEXifZgYHEc78Ku7hjrAawoUK',	NULL,	NULL,	1,	1528472050,	1528472050,	NULL,	0,	0,	NULL,	'tttt',	NULL)
+ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `username` = VALUES(`username`), `auth_key` = VALUES(`auth_key`), `password_hash` = VALUES(`password_hash`), `password_reset_token` = VALUES(`password_reset_token`), `email` = VALUES(`email`), `status` = VALUES(`status`), `created_at` = VALUES(`created_at`), `updated_at` = VALUES(`updated_at`), `phone` = VALUES(`phone`), `type` = VALUES(`type`), `balance` = VALUES(`balance`), `avatar` = VALUES(`avatar`), `wallet` = VALUES(`wallet`), `file` = VALUES(`file`);
+
+-- 2018-06-18 11:45:47
+
 DROP TABLE IF EXISTS `banlist`;
 CREATE TABLE `banlist` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -18,6 +52,9 @@ CREATE TABLE `banlist` (
   CONSTRAINT `banlist_ibfk_2` FOREIGN KEY (`moderator_id`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+INSERT INTO `banlist` (`id`, `user_id`, `moderator_id`, `info`) VALUES
+(1,	7,	2,	'fdhg')
+ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `user_id` = VALUES(`user_id`), `moderator_id` = VALUES(`moderator_id`), `info` = VALUES(`info`);
 
 DROP TABLE IF EXISTS `betting`;
 CREATE TABLE `betting` (
@@ -35,22 +72,15 @@ CREATE TABLE `betting` (
   CONSTRAINT `betting_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
-DROP TABLE IF EXISTS `coment`;
-CREATE TABLE `coment` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL,
-  `dispute_id` int(11) NOT NULL,
-  `text` int(11) NOT NULL,
-  `date` datetime NOT NULL,
-  `status` tinyint(2) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`id`),
-  KEY `user_id` (`user_id`),
-  KEY `dispute_id` (`dispute_id`),
-  CONSTRAINT `coment_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
-  CONSTRAINT `coment_ibfk_2` FOREIGN KEY (`dispute_id`) REFERENCES `dispute` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
+INSERT INTO `betting` (`id`, `user_id`, `target_id`, `rate`, `pc_target`, `pc_jackpot`, `pc_transaction`, `pc_keep`, `pc_organizer`) VALUES
+(1,	2,	51,	0.03,	0,	0,	0,	0,	0),
+(2,	2,	51,	0.03,	0,	0,	0,	0,	0),
+(3,	2,	51,	0.03,	0,	0,	0,	0,	0),
+(4,	2,	51,	0.03,	0,	0,	0,	0,	0),
+(5,	8,	51,	0.03,	0,	0,	0,	0,	0),
+(6,	2,	51,	0.03,	0,	0,	0,	0,	0),
+(7,	2,	51,	0.03,	0,	0,	0,	0,	0)
+ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `user_id` = VALUES(`user_id`), `target_id` = VALUES(`target_id`), `rate` = VALUES(`rate`), `pc_target` = VALUES(`pc_target`), `pc_jackpot` = VALUES(`pc_jackpot`), `pc_transaction` = VALUES(`pc_transaction`), `pc_keep` = VALUES(`pc_keep`), `pc_organizer` = VALUES(`pc_organizer`);
 
 DROP TABLE IF EXISTS `dispute`;
 CREATE TABLE `dispute` (
@@ -82,6 +112,22 @@ INSERT INTO `dispute` (`id`, `name`, `img`, `rate`, `total`, `type`, `active`, `
 (5,	'Ты этого не мсожеш',	'/../../common/uploads/dispute/43f1799dd0dd.png',	1,	400,	3,	1,	NULL,	NULL,	2,	'2018-05-24 14:35:30',	'2018-05-25 14:35:30',	NULL,	0,	'Нужно засунуть лампочку в рот!')
 ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `name` = VALUES(`name`), `img` = VALUES(`img`), `rate` = VALUES(`rate`), `total` = VALUES(`total`), `type` = VALUES(`type`), `active` = VALUES(`active`), `executor_id` = VALUES(`executor_id`), `initiator_id` = VALUES(`initiator_id`), `moderator_id` = VALUES(`moderator_id`), `date_start` = VALUES(`date_start`), `date_end` = VALUES(`date_end`), `result` = VALUES(`result`), `status` = VALUES(`status`), `description` = VALUES(`description`);
 
+
+DROP TABLE IF EXISTS `coment`;
+CREATE TABLE `coment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `dispute_id` int(11) NOT NULL,
+  `text` int(11) NOT NULL,
+  `date` datetime NOT NULL,
+  `status` tinyint(2) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`),
+  KEY `dispute_id` (`dispute_id`),
+  CONSTRAINT `coment_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
+  CONSTRAINT `coment_ibfk_2` FOREIGN KEY (`dispute_id`) REFERENCES `dispute` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 DROP TABLE IF EXISTS `jackpot`;
 CREATE TABLE `jackpot` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -93,103 +139,24 @@ CREATE TABLE `jackpot` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `jackpot` (`id`, `total`, `status`, `date_start`, `result`) VALUES
-(3,	879789,	1,	'2018-06-01 17:00:09',	NULL),
+(3,	879789,	1,	'2018-07-01 17:00:09',	NULL),
 (4,	546,	0,	'2018-06-07 09:25:20',	NULL)
 ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `total` = VALUES(`total`), `status` = VALUES(`status`), `date_start` = VALUES(`date_start`), `result` = VALUES(`result`);
 
 DROP TABLE IF EXISTS `language`;
 CREATE TABLE `language` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `language_id` varchar(16) NOT NULL,
-  `target_id` int(11) DEFAULT NULL,
-  `alias` varchar(255) NOT NULL,
-  `text` text NOT NULL,
+  `alias` varchar(8) NOT NULL,
+  `name` varchar(32) NOT NULL,
+  `activ` varchar(8) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `language` (`id`, `language_id`, `target_id`, `alias`, `text`) VALUES
-(106,	'ru',	29,	'name',	'русский текст'),
-(107,	'en',	29,	'name',	'The lottery will play the goods'),
-(108,	'ch',	29,	'name',	'英文文本'),
-(109,	'ru',	29,	'description',	'русский текст'),
-(110,	'en',	29,	'description',	'engish text'),
-(111,	'ch',	29,	'description',	'英文文本'),
-(112,	'ru',	29,	'prize',	'русский текст'),
-(113,	'en',	29,	'prize',	'engish text'),
-(114,	'ch',	29,	'prize',	'英文文本'),
-(115,	'ru',	30,	'name',	'Name text ru'),
-(116,	'en',	30,	'name',	'Name text en'),
-(117,	'ch',	30,	'name',	'Name text ch'),
-(118,	'ru',	30,	'description',	'Description ru'),
-(119,	'en',	30,	'description',	'Description en'),
-(120,	'ch',	30,	'description',	'Description ch'),
-(121,	'ru',	30,	'prize',	'Name Prize ru'),
-(122,	'en',	30,	'prize',	'Name Prize en'),
-(123,	'ch',	30,	'prize',	'Name Prize ch'),
-(124,	'ru',	NULL,	'name',	'Name text ru'),
-(125,	'en',	NULL,	'name',	'Name text en'),
-(126,	'ch',	NULL,	'name',	'Name text ch'),
-(127,	'ru',	NULL,	'description',	'Description ru'),
-(128,	'en',	NULL,	'description',	'Description en'),
-(129,	'ch',	NULL,	'description',	'Description ch'),
-(130,	'ru',	NULL,	'prize',	'Name Prize ru'),
-(131,	'en',	NULL,	'prize',	'Name Prize en'),
-(132,	'ch',	NULL,	'prize',	'Name Prize ch'),
-(133,	'ru',	NULL,	'name',	'Name text ru'),
-(134,	'en',	NULL,	'name',	'Name text en'),
-(135,	'ch',	NULL,	'name',	'Name text ch'),
-(136,	'ru',	NULL,	'description',	'Description ru'),
-(137,	'en',	NULL,	'description',	'Description en'),
-(138,	'ch',	NULL,	'description',	'Description ch'),
-(139,	'ru',	NULL,	'prize',	'Name Prize ru'),
-(140,	'en',	NULL,	'prize',	'Name Prize en'),
-(141,	'ch',	NULL,	'prize',	'Name Prize ch'),
-(142,	'ru',	NULL,	'name',	'Name text ru'),
-(143,	'en',	NULL,	'name',	'Name text en'),
-(144,	'ch',	NULL,	'name',	'Name text ch'),
-(145,	'ru',	NULL,	'description',	'Description ru'),
-(146,	'en',	NULL,	'description',	'Description en'),
-(147,	'ch',	NULL,	'description',	'Description ch'),
-(148,	'ru',	NULL,	'prize',	'Name Prize ru'),
-(149,	'en',	NULL,	'prize',	'Name Prize en'),
-(150,	'ch',	NULL,	'prize',	'Name Prize ch'),
-(151,	'ru',	NULL,	'name',	'Name text ru'),
-(152,	'en',	NULL,	'name',	'Name text en'),
-(153,	'ch',	NULL,	'name',	'Name text ch'),
-(154,	'ru',	NULL,	'description',	'Description ru'),
-(155,	'en',	NULL,	'description',	'Description en'),
-(156,	'ch',	NULL,	'description',	'Description ch'),
-(157,	'ru',	NULL,	'prize',	'Name Prize ru'),
-(158,	'en',	NULL,	'prize',	'Name Prize en'),
-(159,	'ch',	NULL,	'prize',	'Name Prize ch'),
-(160,	'ru',	31,	'name',	'Name text ru'),
-(161,	'en',	31,	'name',	'Name text en'),
-(162,	'ch',	31,	'name',	'Name text ch'),
-(163,	'ru',	31,	'description',	'Description ru'),
-(164,	'en',	31,	'description',	'Description en'),
-(165,	'ch',	31,	'description',	'Description ch'),
-(166,	'ru',	31,	'prize',	'Name Prize ru'),
-(167,	'en',	31,	'prize',	'Name Prize en'),
-(168,	'ch',	31,	'prize',	'Name Prize ch'),
-(169,	'ru',	32,	'name',	'12211'),
-(170,	'en',	32,	'name',	'12211'),
-(171,	'ch',	32,	'name',	'12211'),
-(172,	'ru',	32,	'description',	'324'),
-(173,	'en',	32,	'description',	'234324'),
-(174,	'ch',	32,	'description',	'234'),
-(175,	'ru',	32,	'prize',	'324324'),
-(176,	'en',	32,	'prize',	'234234'),
-(177,	'ch',	32,	'prize',	'234234'),
-(178,	'ru',	33,	'name',	'12211'),
-(179,	'en',	33,	'name',	'12211'),
-(180,	'ch',	33,	'name',	'12211'),
-(181,	'ru',	33,	'description',	'324'),
-(182,	'en',	33,	'description',	'234324'),
-(183,	'ch',	33,	'description',	'234'),
-(184,	'ru',	33,	'prize',	'324324'),
-(185,	'en',	33,	'prize',	'234234'),
-(186,	'ch',	33,	'prize',	'234234')
-ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `language_id` = VALUES(`language_id`), `target_id` = VALUES(`target_id`), `alias` = VALUES(`alias`), `text` = VALUES(`text`);
+INSERT INTO `language` (`id`, `alias`, `name`, `activ`) VALUES
+(1,	'ru',	'Русский',	'activ'),
+(2,	'en',	'English',	'activ'),
+(3,	'ch',	'中国',	'activ')
+ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `alias` = VALUES(`alias`), `name` = VALUES(`name`), `activ` = VALUES(`activ`);
 
 DROP TABLE IF EXISTS `log`;
 CREATE TABLE `log` (
@@ -211,7 +178,7 @@ CREATE TABLE `lottery` (
   `name` varchar(32) NOT NULL,
   `total` int(10) NOT NULL DEFAULT '0',
   `status` tinyint(2) NOT NULL DEFAULT '1',
-  `date_start` datetime NOT NULL,
+  `currency_start` float NOT NULL,
   `result` varchar(10) DEFAULT NULL,
   `description` text,
   `rate` float NOT NULL,
@@ -220,13 +187,9 @@ CREATE TABLE `lottery` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `lottery` (`id`, `name`, `total`, `status`, `date_start`, `result`, `description`, `rate`, `name_prize`, `img`) VALUES
-(29,	'106,107,108,',	0,	1,	'2018-05-30 19:30:10',	NULL,	'109,110,111,',	2,	'112,113,114,',	'hg'),
-(30,	'115,116,117,',	0,	1,	'2018-05-16 14:50:38',	NULL,	'118,119,120,',	4,	'121,122,123,',	'hg'),
-(31,	'160,161,162,',	0,	1,	'2018-05-30 14:50:48',	NULL,	'163,164,165,',	56,	'166,167,168,',	'/var/www/public_html/backend/controllers/../../common/uploads/lottery/687170_foto-ya-russkii-na-spine-na-avu.jpg'),
-(32,	'169,170,171,',	0,	1,	'2018-05-24 14:50:10',	NULL,	'172,173,174,',	1,	'175,176,177,',	'/var/www/public_html/backend/controllers/../../common/uploads/lottery/Картинки-на-аву-Енот-крутые-классные-красивые-прикольные-8.jpg'),
-(33,	'178,179,180,',	0,	1,	'2018-05-24 14:50:10',	NULL,	'181,182,183,',	1,	'184,185,186,',	'/../../common/uploads/lottery/Картинки-на-аву-Енот-крутые-классные-красивые-прикольные-8.jpg')
-ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `name` = VALUES(`name`), `total` = VALUES(`total`), `status` = VALUES(`status`), `date_start` = VALUES(`date_start`), `result` = VALUES(`result`), `description` = VALUES(`description`), `rate` = VALUES(`rate`), `name_prize` = VALUES(`name_prize`), `img` = VALUES(`img`);
+INSERT INTO `lottery` (`id`, `name`, `total`, `status`, `currency_start`, `result`, `description`, `rate`, `name_prize`, `img`) VALUES
+(51,	'id = 340,343,346,',	0,	1,	330,	NULL,	'id = 341,344,347,',	0.03,	'id = 342,345,348,',	'/../../common/uploads/lottery/iphone.png')
+ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `name` = VALUES(`name`), `total` = VALUES(`total`), `status` = VALUES(`status`), `currency_start` = VALUES(`currency_start`), `result` = VALUES(`result`), `description` = VALUES(`description`), `rate` = VALUES(`rate`), `name_prize` = VALUES(`name_prize`), `img` = VALUES(`img`);
 
 DROP TABLE IF EXISTS `modification`;
 CREATE TABLE `modification` (
@@ -288,6 +251,48 @@ CREATE TABLE `transaction` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
+DROP TABLE IF EXISTS `translation`;
+CREATE TABLE `translation` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `language_id` int(11) NOT NULL,
+  `target_id` int(11) DEFAULT NULL,
+  `alias` varchar(64) NOT NULL,
+  `text` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `translation` (`id`, `language_id`, `target_id`, `alias`, `text`) VALUES
+(340,	1,	51,	'name',	'iphone X'),
+(341,	1,	51,	'description',	'Lorem Ipsum - это текст-\"рыба\", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной \"рыбой\" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum'),
+(342,	1,	51,	'name_prize',	'iphone X'),
+(343,	2,	51,	'name',	'iphone X'),
+(344,	2,	51,	'description',	'Lorem Ipsum is text-a \"fish\", often used in print and web design. Lorem Ipsum is the standard \"fish\" for Latin texts from the beginning of the 16th century. At that time, some nameless printer created a large collection of font sizes and shapes using Lorem Ipsum to print samples. Lorem Ipsum not only successfully survived without noticeable changes five centuries, but also stepped into the electronic design. His popularization in modern times was the publication of Letraset sheets with samples of Lorem Ipsum in the 60\'s and, more recently, e-layout programs like Aldus PageMaker, in the templates of which Lorem Ipsum'),
+(345,	2,	51,	'name_prize',	'iphone X'),
+(346,	3,	51,	'name',	'iphone X'),
+(347,	3,	51,	'description',	'Lorem Ipsum是文本 - 一种“鱼”，通常用于印刷和网页设计。 Lorem存有标准的“鱼”从16世纪初拉美文本。虽然一些不愿透露姓名的打印机已创建使用Lorem存有打印样品字体大小和形状的大集合。 Lorem存有已存活不仅没有显著变化五个百年，也跃入电子设计。它是普及近代是含Lorem存有通道，在60年代Letraset张，最近使用Lorem存有的出版，电子桌面出版软件，如奥尔德斯PageMaker中，模板'),
+(348,	3,	51,	'name_prize',	'iphone X'),
+(349,	2,	NULL,	'text_1_in_main',	'main pages taataat'),
+(350,	1,	NULL,	'seo_block_title',	'Лорем ипсум'),
+(351,	2,	NULL,	'seo_block_title',	'Lorem ipsum'),
+(352,	3,	NULL,	'seo_block_title',	'中国'),
+(353,	2,	NULL,	'seo_block_text',	'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pellentesque auctor velit elementum tristique. Ut in nibh convallis, dignissim sem vitae, pellentesque mi. Donec ut placerat elit, a tincidunt massa. Duis pulvinar mollis leo. In nec velit in sem porta dignissim vitae eget tortor. Aenean eu turpis quis odio efficitur scelerisque. Fusce dui est, pretium quis massa a, gravida efficitur augue. Praesent a purus quis enim vulputate ultricies. Curabitur venenatis lacus nec elementum facilisis. Sed nunc risus, accumsan ac semper in, vehicula at dolor. Vestibulum urna lorem, ornare sit amet rhoncus vitae, condimentum id urna. Aliquam consequat odio eu porttitor finibus. Fusce fringilla ante ac turpis mattis, a volutpat risus dictum. Morbi aliquet malesuada mi, ultrices accumsan diam aliquam in.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pellentesque auctor velit elementum tristique. Ut in nibh convallis, dignissim sem vitae, pellentesque mi. Donec ut placerat elit, a tincidunt massa. Duis pulvinar mollis leo. In nec velit in sem porta dignissim vitae eget tortor. Aenean eu turpis quis odio efficitur scelerisque. Fusce dui est, pretium quis massa a, gravida efficitur augue. Praesent a purus quis enim vulputate ultricies. Curabitur venenatis lacus nec elementum facilisis. Sed nunc risus, accumsan ac semper in, vehicula at dolor. Vestibulum urna lorem, ornare sit amet rhoncus vitae, condimentum id urna. Aliquam consequat odio eu porttitor finibus. Fusce fringilla ante ac turpis mattis, a volutpat risus dictum. Morbi aliquet malesuada mi, ultrices accumsan diam aliquam in.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pellentesque auctor velit elementum tristique. Ut in nibh convallis, dignissim sem vitae, pellentesque mi. Donec ut placerat elit, a tincidunt massa. Duis pulvinar mollis leo. In nec velit in sem porta dignissim vitae eget tortor. Aenean eu turpis quis odio efficitur scelerisque. Fusce dui est, pretium quis massa a, gravida efficitur augue. Praesent a purus quis enim vulputate ultricies. Curabitur venenatis lacus nec elementum facilisis. Sed nunc risus, accumsan ac semper in, vehicula at dolor. Vestibulum urna lorem, ornare sit amet rhoncus vitae, condimentum id urna. Aliquam consequat odio eu porttitor finibus. Fusce fringilla ante ac turpis mattis, a volutpat risus dictum. Morbi aliquet malesuada mi, ultrices accumsan diam aliquam in.'),
+(354,	1,	NULL,	'seo_block_text',	'Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается при простой дубликации \"Здесь ваш текст.. Здесь ваш текст.. Здесь ваш текст..\" Многие программы электронной вёрстки и редакторы HTML используют Lorem Ipsum в качестве текста по умолчанию, так что поиск по ключевым словам \"lorem ipsum\" сразу показывает, как много веб-страниц всё ещё дожидаются своего настоящего рождения. За прошедшие годы текст Lorem Ipsum получил много версий. Некоторые версии появились по ошибке, некоторые - намеренно (например, юмористические варианты).Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается при простой дубликации \"Здесь ваш текст.. Здесь ваш текст.. Здесь ваш текст..\" Многие программы электронной вёрстки и редакторы HTML используют Lorem Ipsum в качестве текста по умолчанию, так что поиск по ключевым словам \"lorem ipsum\" сразу показывает, как много веб-страниц всё ещё дожидаются своего настоящего рождения. За прошедшие годы текст Lorem Ipsum получил много версий. Некоторые версии появились по ошибке, некоторые - намеренно (например, юмористические варианты).Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается при простой дубликации \"Здесь ваш текст.. Здесь ваш текст.. Здесь ваш текст..\" Многие программы электронной вёрстки и редакторы HTML используют Lorem Ipsum в качестве текста по умолчанию, так что поиск по ключевым словам \"lorem ipsum\" сразу показывает, как много веб-страниц всё ещё дожидаются своего настоящего рождения. За прошедшие годы текст Lorem Ipsum получил много версий. Некоторые версии появились по ошибке, некоторые - намеренно (например, юмористические варианты).'),
+(355,	3,	NULL,	'seo_block_text',	'无可否认，当读者在浏览一个页面的排版时，难免会被可阅读的内容所分散注意力。Lorem Ipsum的目的就是为了保持字母多多少少标准及平均的分配，而不是“此处有文本，此处有文本”，从而让内容更像可读的英语。如今，很多桌面排版软件以及网页编辑用Lorem Ipsum作为默认的示范文本，搜一搜“Lorem Ipsum”就能找到这些网站的雏形。这些年来Lorem Ipsum演变出了各式各样的版本，有些出于偶然，有些则是故意的（刻意的幽默之类的无可否认，当读者在浏览一个页面的排版时，难免会被可阅读的内容所分散注意力。Lorem Ipsum的目的就是为了保持字母多多少少标准及平均的分配，而不是“此处有文本，此处有文本”，从而让内容更像可读的英语。如今，很多桌面排版软件以及网页编辑用Lorem Ipsum作为默认的示范文本，搜一搜“Lorem Ipsum”就能找到这些网站的雏形。这些年来Lorem Ipsum演变出了各式各样的版本，有些出于偶然，有些则是故意的（刻意的幽默之类的）无可否认，当读者在浏览一个页面的排版时，难免会被可阅读的内容所分散注意力。Lorem Ipsum的目的就是为了保持字母多多少少标准及平均的分配，而不是“此处有文本，此处有文本”，从而让内容更像可读的英语。如今，很多桌面排版软件以及网页编辑用Lorem Ipsum作为默认的示范文本，搜一搜“Lorem Ipsum”就能找到这些网站的雏形。这些年来Lorem Ipsum演变出了各式各样的版本，有些出于偶然，有些则是故意的（刻意的幽默之类的'),
+(356,	1,	NULL,	'jackpot_description',	'Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается при простой дубликации \"Здесь ваш текст.. Здесь ваш текст.. Здесь ваш текст..\" Многие программы электронной вёрстки и редакторы HTML используют Lorem Ipsum в качестве текста по умолчанию, так что поиск по ключевым словам \"lorem ipsum\" сразу показывает, как много веб-страниц всё ещё дожидаются своего настоящего рождения. За прошедшие годы текст Lorem Ipsum получил много версий. Некоторые версии появились по ошибке, некоторые - намеренно (например, юмористические варианты)'),
+(357,	2,	NULL,	'jackpot_description',	'jackpot_ descriptionjackpot _descriptionjackpotjackpot_ descriptionjackpot _descriptionjackpotjackpot_ descriptionjackpot _descriptionjackpotjackpot_ descriptionjackpot _descriptionjackpotjackpot_ descriptionjackpot _descriptionjackpotjackpot_ descriptionjackpot _descriptionjackpotjackpot_ descriptionjackpot _descriptionjackpotjackpot_ descriptionjackpot _descriptionjackpotjackpot_ descriptionjackpot _descriptionjackpotjackpot_ descriptionjackpot _descriptionjackpotjackpot_ descriptionjackpot _descriptionjackpotjackpot_ descriptionjackpot _descriptionjackpotjackpot_ descriptionjackpot _descriptionjackpotjackpot_ descriptionjackpot _descriptionjackpotjackpot_ descriptionjackpot _descriptionjackpotjackpot_ descriptionjackpot _descriptionjackpotjackpot_ descriptionjackpot _descriptionjackpotjackpot_ descriptionjackpot _descriptionjackpot'),
+(358,	3,	NULL,	'jackpot_description',	'无可否认，当读者在浏览一个页面的排版时，难免会被可阅读的内容所分散注意力。Lorem Ipsum的目的就是为了保持字母多多少少标准及平均的分配，而不是“此处有文本，此处有文本”，从而让内容更像可读的英语。如今，很多桌面排版软件以及网页编辑用Lorem Ipsum作为默认的示范文本，搜一搜“Lorem Ipsum”就能找到这些网站的雏形。这些年来Lorem Ipsum演变出了各式各样的版本，有些出于偶然，有些则是故意的（刻意的幽默之类的'),
+(359,	2,	NULL,	'main_T',	'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. '),
+(360,	2,	NULL,	'main_bitcoin',	'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. '),
+(361,	2,	NULL,	'main_hands',	'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.'),
+(362,	2,	NULL,	'main_play',	'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.'),
+(363,	2,	NULL,	'main_prize',	'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.'),
+(364,	2,	NULL,	'jackpot_view_text_1',	'Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci alias animi aperiam aspernatur blanditiis consequuntur cupiditate debitis ea enim eveniet fuga illum inventore iste iure labore laborum, libero maxime molestias nesciunt nisi nobis numquam odit perspiciatis sunt totam, veniam voluptatem.'),
+(365,	2,	NULL,	'jackpot_view_text_2',	'Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci alias animi aperiam aspernatur blanditiis consequuntur cupiditate debitis ea enim eveniet fuga illum inventore iste iure labore laborum, libero maxime molestias nesciunt nisi nobis numquam odit perspiciatis sunt totam, veniam voluptatem.'),
+(366,	2,	NULL,	'jackpot_view_text_3',	'Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci alias animi aperiam aspernatur blanditiis consequuntur cupiditate debitis ea enim eveniet fuga illum inventore iste iure labore laborum, libero maxime molestias nesciunt nisi nobis numquam odit perspiciatis sunt totam, veniam voluptatem.'),
+(367,	2,	NULL,	'jackpot_view_text_4',	'Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci alias animi aperiam aspernatur blanditiis consequuntur cupiditate debitis ea enim eveniet fuga illum inventore iste iure labore laborum, libero maxime molestias nesciunt nisi nobis numquam odit perspiciatis sunt totam, veniam voluptatem.'),
+(368,	2,	NULL,	'lottery_view_text',	'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio ducimus ipsa nemo numquam quas quibusdam tempora voluptate! Consectetur distinctio eligendi ratione sapiente. Accusantium alias debitis, deserunt, dolor eveniet facilis ipsa laboriosam molestias nisi nobis quisquam quod repellat sapiente. A alias architecto aut cupiditate deleniti dolore ea error est explicabo in natus nostrum nulla numquam, perspiciatis reprehenderit soluta sunt unde velit! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusantium aliquid aperiam asperiores aut autem consectetur consequatur cumque dicta doloribus esse et, eum eveniet explicabo fugit hic illo impedit iure iusto mollitia non nostrum obcaecati officiis optio porro, possimus quisquam recusandae rem repellat reprehenderit sapiente suscipit voluptas voluptatibus! Praesentium, sapiente? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem eum necessitatibus nulla quisquam ratione reprehenderit rerum voluptate? Ab doloremque, magnam minus nemo pariatur quia saepe vel vero! Distinctio dolores, earum magnam magn')
+ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `language_id` = VALUES(`language_id`), `target_id` = VALUES(`target_id`), `alias` = VALUES(`alias`), `text` = VALUES(`text`);
+
 DROP TABLE IF EXISTS `url`;
 CREATE TABLE `url` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -297,31 +302,11 @@ CREATE TABLE `url` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
-DROP TABLE IF EXISTS `user`;
-CREATE TABLE `user` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(32) NOT NULL,
-  `auth_key` varchar(64) NOT NULL,
-  `password_hash` varchar(255) NOT NULL,
-  `password_reset_token` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT '1',
-  `created_at` int(11) DEFAULT NULL,
-  `updated_at` int(11) DEFAULT NULL,
-  `phone` varchar(32) CHARACTER SET utf8 COLLATE utf8_estonian_ci DEFAULT NULL,
-  `type` tinyint(2) NOT NULL DEFAULT '0',
-  `balance` float DEFAULT '0',
-  `avatar` varchar(255) CHARACTER SET utf8 COLLATE utf8_estonian_ci DEFAULT NULL,
-  `wallet` varchar(255) CHARACTER SET utf8 COLLATE utf8_estonian_ci DEFAULT NULL,
-  `file` varchar(255) CHARACTER SET utf8 COLLATE utf8_estonian_ci DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-INSERT INTO `user` (`id`, `username`, `auth_key`, `password_hash`, `password_reset_token`, `email`, `status`, `created_at`, `updated_at`, `phone`, `type`, `balance`, `avatar`, `wallet`, `file`) VALUES
-(1,	'admin',	'A1qwgmpDchz5AztmbE-YOaTOLZZkQmDm',	'$2y$13$oMa6rChD.bP0pDJUlVQHr.eP5Lm8eqBzAW0rd3VCWVRqCFaYe.S1O',	NULL,	'admin@admin.com',	1,	1526915570,	1527671490,	'0969361424',	2,	NULL,	'',	'',	''),
-(2,	'root',	'USa0h80IbiOH9p-lSFFfAl7yvFswoQ0I',	'$2y$13$HgHvhQyMWVROC04blcNrqukRyJQKtiHv1KOcf20DewLsKaJ.n20.a',	NULL,	'root@root.com',	1,	1526983224,	1526983224,	NULL,	1,	NULL,	NULL,	NULL,	NULL),
-(4,	'stas',	'yqT1Xeh_9INiGRVGmPJG4JgSwCqq9BbM',	'$2y$13$q5U60U2xvEdyuE0CT9pSOOlasH6LtOSxsUNHV2FZGTevdM0dXFN9W',	NULL,	'sd@terlabs.com',	1,	1527671853,	1527673999,	'063-598-52-52',	0,	0,	'',	'dfgfdgdfgfdg',	'')
-ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `username` = VALUES(`username`), `auth_key` = VALUES(`auth_key`), `password_hash` = VALUES(`password_hash`), `password_reset_token` = VALUES(`password_reset_token`), `email` = VALUES(`email`), `status` = VALUES(`status`), `created_at` = VALUES(`created_at`), `updated_at` = VALUES(`updated_at`), `phone` = VALUES(`phone`), `type` = VALUES(`type`), `balance` = VALUES(`balance`), `avatar` = VALUES(`avatar`), `wallet` = VALUES(`wallet`), `file` = VALUES(`file`);
-
--- 2018-05-30 11:46:07
+INSERT INTO `url` (`id`, `target_id`, `type`, `value`) VALUES
+(1,	46,	'lottery',	'nameprize'),
+(2,	29,	'lottery',	'pipp'),
+(3,	47,	'lottery',	'test'),
+(4,	49,	'lottery',	'test'),
+(5,	50,	'lottery',	'rita'),
+(6,	51,	'lottery',	'ritars')
+ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `target_id` = VALUES(`target_id`), `type` = VALUES(`type`), `value` = VALUES(`value`);

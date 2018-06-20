@@ -26,14 +26,41 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'name',
+            'name'=>[
+                'label' => 'En name',
+                'class' => 'yii\grid\DataColumn',
+                'value' => function ($data) {
+
+                    $en_name = \common\models\Translation::find()->where(['language_id'=>2,'target_id'=>$data->id,'alias'=>'name'])->one();
+                    return $en_name->text;
+
+                },
+            ],
            // 'total',
             'status',
-            'date_start',
+            'currency_start',
             //'result',
-            'description:ntext',
+            'description:ntext'=>[
+                'label' => 'En description',
+                'class' => 'yii\grid\DataColumn',
+                'value' => function ($data) {
+
+                    $en_description = \common\models\Translation::find()->where(['language_id'=>2,'target_id'=>$data->id,'alias'=>'description'])->one();
+                    return $en_description->text;
+
+                },
+            ],
             'rate',
-            'name_prize',
+            'name_prize'=>[
+                'label' => 'En name prize',
+                'class' => 'yii\grid\DataColumn',
+                'value' => function ($data) {
+
+                    $en_name_prize = \common\models\Translation::find()->where(['language_id'=>2,'target_id'=>$data->id,'alias'=>'name_prize'])->one();
+                    return $en_name_prize->text;
+
+                },
+            ],
           //  'img',
 
             ['class' => 'yii\grid\ActionColumn'],
