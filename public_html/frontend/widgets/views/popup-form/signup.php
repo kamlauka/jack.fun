@@ -9,7 +9,7 @@ use yii\bootstrap\ActiveForm;
 
 $this->title = 'Registration';
 ?>
-<div class="site-signup hidden">
+<div id="sign-up-popup" onclick="targetFunc(event)">
 
     <div class="registration">
         <h3 class="registration__title title-h3"><?= $this->title ?></h3>

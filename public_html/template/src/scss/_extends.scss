@@ -188,7 +188,7 @@
   }
   &_color_blue {
     background: $pat-curtain-blue no-repeat;
-    background-size: cover;
+    background-size: 100% 100%;
     margin: 0;
     width: 33%;
     @media (max-width: 1500px) {
@@ -203,15 +203,16 @@
     background-size: contain;
     margin: 0;
     width: 40%;
+    top: -6px;
     &_position_left {
       left: -2%;
       transform: scale(-1, 1);
-      margin-left: 2%;
+      //margin-left: 2%;
       background-position: top left;
     }
     &_position_right {
       right: -2%;
-      margin-right: 2%;
+      //margin-right: 2%;
       background-position: top right;
     }
     @media (max-width: $mobile-width) {

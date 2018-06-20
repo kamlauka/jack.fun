@@ -19,6 +19,50 @@
 @import "cabinet-page.scss";
 
 
+.help-block {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 9px;
+  color: red;
+}
+.form-group {
+  position: relative;
+}
+
+#sign-up-popup, #sign-in-popup {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.logo-mini {
+  width: 100%;
+  position: absolute;
+  top: 0%;
+  z-index: 9000;
+  pointer-events: none;
+  &__image {
+    width: 100px;
+    z-index: 9001;
+    position: relative;
+  }
+  &__container {
+    width: 300px;
+    margin: auto;
+    padding: 5px 0 20px 0;
+    background: url(../images/common/logo-substrate.png) no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+  @media (max-width: $mobile-width) {
+    display: none;
+  }
+}
+
+
 * {
   //-webkit-tap-highlight-color: rgba(0,0,0,0);
   &:focus {
@@ -73,7 +117,6 @@ body {
     box-shadow: 0 -10px 0 0px #627D7F, 0 -18px 0 1px #3F4C4D, 0 -15px 0 15px #627D7F;
   }
 }
-
 
 
 
@@ -1275,7 +1318,6 @@ body {
 
 
 
-
 .clouds {
   position: absolute;
   top: 0;
@@ -1323,6 +1365,15 @@ body {
     @media (max-width: $third-width) {
       display: none;
     }
+    &-default {
+      top: 10%;
+      bottom: -3%;
+
+      @media (max-width: $first-width) {
+        top: 15%;
+        bottom: -19%;
+      }
+    }
   }
   &_over-all {
     z-index: 50;
@@ -1353,6 +1404,17 @@ body {
   @media (max-width: $mobile-width) {
     display: none;
   }
+  &_mobile {
+    display: none;
+    @media (max-width: $fourth-width) {
+      display: block;
+      width: 500%;
+      top: 70%;
+      left: -69%;
+      bottom: -4%;
+    }
+  }
+
   .cloud {
     position: absolute;
     top: 0;

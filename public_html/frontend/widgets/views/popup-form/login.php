@@ -10,7 +10,7 @@ use yii\bootstrap\ActiveForm;
 $this->title = 'Login';
 
 ?>
-<div class="site-login hidden">
+<div id="sign-in-popup" onclick="targetFuncU(event)">
 
     <div class="registration">
         <h3 class="registration__title title-h3"><?= Html::encode($this->title) ?></h3>

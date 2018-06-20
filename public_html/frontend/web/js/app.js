@@ -23,6 +23,35 @@ function checkboxClick() {
 
 
 }
+
+function targetFunc(e) {
+if($('#sign-in-popup').css('display') !== 'none') {
+    $('#sign-in-popup').css('display', 'none');
+}
+    if (!$(e.target).closest(".registration").length) {
+        $('#sign-up-popup').hide();
+    }
+    e.stopPropagation();
+}
+
+//
+// function targetFuncU(e) {
+//     if($('#sign-up-popup').css('display') !== 'none') {
+//         $('#sign-up-popup').css('display', 'none');
+//     }
+//     if (!$(e.target).closest(".registration").length) {
+//         $('#sign-in-popup').hide();
+//     }
+//     e.stopPropagation();
+// }
+
+
+//
+// $(document).ready(function() {
+//     $('#sign-up').click($('#sign-in-popup').css('display', 'flex'));
+//     $('#sign-in').click($('#sign-up-popup').css('display', 'flex'));
+// });
+
 //TIMER
 
 function getTimeRemaining(endtime) {

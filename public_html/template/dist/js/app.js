@@ -23,6 +23,15 @@ function checkboxClick() {
 
 
 }
+
+$(document).ready(function() {
+    $('#sign-up').click($('#sign-in-popup').css('display', 'flex'));
+    $('#sign-in').click($('#sign-up-popup').css('display', 'flex'));
+});
+
+
+
+
 //TIMER
 
 function getTimeRemaining(endtime) {

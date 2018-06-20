@@ -4,6 +4,16 @@
 
 }
 
+
+.user-logo-container {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 6px solid #DE7300;
+  margin: auto;
+}
+
 .grass {
   position: absolute;
   top: 77%;
@@ -87,8 +97,6 @@
 
   &__user-logo {
     width: 100px;
-    border-radius: 50%;
-    border: 6px solid #DE7300;
   }
 
   &__paragraph {
@@ -116,6 +124,7 @@
     color: #24445E;
   }
 }
+
 
 
 .disputes {

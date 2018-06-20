@@ -47,7 +47,7 @@ AppAsset::register($this);
 
         </div>
         <div class="menu-container flex-gorizontal flex-gorizontal_none-vertical">
-            <nav class="menu" onclick="openbox('white-background')">
+            <nav class="menu">
                 <input id="link-top" type="checkbox">
                 <label class="menu__down" for="link-top">
                     <div class="menu__nav">
@@ -59,8 +59,8 @@ AppAsset::register($this);
                     <li><?= Html::a('Jackpot','/jackpot/view') ?></li>
                     <li><?= Html::a('Lottery','/lottery/view') ?></li>
                     <?php if (Yii::$app->user->isGuest) { ?>
-                        <li><?= Html::a('Signup','/site/signup') ?></li>
-                        <li><?= Html::a('Login','/site/login') ?></li>
+                        <li><?= Html::a('Signup',false,['id'=>'sign-up','onclick'=>"document.getElementById('sign-up-popup').style.display='flex'"]) ?></li>
+                        <li><?= Html::a('Login',false, ['id'=>'sign-in','onclick'=>"document.getElementById('sign-in-popup').style.display='flex'"]) ?></li>
                     <?php } else { ?>
                         <li><?= Html::a('Cabinet','/cabinet/index') ?></li>
                         <li><?= Html::a('Logout('.Yii::$app->user->identity->username .')','/site/logout') ?></li>
@@ -70,20 +70,25 @@ AppAsset::register($this);
                 <div id="white-background"></div>
             </nav>
         </div>
+    </div>
+    <!-- begin div Login-->
+    <?= \frontend\widgets\PopupForm::widget([
+        'model' => '\common\models\LoginForm',
+        'view' => 'login'
+    ]) ?>
+    <!-- begin div Login-->
 
-        <!-- begin div Login-->
-                <?= \frontend\widgets\PopupForm::widget([
-                    'model' => '\common\models\LoginForm',
-                    'view' => 'login'
-                ]) ?>
-        <!-- begin div Login-->
+    <!-- begin div registration-->
+    <?= \frontend\widgets\PopupForm::widget([
+        'model' => '\frontend\models\SignupForm',
+        'view' => 'signup'
+    ]) ?>
+    <!-- end div registration-->
 
-        <!-- begin div registration-->
-                <?= \frontend\widgets\PopupForm::widget([
-                    'model' => '\frontend\models\SignupForm',
-                    'view' => 'signup'
-                ]) ?>
-        <!-- end div registration-->
+    <div class="logo-mini">
+        <div class="logo-mini__container">
+            <img src="/images/common/logo-mini.png" alt="" class="logo-mini__image">
+        </div>
 
     </div>
     <div class="orange-border orange-border_edge"></div>
