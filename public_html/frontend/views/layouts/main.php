@@ -84,15 +84,42 @@ AppAsset::register($this);
     ]) ?>
     <!-- end div registration-->
     <div class="logo-mini">
-        <div class="logo-mini__container">
+
             <?php if(Yii::$app->controller->route === 'site/index'){ $dd = 1;?>
 <!--            если главнкая то показать картинку-->
-                <img src="#" alt="fdbvf" class="logo-mini__image">
+        <div class="logo__container">
+                <img src="/images/common/logo.png" alt="" class="logo__image">
+        </div>
+                <div class="clouds clouds_fixed">
+                    <div class="cloud-container cloud-container_left-big">
+                        <div class="cloud">
+                            <div class="cloud cloud__cloud1"></div>
+                            <div class="cloud cloud__cloud2"></div>
+                            <div class="cloud cloud__cloud3"></div>
+                        </div>
+                    </div>
+                    <div class="cloud-container cloud-container_right-big">
+                        <div class="cloud">
+                            <div class="cloud cloud__cloud1"></div>
+                            <div class="cloud cloud__cloud2"></div>
+                            <div class="cloud cloud__cloud3"></div>
+                        </div>
+                    </div>
+                    <div class="cloud-container cloud-container_bottom-scale">
+                        <!--                <div class="cloud">-->
+                        <!--                    <div class="cloud cloud__cloud1"></div>-->
+                        <div class="cloud cloud__cloud2"></div>
+                        <div class="cloud cloud__cloud3"></div>
+                        <!--                </div>-->
+                    </div>
+                </div>
             <?php }else{ ?>
 <!--            если не главнкая то показать картинку-->
+        <div class="logo-mini__container">
                 <img src="/images/common/logo-mini.png" alt="" class="logo-mini__image">
-            <?php } ?>
         </div>
+            <?php } ?>
+
     </div>
     <div class="orange-border orange-border_edge"></div>
 </header>
