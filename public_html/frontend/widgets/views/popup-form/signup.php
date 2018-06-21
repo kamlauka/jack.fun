@@ -27,11 +27,11 @@ $this->title = 'Registration';
     <label class="label">
         <?= $form->field($model, 'password_repeat')->passwordInput(['class'=>'input-text'])->label('repeat password',['class'=>'label__name']) ?>
     </label>
-    <label class="label-for-checkbox" onclick="checkboxClick()">
+    <label class="label-for-checkbox">
 
         <?= $form->field($model, 'agreement')->checkbox(['value'=>1, 'uncheckValue'=>0,'class'=>'label-for-checkbox__checkbox checkbox']) ?>
         <div class="label-for-checkbox__wrap">
-            <a class="pseudo-checkbox"></a>
+            <a class="pseudo-checkbox" onclick="checkboxClick()"></a>
             <span class="label-for-checkbox__name">I accept the <a class="white-link-underlining"  target="_blank" href="/site/agreement">&nbsp Terms of agreement</a></span>
         </div>
     </label>
