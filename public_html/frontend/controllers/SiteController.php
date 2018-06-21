@@ -121,7 +121,7 @@ class SiteController extends Controller
             return $this->goBack();
         } else {
             $model->password = '';
-            //Yii::$app->session->setFlash('error', 'Wrong password or username');
+            Yii::$app->session->setFlash('error', 'Wrong password or username');
             //доделалать  чтоб при переходе всплывал попап
             return $this->redirect('/');
         }

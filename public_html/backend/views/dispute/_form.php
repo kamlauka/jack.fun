@@ -55,7 +55,14 @@ use dosamigos\datetimepicker\DateTimePicker;
 
     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'img')->fileInput() ?>
+    <?php
+        if($model->img){ ?>
+            <?= Html::img( $model->img) ?>
+            <?= $form->field($model, 'img')->fileInput(['value'=> $model->img]) ?>
+        <?php }else{
+            echo $form->field($model, 'img')->fileInput();
+        }
+    ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
