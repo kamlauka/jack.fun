@@ -107,10 +107,13 @@ class DisputeController extends Controller
 
             if($img = UploadedFile::getInstance($model, 'img')){
 
-                $img->saveAs(Yii::getAlias('@common/uploads/dispute/' . $img->baseName . '.' . $img->extension));
-                $model->img = '/../../common/uploads/dispute/'. $img->baseName . '.' . $img->extension;
-                $model->save();
+                $img->saveAs(  Yii::getAlias('@common/uploads/dispute/' . $img->baseName . '.' . $img->extension));
+                $model->img = '/../../common/uploads/dispute/' . $img->baseName . '.' . $img->extension;
+
+            }else{
+                $model->img = $model->oldAttributes['img'];
             }
+            $model->save();
 
             return $this->redirect(['view', 'id' => $model->id]);
         }

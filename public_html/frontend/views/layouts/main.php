@@ -40,8 +40,8 @@ AppAsset::register($this);
                 else{Html::addCssClass($ch , ['flags__image_active']);}
             ?>
 
-            <?= Html::a(Html::img('/images/common/flag3.png',  $ch ),'/site/language?lang=ch') ?>
-            <?= Html::a(Html::img('/images/common/flag2.png',  $ru ),'/site/language?lang=ru') ?>
+            <?= Html::a(Html::img('/images/common/flag3.png',  $ru ),'/site/language?lang=ch') ?>
+            <?= Html::a(Html::img('/images/common/flag2.png',  $ch ),'/site/language?lang=ru') ?>
             <?= Html::a(Html::img('/images/common/flag1.png',  $en ),'/site/language?lang=en') ?>
 
         </div>
