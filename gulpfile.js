@@ -24,8 +24,8 @@ gulp.task('browserSync', function() {
             baseDir: '.'
         },
         tunnel: true,
-        host: 'localhost',
-        port: 8888,
+        host: 'jackpot.fun',
+        port: 'http://jackpot.fun/',
         logPrefix: "My_Local_Server"
     })
 })

@@ -13,26 +13,37 @@
 // checkbox.onclick = "this.style.backgroundColor = '#FFB400'";
 // $('.pseudo-checkbox').click($('.pseudo-checkbox').css('background-color','#FFB400'));
 
+
 function checkboxClick() {
     var checkbox = $('.pseudo-checkbox');
     if (checkbox.css('background-color') !== '#FFB400') {
         checkbox.css('background-color','#FFB400')
-    } else if (checkbox.css('background-color') === '#FFB400') {
+    } else {
         checkbox.css('background-color','#5D6C6C')
     }
 
 
 }
 
-function targetFunc(e) {
-if($('#sign-in-popup').css('display') !== 'none') {
-    $('#sign-in-popup').css('display', 'none');
+//Вызов попапа с какой-либо формой
+function showForm(activeForm, hideForm) {
+    $('.forms').css('display', 'flex');
+    $(activeForm).css('display', 'block');
+    if($(hideForm).css('display') !== 'none') {
+        $(hideForm).css('display', 'none');
+    } else {
+        console.log('err');
+    }
 }
-    if (!$(e.target).closest(".registration").length) {
-        $('#sign-up-popup').hide();
+
+//При клике на затемнение, форма закрывается
+function targetFunc(e) {
+    if (!$(e.target).closest(".popup").length) {
+        $('.forms').hide();
     }
     e.stopPropagation();
 }
+
 
 
 window.addEventListener('scroll', function () {
@@ -55,8 +66,6 @@ window.addEventListener('scroll', function () {
 
     }
     if($(this).scrollTop() <= logo.offset().top) {
-        console.log(logo);
-        console.log(clouds);
         logo.attr('src', '../images/common/logo.gif');
         cloudBottom.css({'display' : 'block'});
         clouds.animate({'opacity': '0.5'}, 4000);
@@ -70,16 +79,6 @@ window.addEventListener('scroll', function () {
 
 
 
-//
-// function targetFuncU(e) {
-//     if($('#sign-up-popup').css('display') !== 'none') {
-//         $('#sign-up-popup').css('display', 'none');
-//     }
-//     if (!$(e.target).closest(".registration").length) {
-//         $('#sign-in-popup').hide();
-//     }
-//     e.stopPropagation();
-// }
 
 
 //

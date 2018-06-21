@@ -85,45 +85,52 @@
             </div>
         </div>
 
-        <div class="participate participate_top over-all  mobile-border container ">
+        <div class="participate over-all  mobile-border container ">
             <p class="participate__text"><?= $model['description']->text ?></p>
 
         </div>
 
-        <div class="clouds clouds_jackpot">
+        <div class="clouds">
+            <div class="cloud-container cloud-container_center-page">
+                <div class="cloud">
+                    <div class="cloud cloud__cloud1"></div>
+                    <div class="cloud cloud__cloud2"></div>
+                    <!--                <div class="cloud cloud__cloud3"></div>-->
+                </div>
+            </div>
             <div class="cloud-container cloud-container_center-center-medium">
                 <div class="cloud">
                     <div class="cloud cloud__cloud1"></div>
                     <div class="cloud cloud__cloud2"></div>
-                    <!--<div class="cloud cloud__cloud3"></div>-->
+                    <!--                <div class="cloud cloud__cloud3"></div>-->
                 </div>
             </div>
             <div class="cloud-container cloud-container_center-left-medium">
                 <div class="cloud">
                     <div class="cloud cloud__cloud1"></div>
                     <div class="cloud cloud__cloud2"></div>
-                    <!--<div class="cloud cloud__cloud3"></div>-->
+                    <!--                <div class="cloud cloud__cloud3"></div>-->
                 </div>
             </div>
             <div class="cloud-container cloud-container_center-right-medium">
                 <div class="cloud">
                     <div class="cloud cloud__cloud1"></div>
                     <div class="cloud cloud__cloud2"></div>
-                    <!--<div class="cloud cloud__cloud3"></div>-->
+                    <!--                <div class="cloud cloud__cloud3"></div>-->
                 </div>
             </div>
             <div class="cloud-container cloud-container_border-left-medium">
                 <div class="cloud">
                     <div class="cloud cloud__cloud1"></div>
                     <div class="cloud cloud__cloud2"></div>
-                    <!--<div class="cloud cloud__cloud3"></div>-->
+                    <!--                <div class="cloud cloud__cloud3"></div>-->
                 </div>
             </div>
             <div class="cloud-container cloud-container_border-right-medium">
                 <div class="cloud">
                     <div class="cloud cloud__cloud1"></div>
                     <div class="cloud cloud__cloud2"></div>
-                    <!--<div class="cloud cloud__cloud3"></div>-->
+                    <!--                <div class="cloud cloud__cloud3"></div>-->
                 </div>
             </div>
         </div>

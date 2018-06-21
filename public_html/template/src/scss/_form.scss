@@ -1,15 +1,29 @@
-.registration {
+.forms {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  &__popup {
+    margin: auto;
+  }
+}
+
+
+.popup {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  //justify-content: center;
   width: 25%;
-  margin: auto;
   padding: 0px 30px 20px;
   border: 6px solid $add-color;
   box-shadow: inset 0 0 0 8px $main-color, 0 0 0 3px $main-color;
   background-color: #91AAA9;
+  &__registration, &__login {
+    display: none
+  }
 }
+
 
 
 .label {
@@ -18,28 +32,16 @@
     text-align: left;
     padding: 10px 10px;
   }
-  &__input {
-
-  }
 }
-
-
 
 .label-for-checkbox {
   &__wrap {
     text-align: left;
     padding: 35px 0 20px;
-
   }
   &__name {
     margin-left: 20px;
   }
-  //&::before {
-  //  content: '';
-  //  padding: 2px 11px;
-  //  border: 2px solid #5D6C6C;
-  //  background-color: $add-color;
-  //}
 }
 
 .pseudo-checkbox {
@@ -75,4 +77,8 @@
 .white-link-underlining {
   color: white;
   text-decoration: underline;
+}
+
+.block {
+  display: block;
 }

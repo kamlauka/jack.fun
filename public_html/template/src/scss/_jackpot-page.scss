@@ -3,7 +3,7 @@
   margin-top: 51px;
   overflow: hidden;
   &-timer {
-    flex: 1.3;
+    width: 36%;
     align-self: flex-end;
     margin: 0 1%;
     font-size: 0.9em;
@@ -20,10 +20,12 @@
 
 
 .jackpot-flex-gorizontal {
+
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   flex-wrap: nowrap;
+  margin-top: 100px;
   @media (max-width: $third-width) {
     flex-direction: column;
   }
@@ -45,12 +47,12 @@
 }
 
 .participate {
-  flex: 1;
   @media (max-width: $third-width) {
     padding-top: 10%;
   }
   &_top {
     margin-top: 7%;
+    width: 30%;
     @media (max-width: $third-width) {
       margin-top: 0%;
     }

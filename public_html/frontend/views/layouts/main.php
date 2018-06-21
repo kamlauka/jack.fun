@@ -40,8 +40,8 @@ AppAsset::register($this);
                 else{Html::addCssClass($ch , ['flags__image_active']);}
             ?>
 
-            <?= Html::a(Html::img('/images/common/flag3.png',  $ch ),'/site/language?lang=ch') ?>
-            <?= Html::a(Html::img('/images/common/flag2.png',  $ru ),'/site/language?lang=ru') ?>
+            <?= Html::a(Html::img('/images/common/flag3.png',  $ru ),'/site/language?lang=ch') ?>
+            <?= Html::a(Html::img('/images/common/flag2.png',  $ch ),'/site/language?lang=ru') ?>
             <?= Html::a(Html::img('/images/common/flag1.png',  $en ),'/site/language?lang=en') ?>
 
         </div>
@@ -58,8 +58,8 @@ AppAsset::register($this);
                     <li><?= Html::a('Jackpot','/jackpot/view') ?></li>
                     <li><?= Html::a('Lottery','/lottery/view') ?></li>
                     <?php if (Yii::$app->user->isGuest) { ?>
-                        <li><?= Html::a('Signup',false,['id'=>'sign-up','onclick'=>"document.getElementById('sign-up-popup').style.display='flex'"]) ?></li>
-                        <li><?= Html::a('Login',false, ['id'=>'sign-in','onclick'=>"document.getElementById('sign-in-popup').style.display='flex'"]) ?></li>
+                        <li><?= Html::a('Signup',false,['id'=>'sign-up','onclick'=>"showForm('.popup__registration', '.popup__login')"]) ?></li>
+                        <li><?= Html::a('Login',false, ['id'=>'sign-in','onclick'=>"showForm('.popup__login', '.popup__registration')"]) ?></li>
                     <?php } else { ?>
                         <li><?= Html::a('Cabinet','/cabinet/index') ?></li>
                         <li><?= Html::a('Logout('.Yii::$app->user->identity->username .')','/site/logout') ?></li>
@@ -70,19 +70,24 @@ AppAsset::register($this);
             </nav>
         </div>
     </div>
-    <!-- begin div Login-->
-    <?= \frontend\widgets\PopupForm::widget([
-        'model' => '\common\models\LoginForm',
-        'view' => 'login'
-    ]) ?>
-    <!-- begin div Login-->
 
-    <!-- begin div registration-->
-    <?= \frontend\widgets\PopupForm::widget([
-        'model' => '\frontend\models\SignupForm',
-        'view' => 'signup'
-    ]) ?>
-    <!-- end div registration-->
+    <div class="forms">
+
+        <div class="popup forms__popup"  onclick="targetFunc(e)">
+
+            <?= \frontend\widgets\PopupForm::widget([
+                'model' => '\common\models\LoginForm',
+                'view' => 'login'
+            ]) ?>
+
+            <?= \frontend\widgets\PopupForm::widget([
+                'model' => '\frontend\models\SignupForm',
+                'view' => 'signup'
+            ]) ?>
+
+        </div>
+    </div>
+
     <div class="logo-mini">
 
             <?php if(Yii::$app->controller->route === 'site/index'){ $dd = 1;?>
