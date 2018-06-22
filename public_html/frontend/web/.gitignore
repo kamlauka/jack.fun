@@ -1,7 +1,10 @@
 index-test.php
 
+
 robots.txt
 
-images/
 
-fonts/
+/images
+
+
+/fonts
