@@ -12,17 +12,19 @@
 // var checkbox = document.getElementsByClassName('pseudo-checkbox');
 // checkbox.onclick = "this.style.backgroundColor = '#FFB400'";
 // $('.pseudo-checkbox').click($('.pseudo-checkbox').css('background-color','#FFB400'));
-
+var test = false;
 
 function checkboxClick() {
-    var checkbox = $('.pseudo-checkbox');
-    if (checkbox.css('background-color') !== '#FFB400') {
-        checkbox.css('background-color','#FFB400')
+    console.log(test);
+    if (test === false) {
+        $('.pseudo-checkbox').css('background-color','#FFB400');
+        test = true;
+        console.log(test);
     } else {
-        checkbox.css('background-color','#5D6C6C')
+        $('.pseudo-checkbox').css('background-color','#5D6C6C');
+        test = false;
+        console.log(test);
     }
-
-
 }
 
 //Вызов попапа с какой-либо формой
@@ -31,8 +33,6 @@ function showForm(activeForm, hideForm) {
     $(activeForm).css('display', 'block');
     if($(hideForm).css('display') !== 'none') {
         $(hideForm).css('display', 'none');
-    } else {
-        console.log('err');
     }
 }
 

@@ -649,6 +649,9 @@
   color: white;
   text-decoration: underline; }
 
+.block {
+  display: block; }
+
 .prizes {
   position: relative;
   width: 100%;
@@ -1363,7 +1366,8 @@
   width: 30%; }
   @media (max-width: 1052px) {
     .participate_top {
-      margin-top: 0%; } }
+      margin-top: 0%;
+      width: 100%; } }
 
 .participate_bottom {
   padding-bottom: 10%; }
@@ -1681,7 +1685,7 @@
   top: 0;
   right: 0;
   margin: 9px;
-  color: red; }
+  color: #bd1616; }
 
 .form-group {
   position: relative; }
