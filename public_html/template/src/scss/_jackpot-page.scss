@@ -7,13 +7,31 @@
     align-self: flex-end;
     margin: 0 1%;
     font-size: 0.9em;
+    overflow: hidden;
+
     @media (max-width: $third-width) {
+      width: 100%;
       order: -1;
       margin: 0 auto;
     }
+
     &__image {
       width: 100%;
+      overflow: hidden;
     }
+
+    &__container {
+      width: 100%;
+      @media (max-width:  $third-width) {
+        width: 68%;
+        margin: auto;
+      }
+      @media (max-width: $mobile-width) {
+        width: 80%;
+        margin: auto;
+      }
+    }
+
   }
 
 }

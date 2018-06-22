@@ -9,23 +9,24 @@ use yii\bootstrap\ActiveForm;
 
 $this->title = 'Registration';
 ?>
-<div class="popup__registration">
+<div class="popup__registration" >
+    <div class="popup__close"  onclick="$('.forms').hide()"></div>
     <h3 class="title-h3"><?= $this->title ?></h3>
     <?php $form = ActiveForm::begin([
         'id' => 'form-signup',
         'action' => '/site/signup',
     ]); ?>
     <label class="label">
-        <?= $form->field($model, 'username')->textInput(['autofocus' => true,'class'=>'label__input input-text'])->label('Username',['class'=>'label__name']) ?>
+        <?= $form->field($model, 'username')->textInput(['autofocus' => true,'class'=>'label__input input-text'])->label('Username',['class'=>'label']) ?>
     </label>
     <label class="label">
-        <?= $form->field($model, 'wallet')->textInput(['class'=>'input-text'])->label('wallet',['class'=>'label__name']) ?>
+        <?= $form->field($model, 'wallet')->textInput(['class'=>'input-text'])->label('wallet',['class'=>'label']) ?>
     </label>
     <label class="label">
-        <?= $form->field($model, 'password')->passwordInput(['class'=>'input-text'])->label('password',['class'=>'label__name']) ?>
+        <?= $form->field($model, 'password')->passwordInput(['class'=>'input-text'])->label('password',['class'=>'label']) ?>
     </label>
     <label class="label">
-        <?= $form->field($model, 'password_repeat')->passwordInput(['class'=>'input-text'])->label('repeat password',['class'=>'label__name']) ?>
+        <?= $form->field($model, 'password_repeat')->passwordInput(['class'=>'input-text'])->label('repeat password',['class'=>'label']) ?>
     </label>
     <label class="label-for-checkbox">
 

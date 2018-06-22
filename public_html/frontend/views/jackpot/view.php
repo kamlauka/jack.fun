@@ -21,17 +21,20 @@
                 </div>
             </div>
             <div class="timer jackpot-page-timer">
-                <h3 class="timer__days" data="<?php $datastart = explode(" ", $model['data']->date_start); echo $datastart[0] ?>"><span class="days timer__big-day-digit"></span> DAY</h3>
-                <h3 class="timer__time timer__time_bottom" data="<?=  $datastart[1] ?>"><span class="hours timer__digit"></span><span class="colon">:</span>  <span class="minutes timer__digit"></span><span class="colon">:</span><span class="seconds timer__digit"></span></h3>
-                <img class="jackpot-page-timer__image" src="../../images/jackpot/chalice-with-money.png" alt="chalice">
-                <h3 class="timer__winning-money"> <?= $model['data']->total ?> ETH</h3>
-                <div class="cloud-container cloud-container_mobile">
-                    <div class="cloud">
-                        <!--<div class="cloud cloud__cloud1"></div>-->
-                        <!--<div class="cloud cloud__cloud2"></div>-->
-                        <!--<div class="cloud cloud__cloud3"></div>-->
+                <div class="jackpot-page-timer__container">
+                    <h3 class="timer__days" data="<?php $datastart = explode(" ", $model['data']->date_start); echo $datastart[0] ?>"><span class="days timer__big-day-digit"></span> DAY</h3>
+                    <h3 class="timer__time timer__time_bottom" data="<?=  $datastart[1] ?>"><span class="hours timer__digit"></span><span class="colon">:</span>  <span class="minutes timer__digit"></span><span class="colon">:</span><span class="seconds timer__digit"></span></h3>
+                    <img class="jackpot-page-timer__image" src="../../images/jackpot/chalice-with-money.png" alt="chalice">
+                    <h3 class="timer__winning-money"> <?= $model['data']->total ?> ETH</h3>
+                    <div class="cloud-container cloud-container_mobile">
+                        <div class="cloud">
+                            <!--<div class="cloud cloud__cloud1"></div>-->
+                            <!--<div class="cloud cloud__cloud2"></div>-->
+                            <!--<div class="cloud cloud__cloud3"></div>-->
+                        </div>
                     </div>
                 </div>
+
             </div>
 
             <div class="participate  participate_bottom participate_top participate__second">

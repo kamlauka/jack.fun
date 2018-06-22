@@ -71,9 +71,9 @@ AppAsset::register($this);
         </div>
     </div>
 
-    <div class="forms">
+    <div class="forms"  onclick="targetFunc(event)">
 
-        <div class="popup forms__popup"  onclick="targetFunc(e)">
+        <div class="popup forms__popup">
 
             <?= \frontend\widgets\PopupForm::widget([
                 'model' => '\common\models\LoginForm',
@@ -121,7 +121,7 @@ AppAsset::register($this);
             <?php }else{ ?>
 <!--            если не главнкая то показать картинку-->
         <div class="logo-mini__container">
-                <img src="/images/common/logo-mini.png" alt="" class="logo-mini__image">
+            <a href="/"><img src="/images/common/logo-mini.png" alt="" class="logo-mini__image"></a>
         </div>
             <?php } ?>
 

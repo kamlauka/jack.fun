@@ -97,9 +97,10 @@
   position: relative;
   height: 4vh;
   padding: 20px 0;
-  @media (max-width: $fourth-width) {
+  @media (max-width: $third-width) {
     height: 100%;
     padding-bottom: 0;
+    flex-direction: column;
   }
 }
 .steps {
@@ -107,7 +108,7 @@
   padding: 6px 25px;
   background-color: #7C918C;
 
-  @media (max-width: $fourth-width) {
+  @media (max-width: $third-width) {
     margin-bottom: 2%;
     margin-top: 2%;
     padding: 6px 50px;
@@ -124,7 +125,7 @@
     background: url(../images/prizes/arrow.png) no-repeat;
     background-size: contain;
     margin: auto;
-    @media (max-width: $fourth-width) {
+    @media (max-width: $third-width) {
       width: 32px;
       height: 22px;
       -webkit-transform: rotate(90deg);

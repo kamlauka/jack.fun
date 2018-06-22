@@ -39,12 +39,19 @@ function showForm(activeForm, hideForm) {
 //При клике на затемнение, форма закрывается
 function targetFunc(e) {
     if (!$(e.target).closest(".popup").length) {
-        $('.forms').hide();
+        $(".forms").hide();
     }
     e.stopPropagation();
 }
 
 
+//При клике на затемнение, форма закрывается
+function targetFunc(e) {
+    if (!$(e.target).closest(".popup").length) {
+        $(".forms").hide();
+    }
+    e.stopPropagation();
+}
 
 window.addEventListener('scroll', function () {
     // var scrolled = window.pageYOffset || document.documentElement.scrollTop;

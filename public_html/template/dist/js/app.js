@@ -13,6 +13,8 @@
 // checkbox.onclick = "this.style.backgroundColor = '#FFB400'";
 // $('.pseudo-checkbox').click($('.pseudo-checkbox').css('background-color','#FFB400'));
 
+
+
 function checkboxClick() {
     var checkbox = $('.pseudo-checkbox');
     if (checkbox.css('background-color') !== '#FFB400') {
