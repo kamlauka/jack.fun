@@ -71,7 +71,7 @@ AppAsset::register($this);
         </div>
     </div>
 
-    <div class="forms">
+    <div class="forms" data="">
 
         <div class="popup forms__popup"  onclick="targetFunc(e)">
 
