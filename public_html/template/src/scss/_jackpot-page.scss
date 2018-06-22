@@ -55,6 +55,7 @@
     width: 30%;
     @media (max-width: $third-width) {
       margin-top: 0%;
+      width: 100%;
     }
   }
   &_bottom {
