@@ -649,6 +649,9 @@
   color: white;
   text-decoration: underline; }
 
+.block {
+  display: block; }
+
 .prizes {
   position: relative;
   width: 100%;
@@ -1681,7 +1684,7 @@
   top: 0;
   right: 0;
   margin: 9px;
-  color: red; }
+  color: #bd1616; }
 
 .form-group {
   position: relative; }
