@@ -76,32 +76,14 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-
-        $id_lang = $_SESSION['language'];
-
-        $T = Translation::find()->where(['alias' => 'main_T'])->andWhere(['language_id' => 1])->one();
-        $bitcoin = Translation::find()->where(['alias'=>'main_bitcoin','language_id'=>$id_lang])->one();
-        $hands = Translation::find()->where(['alias'=>'main_hands','language_id'=>$id_lang])->one();
-        $play = Translation::find()->where(['alias'=>'main_play','language_id'=>$id_lang])->one();
-        $prize = Translation::find()->where(['alias'=>'main_prize','language_id'=>$id_lang])->one();
-
         $lottery = Lottery::getActiveLottery();
         $jackpot = Jackpot::getActiveJackpot();
-
-        $seo_block_title = Translation::find()->where(['alias' => 'seo_block_title', 'language_id' => $id_lang])->one();
-        $seo_block_text = Translation::find()->where(['alias' => 'seo_block_text', 'language_id' => $id_lang])->one();
+        $text = $this->getIndexInfo();
 
         return $this->render('index',[
-
-           'T' => $T,
-           'bitcoin' => $bitcoin,
-           'hands' => $hands,
-           'play' => $play,
-           'prize' => $prize,
            'lottery' => $lottery,
            'jackpot' => $jackpot,
-           'seo_block_text' => $seo_block_text,
-           'seo_block_title' => $seo_block_title,
+           'text' => $text,
         ]);
     }
 
@@ -119,12 +101,26 @@ class SiteController extends Controller
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
-        } else {
+        } elseif(!$model->validate()) {
             $model->password = '';
-            Yii::$app->session->setFlash('error', 'Wrong password or username');
-            //доделалать  чтоб при переходе всплывал попап
-            return $this->redirect('/');
+            $lottery = Lottery::getActiveLottery();
+            $jackpot = Jackpot::getActiveJackpot();
+            $text = $this->getIndexInfo();
+
+//            Yii::$app->session->setFlash('error', 'Wrong password or username');
+//            //доделалать  чтоб при переходе всплывал попап
+
+            Yii::$app->params['popup'] = 'login';
+            Yii::$app->params['model'] = $model;
+
+            return $this->render('index',[
+                'lottery' => $lottery,
+                'jackpot' => $jackpot,
+                'text' => $text,
+
+            ]);
         }
+        return $this->redirect('/');
     }
 
     /**
@@ -170,15 +166,22 @@ class SiteController extends Controller
      */
     public function actionSignup()
     {
+
         $model = new SignupForm();
         if ($model->load(Yii::$app->request->post())) {
+
             if ($user = $model->signup()) {
                 if (Yii::$app->getUser()->login($user)) {
+
+                    Yii::$app->session->setFlash('success', 'You have successfully registered.');
                     return $this->goHome();
+
                 }
             }
         }
-        return $this->redirect('/');
+        Yii::$app->params['popup'] = 'signup';
+        Yii::$app->params['model'] = $model;
+        return $this->render('index');
 //        return $this->render('signup', [
 //            'model' => $model,
 //        ]);
@@ -201,8 +204,10 @@ class SiteController extends Controller
                 Yii::$app->session->setFlash('error', 'Sorry, we are unable to reset password for the provided email address.');
             }
         }
+        Yii::$app->params['popup'] = 'passwordReset';
+        Yii::$app->params['model'] = $model;
 
-        return $this->render('requestPasswordResetToken', [
+        return $this->render('index', [
             'model' => $model,
         ]);
     }
@@ -240,4 +245,22 @@ class SiteController extends Controller
 
         return $this->redirect(Yii::$app->request->referrer);
     }
+
+    protected function getIndexInfo(){
+
+        $id_lang = $_SESSION['language'];
+
+        $text = [];
+
+        $text['T'] = Translation::find()->where(['alias' => 'main_T'])->andWhere(['language_id' => $id_lang])->one();
+        $text['bitcoin'] = Translation::find()->where(['alias'=>'main_bitcoin','language_id' => $id_lang])->one();
+        $text['hands'] = Translation::find()->where(['alias'=>'main_hands','language_id' => $id_lang])->one();
+        $text['play'] = Translation::find()->where(['alias'=>'main_play','language_id' => $id_lang])->one();
+        $text['prize'] = Translation::find()->where(['alias'=>'main_prize','language_id' => $id_lang])->one();
+        $text['seo_block_title'] = Translation::find()->where(['alias' => 'seo_block_title', 'language_id' => $id_lang])->one();
+        $text['seo_block_text'] = Translation::find()->where(['alias' => 'seo_block_text', 'language_id' => $id_lang])->one();
+
+        return $text;
+    }
+
 }

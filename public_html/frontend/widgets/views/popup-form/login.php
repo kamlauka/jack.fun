@@ -12,7 +12,10 @@ $this->title = 'Login';
 ?>
 <div class="popup__login">
     <h3 class="title-h3"><?= Html::encode($this->title) ?></h3>
-    <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
+    <?php $form = ActiveForm::begin([
+            'id' => 'login-form',
+            'action' => '/site/login']);
+    ?>
     <label class="label">
         <?= $form->field($model, 'username')->textInput(['autofocus' => true,'class'=>'input-text'])->label('Username',['class'=>'label__name']) ?>
     </label>

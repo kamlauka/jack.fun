@@ -307,4 +307,4 @@ INSERT INTO `user` (`id`, `username`, `auth_key`, `password_hash`, `password_res
 (8,	'tttt',	'CnL9k00DLJv-I20MUqJCnRAMRsmJHhh5',	'$2y$13$6qHpmGZZGUi8VdRn0qw0mu4gX9/INEXifZgYHEc78Ku7hjrAawoUK',	NULL,	NULL,	1,	1528472050,	1528472050,	NULL,	0,	0,	NULL,	'tttt',	NULL)
 ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `username` = VALUES(`username`), `auth_key` = VALUES(`auth_key`), `password_hash` = VALUES(`password_hash`), `password_reset_token` = VALUES(`password_reset_token`), `email` = VALUES(`email`), `status` = VALUES(`status`), `created_at` = VALUES(`created_at`), `updated_at` = VALUES(`updated_at`), `phone` = VALUES(`phone`), `type` = VALUES(`type`), `balance` = VALUES(`balance`), `avatar` = VALUES(`avatar`), `wallet` = VALUES(`wallet`), `file` = VALUES(`file`);
 
--- 2018-06-20 11:44:19
+-- 2018-06-22 15:14:46

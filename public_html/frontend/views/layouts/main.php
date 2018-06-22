@@ -40,8 +40,8 @@ AppAsset::register($this);
                 else{Html::addCssClass($ch , ['flags__image_active']);}
             ?>
 
-            <?= Html::a(Html::img('/images/common/flag3.png',  $ru ),'/site/language?lang=ch') ?>
-            <?= Html::a(Html::img('/images/common/flag2.png',  $ch ),'/site/language?lang=ru') ?>
+            <?= Html::a(Html::img('/images/common/flag3.png',  $ru ),'/site/language?lang=ru') ?>
+            <?= Html::a(Html::img('/images/common/flag2.png',  $ch ),'/site/language?lang=ch') ?>
             <?= Html::a(Html::img('/images/common/flag1.png',  $en ),'/site/language?lang=en') ?>
 
         </div>
@@ -71,7 +71,7 @@ AppAsset::register($this);
         </div>
     </div>
 
-    <div class="forms" data="">
+    <div class="forms" data="<?= isset(Yii::$app->params['popup'])?Yii::$app->params['popup']: ''?>">
 
         <div class="popup forms__popup"  onclick="targetFunc(e)">
 
@@ -85,12 +85,17 @@ AppAsset::register($this);
                 'view' => 'signup'
             ]) ?>
 
+            <?= \frontend\widgets\PopupForm::widget([
+                'model' => '\frontend\models\PasswordResetRequestForm',
+                'view' => 'PasswordReset'
+            ]) ?>
+
         </div>
     </div>
 
     <div class="logo-mini">
 
-            <?php if(Yii::$app->controller->route === 'site/index'){ $dd = 1;?>
+            <?php if(Yii::$app->controller->route === 'site/index'){?>
 <!--            если главнкая то показать картинку-->
         <div class="logo__container">
                 <img src="/images/common/logo.png" alt="" class="logo__image">

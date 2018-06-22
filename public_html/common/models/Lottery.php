@@ -72,7 +72,7 @@ class Lottery extends \yii\db\ActiveRecord
 
         // todo переделать выборорку
 
-        if($lotteries=  Lottery::find()->where(['status' => '1', 'result'=>null])->all()){
+        if($lotteries =  Lottery::find()->where(['status' => '1', 'result'=>null])->all()){
 
             $lottery['data'] =  Lottery::find()->where(['status' => '1', 'result'=>null ])->one();
             $lottery['name_prize'] = Translation::find()->where(['alias'=>'name_prize','target_id'=>$lottery['data']->id,'language_id'=>$id_lang])->one();
