@@ -71,11 +71,10 @@ AppAsset::register($this);
         </div>
     </div>
 
-<<<<<<< HEAD
-    <div class="forms"  onclick="targetFunc(event)">
-=======
-    <div class="forms" data="<?= isset(Yii::$app->params['popup'])?Yii::$app->params['popup']: ''?>">
->>>>>>> fd247ee2491741b21a64bdba786d5c7df460fdee
+
+    <div class="forms"  onclick="targetFunc(event)" data="<?= isset(Yii::$app->params['popup'])?Yii::$app->params['popup']: ''?>">
+
+
 
         <div class="popup forms__popup">
 

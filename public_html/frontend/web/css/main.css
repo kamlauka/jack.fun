@@ -246,23 +246,27 @@
     left: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.5);
-    height: 100vh; } }
+    height: 100vh;
+    display: none;
+    opacity: 0;
+    animation: all 2s ease; } }
 
 .container {
   margin: 0 auto;
   position: relative; }
 
 .logo-mini {
-  width: 100%;
+  width: 40%;
   position: absolute;
   top: 0%;
-  z-index: 1; }
+  z-index: 1;
+  margin: 0 30%; }
   .logo-mini__image {
     width: 100px;
     z-index: 9001;
     position: relative; }
   .logo-mini__container {
-    width: 300px;
+    width: 200px;
     margin: auto;
     padding: 5px 0 20px 0;
     background: url(../images/common/logo-substrate.png) no-repeat;
@@ -625,6 +629,7 @@
 .forms {
   display: none;
   position: absolute;
+  z-index: 2;
   width: 100%;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.7); }

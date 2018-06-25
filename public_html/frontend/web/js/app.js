@@ -45,6 +45,8 @@ function targetFunc(e) {
 }
 
 
+
+
 //При клике на затемнение, форма закрывается
 function targetFunc(e) {
     if (!$(e.target).closest(".popup").length) {
@@ -53,33 +55,64 @@ function targetFunc(e) {
     e.stopPropagation();
 }
 
+
+
+var logoContainer = $(".logo__container").first();
+var logo = $(".logo__image").first();
+var clouds = $(".clouds_fixed").first();
+var cloudBottom = $(".cloud-container_bottom-scale").first();
+var cloudleft = $(".cloud-container_left-big .cloud").first();
+var cloudright = $(".cloud-container_right-big .cloud").first();
+
+
+$(document).ready(function() {
+    if (window.pageYOffset > 100) {
+        logoContainer.removeClass("logo__container");
+        logoContainer.addClass("logo-mini__container");
+        logo.attr('src', '../images/common/logo-mini.png');
+        logo.removeClass("logo__image");
+        logo.addClass("logo-mini__image");
+
+        clouds.css('display', 'none');
+    }
+});
+
 window.addEventListener('scroll', function () {
     // var scrolled = window.pageYOffset || document.documentElement.scrollTop;
-    var logoContainer = $(".logo__container").first();
-    var logo = $(".logo__image").first();
-    var clouds = $(".clouds").first();
-    var cloudBottom = $(".cloud-container_bottom-scale").first();
-    var cloudleft = $(".cloud-container_left-big .cloud").first();
-    var cloudright = $(".cloud-container_right-big .cloud").first();
+
+
+
+    // var tl = new TimelineMax();
+    //
+    // tl.to(logo, 1, {'top': '-51', 'width': '127px'});
+    // tl.to(cloudleft, 1, {'left': '50%', 'width': '50%'});
+    // tl.to(cloudright, 1, {'right': '50%', 'width': '50%'});
+    // tl.to(cloudBottom, 1, {'top': '-50%'});
+
+
+
     function func() {
         // clouds.css({'display' : 'none'});
         logo.animate({'top': '-51', 'width': '127px'}, 1000);
         // logo.css({'animation': 'totop 2s 0.5s linear'});
+        cloudleft.animate({'left': '50%', 'width': '50%'}, 1000);
+        cloudright.animate({'right': '50%', 'width': '50%'}, 1000);
+        cloudBottom.animate({'top': '-50%'}, 1000);
     }
     function func1() {
-        cloudleft.animate({'left': '50%', 'width': '50%'}, 2000);
-        cloudright.animate({'right': '50%', 'width': '50%'}, 2000);
-        cloudBottom.animate({'top': '-50%'}, 2000);
+
+        // clouds.css({'display' : 'none'}).delay(3500);
 
     }
-    if($(this).scrollTop() <= logo.offset().top) {
+
+    if(($(this).scrollTop() <= logo.offset().top) && (window.pageYOffset < 100)) {
         logo.attr('src', '../images/common/logo.gif');
         cloudBottom.css({'display' : 'block'});
-        clouds.animate({'opacity': '0.5'}, 4000);
+        clouds.animate({'opacity': '0'}, 4000);
 
         setTimeout(func, 1000);
         setTimeout(func1, 700);
-        clouds.css({'display' : 'none'}).delay(3500);
+
     }
     this.removeEventListener('scroll', arguments.callee);
 });
