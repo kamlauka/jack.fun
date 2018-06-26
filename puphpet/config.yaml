@@ -28,7 +28,7 @@ vagrantfile:
                                 port1:
                                     host: '7413'
                                     guest: '22'
-                        memory: '1024'
+                        memory: '2024'
                         cpus: '1'
         provision:
             puppet:

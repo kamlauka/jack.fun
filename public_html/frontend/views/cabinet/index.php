@@ -12,11 +12,13 @@
     <div class="cabinet__about-user about-user-info">
         <div class="about-user-info__wrapper onclick="event.stopPropagation()"">
             <div class="user-info about-user-info__paragraph">
-                <?php
-                if(isset($user->avatar)){
-                    echo Html::img($user->avatar,['alt'=>"your logo", 'class'=>"user-logo about-user-info__user-logo"]);
-                }
-                ?>
+                <div class="user-logo-container">
+                    <?php
+                    if(isset($user->avatar)){
+                        echo Html::img($user->avatar,['alt'=>"your logo", 'class'=>"user-logo about-user-info__user-logo"]);
+                    }
+                    ?>
+                </div>
                 <?php
                 if(isset($user->username)){
                     echo Html::tag('p',$user->username,['class'=>'user-name about-user-info__user-name']);

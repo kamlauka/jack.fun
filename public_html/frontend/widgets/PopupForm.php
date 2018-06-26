@@ -10,6 +10,7 @@ class PopupForm extends Widget {
 
     public function init()
     {
+
         parent::init();
         echo $this->render('popup-form/'.$this->view, ['model' => new $this->model]);
 

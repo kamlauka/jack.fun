@@ -6,7 +6,6 @@ SET foreign_key_checks = 0;
 SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
 
-
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -37,7 +36,7 @@ INSERT INTO `user` (`id`, `username`, `auth_key`, `password_hash`, `password_res
 (8,	'tttt',	'CnL9k00DLJv-I20MUqJCnRAMRsmJHhh5',	'$2y$13$6qHpmGZZGUi8VdRn0qw0mu4gX9/INEXifZgYHEc78Ku7hjrAawoUK',	NULL,	NULL,	1,	1528472050,	1528472050,	NULL,	0,	0,	NULL,	'tttt',	NULL)
 ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `username` = VALUES(`username`), `auth_key` = VALUES(`auth_key`), `password_hash` = VALUES(`password_hash`), `password_reset_token` = VALUES(`password_reset_token`), `email` = VALUES(`email`), `status` = VALUES(`status`), `created_at` = VALUES(`created_at`), `updated_at` = VALUES(`updated_at`), `phone` = VALUES(`phone`), `type` = VALUES(`type`), `balance` = VALUES(`balance`), `avatar` = VALUES(`avatar`), `wallet` = VALUES(`wallet`), `file` = VALUES(`file`);
 
--- 2018-06-18 11:45:47
+
 
 DROP TABLE IF EXISTS `banlist`;
 CREATE TABLE `banlist` (
@@ -52,9 +51,6 @@ CREATE TABLE `banlist` (
   CONSTRAINT `banlist_ibfk_2` FOREIGN KEY (`moderator_id`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `banlist` (`id`, `user_id`, `moderator_id`, `info`) VALUES
-(1,	7,	2,	'fdhg')
-ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `user_id` = VALUES(`user_id`), `moderator_id` = VALUES(`moderator_id`), `info` = VALUES(`info`);
 
 DROP TABLE IF EXISTS `betting`;
 CREATE TABLE `betting` (
@@ -81,6 +77,8 @@ INSERT INTO `betting` (`id`, `user_id`, `target_id`, `rate`, `pc_target`, `pc_ja
 (6,	2,	51,	0.03,	0,	0,	0,	0,	0),
 (7,	2,	51,	0.03,	0,	0,	0,	0,	0)
 ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `user_id` = VALUES(`user_id`), `target_id` = VALUES(`target_id`), `rate` = VALUES(`rate`), `pc_target` = VALUES(`pc_target`), `pc_jackpot` = VALUES(`pc_jackpot`), `pc_transaction` = VALUES(`pc_transaction`), `pc_keep` = VALUES(`pc_keep`), `pc_organizer` = VALUES(`pc_organizer`);
+
+
 
 DROP TABLE IF EXISTS `dispute`;
 CREATE TABLE `dispute` (
@@ -310,3 +308,5 @@ INSERT INTO `url` (`id`, `target_id`, `type`, `value`) VALUES
 (5,	50,	'lottery',	'rita'),
 (6,	51,	'lottery',	'ritars')
 ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `target_id` = VALUES(`target_id`), `type` = VALUES(`type`), `value` = VALUES(`value`);
+
+-- 2018-06-22 15:14:46

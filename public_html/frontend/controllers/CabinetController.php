@@ -74,6 +74,7 @@ class CabinetController extends Controller
                $model->avatar = $model->oldAttributes['avatar'];
 
            }
+
             if( $img = UploadedFile::getInstance($model, 'file')){
 
                 $img->saveAs(  Yii::getAlias('@common/uploads/document/' . $img->baseName . '.' . $img->extension));

@@ -80,13 +80,27 @@
   }
 }
 
+
+.prize-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+  @media (max-width: $first-width) {
+    max-width: 1000px;
+  }
+  @media (max-width: $third-width) {
+    padding: 0;
+  }
+}
+
 .steps-container {
   position: relative;
   height: 4vh;
   padding: 20px 0;
-  @media (max-width: $fourth-width) {
+  @media (max-width: $third-width) {
     height: 100%;
     padding-bottom: 0;
+    flex-direction: column;
   }
 }
 .steps {
@@ -94,9 +108,9 @@
   padding: 6px 25px;
   background-color: #7C918C;
 
-  @media (max-width: $fourth-width) {
-    margin-bottom: 3%;
-    margin-top: 1%;
+  @media (max-width: $third-width) {
+    margin-bottom: 2%;
+    margin-top: 2%;
     padding: 6px 50px;
   }
 
@@ -107,12 +121,13 @@
   }
   &-arrow {
     width: 5%;
-    height: 100%;
-    background: url("../images/prizes/arrow.png") no-repeat;
+    height: 25px;
+    background: url(../images/prizes/arrow.png) no-repeat;
     background-size: contain;
-    @media (max-width: $fourth-width) {
-      width: 50px;
-      height: 2.5vh;
+    margin: auto;
+    @media (max-width: $third-width) {
+      width: 32px;
+      height: 22px;
       -webkit-transform: rotate(90deg);
       -moz-transform: rotate(90deg);
       -ms-transform: rotate(90deg);

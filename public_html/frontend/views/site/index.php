@@ -71,40 +71,40 @@ use yii\helpers\Html;
                 <?= Html::img('../../images/main/currency.gif', ['alt' => 'currency', 'class' => 'currency__image']) ?>
             </div>
             <div class="colons flex-gorizontal flex-gorizontal_top">
-                <?php if(isset($T->text)){ ?>
+                <?php if(isset($text['T']->text)){ ?>
                     <div class="colons__item">
                         <div class="colons__image-container">
                             <?= Html::img('../../images/main/tt.png', ['alt' => 'T', 'class' => 'colons__image']) ?>
                         </div>
-                        <p class="colons__text"><?= $T->text ?></p>
+                        <p class="colons__text"><?= $text['T']->text ?></p>
                     </div>
-                <?php } if(isset($bitcoin->text)){ ?>
+                <?php } if(isset($text['bitcoin']->text)){ ?>
                     <div class="colons__item">
                         <div class="colons__image-container">
                             <?= Html::img('../../images/main/bitcoin.png', ['alt' => 'bitcoin', 'class' => 'colons__image']) ?>
                         </div>
-                        <p class="colons__text"><?= $bitcoin->text ?></p>
+                        <p class="colons__text"><?= $text['bitcoin']->text ?></p>
                     </div>
-                <?php } if(isset($hands->text)){ ?>
+                <?php } if(isset($text['hands']->text)){ ?>
                     <div class="colons__item">
                         <div class="colons__image-container">
                             <?= Html::img('../../images/main/hands.png', ['alt' => 'hands', 'class' => 'colons__image colons__image-small']) ?>
                         </div>
-                        <p class="colons__text"><?= $hands->text ?></p>
+                        <p class="colons__text"><?= $text['hands']->text ?></p>
                     </div>
-                <?php } if(isset($play->text)){ ?>
+                <?php } if(isset($text['play']->text)){ ?>
                     <div class="colons__item">
                         <div class="colons__image-container">
                             <?= Html::img('../../images/main/play.png', ['alt' => 'play', 'class' => 'colons__image']) ?>
                         </div>
-                        <p class="colons__text"><?= $play->text ?></p>
+                        <p class="colons__text"><?= $text['play']->text ?></p>
                     </div>
-                <?php } if(isset($prize->text)){ ?>
+                <?php } if(isset($text['prize']->text)){ ?>
                     <div class="colons__item">
                         <div class="colons__image-container">
                             <?= Html::img('../../images/main/prize.png', ['alt' => 'prize', 'class' => 'colons__image']) ?>
                         </div>
-                        <p class="colons__text"><?= $prize->text ?></p>
+                        <p class="colons__text"><?= $text['prize']->text ?></p>
                     </div>
                 <?php } ?>
             </div>
@@ -147,7 +147,7 @@ use yii\helpers\Html;
         </section>
     </section>
     <?php } ?>
-    <?php if($jackpot){ ?>
+    <?php if(isset($jackpot)){ ?>
         <section class="jackpot">
             <div class="jackpot__cloud jackpot__cloud_one"></div>
             <div class="jackpot__cloud jackpot__cloud_two"></div>
@@ -158,7 +158,7 @@ use yii\helpers\Html;
             <div class="jackpot__cloud-container"></div>
             <div class="jackpot__cloud jackpot__cloud_six"></div>
             <div class="orange-border orange-border_all"></div>
-            <div> <h2 class="title-wih-pattern jackpot__title">JECKPOT</h2></div>
+            <div> <h2 class="title-wih-pattern jackpot__title">JACKPOT</h2></div>
             <div class="jackpot__container flex-gorizontal">
                 <div class="jackpot__cloud jackpot__cloud_twenty"></div>
                 <div  class="jackpot__image-block">
@@ -204,11 +204,11 @@ use yii\helpers\Html;
         <h3 class="subtitle terrestrial-world__subtitle">Coming soon</h3>
         <?= Html::img('../../images/main/favn.png', ['alt' => 'favn', 'class' => 'terrestrial-world__image']) ?>
     </section>
-    <?php if(isset($seo_block_title->text) && isset($seo_block_text->text)){ ?>
+    <?php if(isset($text['seo_block_title']->text) && isset($text['seo_block_text']->text)){ ?>
     <section class="seo-section flex-gorizontal">
         <div class="seo-block container">
-            <h2 class="seo-block__title"><?= $seo_block_title->text ?></h2>
-            <p class="seo-block__text scrolling"><?= $seo_block_text->text ?></p>
+            <h2 class="seo-block__title"><?= $text['seo_block_title']->text ?></h2>
+            <p class="seo-block__text scrolling"><?= $text['seo_block_text']->text ?></p>
         </div>
     </section>
     <?php } ?>

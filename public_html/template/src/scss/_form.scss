@@ -1,45 +1,106 @@
-.registration {
+.forms {
+  display: none;
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  &__popup {
+    margin: auto;
+  }
+}
+
+
+.help-block {
+  position: absolute;
+  top: 13px;
+  left: -9px;
+  margin: 9px;
+  color: #bd1616;
+  font-size: 10px;
+}
+.form-group {
+  position: relative;
+}
+
+.popup {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  //justify-content: center;
   width: 25%;
-  margin: auto;
   padding: 0px 30px 20px;
   border: 6px solid $add-color;
   box-shadow: inset 0 0 0 8px $main-color, 0 0 0 3px $main-color;
   background-color: #91AAA9;
+  &__registration, &__login {
+    display: none;
+    position: relative;
+  }
+  &__forgot-pass {
+    display: block;
+    margin-top: 20px;
+  }
+  &__close {
+    position: absolute;
+    right: -14px;
+    top: 15px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: $gray-color;
+    cursor: pointer;
+    &:hover {
+      background-color: $main-color;
+      &:before, &:after {
+        background-color: $gray-color;
+      }
+    }
+    &:before, &:after {
+      position: absolute;
+      left: 12px;
+      top: 4px;
+      content: ' ';
+      height: 20px;
+      width: 4px;
+      background-color: white;
+    }
+    &:before {
+      transform: rotate(45deg);
+    }
+    &:after {
+      transform: rotate(-45deg);
+    }
+  }
+  @media (max-width: $second-width) {
+    width: 35%;
+  }
+  @media (max-width: '900px') {
+    width: 45%;
+  }
+  @media (max-width: $mobile-width) {
+    width: 100%;
+  }
 }
+
 
 
 .label {
-  &__name {
-    display: block;
+     display: block;
     text-align: left;
-    padding: 10px 10px;
-  }
-  &__input {
-
-  }
+    margin: 20px 0;
 }
-
-
 
 .label-for-checkbox {
   &__wrap {
     text-align: left;
     padding: 35px 0 20px;
-
   }
   &__name {
     margin-left: 20px;
+    @media (max-width: '400px') {
+      font-size: 0.8em;
+    }
   }
-  //&::before {
-  //  content: '';
-  //  padding: 2px 11px;
-  //  border: 2px solid #5D6C6C;
-  //  background-color: $add-color;
-  //}
 }
 
 .pseudo-checkbox {
@@ -75,4 +136,26 @@
 .white-link-underlining {
   color: white;
   text-decoration: underline;
+}
+
+.block {
+  display: block;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: 0;
+  -webkit-text-fill-color: #ссс;
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+  transition: white 5000s ease-in-out 0s;
+  background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(0,174,255,0.04) 50%,rgba(255,255,255,0) 51%,rgba(0,174,255,0.03) 100%);
+  font-family: $main-font;
 }

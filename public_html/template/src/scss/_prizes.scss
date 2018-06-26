@@ -127,7 +127,7 @@
     font-size: 6.5em;
     @media (max-width: $mobile-width) {
       margin: 18% 0;
-      font-size: 3em;
+      font-size: 4em;
     }
   }
   &__prize-price {
@@ -146,7 +146,17 @@
     }
     @media (max-width: $mobile-width) {
       position: absolute;
-      top: 40%;
+      top: 44%;
+      left: 5%;
+    }
+    @media (max-width: 680px) {
+      font-size: 3em;
+    }
+    @media (max-width: 510px) {
+      font-size: 2em;
+    }
+    @media (max-width: 340px) {
+      font-size: 1.7em;
     }
   }
 }
