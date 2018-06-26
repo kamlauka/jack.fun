@@ -247,9 +247,9 @@
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.5);
     height: 100vh;
-    display: none;
+    visibility: hidden;
     opacity: 0;
-    animation: all 2s ease; } }
+    transition: opacity 1s ease-in-out; } }
 
 .container {
   margin: 0 auto;
