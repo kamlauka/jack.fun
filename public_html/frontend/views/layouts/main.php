@@ -46,7 +46,7 @@ AppAsset::register($this);
 
         </div>
         <div class="menu-container flex-gorizontal flex-gorizontal_none-vertical">
-            <nav class="menu">
+            <nav class="menu" onclick="mobileBackgroundUnderMenu()">
                 <input id="link-top" type="checkbox">
                 <label class="menu__down" for="link-top">
                     <div class="menu__nav">
@@ -66,8 +66,9 @@ AppAsset::register($this);
 
                     <?php } ?>
                 </ul>
-                <div id="white-background"></div>
+
             </nav>
+            <div id="white-background"></div>
         </div>
     </div>
 
