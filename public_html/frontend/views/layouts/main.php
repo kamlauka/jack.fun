@@ -91,7 +91,7 @@ AppAsset::register($this);
 
             <?= \frontend\widgets\PopupForm::widget([
                 'model' => '\frontend\models\PasswordResetRequestForm',
-                'view' => 'PasswordReset'
+                'view' => 'passwordReset'
             ]) ?>
 
         </div>
