@@ -12,8 +12,8 @@ return [
         'db' => [
             'class' => 'yii\db\Connection',
             'dsn' => 'mysql:host=localhost;dbname=admin_jackpot',
-            'username' => 'root',
-            'password' => '',
+            'username' => 'admin_terlabs',
+            'password' => 'swx00KoU32',
             'charset' => 'utf8',
             'enableSchemaCache' => true,
             'schemaCacheDuration' => 3600,
