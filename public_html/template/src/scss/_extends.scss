@@ -218,9 +218,11 @@
     @media (max-width: $mobile-width) {
       &_position_left {
         left: 0%;
+        width: 31%;
       }
       &_position_right {
         right: 0;
+        width: 31%;
       }
     }
   }

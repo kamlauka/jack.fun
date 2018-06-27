@@ -118,9 +118,11 @@
       background-position: top right; }
     @media (max-width: 768px) {
       .curtain_color_red-1_position_left, .about-user-info__wrapper:before, .disputes:before {
-        left: 0%; }
+        left: 0%;
+        width: 31%; }
       .curtain_color_red-1_position_right, .about-user-info__wrapper:after, .disputes:after {
-        right: 0; } }
+        right: 0;
+        width: 31%; } }
 
 .header {
   position: fixed;
@@ -1704,8 +1706,10 @@ select:-webkit-autofill:focus {
       background-size: cover; } }
 
 .about-user-info {
+  display: flex;
+  align-items: flex-end;
   position: relative;
-  width: 50%;
+  width: 51.5%;
   height: 100vh;
   max-height: 700px; }
   @media (max-width: 1052px) {
@@ -1722,7 +1726,6 @@ select:-webkit-autofill:focus {
   .about-user-info__wrapper {
     position: relative;
     width: 46%;
-    bottom: -14%;
     /* height: 64vh; */
     margin: 0 auto;
     padding: 5% 2% 145px;
@@ -1730,18 +1733,10 @@ select:-webkit-autofill:focus {
     background: url(../images/cabinet/leaf-3.png) bottom no-repeat, url(../images/cabinet/stone.png) bottom no-repeat;
     background-size: 70%, cover;
     border-image: url(../images/common/pattern.png) 100% 0%/1 0 repeat; }
-    @media (max-width: 1550px) {
-      .about-user-info__wrapper {
-        bottom: -19%; } }
-    @media (max-width: 1100px) {
-      .about-user-info__wrapper {
-        margin-left: 24%;
-        width: 52%; } }
     @media (max-width: 768px) {
       .about-user-info__wrapper {
         width: 100%;
         margin: 0;
-        min-height: 0;
         height: 100%;
         padding: 5% 0%;
         background: url("../images/cabinet/stone.png") bottom no-repeat;
@@ -1771,12 +1766,16 @@ select:-webkit-autofill:focus {
     color: #24445E; }
 
 .disputes {
+  display: flex;
+  align-items: center;
   position: relative;
+  justify-content: flex-end;
+  flex-direction: column;
   width: 45%;
   height: 100vh;
   max-height: 700px;
   margin-right: 5%;
-  background: url("../images/common/scene.png") bottom no-repeat;
+  background: url(../images/common/scene.png) bottom no-repeat;
   background-size: cover; }
   @media (max-width: 1052px) {
     .disputes {
@@ -1792,20 +1791,13 @@ select:-webkit-autofill:focus {
   .disputes:after {
     content: ''; }
   .disputes__image {
-    position: absolute;
-    bottom: 2%;
-    left: 0;
-    right: 0; }
+    position: relative;
+    bottom: -1%; }
     @media (max-width: 768px) {
       .disputes__image {
         bottom: -2%; } }
   .disputes__title {
-    color: white;
-    position: relative;
-    top: 38%; }
-    @media (max-width: 768px) {
-      .disputes__title {
-        top: 28%; } }
+    color: white; }
 
 .wrap_cabinet {
   width: 100%; }
