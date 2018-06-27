@@ -235,6 +235,9 @@ $e: cubic-bezier(0,.5,.5,1.1);
     background: url(../images/common/logo-substrate.png) no-repeat;
     background-size: contain;
     background-position: center;
+    &_hide {
+      background-position: center -125px;
+    }
   }
   @media (max-width: $mobile-width) {
     display: none;
@@ -243,12 +246,14 @@ $e: cubic-bezier(0,.5,.5,1.1);
 
 .logo {
   &__container {
-    width: 84%; //40
+    width: 73%; //40
     min-width: 311px;
     margin: auto;
     padding: 66px 0 25px 0;
+    background: url(../images/common/logo-substrate.png) no-repeat;
     background-size: contain;
-    background-position: center;
+    background-position: center -500px;
+
   }
   &__image {
     width: 100%;

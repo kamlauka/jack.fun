@@ -272,17 +272,20 @@
     background: url(../images/common/logo-substrate.png) no-repeat;
     background-size: contain;
     background-position: center; }
+    .logo-mini__container_hide {
+      background-position: center -125px; }
   @media (max-width: 768px) {
     .logo-mini {
       display: none; } }
 
 .logo__container {
-  width: 84%;
+  width: 73%;
   min-width: 311px;
   margin: auto;
   padding: 66px 0 25px 0;
+  background: url(../images/common/logo-substrate.png) no-repeat;
   background-size: contain;
-  background-position: center; }
+  background-position: center -500px; }
 
 .logo__image {
   width: 100%;

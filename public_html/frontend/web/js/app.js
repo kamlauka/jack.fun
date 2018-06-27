@@ -75,8 +75,8 @@ var logoContainer = $(".logo__container").first();
 var logo = $(".logo__image").first();
 var clouds = $(".clouds_fixed").first();
 var cloudBottom = $(".cloud-container_bottom-scale").first();
-var cloudleft = $(".cloud-container_left-big .cloud").first();
-var cloudright = $(".cloud-container_right-big .cloud").first();
+var cloudLeft = $(".cloud-container_left-big").first();
+var cloudRight = $(".cloud-container_right-big").first();
 
 
 $(document).ready(function() {
@@ -92,34 +92,27 @@ $(document).ready(function() {
 });
 
 window.addEventListener('scroll', function () {
-    // var scrolled = window.pageYOffset || document.documentElement.scrollTop;
-
-
-
-    // var tl = new TimelineMax();
-    //
-    // tl.to(logo, 1, {'top': '-51', 'width': '127px'});
-    // tl.to(cloudleft, 1, {'left': '50%', 'width': '50%'});
-    // tl.to(cloudright, 1, {'right': '50%', 'width': '50%'});
-    // tl.to(cloudBottom, 1, {'top': '-50%'});
-
-
-
-    function func() {
-        // clouds.css({'display' : 'none'});
-        logo.animate({'top': '-51', 'width': '127px'}, 1000);
-        // logo.css({'animation': 'totop 2s 0.5s linear'});
-        cloudleft.animate({'left': '50%', 'width': '50%'}, 1000);
-        cloudright.animate({'right': '50%', 'width': '50%'}, 1000);
-        cloudBottom.animate({'top': '-50%'}, 1000);
-    }
-
     if(($(this).scrollTop() <= logo.offset().top) && (window.pageYOffset < 100)) {
         logo.attr('src', '../images/common/logo.gif');
         cloudBottom.css({'display' : 'block'});
-        clouds.animate({'opacity': '0'}, 4000);
+        tl = new TimelineMax({yoyo:false});
+        tl.to(cloudLeft, 1, {left: '26%', opacity: 0.6},0).to (cloudLeft, 1 , { left : '-11%', opacity: 0 },1);
+        tl.to(cloudRight, 1, {left: '26%', opacity: 0.6},0).to (cloudRight, 1 , { left : '61%', opacity: 0 },1);
+        tl.to(cloudBottom, 1, {top: '-7%', opacity: 0.6},0).to (cloudBottom, 1 , { top : '27%', opacity: 0 },1);
 
-        setTimeout(func, 1000);
+        tl.to(logoContainer, 1,
+            {
+                width: '200px',
+                minWidth: '200px',
+                padding: '5px 0 0',
+            },1.2);
+        tl.to(logo, 1, {width: '140px'},1.2);
+        tl.to(logoContainer, 1, {backgroundPosition: 'center'},1.5);
+        tl.to(clouds, 0.1, {display: 'none'},1.2);
+
+        // clouds.animate({'opacity': '0'}, 4000);
+
+        // setTimeout(func, 1000); {backgroundImage: 'url(../images/common/logo-substrate.png)', backgroundRepeat: ' no-repeat', backgroundSize: 'contain', backgroundPosition: 'center -800px'}
 
     }
     this.removeEventListener('scroll', arguments.callee);
