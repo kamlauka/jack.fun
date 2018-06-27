@@ -277,7 +277,8 @@
       display: none; } }
 
 .logo__container {
-  width: 539px;
+  width: 84%;
+  min-width: 311px;
   margin: auto;
   padding: 66px 0 25px 0;
   background-size: contain;
@@ -656,7 +657,7 @@
   border: 6px solid #DE7300;
   box-shadow: inset 0 0 0 8px #FFB400, 0 0 0 3px #FFB400;
   background-color: #91AAA9; }
-  .popup__registration, .popup__login {
+  .popup__registration, .popup__login, .popup__password-reset {
     display: none;
     position: relative; }
   .popup__forgot-pass {

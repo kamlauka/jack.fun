@@ -243,7 +243,8 @@ $e: cubic-bezier(0,.5,.5,1.1);
 
 .logo {
   &__container {
-    width: 539px;
+    width: 84%; //40
+    min-width: 311px;
     margin: auto;
     padding: 66px 0 25px 0;
     background-size: contain;
