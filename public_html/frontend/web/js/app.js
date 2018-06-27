@@ -184,7 +184,10 @@ function animateClouds() {
     var cloud2 = $(".cloud__cloud2");
     var cloud3 = $(".cloud__cloud3");
 
-    tl = new TimelineMax({yoyo:false, repeat:-1});
-    tl.to(cloud, 1, {rotation:-2},0).to(cloud, 1 , {rotation:2},1).to(cloud, 1 , {rotation:0},2);
+    tl = new TimelineMax({yoyo:true, repeat:-1, ease:Power1.easeInOut});
+    // tl.fromTo(cloud, 1, {rotation:-0.5}, {rotation:0.5}, 0);
+    tl.to(cloud1, 0.8, {rotation:1.3}, {rotation:-1.3}, 1);
+    tl.to(cloud2, 2.8, {rotation:-0.6}, {rotation:0.6}, .5);
+    tl.to(cloud2, 2.8, {rotation:2.8}, {rotation:-2.8}, .8);
 }
 
