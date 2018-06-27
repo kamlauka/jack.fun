@@ -89,6 +89,7 @@ $(document).ready(function() {
 
         clouds.css('display', 'none');
     }
+    animateClouds();
 });
 
 window.addEventListener('scroll', function () {
@@ -171,3 +172,19 @@ var deadline = date + 'T' + time; //CURRENT DEADLINE OF TIMER
 
 //START THE TIMER
 initializeClock(deadline);
+
+
+
+
+
+function animateClouds() {
+    //Animate clouds
+    var cloud = $(".cloud");
+    var cloud1 = $(".cloud__cloud1");
+    var cloud2 = $(".cloud__cloud2");
+    var cloud3 = $(".cloud__cloud3");
+
+    tl = new TimelineMax({yoyo:false, repeat:-1});
+    tl.to(cloud, 1, {rotation:-2},0).to(cloud, 1 , {rotation:2},1).to(cloud, 1 , {rotation:0},2);
+}
+
