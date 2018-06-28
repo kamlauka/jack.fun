@@ -58,8 +58,8 @@ AppAsset::register($this);
                     <li><?= Html::a('Jackpot','/jackpot/view') ?></li>
                     <li><?= Html::a('Lottery','/lottery/view') ?></li>
                     <?php if (Yii::$app->user->isGuest) { ?>
-                        <li><?= Html::a('Signup',false,['id'=>'sign-up','onclick'=>"showForm('.popup__registration', '.popup__login')"]) ?></li>
-                        <li><?= Html::a('Login',false, ['id'=>'sign-in','onclick'=>"showForm('.popup__login', '.popup__registration')"]) ?></li>
+                        <li><?= Html::a('Signup',false,['id'=>'sign-up','onclick'=>"showForm('.popup__registration')"]) ?></li>
+                        <li><?= Html::a('Login',false, ['id'=>'sign-in','onclick'=>"showForm('.popup__login')"]) ?></li>
                     <?php } else { ?>
                         <li><?= Html::a('Cabinet','/cabinet/index') ?></li>
                         <li><?= Html::a('Logout('.Yii::$app->user->identity->username .')','/site/logout') ?></li>

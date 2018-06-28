@@ -28,6 +28,7 @@ function mobileBackgroundUnderMenu() {
     }
 }
 
+//чекбокс в регистрации: поведение
 function checkboxClick() {
     console.log(test);
     if (test === false) {
@@ -42,12 +43,11 @@ function checkboxClick() {
 }
 
 //Вызов попапа с какой-либо формой
-function showForm(activeForm, hideForm) {
+function showForm(activeForm) {
     $('.forms').css('display', 'flex');
+    var kids = $('.forms__popup').children();
+    kids.css('display', 'none');
     $(activeForm).css('display', 'block');
-    if($(hideForm).css('display') !== 'none') {
-        $(hideForm).css('display', 'none');
-    }
 }
 
 //При клике на затемнение, форма закрывается
@@ -59,18 +59,9 @@ function targetFunc(e) {
 }
 
 
+//поведение облаков
 
-
-//При клике на затемнение, форма закрывается
-function targetFunc(e) {
-    if (!$(e.target).closest(".popup").length) {
-        $(".forms").hide();
-    }
-    e.stopPropagation();
-}
-
-
-
+var logoPosition = $(".logo-mini").first();
 var logoContainer = $(".logo__container").first();
 var logo = $(".logo__image").first();
 var clouds = $(".clouds_fixed").first();
@@ -86,20 +77,23 @@ $(document).ready(function() {
         logo.attr('src', '../images/common/logo-mini.png');
         logo.removeClass("logo__image");
         logo.addClass("logo-mini__image");
-
         clouds.css('display', 'none');
+        logoPosition.css('z-index', '2');
+    } else {
+        logoPosition.css('z-index', '1');
     }
     animateClouds();
 });
 
 window.addEventListener('scroll', function () {
     if(($(this).scrollTop() <= logo.offset().top) && (window.pageYOffset < 100)) {
+
         logo.attr('src', '../images/common/logo.gif');
         cloudBottom.css({'display' : 'block'});
         tl = new TimelineMax({yoyo:false});
-        tl.to(cloudLeft, 1, {left: '26%', opacity: 0.6},0).to (cloudLeft, 1 , { left : '-11%', opacity: 0 },1);
-        tl.to(cloudRight, 1, {left: '26%', opacity: 0.6},0).to (cloudRight, 1 , { left : '61%', opacity: 0 },1);
-        tl.to(cloudBottom, 1, {top: '-7%', opacity: 0.6},0).to (cloudBottom, 1 , { top : '27%', opacity: 0 },1);
+        tl.fromTo(cloudLeft, 2, {opacity: 0.7}, {left: '26%', opacity: 1, width: '130%'},0).to (cloudLeft, 2, { left : '-11%', opacity: 0, width: '90%' },1);
+        tl.fromTo(cloudRight, 2, {opacity: 0.7}, {left: '26%', opacity: 1, width: '130%'},0).to (cloudRight, 2, { left : '61%', opacity: 0, width: '90%'  },1);
+        tl.fromTo(cloudBottom, 2, {opacity: 0.7}, {top: '-7%', opacity: 1, width: '130%'},0).to (cloudBottom, 2, { top : '27%', opacity: 0, width: '90%'  },1);
 
         tl.to(logoContainer, 1,
             {
@@ -109,12 +103,8 @@ window.addEventListener('scroll', function () {
             },1.2);
         tl.to(logo, 1, {width: '140px'},1.2);
         tl.to(logoContainer, 1, {backgroundPosition: 'center'},1.5);
-        tl.to(clouds, 0.1, {display: 'none'},1.2);
-
-        // clouds.animate({'opacity': '0'}, 4000);
-
-        // setTimeout(func, 1000); {backgroundImage: 'url(../images/common/logo-substrate.png)', backgroundRepeat: ' no-repeat', backgroundSize: 'contain', backgroundPosition: 'center -800px'}
-
+        tl.to(clouds, 0.1, {display: 'none'},3.1);
+        tl.to(logoPosition, 0.1, {zIndex: '2'},1.7);
     }
     this.removeEventListener('scroll', arguments.callee);
 });
@@ -189,6 +179,6 @@ function animateClouds() {
     // tl.fromTo(cloud, 1, {rotation:-0.5}, {rotation:0.5}, 0);
     tl.to(cloud1, 0.8, {rotation:1.3}, {rotation:-1.3}, 1);
     tl.to(cloud2, 2.8, {rotation:-0.6}, {rotation:0.6}, .5);
-    tl.to(cloud2, 2.8, {rotation:2.8}, {rotation:-2.8}, .8);
+    tl.to(cloud3, 2.8, {rotation:2.8}, {rotation:-2.8}, .8);
 }
 

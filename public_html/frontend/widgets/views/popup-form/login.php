@@ -25,7 +25,7 @@ $this->title = 'Login';
         <?= $form->field($model, 'password')->passwordInput(['class'=>'input-text'])->label('password',['class'=>'label']) ?>
     </label>
 
-    <span class="popup__forgot-pass">If you forgot your password you can <?= Html::a('reset it', ['site/request-password-reset']) ?>.</span>
+    <span class="popup__forgot-pass">If you forgot your password you can <?= Html::a('reset it', ['onclick'=>"showForm('.popup__password-reset')"]) ?>.</span>
     <br> <br>
 
     <?= Html::submitButton('Enter', ['class' => 'button button_gold button_little', 'name' => 'signup-button']) ?>

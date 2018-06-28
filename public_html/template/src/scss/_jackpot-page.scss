@@ -31,7 +31,15 @@
         margin: auto;
       }
     }
-
+    &__times {
+      position: relative;
+      z-index: 8000;
+      display: inline-block;
+      width: 32%;
+      //@media (max-width: $mobile-width) {
+      //  width: 15%;
+      //}
+    }
   }
 
 }
@@ -54,7 +62,7 @@
   margin-bottom: 5%;
   position: relative;
   z-index: 8000;
-  font-size: 6em;
+  font-size: 5em;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -134,5 +142,5 @@
 }
 
 .colon {
-  width: 7%;
+  width: 10%;
 }
