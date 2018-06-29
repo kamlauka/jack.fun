@@ -163,6 +163,9 @@
     @extend .curtain_color_blue;
     @extend .curtain_color_red-1_position_right;
   }
+  &__notes {
+    position: absolute;
+  }
   &__image {
 
     position: relative;
@@ -177,6 +180,12 @@
     }
     img {
       width: 100%;
+    }
+    &-container {
+      height: 100px;
+      margin: 15px 0 0 0;
+      width: 100px;
+      position: relative;
     }
   }
   &__title {
@@ -206,4 +215,21 @@
       @extend .pillar_all-pillar;
       @extend .pillar_position_left;
   }
+}
+
+.note1 {
+  bottom: 0;
+  left: 0;
+}
+.note2 {
+  top: 39%;
+  left: 32%;
+}
+.note3 {
+  bottom: 0;
+  right: 0;
+}
+.note4 {
+  top: 0;
+  left: 0;
 }

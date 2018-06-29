@@ -72,7 +72,7 @@ AppAsset::register($this);
         </div>
     </div>
 
-
+    <div class="orange-border orange-border_edge"></div>
     <div class="forms"  onclick="targetFunc(event)" data="<?= isset(Yii::$app->params['popup'])?Yii::$app->params['popup']: ''?>">
 
 
@@ -135,7 +135,7 @@ AppAsset::register($this);
             <?php } ?>
 
     </div>
-    <div class="orange-border orange-border_edge"></div>
+
 </header>
 <div class="page-container mobile-container">
     <div class="crumbs container container_mob">

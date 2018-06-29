@@ -59,7 +59,7 @@ function targetFunc(e) {
 }
 
 
-//поведение облаков
+//поведение анимации лого на главной
 
 var logoPosition = $(".logo-mini").first();
 var logoContainer = $(".logo__container").first();
@@ -71,7 +71,7 @@ var cloudRight = $(".cloud-container_right-big").first();
 
 
 $(document).ready(function() {
-    if (window.pageYOffset > 100) {
+    if (window.pageYOffset > 20) {
         logoContainer.removeClass("logo__container");
         logoContainer.addClass("logo-mini__container");
         logo.attr('src', '../images/common/logo-mini.png');
@@ -83,6 +83,7 @@ $(document).ready(function() {
         logoPosition.css('z-index', '1');
     }
     animateClouds();
+    animateNotes();
 });
 
 window.addEventListener('scroll', function () {
@@ -166,7 +167,7 @@ initializeClock(deadline);
 
 
 
-
+//поведение облаков
 function animateClouds() {
     //Animate clouds
     var cloud = $(".cloud");
@@ -175,10 +176,28 @@ function animateClouds() {
     var cloud3 = $(".cloud__cloud3");
 
 
-    tl = new TimelineMax({yoyo:true, repeat:-1, ease:Power1.easeInOut});
+    var tl = new TimelineMax({yoyo:true, repeat:-1, ease: Power1.easeInOut});
+    var tl2 = new TimelineMax({yoyo:true, repeat:-1, ease: Power1.easeInOut});
+    var tl3 = new TimelineMax({yoyo:true, repeat:-1, ease: Power1.easeInOut});
     // tl.fromTo(cloud, 1, {rotation:-0.5}, {rotation:0.5}, 0);
-    tl.to(cloud1, 0.8, {rotation:1.3}, {rotation:-1.3}, 1);
-    tl.to(cloud2, 2.8, {rotation:-0.6}, {rotation:0.6}, .5);
-    tl.to(cloud3, 2.8, {rotation:2.8}, {rotation:-2.8}, .8);
+    tl.fromTo(cloud1, 3, {rotation:1, ease: Power1.easeInOut}, {rotation:-1, ease: Power1.easeInOut}, 'edge');
+    tl2.fromTo(cloud2, 2, {rotation:2, ease: Power1.easeInOut}, {rotation:-2, ease: Power1.easeInOut}, 'edge');
+    tl3.fromTo(cloud3, 0.5, {rotation:0, ease: Power1.easeInOut}, {rotation:-0.5, ease: Power1.easeInOut}, 'edge');
+    // tl.to(cloud2, 1, {rotation:-1.6}).to(cloud1, 0.7,{rotation:1.6});
+    // tl.to(cloud3, 0.5, {rotation:1}).to(cloud3, 0.5, {rotation:-1});
 }
 
+//поведение ноток
+function animateNotes() {
+    var note1 = $(".note1");
+    var note2 = $(".note2");
+    var note3 = $(".note3");
+    var note4 = $(".note4");
+
+
+    var tl1 = new TimelineMax({yoyo:true, repeat:-1, ease: Power0.easeNone});
+    tl1.to(note1, 1, {rotation:-20, ease: Power0.easeNone}, 'edge');
+    tl1.to(note2, 1, {rotation:20, ease: Power0.easeNone}, 'edge');
+    tl1.to(note3, 1, {rotation:-20, ease: Power0.easeNone}, 'edge');
+    tl1.to(note4, 1, {rotation:20, ease: Power0.easeNone}, 'edge');
+}

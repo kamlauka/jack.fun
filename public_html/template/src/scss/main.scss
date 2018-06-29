@@ -237,20 +237,26 @@ body {
 
 
 .clouds {
+  //position: absolute;
+  //top: 0;
+  //bottom: 0;
+  //right: 0;
+  //left: 0;
+  //
+  ////max-height: 100vh;
+  //z-index: 0;
   position: absolute;
-  top: 0;
-  bottom: 0;
+  top: -4%;
   right: 0;
   left: 0;
-
-  //max-height: 100vh;
   z-index: 0;
+  height: 800px;
   @media (max-width: 1700px) {
-    top: 12%;
+    top: 2%;
   }
-  //@media (max-width: 1700px) {
-  //  top: 8%;
-  //}
+  @media (max-width: 1300px) {
+    top: 4%;
+  }
   //@media (max-width: 1700px) {
   //  top: 3%;
   //}
@@ -279,16 +285,17 @@ body {
 
   }
   &_bottom {
-    top: 75%;
+    top: 1107px;
+    //top: 75%;
     width: 170%;
-    bottom: -10%;
+    //bottom: -10%;
     @media (max-width: $third-width) {
       display: none;
     }
     &-default {
-      top: 10%;
-      bottom: -3%;
-
+      //top: 10%;
+      //bottom: -3%;
+      height: 1000px;
       @media (max-width: $first-width) {
         top: 15%;
         bottom: -19%;
