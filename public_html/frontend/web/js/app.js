@@ -170,7 +170,7 @@ initializeClock(deadline);
 //поведение облаков
 function animateClouds() {
     //Animate clouds
-    var cloud = $(".cloud");
+    var cloud = $(".cloud-container");
     var cloud1 = $(".cloud__cloud1");
     var cloud2 = $(".cloud__cloud2");
     var cloud3 = $(".cloud__cloud3");
@@ -179,12 +179,12 @@ function animateClouds() {
     var tl = new TimelineMax({yoyo:true, repeat:-1, ease: Power1.easeInOut});
     var tl2 = new TimelineMax({yoyo:true, repeat:-1, ease: Power1.easeInOut});
     var tl3 = new TimelineMax({yoyo:true, repeat:-1, ease: Power1.easeInOut});
-    // tl.fromTo(cloud, 1, {rotation:-0.5}, {rotation:0.5}, 0);
-    tl.fromTo(cloud1, 3, {rotation:1, ease: Power1.easeInOut}, {rotation:-1, ease: Power1.easeInOut}, 'edge');
-    tl2.fromTo(cloud2, 2, {rotation:2, ease: Power1.easeInOut}, {rotation:-2, ease: Power1.easeInOut}, 'edge');
-    tl3.fromTo(cloud3, 0.5, {rotation:0, ease: Power1.easeInOut}, {rotation:-0.5, ease: Power1.easeInOut}, 'edge');
-    // tl.to(cloud2, 1, {rotation:-1.6}).to(cloud1, 0.7,{rotation:1.6});
-    // tl.to(cloud3, 0.5, {rotation:1}).to(cloud3, 0.5, {rotation:-1});
+
+    tl.fromTo(cloud1, 3, {rotation:1, transformOrigin:"50% 50%", ease: Power1.easeInOut}, {rotation:-1, ease: Power1.easeInOut}, 'edge');
+    tl2.fromTo(cloud2, 2, {rotation:1,transformOrigin:"50% 50%", ease: Power1.easeInOut}, {rotation:-1, ease: Power1.easeInOut}, 'edge');
+    // tl3.fromTo(cloud3, 1, {rotation:0, transformOrigin:"0 0", ease: Power1.easeInOut}, {rotation:-0.5, ease: Power1.easeInOut}, 'edge');
+    //     tl.to(cloud,12,{rotation:1,transformOrigin:"50% 10px",ease:Linear.easeNone})
+    //     tl.to(".cloud",12,{rotation:-1,ease:Linear.easeNone},0);
 }
 
 //поведение ноток
@@ -196,8 +196,17 @@ function animateNotes() {
 
 
     var tl1 = new TimelineMax({yoyo:true, repeat:-1, ease: Power0.easeNone});
+    var tl2 = new TimelineMax({yoyo:true, repeat:-1, ease: Back.easeInOut.config(1.7)});
     tl1.to(note1, 1, {rotation:-20, ease: Power0.easeNone}, 'edge');
     tl1.to(note2, 1, {rotation:20, ease: Power0.easeNone}, 'edge');
     tl1.to(note3, 1, {rotation:-20, ease: Power0.easeNone}, 'edge');
     tl1.to(note4, 1, {rotation:20, ease: Power0.easeNone}, 'edge');
+
+    tl2.to(note1, 0.5, {y: -20}, 0);
+    tl2.to(note1, 0.5, {y: 0}, 1);
+    tl2.to(note2, 0.5, {y: -20}, 2);
+    tl2.to(note2, 0.5, {y: 0}, 2);
+    tl2.to(note3, 0.5, {y: -20}, 3);
+    tl2.to(note3, 0.5, {y: 0}, 3);
+    tl2.to(note4, 0.5, {y: -20}, 4);
 }
