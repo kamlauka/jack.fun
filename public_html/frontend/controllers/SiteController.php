@@ -102,16 +102,14 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
         } elseif(!$model->validate()) {
+
             $model->password = '';
             $lottery = Lottery::getActiveLottery();
             $jackpot = Jackpot::getActiveJackpot();
             $text = $this->getIndexInfo();
 
-//            Yii::$app->session->setFlash('error', 'Wrong password or username');
-//            //доделалать  чтоб при переходе всплывал попап
-
             Yii::$app->params['popup'] = 'login';
-            Yii::$app->params['model'] = $model;
+            Yii::$app->params[Yii::$app->params['popup']] = $model;
 
             return $this->render('index',[
                 'lottery' => $lottery,
@@ -179,8 +177,10 @@ class SiteController extends Controller
                 }
             }
         }
+
         Yii::$app->params['popup'] = 'signup';
-        Yii::$app->params['model'] = $model;
+        Yii::$app->params[Yii::$app->params['popup']] = $model;
+
         return $this->render('index');
 //        return $this->render('signup', [
 //            'model' => $model,
@@ -204,7 +204,7 @@ class SiteController extends Controller
                 Yii::$app->session->setFlash('error', 'Sorry, we are unable to reset password for the provided email address.');
             }
         }
-        Yii::$app->params['popup'] = 'passwordReset';
+        Yii::$app->params['popup'] = 'password';
         Yii::$app->params['model'] = $model;
 
         return $this->render('index', [
