@@ -5,7 +5,10 @@ use yii\helpers\Html;
 //$this->title = 'My Yii Application';
 ?>
 <div class="site-index">
+    <div class="preloader">
+        <h1 class="preloader__title">JACKPOT.FUN</h1>
 
+    </div>
     <section class="first-page">
 
          <div class="first-page__container">

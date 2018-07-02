@@ -9,24 +9,22 @@ use yii\bootstrap\ActiveForm;
 
 ?>
 <div class="popup__password-reset">
-    <h1><?= Html::encode($this->title) ?></h1>
-
+    <div class="popup__close" onclick="$('.forms').hide()"></div>
+    <h3 class="title-h3"><?= Html::encode($this->title) ?></h3>
     <p>Please fill out your email. A link to reset password will be sent there.</p>
 
-    <div class="row">
-        <div class="col-lg-5">
+
             <?php $form = ActiveForm::begin([
                     'id' => 'request-password-reset-form',
                     'action'=> '/site/requestPasswordReset'
             ]); ?>
 
-            <?= $form->field($model, 'email')->textInput(['autofocus' => true]) ?>
+            <?= $form->field($model, 'email')->textInput(['autofocus' => true,'class'=>'label__input input-text'])->label('Email',['class'=>'label']) ?>
 
-            <div class="form-group">
-                <?= Html::submitButton('Send', ['class' => 'btn btn-primary']) ?>
-            </div>
+    <br> <br>
+                <?= Html::submitButton('Send', ['class' => 'button button_gold button_little']) ?>
 
             <?php ActiveForm::end(); ?>
-        </div>
-    </div>
+
+
 </div>

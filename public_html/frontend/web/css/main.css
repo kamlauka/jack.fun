@@ -124,6 +124,25 @@
         right: 0;
         width: 31%; } }
 
+.preloader {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 999999;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFFFFF;
+  background-position: center center;
+  background-repeat: no-repeat; }
+  .preloader__title {
+    font-family: IceAge;
+    font-size: 5em;
+    font-weight: normal;
+    color: white; }
+
 .header {
   position: fixed;
   z-index: 9999;
@@ -283,7 +302,8 @@
 
 .logo {
   position: absolute;
-  width: 100%;
+  width: 20%;
+  margin: 0 40%;
   top: 0;
   left: 0;
   z-index: 8500; }
@@ -331,7 +351,6 @@
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  margin-top: 520px;
   margin-bottom: 2%; }
 
 @keyframes steps {
@@ -645,6 +664,9 @@
   background-color: rgba(0, 0, 0, 0.7); }
   .forms__popup {
     margin: auto; }
+    @media (max-height: 772px) {
+      .forms__popup {
+        margin-top: 90px; } }
 
 .help-block {
   position: absolute;
