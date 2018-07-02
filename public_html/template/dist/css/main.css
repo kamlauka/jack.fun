@@ -2242,3 +2242,6 @@ body {
     z-index: 80;
     transform: scale(1.2);
     background-size: 75%; } }
+
+.activ {
+  display: block; }
