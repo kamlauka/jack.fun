@@ -95,7 +95,7 @@ window.addEventListener('scroll', function () {
         logoMain.css({'position': 'fixed'});//, 'z-index': '10000'
         logo.attr('src', '../images/common/logo.gif');
         cloudBottom.css({'display' : 'block'});
-        tl = new TimelineMax({yoyo:false});
+        var tl = new TimelineMax({yoyo:false});
         tl.fromTo(cloudLeft, 2, {opacity: 0.7}, {left: '26%', opacity: 1, width: '130%'},0).to (cloudLeft, 2, { left : '-11%', opacity: 0, width: '90%' },1);
         tl.fromTo(cloudRight, 2, {opacity: 0.7}, {left: '26%', opacity: 1, width: '130%'},0).to (cloudRight, 2, { left : '61%', opacity: 0, width: '90%'  },1);
         tl.fromTo(cloudBottom, 2, {opacity: 0.7}, {top: '-7%', opacity: 1, width: '130%'},0).to (cloudBottom, 2, { top : '27%', opacity: 0, width: '90%'  },1);
