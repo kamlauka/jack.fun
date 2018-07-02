@@ -9,7 +9,7 @@ use yii\bootstrap\ActiveForm;
 
 $this->title = 'Registration';
 ?>
-<div class="popup__registration" >
+<div class="popup__registration <?= isset(Yii::$app->params['popup']) ? 'activ': ''?>" >
     <div class="popup__close"  onclick="$('.forms').hide()"></div>
     <h3 class="title-h3"><?= $this->title ?></h3>
     <?php $form = ActiveForm::begin([

@@ -179,8 +179,10 @@ class SiteController extends Controller
                 }
             }
         }
+
         Yii::$app->params['popup'] = 'signup';
-        Yii::$app->params['model'] = $model;
+        Yii::$app->params['signup'] = $model;
+
         return $this->render('index');
 //        return $this->render('signup', [
 //            'model' => $model,

@@ -73,24 +73,22 @@ AppAsset::register($this);
     </div>
 
     <div class="orange-border orange-border_edge"></div>
-    <div class="forms"  onclick="targetFunc(event)" data="<?= isset(Yii::$app->params['popup'])?Yii::$app->params['popup']: ''?>">
+    <div class="forms <?= isset(Yii::$app->params['popup']) ? 'activ': ''?>" data="<?= isset(Yii::$app->params['popup']) ? 'activ': ''?>">
 
-
-
-        <div class="popup forms__popup">
+        <div class="popup forms__popup"  onclick="targetFunc(e)">
 
             <?= \frontend\widgets\PopupForm::widget([
-                'model' => '\common\models\LoginForm',
+                'model' => isset(Yii::$app->params['login']) ? Yii::$app->params['login'] :  new \common\models\LoginForm,
                 'view' => 'login'
             ]) ?>
 
             <?= \frontend\widgets\PopupForm::widget([
-                'model' => '\frontend\models\SignupForm',
+                'model' => isset(Yii::$app->params['signup']) ? Yii::$app->params['signup'] :  '\frontend\models\SignupForm',
                 'view' => 'signup'
             ]) ?>
 
             <?= \frontend\widgets\PopupForm::widget([
-                'model' => '\frontend\models\PasswordResetRequestForm',
+                'model' => isset(Yii::$app->params['password']) ? Yii::$app->params['password'] :  '\frontend\models\PasswordResetRequestForm',
                 'view' => 'passwordReset'
             ]) ?>
 
@@ -162,19 +160,7 @@ AppAsset::register($this);
 
                 </div>
                 <div class="footer-block__center-align-block">
-                    <?php
 
-
-//                        Modal::begin([
-//                            'header' => '<h2>Hello world</h2>',
-//                            'toggleButton' => ['label' => 'click me'],
-//                            'footer' => 'Низ окна',
-//                        ]);
-//
-//                        echo 'Say hello...';
-//
-//                        Modal::end();
-                    ?>
                     <?= Html::a('Jackpot','/jackpot/view',['class'=>'footer-block__link']) ?>
                     <?php //echo Html::a('List of disputes','#',['class'=>'footer-block__link']) ?>
                     <?php //echo Html::a('The page of the dispute','#',['class'=>'footer-block__link']) ?>
