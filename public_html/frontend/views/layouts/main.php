@@ -46,7 +46,7 @@ AppAsset::register($this);
 
         </div>
         <div class="menu-container flex-gorizontal flex-gorizontal_none-vertical">
-            <nav class="menu">
+            <nav class="menu" onclick="mobileBackgroundUnderMenu()">
                 <input id="link-top" type="checkbox">
                 <label class="menu__down" for="link-top">
                     <div class="menu__nav">
@@ -58,22 +58,26 @@ AppAsset::register($this);
                     <li><?= Html::a('Jackpot','/jackpot/view') ?></li>
                     <li><?= Html::a('Lottery','/lottery/view') ?></li>
                     <?php if (Yii::$app->user->isGuest) { ?>
-                        <li><?= Html::a('Signup',false,['id'=>'sign-up','onclick'=>"showForm('.popup__registration', '.popup__login')"]) ?></li>
-                        <li><?= Html::a('Login',false, ['id'=>'sign-in','onclick'=>"showForm('.popup__login', '.popup__registration')"]) ?></li>
+                        <li><?= Html::a('Signup',false,['id'=>'sign-up','onclick'=>"showForm('.popup__registration')"]) ?></li>
+                        <li><?= Html::a('Login',false, ['id'=>'sign-in','onclick'=>"showForm('.popup__login')"]) ?></li>
                     <?php } else { ?>
                         <li><?= Html::a('Cabinet','/cabinet/index') ?></li>
                         <li><?= Html::a('Logout('.Yii::$app->user->identity->username .')','/site/logout') ?></li>
 
                     <?php } ?>
                 </ul>
-                <div id="white-background"></div>
+
             </nav>
+            <div id="white-background"></div>
         </div>
     </div>
 
-    <div class="forms" data="<?= isset(Yii::$app->params['popup'])?Yii::$app->params['popup']: ''?>">
+    <div class="orange-border orange-border_edge"></div>
+    <div class="forms"  onclick="targetFunc(event)" data="<?= isset(Yii::$app->params['popup'])?Yii::$app->params['popup']: ''?>">
 
-        <div class="popup forms__popup"  onclick="targetFunc(e)">
+
+
+        <div class="popup forms__popup">
 
             <?= \frontend\widgets\PopupForm::widget([
                 'model' => '\common\models\LoginForm',
@@ -87,7 +91,7 @@ AppAsset::register($this);
 
             <?= \frontend\widgets\PopupForm::widget([
                 'model' => '\frontend\models\PasswordResetRequestForm',
-                'view' => 'PasswordReset'
+                'view' => 'passwordReset'
             ]) ?>
 
         </div>
@@ -126,12 +130,12 @@ AppAsset::register($this);
             <?php }else{ ?>
 <!--            если не главнкая то показать картинку-->
         <div class="logo-mini__container">
-                <img src="/images/common/logo-mini.png" alt="" class="logo-mini__image">
+            <a href="/"><img src="/images/common/logo-mini.png" alt="" class="logo-mini__image"></a>
         </div>
             <?php } ?>
 
     </div>
-    <div class="orange-border orange-border_edge"></div>
+
 </header>
 <div class="page-container mobile-container">
     <div class="crumbs container container_mob">

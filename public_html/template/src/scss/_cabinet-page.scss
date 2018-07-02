@@ -29,8 +29,10 @@
 }
 
 .about-user-info {
+  display: flex;
+  align-items: flex-end;
   position: relative;
-  width: 50%;
+  width: 51.5%;
   height: 100vh;
   //min-height: 770px;
   max-height: 700px;
@@ -56,7 +58,8 @@
   &__wrapper {
     position: relative;
     width: 46%;
-    bottom: -14%;
+    //min-height: 385px;
+    //bottom: -14%;
     /* height: 64vh; */
     margin: 0 auto;
     padding: 5% 2% 145px;
@@ -64,18 +67,18 @@
     background: url(../images/cabinet/leaf-3.png) bottom no-repeat, url(../images/cabinet/stone.png) bottom no-repeat;
     background-size: 70%, cover;
     border-image: url(../images/common/pattern.png) 100% 0%/1 0 repeat;
-    @media (max-width: $first-width) {
-      bottom: -19%;
-    }
-    @media (max-width: 1100px) {
-      margin-left: 24%;
-      width: 52%;
-    }
+    //@media (max-width: $first-width) {
+    //  bottom: -19%;
+    //}
+    //@media (max-width: 1100px) {
+    //  margin-left: 24%;
+    //  width: 52%;
+    //}
 
     @media (max-width: $mobile-width) {
       width: 100%;
       margin: 0;
-      min-height: 0;
+      //min-height: 0;
       height: 100%;
       padding: 5% 0%;
       background: $pat-stone bottom no-repeat;
@@ -128,17 +131,16 @@
 
 
 .disputes {
+  display: flex;
+  align-items: center;
   position: relative;
-  //display: flex;
-  //justify-content: flex-end;
-  //flex-direction: column;
-  //flex-wrap: nowrap;
+  justify-content: flex-end;
+  flex-direction: column;
   width: 45%;
   height: 100vh;
-  //min-height: 770px;
   max-height: 700px;
   margin-right: 5%;
-  background: $pat-scene bottom no-repeat;
+  background: url(../images/common/scene.png) bottom no-repeat;
   background-size: cover;
   @media (max-width: $third-width) {
     width: 37%;
@@ -161,21 +163,37 @@
     @extend .curtain_color_blue;
     @extend .curtain_color_red-1_position_right;
   }
-  &__image {
+  &__notes {
     position: absolute;
-    bottom: 2%;
-    left: 0;
-    right: 0;
+  }
+  &__image {
+
+    position: relative;
+    bottom: -1%;
+    //position: absolute;
+    //bottom: 2%;
+    //left: 0;
+    //right: 0;
     @media (max-width: $mobile-width) {
       bottom: -2%;
+      width: 83%;
+    }
+    img {
+      width: 100%;
+    }
+    &-container {
+      height: 100px;
+      margin: 15px 0 0 0;
+      width: 100px;
+      position: relative;
     }
   }
   &__title {
     color: white;
-    position: relative;
-    top: 38%;
+    //position: relative;
+    //top: 38%;
     @media (max-width: $mobile-width) {
-      top: 28%;
+      //top: 28%;
     }
   }
 }
@@ -197,4 +215,21 @@
       @extend .pillar_all-pillar;
       @extend .pillar_position_left;
   }
+}
+
+.note1 {
+  bottom: 0;
+  left: 0;
+}
+.note2 {
+  top: 39%;
+  left: 32%;
+}
+.note3 {
+  bottom: 0;
+  right: 0;
+}
+.note4 {
+  top: 0;
+  left: 0;
 }

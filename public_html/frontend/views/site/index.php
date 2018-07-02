@@ -5,68 +5,61 @@ use yii\helpers\Html;
 //$this->title = 'My Yii Application';
 ?>
 <div class="site-index">
-
+    <h1 class="logo__text">JACKPOT<span class="logo__text_blue">.FUN</span></h1>
     <section class="first-page">
-         <div class="clouds">
-                <div class="cloud-container cloud-container_left-big">
-                    <div class="cloud">
-                        <div class="cloud cloud__cloud1"></div>
-                        <div class="cloud cloud__cloud2"></div>
-                        <div class="cloud cloud__cloud3"></div>
-                    </div>
-                </div>
-                <div class="cloud-container cloud-container_right-big">
-                    <div class="cloud">
-                        <div class="cloud cloud__cloud1"></div>
-                        <div class="cloud cloud__cloud2"></div>
-                        <div class="cloud cloud__cloud3"></div>
-                    </div>
-                </div>
-             <div class="cloud-container cloud-container_left-small" >
-                 <div class="cloud">
-                     <div class="cloud_bottom-big cloud cloud__cloud1"></div>
-                     <div class="cloud cloud__cloud2"></div>
-                     <div class="cloud cloud__cloud3"></div>
-                 </div>
-             </div>
-             <div class="cloud-container cloud-container_second-small">
-                 <div class="cloud">
-                     <div class="cloud_bottom-big cloud cloud__cloud1"></div>
-                     <div class="cloud cloud__cloud2"></div>
-                     <div class="cloud cloud__cloud3"></div>
-                 </div>
-             </div>
-             <div class="cloud-container cloud-container_third-small">
-                 <div class="cloud">
-                     <div class="cloud_bottom-big cloud cloud__cloud1"></div>
-                     <div class="cloud cloud__cloud2"></div>
-                     <div class="cloud cloud__cloud3"></div>
-                 </div>
-             </div>
-             <div class="cloud-container cloud-container_right-small">
-                 <div class="cloud">
-                     <div class="cloud_bottom-big cloud cloud__cloud1"></div>
-                     <div class="cloud cloud__cloud2"></div>
-                     <div class="cloud cloud__cloud3"></div>
-                 </div>
-             </div>
-             <div class="cloud-container cloud-container_bottom-big">
-                 <div class="cloud">
-                     <div class="cloud_bottom-big cloud cloud__cloud1"></div>
-                     <div class="cloud cloud__cloud2"></div>
-                     <div class="cloud cloud__cloud3"></div>
-                 </div>
-             </div>
-            </div>
 
          <div class="first-page__container">
-            <div class="parallax-top" data-paroller-factor="-0.1" data-paroller-type="foreground" data-paroller-direction="vertical">
-                <div class="logo">
-                    <?= Html::img('../../images/main/logo_mobile.png', ['alt' => 'jackpot logotype mobile', 'class' => 'logo__picture_mobile']) ?>
-                                       <!--<div class="logo__logo"></div>-->
-                    <h1 class="logo__text">JACKPOT<span class="logo__text_blue">.FUN</span></h1>
-                </div>
-            </div>
+             <div class="clouds">
+                 <div class="cloud-container cloud-container_left-big">
+                     <div class="cloud">
+                         <div class="cloud cloud__cloud1"></div>
+                         <div class="cloud cloud__cloud2"></div>
+                         <div class="cloud cloud__cloud3"></div>
+                     </div>
+                 </div>
+                 <div class="cloud-container cloud-container_right-big">
+                     <div class="cloud">
+                         <div class="cloud cloud__cloud1"></div>
+                         <div class="cloud cloud__cloud2"></div>
+                         <div class="cloud cloud__cloud3"></div>
+                     </div>
+                 </div>
+                 <div class="cloud-container cloud-container_left-small" >
+                     <div class="cloud">
+                         <div class="cloud_bottom-big cloud cloud__cloud1"></div>
+                         <div class="cloud cloud__cloud2"></div>
+                         <div class="cloud cloud__cloud3"></div>
+                     </div>
+                 </div>
+                 <div class="cloud-container cloud-container_second-small">
+                     <div class="cloud">
+                         <div class="cloud_bottom-big cloud cloud__cloud1"></div>
+                         <div class="cloud cloud__cloud2"></div>
+                         <div class="cloud cloud__cloud3"></div>
+                     </div>
+                 </div>
+                 <div class="cloud-container cloud-container_third-small">
+                     <div class="cloud">
+                         <div class="cloud_bottom-big cloud cloud__cloud1"></div>
+                         <div class="cloud cloud__cloud2"></div>
+                         <div class="cloud cloud__cloud3"></div>
+                     </div>
+                 </div>
+                 <div class="cloud-container cloud-container_right-small">
+                     <div class="cloud">
+                         <div class="cloud_bottom-big cloud cloud__cloud1"></div>
+                         <div class="cloud cloud__cloud2"></div>
+                         <div class="cloud cloud__cloud3"></div>
+                     </div>
+                 </div>
+                 <div class="cloud-container cloud-container_bottom-big">
+                     <div class="cloud">
+                         <div class="cloud_bottom-big cloud cloud__cloud1"></div>
+                         <div class="cloud cloud__cloud2"></div>
+                         <div class="cloud cloud__cloud3"></div>
+                     </div>
+                 </div>
+             </div>
             <div class="currency">
                 <?= Html::img('../../images/main/currency.gif', ['alt' => 'currency', 'class' => 'currency__image']) ?>
             </div>
@@ -158,7 +151,7 @@ use yii\helpers\Html;
             <div class="jackpot__cloud-container"></div>
             <div class="jackpot__cloud jackpot__cloud_six"></div>
             <div class="orange-border orange-border_all"></div>
-            <div> <h2 class="title-wih-pattern jackpot__title">JECKPOT</h2></div>
+            <div> <h2 class="title-wih-pattern jackpot__title">JACKPOT</h2></div>
             <div class="jackpot__container flex-gorizontal">
                 <div class="jackpot__cloud jackpot__cloud_twenty"></div>
                 <div  class="jackpot__image-block">

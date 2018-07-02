@@ -35,12 +35,17 @@
 
   .currency {
     //height: 500px;
+    //display: flex;
+    //align-items: flex-end;
+    //justify-content: center;
+    //margin-top: 12%;
+    //margin-bottom: 3%;
+//    margin-top: 53%; без заголовка вверху
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    margin-top: 12%;
-    margin-bottom: 3%;
-//    margin-top: 53%; без заголовка вверху
+    margin-top: 520px;
+    margin-bottom: 2%;
     @keyframes steps {
       0% {
         transform: translateX(-50%);
@@ -102,7 +107,7 @@
     //}
 
     &__text {
-      position: relative;
+      position: absolute;
       z-index: 8500;
       //margin: -9% 0 6% 0;
       margin: 27% 0 6% 0;
@@ -186,12 +191,20 @@
       @extend .flex-gorizontal_none-vertical;
     }
     &__text {
-      color: #333D3C;
-      background: #B4C3BE;
-      @extend .border-pattern;
-      border-top: 2em solid;
-      margin: 20px;
-      padding: 10px;
+      //color: #333D3C;
+      //background: #B4C3BE;
+      //@extend .border-pattern;
+      //border-top: 2em solid;
+      //margin: 20px;
+      //padding: 10px;
+      position: absolute;
+      z-index: 9008;
+      left: 0;
+      right: 0;
+      margin-top: 250px;
+      text-shadow: 0 0 1em #ec8c00, 0 0 3em #ec8c00, 0 0 5em #ec8c00;
+      color: white;
+      font-weight: normal;
       @media (max-width: $mobile-width) {
         //width: 70%;
         display: inline-block;

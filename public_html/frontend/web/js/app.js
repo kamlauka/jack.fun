@@ -14,6 +14,21 @@
 // $('.pseudo-checkbox').click($('.pseudo-checkbox').css('background-color','#FFB400'));
 var test = false;
 
+
+function mobileBackgroundUnderMenu() {
+    console.log($('#link-top').prop('checked'));
+    if($('#link-top').prop('checked')) {
+        $('#white-background').css('opacity', '1')
+        $('#white-background').css('visibility', 'visible');
+
+    } else {
+        $('#white-background').css('opacity', '0');
+        $('#white-background').css('visibility', 'hidden');
+        $('#white-background').css('transition', 'opacity 1s ease-in-out, visibility 1s ease-in-out 1s');
+    }
+}
+
+//чекбокс в регистрации: поведение
 function checkboxClick() {
     console.log(test);
     if (test === false) {
@@ -28,51 +43,69 @@ function checkboxClick() {
 }
 
 //Вызов попапа с какой-либо формой
-function showForm(activeForm, hideForm) {
+function showForm(activeForm) {
     $('.forms').css('display', 'flex');
+    var kids = $('.forms__popup').children();
+    kids.css('display', 'none');
     $(activeForm).css('display', 'block');
-    if($(hideForm).css('display') !== 'none') {
-        $(hideForm).css('display', 'none');
-    }
 }
 
 //При клике на затемнение, форма закрывается
 function targetFunc(e) {
     if (!$(e.target).closest(".popup").length) {
-        $('.forms').hide();
+        $(".forms").hide();
     }
     e.stopPropagation();
 }
 
 
+//поведение анимации лого на главной
+
+var logoPosition = $(".logo-mini").first();
+var logoContainer = $(".logo__container").first();
+var logo = $(".logo__image").first();
+var clouds = $(".clouds_fixed").first();
+var cloudBottom = $(".cloud-container_bottom-scale").first();
+var cloudLeft = $(".cloud-container_left-big").first();
+var cloudRight = $(".cloud-container_right-big").first();
+
+
+$(document).ready(function() {
+    if (window.pageYOffset > 20) {
+        logoContainer.removeClass("logo__container");
+        logoContainer.addClass("logo-mini__container");
+        logo.attr('src', '../images/common/logo-mini.png');
+        logo.removeClass("logo__image");
+        logo.addClass("logo-mini__image");
+        clouds.css('display', 'none');
+        logoPosition.css('z-index', '2');
+    } else {
+        logoPosition.css('z-index', '1');
+    }
+    animateClouds();
+    animateNotes();
+});
 
 window.addEventListener('scroll', function () {
-    // var scrolled = window.pageYOffset || document.documentElement.scrollTop;
-    var logoContainer = $(".logo__container").first();
-    var logo = $(".logo__image").first();
-    var clouds = $(".clouds").first();
-    var cloudBottom = $(".cloud-container_bottom-scale").first();
-    var cloudleft = $(".cloud-container_left-big .cloud").first();
-    var cloudright = $(".cloud-container_right-big .cloud").first();
-    function func() {
-        // clouds.css({'display' : 'none'});
-        logo.animate({'top': '-51', 'width': '127px'}, 1000);
-        // logo.css({'animation': 'totop 2s 0.5s linear'});
-    }
-    function func1() {
-        cloudleft.animate({'left': '50%', 'width': '50%'}, 2000);
-        cloudright.animate({'right': '50%', 'width': '50%'}, 2000);
-        cloudBottom.animate({'top': '-50%'}, 2000);
+    if(($(this).scrollTop() <= logo.offset().top) && (window.pageYOffset < 100)) {
 
-    }
-    if($(this).scrollTop() <= logo.offset().top) {
         logo.attr('src', '../images/common/logo.gif');
         cloudBottom.css({'display' : 'block'});
-        clouds.animate({'opacity': '0.5'}, 4000);
+        tl = new TimelineMax({yoyo:false});
+        tl.fromTo(cloudLeft, 2, {opacity: 0.7}, {left: '26%', opacity: 1, width: '130%'},0).to (cloudLeft, 2, { left : '-11%', opacity: 0, width: '90%' },1);
+        tl.fromTo(cloudRight, 2, {opacity: 0.7}, {left: '26%', opacity: 1, width: '130%'},0).to (cloudRight, 2, { left : '61%', opacity: 0, width: '90%'  },1);
+        tl.fromTo(cloudBottom, 2, {opacity: 0.7}, {top: '-7%', opacity: 1, width: '130%'},0).to (cloudBottom, 2, { top : '27%', opacity: 0, width: '90%'  },1);
 
-        setTimeout(func, 1000);
-        setTimeout(func1, 700);
-        clouds.css({'display' : 'none'}).delay(3500);
+        tl.to(logoContainer, 1,
+            {
+                width: '200px',
+                minWidth: '200px',
+                padding: '5px 0 0',
+            },1.2);
+        tl.to(logo, 1, {width: '140px'},1.2);
+        tl.to(logoContainer, 1, {backgroundPosition: 'center'},1.5);
+        tl.to(clouds, 0.1, {display: 'none'},3.1);
+        tl.to(logoPosition, 0.1, {zIndex: '2'},1.7);
     }
     this.removeEventListener('scroll', arguments.callee);
 });
@@ -81,11 +114,6 @@ window.addEventListener('scroll', function () {
 
 
 
-//
-// $(document).ready(function() {
-//     $('#sign-up').click($('#sign-in-popup').css('display', 'flex'));
-//     $('#sign-in').click($('#sign-up-popup').css('display', 'flex'));
-// });
 
 //TIMER
 
@@ -126,20 +154,59 @@ function initializeClock(endtime) {
     var timeinterval = setInterval(updateClock, 1000);
 }
 
-
-// var phpDays = daysSpan.text();
-// var phpHours = hoursSpan.text();
-// var phpMinutes = minutesSpan.text();
-// var phpSeconds = secondsSpan.text();
 var date = $('.timer__days').attr('data');
 var time = $('.timer__time').attr('data');
 console.log(date);
 console.log(time);
 
 var deadline = date + 'T' + time; //CURRENT DEADLINE OF TIMER
-// var deadline = '2018-07-17T03:24:00'; //CURRENT DEADLINE OF TIMER
-//var deadline = '2015-12-31'; // DEADLINE OF TIMER, TEMPLATE YEAR-MONTH-DAY
-//var deadline = new Date(Date.parse(new Date()) + 15 * 24 * 60 * 60 * 1000); //when the page is loaded, the timer always displays 15 days
 
 //START THE TIMER
 initializeClock(deadline);
+
+
+
+
+//поведение облаков
+function animateClouds() {
+    //Animate clouds
+    var cloud = $(".cloud-container");
+    var cloud1 = $(".cloud__cloud1");
+    var cloud2 = $(".cloud__cloud2");
+    var cloud3 = $(".cloud__cloud3");
+
+
+    var tl = new TimelineMax({yoyo:true, repeat:-1, ease: Power1.easeInOut});
+    var tl2 = new TimelineMax({yoyo:true, repeat:-1, ease: Power1.easeInOut});
+    var tl3 = new TimelineMax({yoyo:true, repeat:-1, ease: Power1.easeInOut});
+
+    tl.fromTo(cloud1, 3, {rotation:1, transformOrigin:"50% 50%", ease: Power1.easeInOut}, {rotation:-1, ease: Power1.easeInOut}, 'edge');
+    tl2.fromTo(cloud2, 2, {rotation:1,transformOrigin:"50% 50%", ease: Power1.easeInOut}, {rotation:-1, ease: Power1.easeInOut}, 'edge');
+    // tl3.fromTo(cloud3, 1, {rotation:0, transformOrigin:"0 0", ease: Power1.easeInOut}, {rotation:-0.5, ease: Power1.easeInOut}, 'edge');
+    //     tl.to(cloud,12,{rotation:1,transformOrigin:"50% 10px",ease:Linear.easeNone})
+    //     tl.to(".cloud",12,{rotation:-1,ease:Linear.easeNone},0);
+}
+
+//поведение ноток
+function animateNotes() {
+    var note1 = $(".note1");
+    var note2 = $(".note2");
+    var note3 = $(".note3");
+    var note4 = $(".note4");
+
+
+    var tl1 = new TimelineMax({yoyo:true, repeat:-1, ease: Power0.easeNone});
+    var tl2 = new TimelineMax({yoyo:true, repeat:-1, ease: Back.easeInOut.config(1.7)});
+    tl1.to(note1, 1, {rotation:-20, ease: Power0.easeNone}, 'edge');
+    tl1.to(note2, 1, {rotation:20, ease: Power0.easeNone}, 'edge');
+    tl1.to(note3, 1, {rotation:-20, ease: Power0.easeNone}, 'edge');
+    tl1.to(note4, 1, {rotation:20, ease: Power0.easeNone}, 'edge');
+
+    tl2.to(note1, 0.5, {y: -20}, 0);
+    tl2.to(note1, 0.5, {y: 0}, 1);
+    tl2.to(note2, 0.5, {y: -20}, 2);
+    tl2.to(note2, 0.5, {y: 0}, 2);
+    tl2.to(note3, 0.5, {y: -20}, 3);
+    tl2.to(note3, 0.5, {y: 0}, 3);
+    tl2.to(note4, 0.5, {y: -20}, 4);
+}

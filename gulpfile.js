@@ -2,8 +2,8 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
-var cssnano = require('gulp-cssnano'); // Подключаем пакет для минификации CSS
-var rename = require('gulp-rename');
+// var cssnano = require('gulp-cssnano'); // Подключаем пакет для минификации CSS
+// var rename = require('gulp-rename');
 
 
 gulp.task('default', function () {

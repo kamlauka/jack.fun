@@ -13,6 +13,8 @@
 // checkbox.onclick = "this.style.backgroundColor = '#FFB400'";
 // $('.pseudo-checkbox').click($('.pseudo-checkbox').css('background-color','#FFB400'));
 
+
+
 function checkboxClick() {
     var checkbox = $('.pseudo-checkbox');
     if (checkbox.css('background-color') !== '#FFB400') {
@@ -24,6 +26,10 @@ function checkboxClick() {
 
 }
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> c64c3666489079391fcd7483c15fe204a15f95e1
 window.addEventListener('scroll', function () {
     // var scrolled = window.pageYOffset || document.documentElement.scrollTop;
     var logo = $(".logo__picture").first();
@@ -33,19 +39,31 @@ window.addEventListener('scroll', function () {
     var cloudright = $(".cloud-container_right-big .cloud").first();
     function func() {
         // clouds.css({'display' : 'none'});
+<<<<<<< HEAD
+        logo.animate({'top': '-20', 'width': '20%', 'left': '39%'}, 1000);
+=======
         logo.animate({'top': '-20', 'width': '100px', 'left': '39%'}, 1000);
+>>>>>>> c64c3666489079391fcd7483c15fe204a15f95e1
         // logo.css({'animation': 'totop 2s 0.5s linear'});
     }
     function func1() {
         cloudleft.animate({'left': '50%', 'width': '50%'}, 2000);
         cloudright.animate({'right': '50%', 'width': '50%'}, 2000);
         cloudBottom.animate({'top': '-50%'}, 2000);
+<<<<<<< HEAD
+        clouds.css({'display' : 'none'});
+=======
         clouds.css({'display' : 'none'}, 3000);
+>>>>>>> c64c3666489079391fcd7483c15fe204a15f95e1
     }
     if($(this).scrollTop() <= logo.offset().top) {
         console.log(logo);
         console.log(clouds);
+<<<<<<< HEAD
+        logo.attr('src', 'dist/images/logo.gif');
+=======
         logo.attr('src', '../dist/images/common/logo.gif');
+>>>>>>> c64c3666489079391fcd7483c15fe204a15f95e1
         cloudBottom.css({'display' : 'block'});
         clouds.animate({'opacity': '0.5'}, 4000);
 

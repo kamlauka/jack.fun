@@ -16,16 +16,16 @@ $this->title = 'Registration';
         'action' => '/site/signup',
     ]); ?>
     <label class="label registration__label">
-        <?= $form->field($model, 'username')->textInput(['autofocus' => true,'class'=>'label__input input-text'])->label('Username',['class'=>'label__name']) ?>
+        <?= $form->field($model, 'username')->textInput(['autofocus' => true,'class'=>'label__input input-text'])->label('Username',['class'=>'label']) ?>
     </label>
     <label class="label registration__label">
-        <?= $form->field($model, 'wallet')->textInput(['class'=>'label__input input-text'])->label('wallet',['class'=>'label__name']) ?>
+        <?= $form->field($model, 'wallet')->textInput(['class'=>'label__input input-text'])->label('wallet',['class'=>'label']) ?>
     </label>
     <label class="label registration__label">
-        <?= $form->field($model, 'password')->passwordInput(['class'=>'label__input input-text'])->label('password',['class'=>'label__name']) ?>
+        <?= $form->field($model, 'password')->passwordInput(['class'=>'label__input input-text'])->label('password',['class'=>'label']) ?>
     </label>
     <label class="label registration__label">
-        <?= $form->field($model, 'password_repeat')->passwordInput(['class'=>'label__input input-text'])->label('repeat password',['class'=>'label__name']) ?>
+        <?= $form->field($model, 'password_repeat')->passwordInput(['class'=>'label__input input-text'])->label('repeat password',['class'=>'label']) ?>
     </label>
     <label class="label-for-checkbox registration__label" onclick="checkboxClick()">
 
