@@ -71,7 +71,9 @@ var cloudRight = $(".cloud-container_right-big").first();
 
 
 $(document).ready(function() {
-    if (window.pageYOffset > 20) {
+    console.log('scroll window' + document.body.scrollTop);
+    if (window.pageYOffset > 20 || document.body.scrollTop > 20) {
+        console.log('yes! window' + window.pageYOffset +'body' + document.body.scrollTop + 'raznoe' + window.pageYOffset + 'i' + document.documentElement.scrollTop)
         logoContainer.removeClass("logo__container");
         logoContainer.addClass("logo-mini__container");
         logo.attr('src', '../images/common/logo-mini.png');
@@ -80,6 +82,7 @@ $(document).ready(function() {
         clouds.css('display', 'none');
         logoPosition.css('z-index', '2');
     } else {
+        console.log('window' + window.pageYOffset +'body' + document.body.scrollTop + 'raznoe' + window.pageYOffset + 'i' + document.documentElement.scrollTop)
         logoPosition.css('z-index', '1');
     }
     animateClouds();
@@ -87,7 +90,7 @@ $(document).ready(function() {
 });
 
 window.addEventListener('scroll', function () {
-    if(($(this).scrollTop() <= logo.offset().top) && (window.pageYOffset < 100)) {
+    if(($(this).scrollTop() <= logo.offset().top) || (window.pageYOffset < logo.offset().top)) {
 
         logo.attr('src', '../images/common/logo.gif');
         cloudBottom.css({'display' : 'block'});
@@ -197,16 +200,17 @@ function animateNotes() {
 
     var tl1 = new TimelineMax({yoyo:true, repeat:-1, ease: Power0.easeNone});
     var tl2 = new TimelineMax({yoyo:true, repeat:-1, ease: Back.easeInOut.config(1.7)});
-    tl1.to(note1, 1, {rotation:-20, ease: Power0.easeNone}, 'edge');
-    tl1.to(note2, 1, {rotation:20, ease: Power0.easeNone}, 'edge');
-    tl1.to(note3, 1, {rotation:-20, ease: Power0.easeNone}, 'edge');
-    tl1.to(note4, 1, {rotation:20, ease: Power0.easeNone}, 'edge');
+    // tl1.to(note1, 1, {rotation:-20, ease: Power0.easeNone}, 'edge');
+    // tl1.to(note2, 1, {rotation:20, ease: Power0.easeNone}, 'edge');
+    // tl1.to(note3, 1, {rotation:-20, ease: Power0.easeNone}, 'edge');
+    // tl1.to(note4, 1, {rotation:20, ease: Power0.easeNone}, 'edge');
 
-    tl2.to(note1, 0.5, {y: -20}, 0);
-    tl2.to(note1, 0.5, {y: 0}, 1);
-    tl2.to(note2, 0.5, {y: -20}, 2);
-    tl2.to(note2, 0.5, {y: 0}, 2);
-    tl2.to(note3, 0.5, {y: -20}, 3);
-    tl2.to(note3, 0.5, {y: 0}, 3);
-    tl2.to(note4, 0.5, {y: -20}, 4);
+    tl2.to(note1, 0.5, {y: -10, ease: Back.easeInOut.config(1.7)}, 0);
+    tl2.to(note1, 0.5, {y: 0, ease: Back.easeInOut.config(1.7)}, 0.5);
+    tl2.to(note2, 0.5, {y: -10, ease: Back.easeInOut.config(1.7)}, 0.5);
+    tl2.to(note2, 0.5, {y: 0,ease: Back.easeInOut.config(1.7)}, 1);
+    tl2.to(note3, 0.5, {y: -10,ease: Back.easeInOut.config(1.7)}, 1);
+    tl2.to(note3, 0.5, {y: 0,ease: Back.easeInOut.config(1.7)}, 1.5);
+    tl2.to(note4, 0.5, {y: -10,ease: Back.easeInOut.config(1.7)}, 1.5);
+    tl2.to(note4, 0.5, {y: 0,ease: Back.easeInOut.config(1.7)}, 0);
 }

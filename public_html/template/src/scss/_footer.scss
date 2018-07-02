@@ -20,34 +20,37 @@
 
 .footer-block {
 
-  @media (max-width: $fourth-width) {
+  @media (max-width: $mobile-width) {
     padding-bottom: 20px;
   }
 
   &__left-align-block{
+    width: 30%;
     text-align: left;
 
-    @media (max-width: $fourth-width) {
+    @media (max-width: $mobile-width) {
       text-align: center;
     }
 
-    &__margin {
-      margin-right: 7%;
-
-      @media (max-width: $fourth-width) {
-        margin-right: 0;
-      }
-    }
+    //&__margin {
+    //  margin-right: 7%;
+    //
+    //  @media (max-width: $fourth-width) {
+    //    margin-right: 0;
+    //  }
+    //}
   }
 
   &__center-align-block {
+    width: 38%;
     text-align: center;
   }
 
   &__right-align-block {
+    width: 30%;
     text-align: right;
 
-    @media (max-width: $fourth-width) {
+    @media (max-width: $mobile-width) {
       text-align: center;
     }
   }
