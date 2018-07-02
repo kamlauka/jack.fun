@@ -9,10 +9,11 @@
   .first-page {
     position: relative;
     width: 100%;
-    z-index: 1;
+    //z-index: 1;
     overflow: hidden;
     background: $pat-first-page no-repeat;
     background-size: cover;
+    background-position: bottom center;
     @media (max-width: $mobile-width) {
       background: $pat-cloud-1 center -6% no-repeat, #BEE5EE;
       background-size: 200%;
@@ -107,20 +108,20 @@
     //}
 
     &__text {
-      position: absolute;
-      z-index: 9000;
-      text-shadow: 0 0 1em #ec8c00, 0 0 3em #ec8c00, 0 0 5em #ec8c00;
-      color: white;
-      font-weight: normal;
-      text-align: center;
-      width: 100%;
-      margin-top: 18%;
       //position: absolute;
-      //z-index: 8500;
-      ////margin: -9% 0 6% 0;
-      //margin: 27% 0 6% 0;
+      //z-index: 9000;
       //text-shadow: 0 0 1em #ec8c00, 0 0 3em #ec8c00, 0 0 5em #ec8c00;
       //color: white;
+      //font-weight: normal;
+      //text-align: center;
+      //width: 100%;
+      //margin-top: 18%;
+      position: relative;
+      z-index: 9500;
+      //margin: -9% 0 6% 0;
+      margin: 27% 0 6% 0;
+      text-shadow: 0 0 1em #ec8c00, 0 0 3em #ec8c00, 0 0 5em #ec8c00;
+      color: white;
       @extend ._font__10em;
       @include mini-font_7em($third-width);
       @include mini-font_3em($mobile-width);

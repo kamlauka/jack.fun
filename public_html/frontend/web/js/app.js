@@ -62,6 +62,7 @@ function targetFunc(e) {
 //поведение анимации лого на главной
 
 var logoPosition = $(".logo-mini").first();
+var logoMain = $(".logo").first();
 var logoContainer = $(".logo__container").first();
 var logo = $(".logo__image").first();
 var clouds = $(".clouds_fixed").first();
@@ -91,7 +92,7 @@ $(document).ready(function() {
 
 window.addEventListener('scroll', function () {
     if(($(this).scrollTop() <= logo.offset().top) || (window.pageYOffset < logo.offset().top)) {
-
+        logoMain.css({'position': 'fixed'});//, 'z-index': '10000'
         logo.attr('src', '../images/common/logo.gif');
         cloudBottom.css({'display' : 'block'});
         tl = new TimelineMax({yoyo:false});
@@ -106,6 +107,8 @@ window.addEventListener('scroll', function () {
                 padding: '5px 0 0',
             },1.2);
         tl.to(logo, 1, {width: '140px'},1.2);
+        tl.to(logoMain, .1, {zIndex: '10000'},1.2);
+
         tl.to(logoContainer, 1, {backgroundPosition: 'center'},1.5);
         tl.to(clouds, 0.1, {display: 'none'},3.1);
         tl.to(logoPosition, 0.1, {zIndex: '2'},1.7);

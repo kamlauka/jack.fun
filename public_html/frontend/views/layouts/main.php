@@ -99,32 +99,7 @@ AppAsset::register($this);
 
             <?php if(Yii::$app->controller->route === 'site/index'){?>
 <!--            если главнкая то показать картинку-->
-        <div class="logo__container">
-                <img src="/images/common/logo.png" alt="" class="logo__image">
-        </div>
-                <div class="clouds clouds_fixed">
-                    <div class="cloud-container cloud-container_left-big">
-                        <div class="cloud">
-                            <div class="cloud cloud__cloud1"></div>
-                            <div class="cloud cloud__cloud2"></div>
-                            <div class="cloud cloud__cloud3"></div>
-                        </div>
-                    </div>
-                    <div class="cloud-container cloud-container_right-big">
-                        <div class="cloud">
-                            <div class="cloud cloud__cloud1"></div>
-                            <div class="cloud cloud__cloud2"></div>
-                            <div class="cloud cloud__cloud3"></div>
-                        </div>
-                    </div>
-                    <div class="cloud-container cloud-container_bottom-scale">
-                        <!--                <div class="cloud">-->
-                        <!--                    <div class="cloud cloud__cloud1"></div>-->
-                        <div class="cloud cloud__cloud2"></div>
-                        <div class="cloud cloud__cloud3"></div>
-                        <!--                </div>-->
-                    </div>
-                </div>
+<div></div>
             <?php }else{ ?>
 <!--            если не главнкая то показать картинку-->
         <div class="logo-mini__container">

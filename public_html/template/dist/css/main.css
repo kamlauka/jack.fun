@@ -126,7 +126,7 @@
 
 .header {
   position: fixed;
-  z-index: 9000;
+  z-index: 9999;
   top: 0;
   left: 0;
   right: 0;
@@ -281,19 +281,22 @@
     .logo-mini {
       display: none; } }
 
-.logo__container {
-  width: 73%;
-  min-width: 311px;
-  margin: auto;
-  padding: 66px 0 25px 0;
-  background: url(../images/common/logo-substrate.png) no-repeat;
-  background-size: contain;
-  background-position: center -500px; }
-
-.logo__image {
+.logo {
+  position: absolute;
   width: 100%;
-  z-index: 9001;
-  position: relative; }
+  top: 0;
+  left: 0;
+  z-index: 8500; }
+  .logo__container {
+    width: 27%;
+    min-width: 311px;
+    margin: auto;
+    padding: 66px 0 25px 0;
+    background: url(../images/common/logo-substrate.png) no-repeat;
+    background-size: contain;
+    background-position: center -500px; }
+  .logo__image {
+    width: 100%; }
 
 .parallax-back {
   position: absolute;
@@ -305,10 +308,10 @@
 .first-page {
   position: relative;
   width: 100%;
-  z-index: 1;
   overflow: hidden;
   background: url("../images/main/background-first-page.jpg") no-repeat;
-  background-size: cover; }
+  background-size: cover;
+  background-position: bottom center; }
   @media (max-width: 768px) {
     .first-page {
       background: url("../images/common/cl1.png") center -6% no-repeat, #BEE5EE;
@@ -372,14 +375,11 @@
         margin-top: 10px; } }
 
 .logo__text {
-  position: absolute;
-  z-index: 9000;
+  position: relative;
+  z-index: 9500;
+  margin: 27% 0 6% 0;
   text-shadow: 0 0 1em #ec8c00, 0 0 3em #ec8c00, 0 0 5em #ec8c00;
-  color: white;
-  font-weight: normal;
-  text-align: center;
-  width: 100%;
-  margin-top: 18%; }
+  color: white; }
   @media (max-width: 1052px) {
     .logo__text {
       font-size: 7em; } }
@@ -2018,7 +2018,7 @@ body {
     right: 0;
     top: 52px;
     bottom: 0;
-    z-index: 9002;
+    z-index: 9000;
     overflow: hidden; }
   .clouds_bottom {
     top: 1107px;
@@ -2242,3 +2242,6 @@ body {
     z-index: 80;
     transform: scale(1.2);
     background-size: 75%; } }
+
+.activ {
+  display: block; }
