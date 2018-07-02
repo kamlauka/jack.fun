@@ -108,15 +108,22 @@
 
     &__text {
       position: absolute;
-      z-index: 8500;
-      //margin: -9% 0 6% 0;
-      margin: 27% 0 6% 0;
+      z-index: 9000;
       text-shadow: 0 0 1em #ec8c00, 0 0 3em #ec8c00, 0 0 5em #ec8c00;
       color: white;
+      font-weight: normal;
+      text-align: center;
+      width: 100%;
+      margin-top: 18%;
+      //position: absolute;
+      //z-index: 8500;
+      ////margin: -9% 0 6% 0;
+      //margin: 27% 0 6% 0;
+      //text-shadow: 0 0 1em #ec8c00, 0 0 3em #ec8c00, 0 0 5em #ec8c00;
+      //color: white;
       @extend ._font__10em;
       @include mini-font_7em($third-width);
       @include mini-font_3em($mobile-width);
-      font-weight: normal;
       &_blue {
         color: #283A4F;
         @media (max-width: $mobile-width) {
@@ -191,20 +198,12 @@
       @extend .flex-gorizontal_none-vertical;
     }
     &__text {
-      //color: #333D3C;
-      //background: #B4C3BE;
-      //@extend .border-pattern;
-      //border-top: 2em solid;
-      //margin: 20px;
-      //padding: 10px;
-      position: absolute;
-      z-index: 9008;
-      left: 0;
-      right: 0;
-      margin-top: 250px;
-      text-shadow: 0 0 1em #ec8c00, 0 0 3em #ec8c00, 0 0 5em #ec8c00;
-      color: white;
-      font-weight: normal;
+      color: #333D3C;
+      background: #B4C3BE;
+      @extend .border-pattern;
+      border-top: 2em solid;
+      margin: 20px;
+      padding: 10px;
       @media (max-width: $mobile-width) {
         //width: 70%;
         display: inline-block;
@@ -217,6 +216,33 @@
         background: none;
       }
     }
+    //&__text {
+    //  //color: #333D3C;
+    //  //background: #B4C3BE;
+    //  //@extend .border-pattern;
+    //  //border-top: 2em solid;
+    //  //margin: 20px;
+    //  //padding: 10px;
+    //  position: absolute;
+    //  z-index: 9008;
+    //  left: 0;
+    //  right: 0;
+    //  margin-top: 250px;
+    //  text-shadow: 0 0 1em #ec8c00, 0 0 3em #ec8c00, 0 0 5em #ec8c00;
+    //  color: white;
+    //  font-weight: normal;
+    //  @media (max-width: $mobile-width) {
+    //    //width: 70%;
+    //    display: inline-block;
+    //    border: none;
+    //    margin: 0;
+    //    margin-left: 10px;
+    //    margin-right: 3%;
+    //    padding: 0;
+    //    text-align: left;
+    //    background: none;
+    //  }
+    //}
     &__image-container {
       position: relative;
       bottom: 0;
