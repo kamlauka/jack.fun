@@ -1,6 +1,7 @@
 <?php
 namespace common\widgets;
 
+use yii\base\Widget;
 use Yii;
 
 /**
@@ -22,7 +23,7 @@ use Yii;
  * @author Kartik Visweswaran <kartikv2@gmail.com>
  * @author Alexander Makarov <sam@rmcreative.ru>
  */
-class Alert extends \yii\bootstrap\Widget
+class Alert extends Widget
 {
     /**
      * @var array the alert types configuration for the flash messages.
@@ -51,25 +52,26 @@ class Alert extends \yii\bootstrap\Widget
     {
         $session = Yii::$app->session;
         $flashes = $session->getAllFlashes();
-        $appendClass = isset($this->options['class']) ? ' ' . $this->options['class'] : '';
 
         foreach ($flashes as $type => $flash) {
-            if (!isset($this->alertTypes[$type])) {
+             if (!isset($this->alertTypes[$type])) {
                 continue;
             }
 
-            foreach ((array) $flash as $i => $message) {
-                echo \yii\bootstrap\Alert::widget([
-                    'body' => $message,
-                    'closeButton' => $this->closeButton,
-                    'options' => array_merge($this->options, [
-                        'id' => $this->getId() . '-' . $type . '-' . $i,
-                        'class' => $this->alertTypes[$type] . $appendClass,
-                    ]),
-                ]);
-            }
+            foreach ((array) $flash as $i => $message) { ?>
 
+
+                <div class="popup activ">
+                    <div class="popup__close" onclick="$('.forms').hide()"></div>
+
+                    <?= $message; ?>
+
+                </div>
+                <?php
+            }
             $session->removeFlash($type);
         }
     }
 }
+
+

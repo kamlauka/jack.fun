@@ -6,7 +6,7 @@
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
-$this->title = 'Reset password';
+    $this->title = 'Reset password';
 ?>
 
 <div class="popup__password-reset  <?php if((isset(Yii::$app->params['popup'])) and Yii::$app->params['popup'] == 'password' ) echo 'activ' ?>">
