@@ -83,12 +83,12 @@ AppAsset::register($this);
             ]) ?>
 
             <?= \frontend\widgets\PopupForm::widget([
-                'model' => isset(Yii::$app->params['signup']) ? Yii::$app->params['signup'] :  '\frontend\models\SignupForm',
+                'model' => isset(Yii::$app->params['signup']) ? Yii::$app->params['signup'] :  new \frontend\models\SignupForm,
                 'view' => 'signup'
             ]) ?>
 
             <?= \frontend\widgets\PopupForm::widget([
-                'model' => isset(Yii::$app->params['password']) ? Yii::$app->params['password'] :  '\frontend\models\PasswordResetRequestForm',
+                'model' => isset(Yii::$app->params['password']) ? Yii::$app->params['password'] :  new \frontend\models\PasswordResetRequestForm,
                 'view' => 'passwordReset'
             ]) ?>
 

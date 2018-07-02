@@ -8,7 +8,7 @@ use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
 ?>
-<div class="popup__password-reset">
+<div class="popup__password-reset  <?php if((isset(Yii::$app->params['popup'])) and Yii::$app->params['popup'] == 'password' ) echo 'activ' ?>">
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>Please fill out your email. A link to reset password will be sent there.</p>
