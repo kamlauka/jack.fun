@@ -73,6 +73,7 @@ var cloudRight = $(".cloud-container_right-big").first();
 var miniLogoContainer = $('.logo-mini__container').first();
 
 
+<<<<<<< HEAD
 //когда страница грузится не с начала, загружаем мобильный логотип
 $(document).ready(function() {
     $("html, body").animate({ scrollTop: 0 }, 1);
@@ -83,6 +84,19 @@ $(document).ready(function() {
         // logo.attr('src', '../images/common/logo-mini.png');
         // logo.removeClass("logo__image");
         // logo.addClass("logo-mini__image");
+=======
+$(window).on('load', function () {
+
+    // $("html, body").animate({ scrollTop: 0 }, 1);
+    // console.log('no');
+    if (window.pageYOffset > 20 || document.body.scrollTop > 20) {
+        console.log('yes! window' + window.pageYOffset +'body' + document.body.scrollTop + 'raznoe' + window.pageYOffset + 'i' + document.documentElement.scrollTop)
+        logoContainer.removeClass("logo__container");
+        logoContainer.addClass("logo-mini__container");
+        logo.attr('src', '../images/common/logo-mini.png');
+        logo.removeClass("logo__image");
+        logo.addClass("logo-mini__image");
+>>>>>>> 33f275a251499110e5854256fd58b4126cd6cdd9
         clouds.css('display', 'none');
         // logoPosition.css('z-index', '2');
     } else {
@@ -93,7 +107,18 @@ $(document).ready(function() {
     animateNotes();
 });
 
+<<<<<<< HEAD
 document.documentElement.addEventListener('scroll', function () {
+=======
+
+$(document).ready(function() {
+
+    console.log('scroll window' + document.body.scrollTop);
+
+});
+
+window.addEventListener('scroll', function () {
+>>>>>>> 33f275a251499110e5854256fd58b4126cd6cdd9
     if(($(this).scrollTop() <= logo.offset().top) || (window.pageYOffset < logo.offset().top)) {
         logoMain.css({'position': 'fixed'});//, 'z-index': '10000'
         logo.attr('src', '../images/common/logo.gif');
