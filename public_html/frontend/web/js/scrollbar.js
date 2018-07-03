@@ -1,3 +1,6 @@
 jQuery(document).ready(function(){
-    jQuery('.scrolling').scrollbar();
+    jQuery('.scrollbar-external').scrollbar({
+        "autoScrollSize": false,
+        "scrolly": $('.external-scroll_y')
+    });
 });

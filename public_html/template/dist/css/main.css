@@ -1316,27 +1316,30 @@ select:-webkit-autofill:focus {
     .seo-block__title {
       font-size: 1.3em; } }
 
+.seo-block__text-container {
+  margin-bottom: 27%; }
+  @media (max-width: 1550px) {
+    .seo-block__text-container {
+      margin: 40px 40px 35%; } }
+  @media (max-width: 1052px) {
+    .seo-block__text-container {
+      margin: 50px 50px 44%; } }
+  @media (max-width: 768px) {
+    .seo-block__text-container {
+      margin: 0;
+      margin-bottom: 20px; } }
+
 .seo-block__text {
   max-height: 200px;
   padding: 0 20px;
-  margin-bottom: 27%;
   font-family: ShowCardGothic;
   font-weight: bold; }
   @media (max-width: 1550px) {
     .seo-block__text {
       font-size: 1em; } }
-  @media (max-width: 1550px) {
-    .seo-block__text {
-      margin: 40px 40px 35%; } }
-  @media (max-width: 1052px) {
-    .seo-block__text {
-      margin: 50px 50px 44%; } }
-  @media (max-width: 768px) {
-    .seo-block__text {
-      margin: 0;
-      margin-bottom: 20px; } }
 
 .scrolling {
+  overflow-y: scroll;
   max-height: 200px; }
   .scrolling::-webkit-scrollbar {
     width: 7px; }

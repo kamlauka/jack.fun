@@ -233,9 +233,18 @@ use yii\helpers\Html;
     </section>
     <?php if(isset($text['seo_block_title']->text) && isset($text['seo_block_text']->text)){ ?>
     <section class="seo-section flex-gorizontal">
-        <div class="seo-block container">
+        <div class="seo-block container ">
             <h2 class="seo-block__title"><?= $text['seo_block_title']->text ?></h2>
-            <p class="seo-block__text scrolling"><?= $text['seo_block_text']->text ?></p>
+            <div class="seo-block__text-container scrollbar-external_wrapper">
+            <p class="seo-block__text scrollbar-external"><?= $text['seo_block_text']->text ?></p>
+            <div class="external-scroll_y">
+                <div class="scroll-element_outer">
+                    <div class="scroll-element_size"></div>
+                    <div class="scroll-element_track"></div>
+                    <div class="scroll-bar"></div>
+                </div>
+            </div>
+            </div>
         </div>
     </section>
     <?php } ?>
