@@ -124,9 +124,38 @@
         right: 0;
         width: 31%; } }
 
+.preloader {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 999999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFFFFF;
+  background-position: center center;
+  background-repeat: no-repeat; }
+  .preloader__title {
+    position: relative;
+    z-index: 1;
+    font-family: IceAge;
+    font-size: 5em;
+    font-weight: normal;
+    color: white; }
+  .preloader__fill {
+    width: 100%;
+    height: 0;
+    position: absolute;
+    bottom: 0;
+    z-index: 0;
+    background-color: #FFB400;
+    transition: height 2s ease; }
+
 .header {
   position: fixed;
-  z-index: 9000;
+  z-index: 9999;
   top: 0;
   left: 0;
   right: 0;
@@ -281,19 +310,23 @@
     .logo-mini {
       display: none; } }
 
-.logo__container {
-  width: 73%;
-  min-width: 311px;
-  margin: auto;
-  padding: 66px 0 25px 0;
-  background: url(../images/common/logo-substrate.png) no-repeat;
-  background-size: contain;
-  background-position: center -500px; }
-
-.logo__image {
-  width: 100%;
-  z-index: 9001;
-  position: relative; }
+.logo {
+  position: absolute;
+  width: 20%;
+  margin: 0 40%;
+  top: 0;
+  left: 0;
+  z-index: 8500; }
+  .logo__container {
+    width: 27%;
+    min-width: 311px;
+    margin: auto;
+    padding: 66px 0 25px 0;
+    background: url(../images/common/logo-substrate.png) no-repeat;
+    background-size: contain;
+    background-position: center -500px; }
+  .logo__image {
+    width: 100%; }
 
 .parallax-back {
   position: absolute;
@@ -305,10 +338,10 @@
 .first-page {
   position: relative;
   width: 100%;
-  z-index: 1;
   overflow: hidden;
   background: url("../images/main/background-first-page.jpg") no-repeat;
-  background-size: cover; }
+  background-size: cover;
+  background-position: bottom center; }
   @media (max-width: 768px) {
     .first-page {
       background: url("../images/common/cl1.png") center -6% no-repeat, #BEE5EE;
@@ -328,7 +361,6 @@
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  margin-top: 520px;
   margin-bottom: 2%; }
 
 @keyframes steps {
@@ -372,14 +404,11 @@
         margin-top: 10px; } }
 
 .logo__text {
-  position: absolute;
-  z-index: 9000;
+  position: relative;
+  z-index: 9500;
+  margin: 27% 0 6% 0;
   text-shadow: 0 0 1em #ec8c00, 0 0 3em #ec8c00, 0 0 5em #ec8c00;
-  color: white;
-  font-weight: normal;
-  text-align: center;
-  width: 100%;
-  margin-top: 18%; }
+  color: white; }
   @media (max-width: 1052px) {
     .logo__text {
       font-size: 7em; } }
@@ -645,6 +674,9 @@
   background-color: rgba(0, 0, 0, 0.7); }
   .forms__popup {
     margin: auto; }
+    @media (max-height: 772px) {
+      .forms__popup {
+        margin-top: 90px; } }
 
 .help-block {
   position: absolute;
@@ -2021,7 +2053,7 @@ body {
     right: 0;
     top: 52px;
     bottom: 0;
-    z-index: 9002;
+    z-index: 9000;
     overflow: hidden; }
   .clouds_bottom {
     top: 1107px;
@@ -2030,11 +2062,9 @@ body {
       .clouds_bottom {
         display: none; } }
     .clouds_bottom-default {
+      top: auto;
+      bottom: -212px;
       height: 1000px; }
-      @media (max-width: 1550px) {
-        .clouds_bottom-default {
-          top: 15%;
-          bottom: -19%; } }
   .clouds_over-all {
     z-index: 50; }
   @media (max-width: 1700px) {
@@ -2152,27 +2182,27 @@ body {
     z-index: 0; }
   .cloud-container_center-center-medium {
     left: 33%;
-    top: -23%;
+    top: -179px;
     width: 70%;
     z-index: 0; }
   .cloud-container_center-left-medium {
     left: 15%;
-    top: -30%;
+    top: -229px;
     width: 70%;
     z-index: 0; }
   .cloud-container_center-right-medium {
     left: 51%;
-    top: -30%;
+    top: -229px;
     width: 70%;
     z-index: 0; }
   .cloud-container_border-left-medium {
     left: -19%;
-    top: -24%;
+    top: -190px;
     width: 70%;
     z-index: 0; }
   .cloud-container_border-right-medium {
     left: 84%;
-    top: -24%;
+    top: -190px;
     width: 70%;
     z-index: 0; }
   .cloud-container_center-page {
@@ -2245,3 +2275,6 @@ body {
     z-index: 80;
     transform: scale(1.2);
     background-size: 75%; } }
+
+.activ {
+  display: block; }

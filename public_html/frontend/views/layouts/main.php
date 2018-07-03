@@ -73,24 +73,22 @@ AppAsset::register($this);
     </div>
 
     <div class="orange-border orange-border_edge"></div>
-    <div class="forms"  onclick="targetFunc(event)" data="<?= isset(Yii::$app->params['popup'])?Yii::$app->params['popup']: ''?>">
+    <div class="forms <?= isset(Yii::$app->params['popup']) ? 'activ': ''?>" data="<?= isset(Yii::$app->params['popup']) ? 'activ': ''?>">
 
-
-
-        <div class="popup forms__popup">
+        <div class="popup forms__popup"  onclick="targetFunc(e)">
 
             <?= \frontend\widgets\PopupForm::widget([
-                'model' => '\common\models\LoginForm',
+                'model' => isset(Yii::$app->params['login']) ? Yii::$app->params['login'] :  new \common\models\LoginForm,
                 'view' => 'login'
             ]) ?>
 
             <?= \frontend\widgets\PopupForm::widget([
-                'model' => '\frontend\models\SignupForm',
+                'model' => isset(Yii::$app->params['signup']) ? Yii::$app->params['signup'] :  new \frontend\models\SignupForm,
                 'view' => 'signup'
             ]) ?>
 
             <?= \frontend\widgets\PopupForm::widget([
-                'model' => '\frontend\models\PasswordResetRequestForm',
+                'model' => isset(Yii::$app->params['password']) ? Yii::$app->params['password'] :  new \frontend\models\PasswordResetRequestForm,
                 'view' => 'passwordReset'
             ]) ?>
 
@@ -101,32 +99,7 @@ AppAsset::register($this);
 
             <?php if(Yii::$app->controller->route === 'site/index'){?>
 <!--            если главнкая то показать картинку-->
-        <div class="logo__container">
-                <img src="/images/common/logo.png" alt="" class="logo__image">
-        </div>
-                <div class="clouds clouds_fixed">
-                    <div class="cloud-container cloud-container_left-big">
-                        <div class="cloud">
-                            <div class="cloud cloud__cloud1"></div>
-                            <div class="cloud cloud__cloud2"></div>
-                            <div class="cloud cloud__cloud3"></div>
-                        </div>
-                    </div>
-                    <div class="cloud-container cloud-container_right-big">
-                        <div class="cloud">
-                            <div class="cloud cloud__cloud1"></div>
-                            <div class="cloud cloud__cloud2"></div>
-                            <div class="cloud cloud__cloud3"></div>
-                        </div>
-                    </div>
-                    <div class="cloud-container cloud-container_bottom-scale">
-                        <!--                <div class="cloud">-->
-                        <!--                    <div class="cloud cloud__cloud1"></div>-->
-                        <div class="cloud cloud__cloud2"></div>
-                        <div class="cloud cloud__cloud3"></div>
-                        <!--                </div>-->
-                    </div>
-                </div>
+<div></div>
             <?php }else{ ?>
 <!--            если не главнкая то показать картинку-->
         <div class="logo-mini__container">
@@ -162,19 +135,7 @@ AppAsset::register($this);
 
                 </div>
                 <div class="footer-block__center-align-block">
-                    <?php
 
-
-//                        Modal::begin([
-//                            'header' => '<h2>Hello world</h2>',
-//                            'toggleButton' => ['label' => 'click me'],
-//                            'footer' => 'Низ окна',
-//                        ]);
-//
-//                        echo 'Say hello...';
-//
-//                        Modal::end();
-                    ?>
                     <?= Html::a('Jackpot','/jackpot/view',['class'=>'footer-block__link']) ?>
                     <?php //echo Html::a('List of disputes','#',['class'=>'footer-block__link']) ?>
                     <?php //echo Html::a('The page of the dispute','#',['class'=>'footer-block__link']) ?>

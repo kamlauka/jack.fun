@@ -8,6 +8,9 @@
   background-color: rgba(0, 0, 0, 0.7);
   &__popup {
     margin: auto;
+    @media (max-height: 772px) {
+      margin-top: 90px;
+    }
   }
 }
 

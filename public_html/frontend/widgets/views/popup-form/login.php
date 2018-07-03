@@ -10,7 +10,7 @@ use yii\bootstrap\ActiveForm;
 $this->title = 'Login';
 
 ?>
-<div class="popup__login" >
+<div class="popup__login  <?php if((isset(Yii::$app->params['popup'])) and Yii::$app->params['popup'] == 'login' ) echo 'activ' ?>" >
     <div class="popup__close" onclick="$('.forms').hide()"></div>
     <h3 class="title-h3"><?= Html::encode($this->title) ?></h3>
     <?php $form = ActiveForm::begin([
@@ -25,8 +25,7 @@ $this->title = 'Login';
         <?= $form->field($model, 'password')->passwordInput(['class'=>'input-text'])->label('password',['class'=>'label']) ?>
     </label>
 
-    <span class="popup__forgot-pass">If you forgot your password you can <a href="" onclick="showForm('.popup__password-')">reset it</a></span>
-    <br> <br>
+    <span class="popup__forgot-pass">If you forgot your password you can <a onclick="showForm('.popup__password-reset')">reset it</a></span>
 
     <?= Html::submitButton('Enter', ['class' => 'button button_gold button_little', 'name' => 'signup-button']) ?>
 

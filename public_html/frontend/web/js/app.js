@@ -62,6 +62,7 @@ function targetFunc(e) {
 //поведение анимации лого на главной
 
 var logoPosition = $(".logo-mini").first();
+var logoMain = $(".logo").first();
 var logoContainer = $(".logo__container").first();
 var logo = $(".logo__image").first();
 var clouds = $(".clouds_fixed").first();
@@ -91,10 +92,10 @@ $(document).ready(function() {
 
 window.addEventListener('scroll', function () {
     if(($(this).scrollTop() <= logo.offset().top) || (window.pageYOffset < logo.offset().top)) {
-
+        logoMain.css({'position': 'fixed'});//, 'z-index': '10000'
         logo.attr('src', '../images/common/logo.gif');
         cloudBottom.css({'display' : 'block'});
-        tl = new TimelineMax({yoyo:false});
+        var tl = new TimelineMax({yoyo:false});
         tl.fromTo(cloudLeft, 2, {opacity: 0.7}, {left: '26%', opacity: 1, width: '130%'},0).to (cloudLeft, 2, { left : '-11%', opacity: 0, width: '90%' },1);
         tl.fromTo(cloudRight, 2, {opacity: 0.7}, {left: '26%', opacity: 1, width: '130%'},0).to (cloudRight, 2, { left : '61%', opacity: 0, width: '90%'  },1);
         tl.fromTo(cloudBottom, 2, {opacity: 0.7}, {top: '-7%', opacity: 1, width: '130%'},0).to (cloudBottom, 2, { top : '27%', opacity: 0, width: '90%'  },1);
@@ -106,6 +107,8 @@ window.addEventListener('scroll', function () {
                 padding: '5px 0 0',
             },1.2);
         tl.to(logo, 1, {width: '140px'},1.2);
+        tl.to(logoMain, .1, {zIndex: '10000'},1.2);
+
         tl.to(logoContainer, 1, {backgroundPosition: 'center'},1.5);
         tl.to(clouds, 0.1, {display: 'none'},3.1);
         tl.to(logoPosition, 0.1, {zIndex: '2'},1.7);

@@ -2,7 +2,7 @@
 
 @import "extends.scss";
 
-
+@import "preloader.scss";
 @import "header.scss";
 @import "first-page.scss";
 @import "awarding-prizes.scss";
@@ -280,7 +280,7 @@ body {
     //top: 8%;
     top: 52px;
     bottom: 0;
-    z-index: 9002;
+    z-index: 9000;
     overflow: hidden;
 
   }
@@ -293,13 +293,17 @@ body {
       display: none;
     }
     &-default {
+      top: auto;
+      bottom: -212px;
+      height: 1000px;
       //top: 10%;
       //bottom: -3%;
-      height: 1000px;
-      @media (max-width: $first-width) {
-        top: 15%;
-        bottom: -19%;
-      }
+      //height: 1000px;
+
+      //@media (max-width: $first-width) {
+      //  top: 15%;
+      //  bottom: -19%;
+      //}
     }
   }
   &_over-all {
@@ -499,31 +503,36 @@ body {
   }
   &_center-center-medium {
     left: 33%;
-    top: -23%;
+    //top: -23%;
+    top: -179px;
     width: 70%;
     z-index: 0;
   }
   &_center-left-medium {
     left: 15%;
-    top: -30%;
+    //top: -30%;
+    top: -229px;
     width: 70%;
     z-index: 0;
   }
   &_center-right-medium {
     left: 51%;
-    top: -30%;
+    //top: -30%;
+    top: -229px;
     width: 70%;
     z-index: 0;
   }
   &_border-left-medium {
     left: -19%;
-    top: -24%;
+    //top: -24%;
+    top: -190px;
     width: 70%;
     z-index: 0;
   }
   &_border-right-medium {
     left: 84%;
-    top: -24%;
+    //top: -24%;
+    top: -190px;
     width: 70%;
     z-index: 0;
   }
@@ -623,4 +632,6 @@ body {
 }
 
 
-
+.activ {
+  display: block;
+}
