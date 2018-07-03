@@ -252,6 +252,9 @@ $e: cubic-bezier(0,.5,.5,1.1);
   top: 0;
   left: 0;
   z-index: 8500;
+  @media (max-width: $mobile-width) {
+    display: none;
+  }
   &__container {
 
     width: 27%;//41%;//73%;

@@ -288,6 +288,9 @@
   top: 0;
   left: 0;
   z-index: 8500; }
+  @media (max-width: 768px) {
+    .logo {
+      display: none; } }
   .logo__container {
     width: 27%;
     min-width: 311px;
@@ -1353,17 +1356,22 @@ select:-webkit-autofill:focus {
   text-align: left; }
   @media (max-width: 768px) {
     .footer-block__left-align-block {
+      width: 100%;
       text-align: center; } }
 
 .footer-block__center-align-block {
   width: 38%;
   text-align: center; }
+  @media (max-width: 768px) {
+    .footer-block__center-align-block {
+      width: 100%; } }
 
 .footer-block__right-align-block {
   width: 30%;
   text-align: right; }
   @media (max-width: 768px) {
     .footer-block__right-align-block {
+      width: 100%;
       text-align: center; } }
 
 .footer-block__link {
@@ -2040,7 +2048,7 @@ body {
     position: absolute;
     left: 0;
     right: 0;
-    top: 52px;
+    top: 0;
     bottom: 0;
     z-index: 9000;
     overflow: hidden; }

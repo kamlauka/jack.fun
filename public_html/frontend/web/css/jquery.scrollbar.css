@@ -103,9 +103,10 @@
 }
 
 .external-scroll_y.scroll-scrolly_visible {
-    display: block;
+    display: inline-block;
+    position: absolute;
     height: 200px;
-    left: 610px;
+    left: 105%;
     top: 0;
     width: 7px;
 }
