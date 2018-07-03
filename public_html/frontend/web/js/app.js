@@ -72,8 +72,10 @@ var cloudLeft = $(".cloud-container_left-big").first();
 var cloudRight = $(".cloud-container_right-big").first();
 
 
-$(document).ready(function() {
-    console.log('scroll window' + document.body.scrollTop);
+$(window).on('load', function () {
+
+    // $("html, body").animate({ scrollTop: 0 }, 1);
+    // console.log('no');
     if (window.pageYOffset > 20 || document.body.scrollTop > 20) {
         console.log('yes! window' + window.pageYOffset +'body' + document.body.scrollTop + 'raznoe' + window.pageYOffset + 'i' + document.documentElement.scrollTop)
         logoContainer.removeClass("logo__container");
@@ -89,6 +91,13 @@ $(document).ready(function() {
     }
     animateClouds();
     animateNotes();
+});
+
+
+$(document).ready(function() {
+
+    console.log('scroll window' + document.body.scrollTop);
+
 });
 
 window.addEventListener('scroll', function () {
