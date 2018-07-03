@@ -174,18 +174,37 @@
     //bottom: 2%;
     //left: 0;
     //right: 0;
+    @media (max-width: $third-width) {
+      width: 50%;
+    }
     @media (max-width: $mobile-width) {
       bottom: -2%;
-      width: 83%;
+      width: 73%;
+      margin-top: 11%;
     }
     img {
       width: 100%;
+      //@media (max-width: $third-width) {
+      //  width: 80%;
+      //}
+      //@media (max-width: $fourth-width) {
+      //  width: 70%;
+      //}
+      @media (max-width: $mobile-width) {
+        width: 50%;
+      }
+      @media (max-width: 450px) {
+        width: 90%;
+      }
     }
     &-container {
       height: 100px;
       margin: 15px 0 0 0;
       width: 100px;
       position: relative;
+      @media (max-width: $mobile-width) {
+       display: none;
+      }
     }
   }
   &__title {

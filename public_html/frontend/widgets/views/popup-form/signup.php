@@ -30,7 +30,7 @@ $this->title = 'Registration';
     </label>
     <label class="label-for-checkbox">
 
-        <?= $form->field($model, 'agreement')->checkbox(['class'=>'label-for-checkbox__checkbox']) ?>
+        <?= $form->field($model, 'agreement')->checkbox(['class'=>'label-for-checkbox__checkbox'])->label(null,['class'=>' input-hidden']) ?>
         <div class="label-for-checkbox__wrap">
             <a class="pseudo-checkbox" onclick="checkboxClick()"></a>
             <span class="label-for-checkbox__name">I accept the <a class="white-link-underlining"  target="_blank" href="/site/agreement">&nbsp Terms of agreement</a></span>

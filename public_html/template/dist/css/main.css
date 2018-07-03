@@ -124,35 +124,6 @@
         right: 0;
         width: 31%; } }
 
-.preloader {
-  position: fixed;
-  height: 100%;
-  width: 100%;
-  left: 0;
-  top: 0;
-  z-index: 999999;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #FFFFFF;
-  background-position: center center;
-  background-repeat: no-repeat; }
-  .preloader__title {
-    position: relative;
-    z-index: 1;
-    font-family: IceAge;
-    font-size: 5em;
-    font-weight: normal;
-    color: white; }
-  .preloader__fill {
-    width: 100%;
-    height: 0;
-    position: absolute;
-    bottom: 0;
-    z-index: 0;
-    background-color: #FFB400;
-    transition: height 2s ease; }
-
 .header {
   position: fixed;
   z-index: 9999;
@@ -650,7 +621,8 @@
         margin: 0 50px; } }
     @media (max-width: 768px) {
       .participate__text {
-        margin: 0; } }
+        margin: 0;
+        margin-bottom: 3%; } }
     .participate__text_image_dollar:before {
       content: url("../images/main/dollar.png"); }
     .participate__text_image_dollar:after {
@@ -764,7 +736,11 @@
 
 .checkbox {
   position: absolute;
-  opacity: 0; }
+  width: 100%;
+  top: -5px; }
+
+.input-hidden {
+  display: none; }
 
 .input-text {
   width: 100%;
@@ -1536,7 +1512,7 @@ select:-webkit-autofill:focus {
 
 @media (max-width: 1052px) {
   .participate {
-    padding-top: 10%; } }
+    padding-top: 4%; } }
 
 .participate_top {
   margin-top: 7%;
@@ -1836,17 +1812,30 @@ select:-webkit-autofill:focus {
   .disputes__image {
     position: relative;
     bottom: -1%; }
+    @media (max-width: 1052px) {
+      .disputes__image {
+        width: 50%; } }
     @media (max-width: 768px) {
       .disputes__image {
         bottom: -2%;
-        width: 83%; } }
+        width: 73%;
+        margin-top: 11%; } }
     .disputes__image img {
       width: 100%; }
+      @media (max-width: 768px) {
+        .disputes__image img {
+          width: 50%; } }
+      @media (max-width: 450px) {
+        .disputes__image img {
+          width: 90%; } }
     .disputes__image-container {
       height: 100px;
       margin: 15px 0 0 0;
       width: 100px;
       position: relative; }
+      @media (max-width: 768px) {
+        .disputes__image-container {
+          display: none; } }
   .disputes__title {
     color: white; }
 
