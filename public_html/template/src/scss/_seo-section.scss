@@ -38,15 +38,8 @@
     @include mini-font_1-3em($mobile-width);
   }
 
-  &__text {
-    max-height: 200px;
-    padding: 0 20px;
+  &__text-container {
     margin-bottom: 27%;
-    font-family: $add-font;
-    font-weight: bold;
-    @extend ._font__1-5em;
-    @include mini-font_1em($first-width);
-
     @media (max-width: $first-width) {
       margin: 40px 40px 35%;
     }
@@ -59,12 +52,24 @@
       margin: 0;
       margin-bottom: 20px;
     }
+  }
+
+  &__text {
+    max-height: 200px;
+    padding: 0 20px;
+
+    font-family: $add-font;
+    font-weight: bold;
+    @extend ._font__1-5em;
+    @include mini-font_1em($first-width);
+
+
 
   }
 }
 
 .scrolling {
-  //overflow-y: scroll;
+  overflow-y: scroll;
   max-height: 200px;
   &::-webkit-scrollbar {
     width: 7px;
