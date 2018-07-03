@@ -72,54 +72,44 @@ var cloudLeft = $(".cloud-container_left-big").first();
 var cloudRight = $(".cloud-container_right-big").first();
 var miniLogoContainer = $('.logo-mini__container').first();
 
-
-<<<<<<< HEAD
-//когда страница грузится не с начала, загружаем мобильный логотип
-$(document).ready(function() {
-    $("html, body").animate({ scrollTop: 0 }, 1);
-    if (window.pageYOffset > 100 || document.body.scrollTop > 30) {
-        // logoContainer.removeClass("logo__container");
-        logoContainer.addClass("hidden");
-        miniLogoContainer.removeClass("hidden");
-        // logo.attr('src', '../images/common/logo-mini.png');
-        // logo.removeClass("logo__image");
-        // logo.addClass("logo-mini__image");
-=======
 $(window).on('load', function () {
-
-    // $("html, body").animate({ scrollTop: 0 }, 1);
-    // console.log('no');
-    if (window.pageYOffset > 20 || document.body.scrollTop > 20) {
-        console.log('yes! window' + window.pageYOffset +'body' + document.body.scrollTop + 'raznoe' + window.pageYOffset + 'i' + document.documentElement.scrollTop)
-        logoContainer.removeClass("logo__container");
-        logoContainer.addClass("logo-mini__container");
-        logo.attr('src', '../images/common/logo-mini.png');
-        logo.removeClass("logo__image");
-        logo.addClass("logo-mini__image");
->>>>>>> 33f275a251499110e5854256fd58b4126cd6cdd9
-        clouds.css('display', 'none');
-        // logoPosition.css('z-index', '2');
-    } else {
-        console.log('window' + window.pageYOffset +'body' + document.body.scrollTop + 'raznoe' + window.pageYOffset + 'i' + document.documentElement.scrollTop)
-        logoPosition.css('z-index', '1');
-    }
+        $("html, body").animate({ scrollTop: 0 }, 1);
+        console.log('no');
     animateClouds();
     animateNotes();
 });
 
-<<<<<<< HEAD
-document.documentElement.addEventListener('scroll', function () {
-=======
 
-$(document).ready(function() {
+//когда страница грузится не с начала, загружаем мобильный логотип
+// $(document).ready(function() {
+//     if (window.pageYOffset > 100 || document.body.scrollTop > 30) {
+//         // logoContainer.removeClass("logo__container");
+//         logoContainer.addClass("hidden");
+//         miniLogoContainer.removeClass("hidden");
+//         // logo.attr('src', '../images/common/logo-mini.png');
+//         // logo.removeClass("logo__image");
+//         // logo.addClass("logo-mini__image");
+//         clouds.css('display', 'none');
+//         // logoPosition.css('z-index', '2');
+//     } else {
+//         console.log('window' + window.pageYOffset +'body' + document.body.scrollTop + 'raznoe' + window.pageYOffset + 'i' + document.documentElement.scrollTop)
+//         logoPosition.css('z-index', '1');
+//     }
+//
+// });
 
-    console.log('scroll window' + document.body.scrollTop);
+var timer;
 
-});
+$(window).scroll(function() {
+    if(timer) {
+        window.clearTimeout(timer);
+    }
 
-window.addEventListener('scroll', function () {
->>>>>>> 33f275a251499110e5854256fd58b4126cd6cdd9
-    if(($(this).scrollTop() <= logo.offset().top) || (window.pageYOffset < logo.offset().top)) {
+    //
+    //$( "p" ).off();
+
+    
+    timer = window.setTimeout(function() {
         logoMain.css({'position': 'fixed'});//, 'z-index': '10000'
         logo.attr('src', '../images/common/logo.gif');
         cloudBottom.css({'display' : 'block'});
@@ -140,10 +130,40 @@ window.addEventListener('scroll', function () {
         tl.to(logoContainer, 1, {backgroundPosition: 'center'},1.5);
         tl.to(clouds, 0.1, {display: 'none'},3.1);
         tl.to(logoPosition, 0.1, {zIndex: '2'},1.7);
-    }
-    this.removeEventListener('scroll', arguments.callee);
+    }, 100);
 });
 
+
+// $(window).scroll(function () {
+//
+// });
+
+// window.addEventListener('scroll', function () {
+//     if(($(this).scrollTop() <= logo.offset().top) || (window.pageYOffset < logo.offset().top)) {
+//         logoMain.css({'position': 'fixed'});//, 'z-index': '10000'
+//         logo.attr('src', '../images/common/logo.gif');
+//         cloudBottom.css({'display' : 'block'});
+//         var tl = new TimelineMax({yoyo:false});
+//         tl.fromTo(cloudLeft, 2, {opacity: 0.7}, {left: '26%', opacity: 1, width: '130%'},0).to (cloudLeft, 2, { left : '-11%', opacity: 0, width: '90%' },1);
+//         tl.fromTo(cloudRight, 2, {opacity: 0.7}, {left: '26%', opacity: 1, width: '130%'},0).to (cloudRight, 2, { left : '61%', opacity: 0, width: '90%'  },1);
+//         tl.fromTo(cloudBottom, 2, {opacity: 0.7}, {top: '-7%', opacity: 1, width: '130%'},0).to (cloudBottom, 2, { top : '27%', opacity: 0, width: '90%'  },1);
+//
+//         tl.to(logoContainer, 1,
+//             {
+//                 width: '200px',
+//                 minWidth: '200px',
+//                 padding: '5px 0 0',
+//             },1.2);
+//         tl.to(logo, 1, {width: '140px'},1.2);
+//         tl.to(logoMain, .1, {zIndex: '10000'},1.2);
+//
+//         tl.to(logoContainer, 1, {backgroundPosition: 'center'},1.5);
+//         tl.to(clouds, 0.1, {display: 'none'},3.1);
+//         tl.to(logoPosition, 0.1, {zIndex: '2'},1.7);
+//     }
+//     this.removeEventListener('scroll', arguments.callee);
+// });
+//
 
 
 
