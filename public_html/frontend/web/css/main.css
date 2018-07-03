@@ -2037,7 +2037,7 @@ body {
   .clouds_jackpot {
     top: 4%; }
   .clouds_fixed {
-    position: fixed;
+    position: absolute;
     left: 0;
     right: 0;
     top: 52px;

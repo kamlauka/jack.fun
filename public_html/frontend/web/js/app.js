@@ -70,19 +70,21 @@ var clouds = $(".clouds_fixed").first();
 var cloudBottom = $(".cloud-container_bottom-scale").first();
 var cloudLeft = $(".cloud-container_left-big").first();
 var cloudRight = $(".cloud-container_right-big").first();
+var miniLogoContainer = $('.logo-mini__container').first();
 
 
+//когда страница грузится не с начала, загружаем мобильный логотип
 $(document).ready(function() {
-    console.log('scroll window' + document.body.scrollTop);
-    if (window.pageYOffset > 20 || document.body.scrollTop > 20) {
-        console.log('yes! window' + window.pageYOffset +'body' + document.body.scrollTop + 'raznoe' + window.pageYOffset + 'i' + document.documentElement.scrollTop)
-        logoContainer.removeClass("logo__container");
-        logoContainer.addClass("logo-mini__container");
-        logo.attr('src', '../images/common/logo-mini.png');
-        logo.removeClass("logo__image");
-        logo.addClass("logo-mini__image");
+    $("html, body").animate({ scrollTop: 0 }, 1);
+    if (window.pageYOffset > 100 || document.body.scrollTop > 30) {
+        // logoContainer.removeClass("logo__container");
+        logoContainer.addClass("hidden");
+        miniLogoContainer.removeClass("hidden");
+        // logo.attr('src', '../images/common/logo-mini.png');
+        // logo.removeClass("logo__image");
+        // logo.addClass("logo-mini__image");
         clouds.css('display', 'none');
-        logoPosition.css('z-index', '2');
+        // logoPosition.css('z-index', '2');
     } else {
         console.log('window' + window.pageYOffset +'body' + document.body.scrollTop + 'raznoe' + window.pageYOffset + 'i' + document.documentElement.scrollTop)
         logoPosition.css('z-index', '1');
@@ -91,7 +93,7 @@ $(document).ready(function() {
     animateNotes();
 });
 
-window.addEventListener('scroll', function () {
+document.documentElement.addEventListener('scroll', function () {
     if(($(this).scrollTop() <= logo.offset().top) || (window.pageYOffset < logo.offset().top)) {
         logoMain.css({'position': 'fixed'});//, 'z-index': '10000'
         logo.attr('src', '../images/common/logo.gif');
@@ -218,3 +220,4 @@ function animateNotes() {
     tl2.to(note4, 0.5, {y: -10,ease: Back.easeInOut.config(1.7)}, 1.5);
     tl2.to(note4, 0.5, {y: 0,ease: Back.easeInOut.config(1.7)}, 0);
 }
+

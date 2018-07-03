@@ -98,7 +98,9 @@ AppAsset::register($this);
     <div class="logo-mini">
 
             <?php if(Yii::$app->controller->route === 'site/index'){?>
-<!--            если главнкая то показать картинку-->
+                <div class="logo-mini__container hidden">
+                    <a href="/"><img src="/images/common/logo-mini.png" alt="" class="logo-mini__image"></a>
+                </div>
 <div></div>
             <?php }else{ ?>
 <!--            если не главнкая то показать картинку-->

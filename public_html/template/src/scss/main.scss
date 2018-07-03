@@ -274,7 +274,8 @@ body {
   //animation: opacityc 1s 1s linear;
   &_fixed {
     //display: none;
-    position: fixed;
+    //position: fixed;
+    position: absolute;
     left: 0;
     right: 0;
     //top: 8%;
