@@ -255,22 +255,6 @@ function animateNotes() {
 
     var tl1 = new TimelineMax({yoyo:true, repeat:-1, ease: Power0.easeNone});
     var tl2 = new TimelineMax({yoyo:true, repeat:-1, ease: Back.easeInOut.config(1.7)});
-<<<<<<< HEAD
-    // tl1.to(note1, 1, {rotation:-20, ease: Power0.easeNone}, 'edge');
-    // tl1.to(note2, 1, {rotation:20, ease: Power0.easeNone}, 'edge');
-    // tl1.to(note3, 1, {rotation:-20, ease: Power0.easeNone}, 'edge');
-    // tl1.to(note4, 1, {rotation:20, ease: Power0.easeNone}, 'edge');
-
-    tl2.to(note1, 0.5, {y: -10, ease: Back.easeInOut.config(1.7)}, 0);
-    tl2.to(note1, 0.5, {y: 0, ease: Back.easeInOut.config(1.7)}, 0.5);
-    tl2.to(note2, 0.5, {y: -10, ease: Back.easeInOut.config(1.7)}, 0.5);
-    tl2.to(note2, 0.5, {y: 0,ease: Back.easeInOut.config(1.7)}, 1);
-    tl2.to(note3, 0.5, {y: -10,ease: Back.easeInOut.config(1.7)}, 1);
-    tl2.to(note3, 0.5, {y: 0,ease: Back.easeInOut.config(1.7)}, 1.5);
-    tl2.to(note4, 0.5, {y: -10,ease: Back.easeInOut.config(1.7)}, 1.5);
-    tl2.to(note4, 0.5, {y: 0,ease: Back.easeInOut.config(1.7)}, 0);
-}
-=======
     tl1.to(note1, 1, {rotation:-20, ease: Power0.easeNone}, 'edge');
     tl1.to(note2, 1, {rotation:20, ease: Power0.easeNone}, 'edge');
     tl1.to(note3, 1, {rotation:-20, ease: Power0.easeNone}, 'edge');
@@ -284,4 +268,4 @@ function animateNotes() {
     tl2.to(note3, 0.5, {y: 0}, 3);
     tl2.to(note4, 0.5, {y: -20}, 4);
 }
->>>>>>> 1a15c8fe24b182b7014fa6faf249a5cfbe463534
+
