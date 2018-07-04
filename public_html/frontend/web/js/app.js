@@ -44,7 +44,6 @@ function checkboxClick() {
 
 //Вызов попапа с какой-либо формой
 function showForm(activeForm) {
-    $('#link-top').attr('checked', false);
     $('.forms').css('display', 'flex');
     var kids = $('.forms__popup').children();
     kids.css('display', 'none');
@@ -63,92 +62,39 @@ function targetFunc(e) {
 //поведение анимации лого на главной
 
 var logoPosition = $(".logo-mini").first();
-var logoMain = $(".logo").first();
 var logoContainer = $(".logo__container").first();
 var logo = $(".logo__image").first();
 var clouds = $(".clouds_fixed").first();
 var cloudBottom = $(".cloud-container_bottom-scale").first();
 var cloudLeft = $(".cloud-container_left-big").first();
 var cloudRight = $(".cloud-container_right-big").first();
-var miniLogoContainer = $('.logo-mini__container').first();
 
-$(window).on('load', function () {
-    console.log(window.pageYOffset);
-        $("html, body").animate({ scrollTop: 0 }, 1);
-    console.log(window.pageYOffset);
+
+$(document).ready(function() {
+    console.log('scroll window' + document.body.scrollTop);
+    if (window.pageYOffset > 20 || document.body.scrollTop > 20) {
+        console.log('yes! window' + window.pageYOffset +'body' + document.body.scrollTop + 'raznoe' + window.pageYOffset + 'i' + document.documentElement.scrollTop)
+        logoContainer.removeClass("logo__container");
+        logoContainer.addClass("logo-mini__container");
+        logo.attr('src', '../images/common/logo-mini.png');
+        logo.removeClass("logo__image");
+        logo.addClass("logo-mini__image");
+        clouds.css('display', 'none');
+        logoPosition.css('z-index', '2');
+    } else {
+        console.log('window' + window.pageYOffset +'body' + document.body.scrollTop + 'raznoe' + window.pageYOffset + 'i' + document.documentElement.scrollTop)
+        logoPosition.css('z-index', '1');
+    }
     animateClouds();
     animateNotes();
 });
 
-
-//когда страница грузится не с начала, загружаем мобильный логотип
-// $(document).ready(function() {
-//     if (window.pageYOffset > 100 || document.body.scrollTop > 30) {
-//         // logoContainer.removeClass("logo__container");
-//         logoContainer.addClass("hidden");
-//         miniLogoContainer.removeClass("hidden");
-//         // logo.attr('src', '../images/common/logo-mini.png');
-//         // logo.removeClass("logo__image");
-//         // logo.addClass("logo-mini__image");
-//         clouds.css('display', 'none');
-//         // logoPosition.css('z-index', '2');
-//     } else {
-//         console.log('window' + window.pageYOffset +'body' + document.body.scrollTop + 'raznoe' + window.pageYOffset + 'i' + document.documentElement.scrollTop)
-//         logoPosition.css('z-index', '1');
-//     }
-//
-// });
-
-// var timer;
-
-// $(window).one('scroll', function() {
-//     if(timer) {
-//         window.clearTimeout(timer);
-//     }
-
-    //
-    //$( "p" ).off();
-
-//
-//     timer = window.setTimeout(function() {
-//         if (window.pageYOffset === 0) {
-//             logoMain.css({'position': 'fixed'});//, 'z-index': '10000'
-//             logo.attr('src', '../images/common/logo.gif');
-//             cloudBottom.css({'display' : 'block'});
-//             var tl = new TimelineMax({yoyo:false});
-//             tl.fromTo(cloudLeft, 2, {opacity: 0.7}, {left: '26%', opacity: 1, width: '130%'},0).to (cloudLeft, 2, { left : '-11%', opacity: 0, width: '90%' },1);
-//             tl.fromTo(cloudRight, 2, {opacity: 0.7}, {left: '26%', opacity: 1, width: '130%'},0).to (cloudRight, 2, { left : '61%', opacity: 0, width: '90%'  },1);
-//             tl.fromTo(cloudBottom, 2, {opacity: 0.7}, {top: '-7%', opacity: 1, width: '130%'},0).to (cloudBottom, 2, { top : '27%', opacity: 0, width: '90%'  },1);
-//
-//             tl.to(logoContainer, 1,
-//                 {
-//                     width: '200px',
-//                     minWidth: '200px',
-//                     padding: '5px 0 0',
-//                 },1.2);
-//             tl.to(logo, 1, {width: '140px'},1.2);
-//             tl.to(logoMain, .1, {zIndex: '10000'},1.2);
-//
-//             tl.to(logoContainer, 1, {backgroundPosition: 'center'},1.5);
-//             tl.to(clouds, 0.1, {display: 'none'},3.1);
-//             tl.to(logoPosition, 0.1, {zIndex: '2'},1.7);
-//         }
-//
-//     }, 5000);
-// });
-
-
-// $(window).scroll(function () {
-//
-// });
-
 window.addEventListener('scroll', function () {
-    console.log('scroll' + $(window).scrollTop);
-    if($(window).scrollTop() > 0 && $(window).scrollTop() < 564) {
-        logoMain.css({'position': 'fixed'});//, 'z-index': '10000'
+    if(($(this).scrollTop() <= logo.offset().top) || (window.pageYOffset < logo.offset().top)) {
+
         logo.attr('src', '../images/common/logo.gif');
         cloudBottom.css({'display' : 'block'});
-        var tl = new TimelineMax({yoyo:false});
+        tl = new TimelineMax({yoyo:false});
         tl.fromTo(cloudLeft, 2, {opacity: 0.7}, {left: '26%', opacity: 1, width: '130%'},0).to (cloudLeft, 2, { left : '-11%', opacity: 0, width: '90%' },1);
         tl.fromTo(cloudRight, 2, {opacity: 0.7}, {left: '26%', opacity: 1, width: '130%'},0).to (cloudRight, 2, { left : '61%', opacity: 0, width: '90%'  },1);
         tl.fromTo(cloudBottom, 2, {opacity: 0.7}, {top: '-7%', opacity: 1, width: '130%'},0).to (cloudBottom, 2, { top : '27%', opacity: 0, width: '90%'  },1);
@@ -160,15 +106,13 @@ window.addEventListener('scroll', function () {
                 padding: '5px 0 0',
             },1.2);
         tl.to(logo, 1, {width: '140px'},1.2);
-        tl.to(logoMain, .1, {zIndex: '10000'},1.2);
-
         tl.to(logoContainer, 1, {backgroundPosition: 'center'},1.5);
         tl.to(clouds, 0.1, {display: 'none'},3.1);
         tl.to(logoPosition, 0.1, {zIndex: '2'},1.7);
     }
     this.removeEventListener('scroll', arguments.callee);
 });
-//
+
 
 
 
@@ -256,18 +200,16 @@ function animateNotes() {
 
     var tl1 = new TimelineMax({yoyo:true, repeat:-1, ease: Power0.easeNone});
     var tl2 = new TimelineMax({yoyo:true, repeat:-1, ease: Back.easeInOut.config(1.7)});
-    // tl1.to(note1, 1, {rotation:-20, ease: Power0.easeNone}, 'edge');
-    // tl1.to(note2, 1, {rotation:20, ease: Power0.easeNone}, 'edge');
-    // tl1.to(note3, 1, {rotation:-20, ease: Power0.easeNone}, 'edge');
-    // tl1.to(note4, 1, {rotation:20, ease: Power0.easeNone}, 'edge');
+    tl1.to(note1, 1, {rotation:-20, ease: Power0.easeNone}, 'edge');
+    tl1.to(note2, 1, {rotation:20, ease: Power0.easeNone}, 'edge');
+    tl1.to(note3, 1, {rotation:-20, ease: Power0.easeNone}, 'edge');
+    tl1.to(note4, 1, {rotation:20, ease: Power0.easeNone}, 'edge');
 
-    tl2.to(note1, 0.5, {y: -10, ease: Back.easeInOut.config(1.7)}, 0);
-    tl2.to(note1, 0.5, {y: 0, ease: Back.easeInOut.config(1.7)}, 0.5);
-    tl2.to(note2, 0.5, {y: -10, ease: Back.easeInOut.config(1.7)}, 0.5);
-    tl2.to(note2, 0.5, {y: 0,ease: Back.easeInOut.config(1.7)}, 1);
-    tl2.to(note3, 0.5, {y: -10,ease: Back.easeInOut.config(1.7)}, 1);
-    tl2.to(note3, 0.5, {y: 0,ease: Back.easeInOut.config(1.7)}, 1.5);
-    tl2.to(note4, 0.5, {y: -10,ease: Back.easeInOut.config(1.7)}, 1.5);
-    tl2.to(note4, 0.5, {y: 0,ease: Back.easeInOut.config(1.7)}, 0);
+    tl2.to(note1, 0.5, {y: -20}, 0);
+    tl2.to(note1, 0.5, {y: 0}, 1);
+    tl2.to(note2, 0.5, {y: -20}, 2);
+    tl2.to(note2, 0.5, {y: 0}, 2);
+    tl2.to(note3, 0.5, {y: -20}, 3);
+    tl2.to(note3, 0.5, {y: 0}, 3);
+    tl2.to(note4, 0.5, {y: -20}, 4);
 }
-
