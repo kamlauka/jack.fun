@@ -64,6 +64,7 @@ function targetFunc(e) {
 var logoPosition = $(".logo-mini").first();
 var logoContainer = $(".logo__container").first();
 var logo = $(".logo__image").first();
+var logoText = $(".logo__text").first();
 var clouds = $(".clouds_fixed").first();
 var cloudBottom = $(".cloud-container_bottom-scale").first();
 var cloudLeft = $(".cloud-container_left-big").first();
@@ -73,6 +74,7 @@ var cloudRight = $(".cloud-container_right-big").first();
 $(document).ready(function() {
     console.log('scroll window' + document.body.scrollTop);
     if (window.pageYOffset > 20 || document.body.scrollTop > 20) {
+        logoText.css('z-index', '8999');
         console.log('yes! window' + window.pageYOffset +'body' + document.body.scrollTop + 'raznoe' + window.pageYOffset + 'i' + document.documentElement.scrollTop)
         logoContainer.removeClass("logo__container");
         logoContainer.addClass("logo-mini__container");
@@ -98,6 +100,7 @@ window.addEventListener('scroll', function () {
         tl.fromTo(cloudLeft, 2, {opacity: 0.7}, {left: '26%', opacity: 1, width: '130%'},0).to (cloudLeft, 2, { left : '-11%', opacity: 0, width: '90%' },1);
         tl.fromTo(cloudRight, 2, {opacity: 0.7}, {left: '26%', opacity: 1, width: '130%'},0).to (cloudRight, 2, { left : '61%', opacity: 0, width: '90%'  },1);
         tl.fromTo(cloudBottom, 2, {opacity: 0.7}, {top: '-7%', opacity: 1, width: '130%'},0).to (cloudBottom, 2, { top : '27%', opacity: 0, width: '90%'  },1);
+        tl.to(logoText, 2, {zIndex: 8999},0.2);
 
         tl.to(logoContainer, 1,
             {
