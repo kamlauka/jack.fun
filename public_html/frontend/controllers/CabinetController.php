@@ -94,28 +94,35 @@ class CabinetController extends Controller
         $model = new ChangePasswordForm();
 
         if($model->load(Yii::$app->request->post())) {
-            $hash = Yii::$app->getSecurity()->generatePasswordHash($model->passold);
+          //  $hash = Yii::$app->getSecurity()->generatePasswordHash($model->passold);
 
-            if (Yii::$app->getSecurity()->validatePassword($model->password, $hash)) {
-                $dd= 'ok';// всё хорошо, пользователь может войти
+            $user = User::findOne(\Yii::$app->user->id);
+
+            if (Yii::$app->getSecurity()->validatePassword($model->passold, $user->password_hash)) {
+
+                if($model->change()){
+
+                    Yii::$app->session->setFlash('success', 'Your password has been successfully changed!');
+                    return $this->redirect('/cabinet');
+
+                }else{
+                    Yii::$app->session->setFlash('success', 'Пароль не сохранен');
+                    return $this->redirect('/cabinet');
+                }
+
+
             } else {
-                $dd='on';// неправильный пароль
+                // неправильный пароль
+                Yii::$app->session->setFlash('success', 'Ошибка в старом пароле');
+                return $this->redirect('/cabinet');
             }
 
-            return $this->redirect('/cabinet');
-
-
-
-            $passold = User::findOne(\Yii::$app->user->id);
-            if(($hash == $passold->password_hash) && $model->change()){
-            Yii::$app->session->setFlash('success', 'Your password has been successfully changed!');
-            return $this->redirect('/cabinet');
-            }
-
             } else {
+
             return $this->renderPartial('change-password', [
                 'model' => $model,
             ]);
+
         }
     }
 
