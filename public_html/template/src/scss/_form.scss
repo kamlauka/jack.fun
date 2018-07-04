@@ -12,6 +12,9 @@
       margin-top: 90px;
     }
   }
+  &_active-flex {
+    display: flex;
+  }
 }
 
 
@@ -43,6 +46,7 @@
   &__forgot-pass {
     display: block;
     margin-top: 20px;
+    margin-bottom: 20px;
   }
   &__close {
     position: absolute;
@@ -85,7 +89,6 @@
     width: 100%;
   }
 }
-
 
 
 .label {
@@ -169,3 +172,5 @@ select:-webkit-autofill:focus {
   background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(0,174,255,0.04) 50%,rgba(255,255,255,0) 51%,rgba(0,174,255,0.03) 100%);
   font-family: $main-font;
 }
+
+

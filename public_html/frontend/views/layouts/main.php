@@ -73,7 +73,7 @@ AppAsset::register($this);
     </div>
 
     <div class="orange-border orange-border_edge"></div>
-    <div class="forms <?= isset(Yii::$app->params['popup']) ? 'activ': ''?>" data="<?= isset(Yii::$app->params['popup']) ? 'activ': ''?>">
+    <div class="forms <?= isset(Yii::$app->params['popup']) ? 'forms_active-flex': ''?>" data="<?= isset(Yii::$app->params['popup']) ? 'activ': ''?>">
 
         <div class="popup forms__popup"  onclick="targetFunc(e)">
 

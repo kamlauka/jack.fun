@@ -11,10 +11,10 @@
 ._font__2-3em {
   font-size: 2.3em; }
 
-._font__1-5em, .seo-block__text, .footer-container {
+._font__1-5em, .footer-container {
   font-size: 1.5em; }
 
-._font__1-3em {
+._font__1-3em, .seo-block__text {
   font-size: 1.3em; }
 
 ._font__1-2em {
@@ -288,11 +288,11 @@
   z-index: 3; }
 
 .logo-mini {
-  width: 40%;
   position: absolute;
   top: 0%;
   z-index: 2;
-  margin: 0 30%; }
+  width: 37%;
+  margin: 0 31.5%; }
   .logo-mini__image {
     width: 100px;
     z-index: 9001;
@@ -652,6 +652,8 @@
     @media (max-height: 772px) {
       .forms__popup {
         margin-top: 90px; } }
+  .forms_active-flex {
+    display: flex; }
 
 .help-block {
   position: absolute;
@@ -678,7 +680,8 @@
     position: relative; }
   .popup__forgot-pass {
     display: block;
-    margin-top: 20px; }
+    margin-top: 20px;
+    margin-bottom: 20px; }
   .popup__close {
     position: absolute;
     right: -14px;
@@ -1309,11 +1312,11 @@ select:-webkit-autofill:focus {
       margin-bottom: 20px; } }
 
 .seo-block__text {
-  max-height: 200px;
+  max-height: 400px;
   padding: 0 20px;
   font-family: ShowCardGothic;
   font-weight: bold; }
-  @media (max-width: 1550px) {
+  @media (max-width: 820px) {
     .seo-block__text {
       font-size: 1em; } }
 

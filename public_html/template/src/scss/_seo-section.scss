@@ -55,13 +55,13 @@
   }
 
   &__text {
-    max-height: 200px;
+    max-height: 400px;
     padding: 0 20px;
 
     font-family: $add-font;
     font-weight: bold;
-    @extend ._font__1-5em;
-    @include mini-font_1em($first-width);
+    @extend ._font__1-3em;
+    @include mini-font_1em($fourth-width);
 
 
 
