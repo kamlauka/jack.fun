@@ -44,7 +44,8 @@
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  margin-top: 520px;
+  margin-top: 584px;
+
   margin-bottom: 2%;
   @keyframes steps {
     0% {
@@ -108,8 +109,9 @@
 
   &__text {
     position: absolute;
-    z-index: 9000;
-    text-shadow: 0 0 1em #ec8c00, 0 0 3em #ec8c00, 0 0 5em #ec8c00;
+    z-index: 8999;
+    //text-shadow: 0 0 1em #ec8c00, 0 0 3em #ec8c00, 0 0 5em #ec8c00;
+    text-shadow: 0 0 1em #ec8c00, 0 0 1em #ec8c00, 0 0 1em #ec8c00;
     color: white;
     font-weight: normal;
     text-align: center;

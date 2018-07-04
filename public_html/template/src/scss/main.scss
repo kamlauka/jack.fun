@@ -2,7 +2,7 @@
 
 @import "extends.scss";
 
-
+@import "preloader.scss";
 @import "header.scss";
 @import "first-page.scss";
 @import "awarding-prizes.scss";
@@ -285,7 +285,7 @@ body {
 
   }
   &_bottom {
-    top: 1107px;
+    top: 1032px;
     //top: 75%;
     width: 170%;
     //bottom: -10%;

@@ -44,6 +44,7 @@ function checkboxClick() {
 
 //Вызов попапа с какой-либо формой
 function showForm(activeForm) {
+    $('#link-top').attr('checked', false);
     $('.forms').css('display', 'flex');
     var kids = $('.forms__popup').children();
     kids.css('display', 'none');
@@ -63,6 +64,7 @@ function targetFunc(e) {
 
 var logoPosition = $(".logo-mini").first();
 var logoContainer = $(".logo__container").first();
+var mobileLogo = $(".logo-mini__image").first();
 var logo = $(".logo__image").first();
 var logoText = $(".logo__text").first();
 var clouds = $(".clouds_fixed").first();
@@ -70,48 +72,60 @@ var cloudBottom = $(".cloud-container_bottom-scale").first();
 var cloudLeft = $(".cloud-container_left-big").first();
 var cloudRight = $(".cloud-container_right-big").first();
 
-
+// с какого места начал юзер?
+//если с середины страницы, то включаем лого конечное
 $(document).ready(function() {
-    console.log('scroll window' + document.body.scrollTop);
-    if (window.pageYOffset > 20 || document.body.scrollTop > 20) {
-        logoText.css('z-index', '8999');
-        console.log('yes! window' + window.pageYOffset +'body' + document.body.scrollTop + 'raznoe' + window.pageYOffset + 'i' + document.documentElement.scrollTop)
+    if (window.pageYOffset > 200 || document.body.scrollTop > 200) {
+        clouds.css('display', 'none');
+        logoPosition.css({'z-index': '10000', 'position': 'fixed'});
+        mobileLogo.removeClass("hidden");
+        logo.addClass("hidden");
         logoContainer.removeClass("logo__container");
         logoContainer.addClass("logo-mini__container");
-        logo.attr('src', '../images/common/logo-mini.png');
-        logo.removeClass("logo__image");
-        logo.addClass("logo-mini__image");
-        clouds.css('display', 'none');
-        logoPosition.css('z-index', '2');
-    } else {
-        console.log('window' + window.pageYOffset +'body' + document.body.scrollTop + 'raznoe' + window.pageYOffset + 'i' + document.documentElement.scrollTop)
-        logoPosition.css('z-index', '1');
     }
+    if ($(div).hasClass('popup__configuration')) {
+        showForm('.popup__configuration');
+
+    } else {
+        console.log('no form configurations');
+    }
+        // logoText.css('z-index', '8999');
+        // logoPosition.css('z-index', '2');
+        // logo.attr('src', '../images/common/logo-mini.png');
+        // logo.removeClass("logo__image");
+        // logo.addClass("logo-mini__image");
+    // }
+        // else {
+    //     console.log('window' + window.pageYOffset +'body' + document.body.scrollTop + 'raznoe' + window.pageYOffset + 'i' + document.documentElement.scrollTop)
+    //     logoPosition.css('z-index', '1');
+    // }
     animateClouds();
     animateNotes();
 });
-
+//если с начала, то включаем начальное лого и анимируем его
 window.addEventListener('scroll', function () {
-    if(($(this).scrollTop() <= logo.offset().top) || (window.pageYOffset < logo.offset().top)) {
-
+    //logo.offset().top
+    if((($(this).scrollTop() <= 200) || (window.pageYOffset < 200)) && logoContainer.hasClass('logo__container')) {
         logo.attr('src', '../images/common/logo.gif');
         cloudBottom.css({'display' : 'block'});
         tl = new TimelineMax({yoyo:false});
         tl.fromTo(cloudLeft, 2, {opacity: 0.7}, {left: '26%', opacity: 1, width: '130%'},0).to (cloudLeft, 2, { left : '-11%', opacity: 0, width: '90%' },1);
         tl.fromTo(cloudRight, 2, {opacity: 0.7}, {left: '26%', opacity: 1, width: '130%'},0).to (cloudRight, 2, { left : '61%', opacity: 0, width: '90%'  },1);
         tl.fromTo(cloudBottom, 2, {opacity: 0.7}, {top: '-7%', opacity: 1, width: '130%'},0).to (cloudBottom, 2, { top : '27%', opacity: 0, width: '90%'  },1);
-        tl.to(logoText, 2, {zIndex: 8999},0.2);
+        // tl.to(logoText, 2, {zIndex: 8999},0.2);
+        tl.to(logoPosition, 1, {zIndex: 10000, position: 'fixed'},0.2);
 
         tl.to(logoContainer, 1,
             {
                 width: '200px',
                 minWidth: '200px',
                 padding: '5px 0 0',
+                // position: 'fixed',
             },1.2);
         tl.to(logo, 1, {width: '140px'},1.2);
         tl.to(logoContainer, 1, {backgroundPosition: 'center'},1.5);
         tl.to(clouds, 0.1, {display: 'none'},3.1);
-        tl.to(logoPosition, 0.1, {zIndex: '2'},1.7);
+        // tl.to(logoPosition, 0.1, {zIndex: '2'},1.7);
     }
     this.removeEventListener('scroll', arguments.callee);
 });

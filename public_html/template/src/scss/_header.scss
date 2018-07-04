@@ -218,11 +218,13 @@ $e: cubic-bezier(0,.5,.5,1.1);
 
 
 .logo-mini {
-  width: 40%;
+  //width: 40%;
+  //margin: 0 30%;
   position: absolute;
   top: 0%;
   z-index: 2;
-  margin: 0 30%;
+  width: 37%;
+  margin: 0 31.5%;
   //pointer-events: none;
   &__image {
     width: 100px;

@@ -91,48 +91,26 @@ AppAsset::register($this);
                 'model' => isset(Yii::$app->params['password']) ? Yii::$app->params['password'] :  new \frontend\models\PasswordResetRequestForm,
                 'view' => 'passwordReset'
             ]) ?>
-
+            <?= Alert::widget() ?>
         </div>
+
     </div>
 
-    <div class="logo-mini">
+
 
         <?php if(Yii::$app->controller->route === 'site/index'){?>
             <!--            если главнкая то показать картинку-->
-            <div class="logo__container">
-                <img src="/images/common/logo.png" alt="" class="logo__image">
-            </div>
-            <div class="clouds clouds_fixed">
-                <div class="cloud-container cloud-container_left-big">
-                    <div class="cloud">
-                        <div class="cloud cloud__cloud1"></div>
-                        <div class="cloud cloud__cloud2"></div>
-                        <div class="cloud cloud__cloud3"></div>
-                    </div>
-                </div>
-                <div class="cloud-container cloud-container_right-big">
-                    <div class="cloud">
-                        <div class="cloud cloud__cloud1"></div>
-                        <div class="cloud cloud__cloud2"></div>
-                        <div class="cloud cloud__cloud3"></div>
-                    </div>
-                </div>
-                <div class="cloud-container cloud-container_bottom-scale">
-                    <!--                <div class="cloud">-->
-                    <!--                    <div class="cloud cloud__cloud1"></div>-->
-                    <div class="cloud cloud__cloud2"></div>
-                    <div class="cloud cloud__cloud3"></div>
-                    <!--                </div>-->
-                </div>
-            </div>
+
         <?php }else{ ?>
             <!--            если не главнкая то показать картинку-->
+    <div class="logo-mini">
             <div class="logo-mini__container">
                 <a href="/"><img src="/images/common/logo-mini.png" alt="" class="logo-mini__image"></a>
             </div>
+    </div>
+
         <?php } ?>
 
-    </div>
 
 </header>
 <div class="page-container mobile-container">
@@ -147,7 +125,7 @@ AppAsset::register($this);
 
         }?>
     </div>
-    <?= Alert::widget() ?>
+
     <?= $content ?>
 </div>
 <footer class="footer">
