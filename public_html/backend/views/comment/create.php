@@ -4,10 +4,10 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model common\models\Coment */
+/* @var $model common\models\Comment */
 
-$this->title = 'Create Coment';
-$this->params['breadcrumbs'][] = ['label' => 'Coments', 'url' => ['index']];
+$this->title = 'Create Comment';
+$this->params['breadcrumbs'][] = ['label' => 'Comments', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="coment-create">

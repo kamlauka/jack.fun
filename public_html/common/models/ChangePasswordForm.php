@@ -11,6 +11,7 @@ use common\models\User;
  */
 class ChangePasswordForm extends Model
 {
+    public $passold;
     public $password;
     public $password_repeat;
 
@@ -21,8 +22,8 @@ class ChangePasswordForm extends Model
     public function rules()
     {
         return [
-            [['password', 'password_repeat'], 'required'],
-            ['password', 'string', 'min' => 6],
+            [['password', 'password_repeat','passold'], 'required'],
+            [['password','passold'], 'string', 'min' => 6],
             ['password_repeat', 'compare', 'compareAttribute'=>'password', 'message'=>"Passwords don't match" ],
         ];
     }
@@ -40,7 +41,7 @@ class ChangePasswordForm extends Model
         if($user->save()) {
             if($user->email){
 //                Yii::$app->mailer->compose(null,[
-//                    'content' => 'Ваш пароль был изменен! Если Вы этого неделали, обязательно сообщение нам.',
+//                    'content' => 'Ваш пароль был изменен! Если Вы этого неделали проигнорируйте это письмо.',
 //                    'page' => 'Пароль изменен'
 //                ])
 //                    ->setTo($user->email)

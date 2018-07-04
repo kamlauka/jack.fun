@@ -5,12 +5,12 @@ namespace backend\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\Coment;
+use common\models\Comment;
 
 /**
- * ComentSearch represents the model behind the search form of `common\models\Coment`.
+ * CommentSearch represents the model behind the search form of `common\models\Comment`.
  */
-class ComentSearch extends Coment
+class CommentSearch extends Comment
 {
     /**
      * @inheritdoc
@@ -41,7 +41,7 @@ class ComentSearch extends Coment
      */
     public function search($params)
     {
-        $query = Coment::find();
+        $query = Comment::find();
 
         // add conditions that should always apply here
 

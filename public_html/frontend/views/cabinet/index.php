@@ -10,8 +10,8 @@
 <!--    <div class="container wrap_cabinet">-->
 
     <div class="cabinet__about-user about-user-info">
-        <div class="about-user-info__wrapper onclick="event.stopPropagation()"">
-            <div class="user-info about-user-info__paragraph">
+        <div class="about-user-info__wrapper" id="user-info" onclick="event.stopPropagation()">
+            <div class="user-info about-user-info__paragraph" >
                 <div class="user-logo-container">
                     <?php
                     if(isset($user->avatar)){
@@ -46,7 +46,8 @@
                 </div>
             <?php } ?>
 
-            <a href="/cabinet/eiting?id=<?= $user->id ?>" class="button button_gold">Editing</a>
+            <a class="button button_gold" id="button-edit">Edit info</a>
+            <a class="button button_gold" id="edit-password" >Edit password</a>
         </div>
     </div>
     <div class="cabinet__disputes disputes mobile-border-gray">

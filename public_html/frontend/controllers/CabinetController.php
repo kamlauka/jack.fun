@@ -58,10 +58,14 @@ class CabinetController extends Controller
         ]);
     }
 
-    public function actionEiting($id)
+    public function actionEditing()
     {
 
-        $model = User::findOne($id);
+        if(!\Yii::$app->user->id){
+           return $this->redirect(['index']);
+        }
+
+        $model = User::findOne(\Yii::$app->user->id);
 
         if ($model->load(Yii::$app->request->post()) ) {
 
@@ -72,38 +76,44 @@ class CabinetController extends Controller
 
            }else{
                $model->avatar = $model->oldAttributes['avatar'];
-
            }
-
-            if( $img = UploadedFile::getInstance($model, 'file')){
-
-                $img->saveAs(  Yii::getAlias('@common/uploads/document/' . $img->baseName . '.' . $img->extension));
-                $model->avatar = '/../../common/uploads/document/' . $img->baseName . '.' . $img->extension;
-
-            }else{
-
-                $model->file = $model->oldAttributes['file'];
-
-            }
-
-
             $model->save();
            return $this->redirect(['index']);
         }
-
-        return $this->render('eiting', [
+        return $this->renderPartial('editing', [
             'model' => $model,
         ]);
-
     }
 
     public function actionChangePassword() {
+
+        if(!\Yii::$app->user->id){
+            return $this->redirect(['index']);
+        }
+
         $model = new ChangePasswordForm();
-        if($model->load(Yii::$app->request->post()) && $model->change()) {
-            Yii::$app->session->setFlash('success', 'Ваш пароль успешно изменен!');
+
+        if($model->load(Yii::$app->request->post())) {
+            $hash = Yii::$app->getSecurity()->generatePasswordHash($model->passold);
+
+            if (Yii::$app->getSecurity()->validatePassword($model->password, $hash)) {
+                $dd= 'ok';// всё хорошо, пользователь может войти
+            } else {
+                $dd='on';// неправильный пароль
+            }
+
             return $this->redirect('/cabinet');
-        } else {
-            return $this->render('change-password', [
+
+
+
+            $passold = User::findOne(\Yii::$app->user->id);
+            if(($hash == $passold->password_hash) && $model->change()){
+            Yii::$app->session->setFlash('success', 'Your password has been successfully changed!');
+            return $this->redirect('/cabinet');
+            }
+
+            } else {
+            return $this->renderPartial('change-password', [
                 'model' => $model,
             ]);
         }

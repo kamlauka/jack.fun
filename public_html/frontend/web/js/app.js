@@ -118,12 +118,50 @@ window.addEventListener('scroll', function () {
 });
 
 
+$(function(){
+    //ajax for editing info
+    $( "#button-edit" ).click(function() {
 
+        $.ajax({
+            type: 'GET',
+            url: '/cabinet/editing',
+            // url: '/cabinet/editing?id=' + $(this).attr("data"),
+            dataType: 'html',
+            success: function (data) {
 
+                $('#user-info').html('');
+                $('#user-info').append(data);
+            },
+            error: function () {
+                console.log('Server error')
+            }
+        });
+    });
 
+    //ajax for editing password
+    $( "#edit-password" ).click(function() {
+        console.log("кнопка сработала");
+        var u ='/cabinet/change-password';
+
+        $.ajax({
+            type: 'GET',
+            url: u ,
+            dataType: 'html',
+            success: function (data) {
+
+                $('#user-info').html('');
+                $('#user-info').append(data);
+            },
+
+            error: function () {
+                console.log('Server error')
+            }
+        });
+    });
+});
 
 //TIMER
-
+//
 function getTimeRemaining(endtime) {
     var t = Date.parse(endtime) - Date.parse(new Date());
     var seconds = Math.floor((t / 1000) % 60);

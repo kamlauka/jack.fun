@@ -5,7 +5,7 @@ namespace common\models;
 use Yii;
 
 /**
- * This is the model class for table "coment".
+ * This is the model class for table "comment".
  *
  * @property int $id
  * @property int $user_id
@@ -17,14 +17,14 @@ use Yii;
  * @property User $user
  * @property Dispute $dispute
  */
-class Coment extends \yii\db\ActiveRecord
+class Comment extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'coment';
+        return 'comment';
     }
 
     /**

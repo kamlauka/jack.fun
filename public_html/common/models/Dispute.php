@@ -22,7 +22,7 @@ use Yii;
  * @property int $status
  * @property string $description
  *
- * @property Coment[] $coments
+ * @property Comment[] $comments
  * @property User $executor
  * @property User $initiator
  * @property User $moderator
@@ -86,9 +86,9 @@ class Dispute extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getComents()
+    public function getComments()
     {
-        return $this->hasMany(Coment::className(), ['dispute_id' => 'id']);
+        return $this->hasMany(Comment::className(), ['dispute_id' => 'id']);
     }
 
     /**

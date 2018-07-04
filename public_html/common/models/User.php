@@ -28,7 +28,7 @@ use yii\web\IdentityInterface;
  * @property Banlist[] $banlists
  * @property Banlist[] $banlists0
  * @property Betting[] $bettings
- * @property Coment[] $coments
+ * @property Comment[] $comments
  * @property Dispute[] $disputes
  * @property Dispute[] $disputes0
  * @property Dispute[] $disputes1
@@ -267,9 +267,9 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getComents()
+    public function getComments()
     {
-        return $this->hasMany(Coment::className(), ['user_id' => 'id']);
+        return $this->hasMany(Comment::className(), ['user_id' => 'id']);
     }
 
     /**

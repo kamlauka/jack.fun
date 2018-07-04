@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
         <div class="col-md-4 col-md-offset-4">
             <p>
-                <?= Html::a('Coment', ['/coment/index'], ['class' => 'btn btn-success']) ?>
+                <?= Html::a('Comment', ['/comment/index'], ['class' => 'btn btn-success']) ?>
                 <?= Html::a('Tote', ['/tote/index'], ['class' => 'btn btn-success']) ?>
             </p>
         </div>
