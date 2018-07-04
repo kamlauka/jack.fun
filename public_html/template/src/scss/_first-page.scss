@@ -133,11 +133,18 @@
       }
     }
     @media (max-width: $mobile-width) {
-      text-shadow: -4px 0 0 #796023;
-      color: $main-color;
-      margin: -6% 0 6% 0;
+      //text-shadow: -4px 0 0 #796023;
+      //color: $main-color;
+      //margin: -6% 0 6% 0;
+      display: none;
     }
+    @media (max-width: $third-width) {
+      margin-top: 23%;
 
+    }    @media (max-width: '874px') {
+      margin-top: 26%;
+
+    }
   }
 }
 

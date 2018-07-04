@@ -257,6 +257,10 @@ body {
   @media (max-width: 1300px) {
     top: 4%;
   }
+  @media (max-width: 820px) {
+    top: 2%;
+  }
+
   //@media (max-width: 1700px) {
   //  top: 3%;
   //}
@@ -314,9 +318,9 @@ body {
     }
   }
 }
-.cloud-container_bottom-scale {
-  display: none;
-}
+//.cloud-container_bottom-scale {
+//  display: none;
+//}
 
 .cloud-container {
   position: absolute;
@@ -438,9 +442,9 @@ body {
   }
   &_bottom-scale {
     left: 26%;
-    top: 27%;
+    top: 25%;
     z-index: 8001;
-    display: none;
+    //display: none;
   }
   &_left-big {
     left: -11%;
