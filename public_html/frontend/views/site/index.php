@@ -5,10 +5,10 @@ use yii\helpers\Html;
 //$this->title = 'My Yii Application';
 ?>
 <div class="site-index">
-<!--        <div class="preloader">-->
-<!--            <h1 class="preloader__title">JACKPOT.FUN</h1>-->
-<!--            <div class="preloader__fill"></div>-->
-<!--        </div>-->
+        <div class="preloader">
+            <h1 class="preloader__title">JACKPOT.FUN</h1>
+            <div class="preloader__fill"></div>
+        </div>
     <div class="logo-mini">
     <div class="logo__container">
         <img src="/images/common/logo.png" alt="" class="logo__image">
