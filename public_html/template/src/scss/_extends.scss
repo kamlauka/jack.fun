@@ -157,7 +157,7 @@
   bottom: 0;
   z-index: 500;
   width: 14%;
-
+  pointer-events: none;
 
   @media (max-width: 930px) {
     width: 15%;

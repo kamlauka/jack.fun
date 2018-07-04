@@ -252,20 +252,33 @@ function animateNotes() {
     var note3 = $(".note3");
     var note4 = $(".note4");
 
+    //
+    // var tl1 = new TimelineMax({yoyo:true, repeat:-1, ease: Power0.easeNone});
+    // var tl2 = new TimelineMax({yoyo:true, repeat:-1, ease: Back.easeInOut.config(1.7)});
+    // tl1.to(note1, 1, {rotation:-20, ease: Power0.easeNone}, 'edge');
+    // tl1.to(note2, 1, {rotation:20, ease: Power0.easeNone}, 'edge');
+    // tl1.to(note3, 1, {rotation:-20, ease: Power0.easeNone}, 'edge');
+    // tl1.to(note4, 1, {rotation:20, ease: Power0.easeNone}, 'edge');
+    //
+    // tl2.to(note1, 0.5, {y: -20}, 0);
+    // tl2.to(note1, 0.5, {y: 0}, 1);
+    // tl2.to(note2, 0.5, {y: -20}, 2);
+    // tl2.to(note2, 0.5, {y: 0}, 2);
+    // tl2.to(note3, 0.5, {y: -20}, 3);
+    // tl2.to(note3, 0.5, {y: 0}, 3);
+    // tl2.to(note4, 0.5, {y: -20}, 4);
+
 
     var tl1 = new TimelineMax({yoyo:true, repeat:-1, ease: Power0.easeNone});
     var tl2 = new TimelineMax({yoyo:true, repeat:-1, ease: Back.easeInOut.config(1.7)});
-    tl1.to(note1, 1, {rotation:-20, ease: Power0.easeNone}, 'edge');
-    tl1.to(note2, 1, {rotation:20, ease: Power0.easeNone}, 'edge');
-    tl1.to(note3, 1, {rotation:-20, ease: Power0.easeNone}, 'edge');
-    tl1.to(note4, 1, {rotation:20, ease: Power0.easeNone}, 'edge');
 
-    tl2.to(note1, 0.5, {y: -20}, 0);
-    tl2.to(note1, 0.5, {y: 0}, 1);
-    tl2.to(note2, 0.5, {y: -20}, 2);
-    tl2.to(note2, 0.5, {y: 0}, 2);
-    tl2.to(note3, 0.5, {y: -20}, 3);
-    tl2.to(note3, 0.5, {y: 0}, 3);
-    tl2.to(note4, 0.5, {y: -20}, 4);
+    tl2.to(note1, 0.5, {y: -10, ease: Back.easeInOut.config(1.7)}, 0);
+    tl2.to(note1, 0.5, {y: 0, ease: Back.easeInOut.config(1.7)}, 0.5);
+    tl2.to(note2, 0.5, {y: -10, ease: Back.easeInOut.config(1.7)}, 0.5);
+    tl2.to(note2, 0.5, {y: 0,ease: Back.easeInOut.config(1.7)}, 1);
+    tl2.to(note3, 0.5, {y: -10,ease: Back.easeInOut.config(1.7)}, 1);
+    tl2.to(note3, 0.5, {y: 0,ease: Back.easeInOut.config(1.7)}, 1.5);
+    tl2.to(note4, 0.5, {y: -10,ease: Back.easeInOut.config(1.7)}, 1.5);
+    tl2.to(note4, 0.5, {y: 0,ease: Back.easeInOut.config(1.7)}, 0);
 }
 

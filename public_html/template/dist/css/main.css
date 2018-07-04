@@ -67,7 +67,8 @@
   top: 0;
   bottom: 0;
   z-index: 500;
-  width: 14%; }
+  width: 14%;
+  pointer-events: none; }
   @media (max-width: 930px) {
     .curtain, .scene-of-prize:before, .scene-of-prize:after, .about-user-info__wrapper:before, .about-user-info__wrapper:after, .disputes:before, .disputes:after {
       width: 15%; } }
@@ -1873,6 +1874,10 @@ select:-webkit-autofill:focus {
 .note4 {
   top: 0;
   left: 0; }
+
+.user-form__editing-container {
+  width: 80%;
+  margin: 50px auto; }
 
 *:focus {
   outline: none !important; }
