@@ -83,7 +83,7 @@ $(document).ready(function() {
         logoContainer.removeClass("logo__container");
         logoContainer.addClass("logo-mini__container");
     }
-    if ($(div).hasClass('popup__configuration')) {
+    if ($('div').hasClass('popup__configuration')) {
         showForm('.popup__configuration');
 
     } else {
