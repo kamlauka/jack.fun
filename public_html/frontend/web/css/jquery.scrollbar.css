@@ -80,7 +80,7 @@
 .scrollbar-external {
     height: 400px;
     overflow: auto;
-    width: 600px;
+    width: 99%;
 }
 
 /******************* EXTERNAL SCROLLBAR *******************/
@@ -103,9 +103,10 @@
 }
 
 .external-scroll_y.scroll-scrolly_visible {
-    display: block;
-    height: 200px;
-    left: 610px;
+    display: inline-block;
+    position: absolute;
+    height: 400px;
+    right: 0;
     top: 0;
     width: 7px;
 }
@@ -130,5 +131,5 @@
     width: 100px;
 }
 .external-scroll_y .scroll-bar {
-    height: 100px;
+    max-height: 260px;
 }

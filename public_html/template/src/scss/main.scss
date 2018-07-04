@@ -2,7 +2,7 @@
 
 @import "extends.scss";
 
-//@import "preloader.scss";
+@import "preloader.scss";
 @import "header.scss";
 @import "first-page.scss";
 @import "awarding-prizes.scss";
@@ -155,11 +155,11 @@ body {
     background-size: 2.5% auto;
   }
   &_edge {
-     height: 5px;
-     padding: 2px 0 0;
-     border-top: 2px solid $add-color;
-     border-bottom: 0;
-     background-size: 2.5% auto;
+    height: 5px;
+    padding: 2px 0 0;
+    border-top: 2px solid $add-color;
+    border-bottom: 0;
+    background-size: 2.5% auto;
     z-index: 0;
   }
 }
@@ -280,12 +280,12 @@ body {
     //top: 8%;
     top: 52px;
     bottom: 0;
-    z-index: 9000;
+    z-index: 9002;
     overflow: hidden;
 
   }
   &_bottom {
-    top: 1107px;
+    top: 1032px;
     //top: 75%;
     width: 170%;
     //bottom: -10%;
@@ -299,7 +299,6 @@ body {
       //top: 10%;
       //bottom: -3%;
       //height: 1000px;
-
       //@media (max-width: $first-width) {
       //  top: 15%;
       //  bottom: -19%;
@@ -524,8 +523,8 @@ body {
   }
   &_border-left-medium {
     left: -19%;
-    //top: -24%;
-    top: -190px;
+    //top: -30%;
+    top: -229px;
     width: 70%;
     z-index: 0;
   }
@@ -632,6 +631,8 @@ body {
 }
 
 
+
 .activ {
   display: block;
 }
+

@@ -5,95 +5,94 @@ use yii\helpers\Html;
 //$this->title = 'My Yii Application';
 ?>
 <div class="site-index">
-    <div class="preloader">
-        <h1 class="preloader__title">JACKPOT.FUN</h1>
-        <div class="preloader__fill"></div>
+<!--        <div class="preloader">-->
+<!--            <h1 class="preloader__title">JACKPOT.FUN</h1>-->
+<!--            <div class="preloader__fill"></div>-->
+<!--        </div>-->
+    <div class="logo-mini">
+    <div class="logo__container">
+        <img src="/images/common/logo.png" alt="" class="logo__image">
+        <img src="/images/common/logo-mini.png" alt="" class="logo-mini__image hidden">
     </div>
+    <div class="clouds clouds_fixed">
+        <div class="cloud-container cloud-container_left-big">
+            <div class="cloud">
+                <div class="cloud cloud__cloud1"></div>
+                <div class="cloud cloud__cloud2"></div>
+                <div class="cloud cloud__cloud3"></div>
+            </div>
+        </div>
+        <div class="cloud-container cloud-container_right-big">
+            <div class="cloud">
+                <div class="cloud cloud__cloud1"></div>
+                <div class="cloud cloud__cloud2"></div>
+                <div class="cloud cloud__cloud3"></div>
+            </div>
+        </div>
+        <div class="cloud-container cloud-container_bottom-scale">
+            <!--                <div class="cloud">-->
+            <!--                    <div class="cloud cloud__cloud1"></div>-->
+            <div class="cloud cloud__cloud2"></div>
+            <div class="cloud cloud__cloud3"></div>
+            <!--                </div>-->
+        </div>
+    </div>
+    </div>
+    <h1 class="logo__text">JACKPOT<span class="logo__text_blue">.FUN</span></h1>
     <section class="first-page">
 
-         <div class="first-page__container">
-             <div class="logo">
-                 <div class="logo__container">
-                     <img src="/images/common/logo.png" alt="" class="logo__image">
-                 </div>
-             </div>
-             <div class="clouds clouds_fixed">
-                 <div class="cloud-container cloud-container_left-big">
-                     <div class="cloud">
-                         <div class="cloud cloud__cloud1"></div>
-                         <div class="cloud cloud__cloud2"></div>
-                         <div class="cloud cloud__cloud3"></div>
-                     </div>
-                 </div>
-                 <div class="cloud-container cloud-container_right-big">
-                     <div class="cloud">
-                         <div class="cloud cloud__cloud1"></div>
-                         <div class="cloud cloud__cloud2"></div>
-                         <div class="cloud cloud__cloud3"></div>
-                     </div>
-                 </div>
-                 <div class="cloud-container cloud-container_bottom-scale">
-                     <!--                <div class="cloud">-->
-                     <!--                    <div class="cloud cloud__cloud1"></div>-->
-                     <div class="cloud cloud__cloud2"></div>
-                     <div class="cloud cloud__cloud3"></div>
-                     <!--                </div>-->
-                 </div>
-             </div>
-             <div class="clouds">
-                 <div class="cloud-container cloud-container_left-big">
-                     <div class="cloud">
-                         <div class="cloud cloud__cloud1"></div>
-                         <div class="cloud cloud__cloud2"></div>
-                         <div class="cloud cloud__cloud3"></div>
-                     </div>
-                 </div>
-                 <div class="cloud-container cloud-container_right-big">
-                     <div class="cloud">
-                         <div class="cloud cloud__cloud1"></div>
-                         <div class="cloud cloud__cloud2"></div>
-                         <div class="cloud cloud__cloud3"></div>
-                     </div>
-                 </div>
-                 <div class="cloud-container cloud-container_left-small" >
-                     <div class="cloud">
-                         <div class="cloud_bottom-big cloud cloud__cloud1"></div>
-                         <div class="cloud cloud__cloud2"></div>
-                         <div class="cloud cloud__cloud3"></div>
-                     </div>
-                 </div>
-                 <div class="cloud-container cloud-container_second-small">
-                     <div class="cloud">
-                         <div class="cloud_bottom-big cloud cloud__cloud1"></div>
-                         <div class="cloud cloud__cloud2"></div>
-                         <div class="cloud cloud__cloud3"></div>
-                     </div>
-                 </div>
-                 <div class="cloud-container cloud-container_third-small">
-                     <div class="cloud">
-                         <div class="cloud_bottom-big cloud cloud__cloud1"></div>
-                         <div class="cloud cloud__cloud2"></div>
-                         <div class="cloud cloud__cloud3"></div>
-                     </div>
-                 </div>
-                 <div class="cloud-container cloud-container_right-small">
-                     <div class="cloud">
-                         <div class="cloud_bottom-big cloud cloud__cloud1"></div>
-                         <div class="cloud cloud__cloud2"></div>
-                         <div class="cloud cloud__cloud3"></div>
-                     </div>
-                 </div>
-                 <div class="cloud-container cloud-container_bottom-big">
-                     <div class="cloud">
-                         <div class="cloud_bottom-big cloud cloud__cloud1"></div>
-                         <div class="cloud cloud__cloud2"></div>
-                         <div class="cloud cloud__cloud3"></div>
-                     </div>
-                 </div>
-             </div>
-
-             <h1 class="logo__text">JACKPOT<span class="logo__text_blue">.FUN</span></h1>
-
+        <div class="first-page__container">
+            <div class="clouds">
+                <div class="cloud-container cloud-container_left-big">
+                    <div class="cloud">
+                        <div class="cloud cloud__cloud1"></div>
+                        <div class="cloud cloud__cloud2"></div>
+                        <div class="cloud cloud__cloud3"></div>
+                    </div>
+                </div>
+                <div class="cloud-container cloud-container_right-big">
+                    <div class="cloud">
+                        <div class="cloud cloud__cloud1"></div>
+                        <div class="cloud cloud__cloud2"></div>
+                        <div class="cloud cloud__cloud3"></div>
+                    </div>
+                </div>
+                <div class="cloud-container cloud-container_left-small" >
+                    <div class="cloud">
+                        <div class="cloud_bottom-big cloud cloud__cloud1"></div>
+                        <div class="cloud cloud__cloud2"></div>
+                        <div class="cloud cloud__cloud3"></div>
+                    </div>
+                </div>
+                <div class="cloud-container cloud-container_second-small">
+                    <div class="cloud">
+                        <div class="cloud_bottom-big cloud cloud__cloud1"></div>
+                        <div class="cloud cloud__cloud2"></div>
+                        <div class="cloud cloud__cloud3"></div>
+                    </div>
+                </div>
+                <div class="cloud-container cloud-container_third-small">
+                    <div class="cloud">
+                        <div class="cloud_bottom-big cloud cloud__cloud1"></div>
+                        <div class="cloud cloud__cloud2"></div>
+                        <div class="cloud cloud__cloud3"></div>
+                    </div>
+                </div>
+                <div class="cloud-container cloud-container_right-small">
+                    <div class="cloud">
+                        <div class="cloud_bottom-big cloud cloud__cloud1"></div>
+                        <div class="cloud cloud__cloud2"></div>
+                        <div class="cloud cloud__cloud3"></div>
+                    </div>
+                </div>
+                <div class="cloud-container cloud-container_bottom-big">
+                    <div class="cloud">
+                        <div class="cloud_bottom-big cloud cloud__cloud1"></div>
+                        <div class="cloud cloud__cloud2"></div>
+                        <div class="cloud cloud__cloud3"></div>
+                    </div>
+                </div>
+            </div>
             <div class="currency">
                 <?= Html::img('../../images/main/currency.gif', ['alt' => 'currency', 'class' => 'currency__image']) ?>
             </div>
@@ -150,29 +149,29 @@ use yii\helpers\Html;
     </section>
 
     <?php if(isset($lottery)){ ?>
-    <section class="prizes">
-        <div class="scene-of-prize flex-gorizontal">
-            <div class="scene-of-prize__cloud-rotate scene-of-prize__cloud-rotate__one"></div>
-            <div class="scene-of-prize__cloud-rotate scene-of-prize__cloud-rotate__two"></div>
-            <div class="scene-of-prize__cloud-rotate scene-of-prize__cloud-rotate__three"></div>
-            <div class="scene-of-prize__cloud-rotate scene-of-prize__cloud-rotate__four"></div>
-            <div class="scene-of-prize__empty-block"></div>
-            <img class="scene-of-prize__image" src="<?= $lottery['data']->img ?>" alt="iphone">
-            <div class="scene-of-prize__text">
-                <h2 class="scene-of-prize__prize-name"><?= $lottery['name_prize']->text?></h2>
-                <div class="scene-of-prize__prize-price"><?= $lottery['data']->rate ?> ETH</div>
+        <section class="prizes">
+            <div class="scene-of-prize flex-gorizontal">
+                <div class="scene-of-prize__cloud-rotate scene-of-prize__cloud-rotate__one"></div>
+                <div class="scene-of-prize__cloud-rotate scene-of-prize__cloud-rotate__two"></div>
+                <div class="scene-of-prize__cloud-rotate scene-of-prize__cloud-rotate__three"></div>
+                <div class="scene-of-prize__cloud-rotate scene-of-prize__cloud-rotate__four"></div>
+                <div class="scene-of-prize__empty-block"></div>
+                <img class="scene-of-prize__image" src="<?= $lottery['data']->img ?>" alt="iphone">
+                <div class="scene-of-prize__text">
+                    <h2 class="scene-of-prize__prize-name"><?= $lottery['name_prize']->text?></h2>
+                    <div class="scene-of-prize__prize-price"><?= $lottery['data']->rate ?> ETH</div>
+                </div>
+                <div class="scene-of-prize__empty-block"></div>
             </div>
-            <div class="scene-of-prize__empty-block"></div>
-        </div>
-        <section class="participate participate_border_dark">
-            <div class="container flex-gorizontal">
-                <p class="participate__text participate__text_image_apple flex-gorizontal"><?= $lottery['description']->text ?></p>
-            </div>
-            <div class="participate__buttons container">
-                <a class="button button_gold participate__button" href="/lottery/view">Participate</a>
-            </div>
+            <section class="participate participate_border_dark">
+                <div class="container flex-gorizontal">
+                    <p class="participate__text participate__text_image_apple flex-gorizontal"><?= $lottery['description']->text ?></p>
+                </div>
+                <div class="participate__buttons container">
+                    <a class="button button_gold participate__button" href="/lottery/view">Participate</a>
+                </div>
+            </section>
         </section>
-    </section>
     <?php } ?>
     <?php if(isset($jackpot)){ ?>
         <section class="jackpot">
@@ -189,7 +188,7 @@ use yii\helpers\Html;
             <div class="jackpot__container flex-gorizontal">
                 <div class="jackpot__cloud jackpot__cloud_twenty"></div>
                 <div  class="jackpot__image-block">
-                  <?= Html::img('../../images/main/oh-boy.gif', ['alt' => 'oh boy', 'class' => 'jackpot__image']) ?>
+                    <?= Html::img('../../images/main/oh-boy.gif', ['alt' => 'oh boy', 'class' => 'jackpot__image']) ?>
                 </div>
 
                 <div class="jackpot__timer">
@@ -198,11 +197,11 @@ use yii\helpers\Html;
                         <h3 class="timer__days" data="<?php $datastart = explode(" ", $jackpot['data']->date_start); echo $datastart[0] ?>">
                             <span class="days timer__big-day-digit"></span> DAY
                         </h3>
-<!--                        <h3 class="timer__time" data="--><?//=  $datastart[1] ?><!--">-->
-<!--                            <span class="hours timer__digit"></span> :-->
-<!--                            <span class="minutes timer__digit"></span> :-->
-<!--                            <span class="seconds timer__digit"></span>-->
-<!--                        </h3>s-->
+                        <!--                        <h3 class="timer__time" data="--><?//=  $datastart[1] ?><!--">-->
+                        <!--                            <span class="hours timer__digit"></span> :-->
+                        <!--                            <span class="minutes timer__digit"></span> :-->
+                        <!--                            <span class="seconds timer__digit"></span>-->
+                        <!--                        </h3>s-->
                         <h3 class="timer__time" data="<?=  $datastart[1] ?>">
                             <span class="hours timer__digit"></span> :
                             <span class="minutes timer__digit"></span> :
@@ -232,21 +231,21 @@ use yii\helpers\Html;
         <?= Html::img('../../images/main/favn.png', ['alt' => 'favn', 'class' => 'terrestrial-world__image']) ?>
     </section>
     <?php if(isset($text['seo_block_title']->text) && isset($text['seo_block_text']->text)){ ?>
-    <section class="seo-section flex-gorizontal">
-        <div class="seo-block container ">
-            <h2 class="seo-block__title"><?= $text['seo_block_title']->text ?></h2>
-            <div class="seo-block__text-container scrollbar-external_wrapper">
-            <p class="seo-block__text scrollbar-external"><?= $text['seo_block_text']->text ?></p>
-            <div class="external-scroll_y">
-                <div class="scroll-element_outer">
-                    <div class="scroll-element_size"></div>
-                    <div class="scroll-element_track"></div>
-                    <div class="scroll-bar"></div>
+        <section class="seo-section flex-gorizontal">
+            <div class="seo-block container ">
+                <h2 class="seo-block__title"><?= $text['seo_block_title']->text ?></h2>
+                <div class="seo-block__text-container scrollbar-external_wrapper">
+                    <p class="seo-block__text scrollbar-external"><?= $text['seo_block_text']->text ?></p>
+                    <div class="external-scroll_y">
+                        <div class="scroll-element_outer">
+                            <div class="scroll-element_size"></div>
+                            <div class="scroll-element_track"></div>
+                            <div class="scroll-bar"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            </div>
-        </div>
-    </section>
+        </section>
     <?php } ?>
 
 </div>

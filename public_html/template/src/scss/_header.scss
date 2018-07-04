@@ -1,6 +1,6 @@
 .header {
   position:fixed;
-  z-index:9999;
+  z-index:9000;
   top:0;
   left:0;
   right:0;
@@ -102,9 +102,9 @@ $e: cubic-bezier(0,.5,.5,1.1);
       margin: 0;
       transform-style: preserve-3d;
       @for $i from 1 through $n {
-      //  @if $i == 1 {
-      //  transition: opacity 100ms ease-out #{-($i - $n - 1)*100}ms;
-      //}
+        //  @if $i == 1 {
+        //  transition: opacity 100ms ease-out #{-($i - $n - 1)*100}ms;
+        //}
         &:nth-child(#{$i}) {
           transition: transform 150ms $e #{-($i - $n - 1)*100}ms, opacity 100ms ease-out #{-($i - $n - 1)*100}ms;
         }
@@ -218,11 +218,13 @@ $e: cubic-bezier(0,.5,.5,1.1);
 
 
 .logo-mini {
-  width: 40%;
+  //width: 40%;
+  //margin: 0 30%;
   position: absolute;
   top: 0%;
   z-index: 2;
-  margin: 0 30%;
+  width: 37%;
+  margin: 0 31.5%;
   //pointer-events: none;
   &__image {
     width: 100px;
@@ -246,15 +248,8 @@ $e: cubic-bezier(0,.5,.5,1.1);
 }
 
 .logo {
-  position: absolute;
-  width: 20%;
-  margin: 0 40%;
-  top: 0;
-  left: 0;
-  z-index: 8500;
   &__container {
-
-    width: 27%;//41%;//73%;
+    width: 73%; //40
     min-width: 311px;
     margin: auto;
     padding: 66px 0 25px 0;
@@ -265,6 +260,8 @@ $e: cubic-bezier(0,.5,.5,1.1);
   }
   &__image {
     width: 100%;
+    z-index: 9001;
+    position: relative;
   }
 }
 

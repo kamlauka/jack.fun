@@ -60,12 +60,9 @@ class Alert extends Widget
 
             foreach ((array) $flash as $i => $message) { ?>
 
-
-                <div class="popup activ">
+                <div class="popup__configuration" >
                     <div class="popup__close" onclick="$('.forms').hide()"></div>
-
-                    <?= $message; ?>
-
+                    <p><?= $message; ?></p>
                 </div>
                 <?php
             }
