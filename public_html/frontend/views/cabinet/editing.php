@@ -8,8 +8,8 @@ use yii\widgets\ActiveForm;
 /* @var $model common\models\User */
 
 //$this->title = 'Editing';
-
 ?>
+
 <div class="user-update">
 
     <h1><?= Html::encode($this->title) ?></h1>
@@ -20,17 +20,13 @@ use yii\widgets\ActiveForm;
                 'action' => \yii\helpers\Url::toRoute(['editing', 'id' => $model->id]),
             ]); ?>
 
-
-
-
-
             <div class="user-info about-user-info__paragraph" >
 
                 <div class="user-logo-wrap">
                     <div class="user-logo-container">
                         <?php if(isset($model->avatar)){
                             //если есть картинка
-                            echo Html::img($user->avatar,['alt'=>"your logo", 'class'=>"user-logo about-user-info__user-logo"]);
+                            echo Html::img($model->avatar,['alt'=>"your logo", 'class'=>"user-logo about-user-info__user-logo"]);
                         } else{
                             //если нет картинки
                             echo '<img class="user-logo about-user-info__user-logo" src="../../images/cabinet/default-logo.png" alt="">';

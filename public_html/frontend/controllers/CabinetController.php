@@ -42,7 +42,6 @@ class CabinetController extends Controller
         ];
     }
 
-
     /**
      * Displays homepage.
      *
@@ -60,12 +59,22 @@ class CabinetController extends Controller
 
     public function actionEditing()
     {
+//        return $this->render('index', [
+//            'md5' => md5(Yii::$app->request->post('string'))
+//        ]);
 
         if(!\Yii::$app->user->id){
            return $this->redirect(['index']);
         }
 
         $model = User::findOne(\Yii::$app->user->id);
+
+        if(Yii::$app->request->isPjax){
+
+            return $this->render('editing', [
+                'model' => $model,
+            ]);
+        }
 
         if ($model->load(Yii::$app->request->post()) ) {
             if($model->validate()) {
@@ -85,7 +94,7 @@ class CabinetController extends Controller
             Yii::$app->session->setFlash('success', 'Ошибка в валидации');
             return $this->redirect(['index']);
         }
-        return $this->renderPartial('editing', [
+        return $this->render('index', [
             'model' => $model,
         ]);
     }
