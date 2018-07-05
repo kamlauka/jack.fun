@@ -4,17 +4,40 @@
 
 }
 
+.user-logo-wrap {
+  position: relative;
+  width: 100px;
+  margin: auto;
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: block;
+    background: #406973 url("../images/cabinet/edit-pencil.png") no-repeat;
+    width: 20px;
+    height: 20px;
+    background-size: contain;
+    background-position: center;
+    border-radius: 50%;
+    border: 3px solid #406973;
+    z-index: 1;
+  }
+}
 
 .user-logo-container {
+  position: relative;
   width: 100px;
   height: 100px;
   overflow: hidden;
   border-radius: 50%;
   border: 6px solid #DE7300;
   margin: auto;
+
 }
 
 .grass {
+  pointer-events: none;
   position: absolute;
   top: 77%;
   left: 0;
@@ -33,9 +56,10 @@
   align-items: flex-end;
   position: relative;
   width: 51.5%;
-  height: 100vh;
+  height: 90vh;
+  //height: 100vh;
   //min-height: 770px;
-  max-height: 700px;
+  //max-height: 700px;
   @media (max-width: $third-width) {
     width: 57%;
   }
@@ -57,6 +81,7 @@
 
   &__wrapper {
     position: relative;
+    bottom: 0;
     width: 46%;
     //min-height: 385px;
     //bottom: -14%;
@@ -112,8 +137,9 @@
   &__title {
     font-family: Corbel;
     font-weight: bold;
-    color: #24445E;
+    color: #0e5390;;
     margin-bottom: 0;
+    font-size: 1.2em;
   }
 
   &__info {
@@ -137,8 +163,9 @@
   justify-content: flex-end;
   flex-direction: column;
   width: 45%;
-  height: 100vh;
-  max-height: 700px;
+  height: 90vh;
+  //height: 100vh;
+  //max-height: 700px;
   margin-right: 5%;
   background: url(../images/common/scene.png) bottom no-repeat;
   background-size: cover;
