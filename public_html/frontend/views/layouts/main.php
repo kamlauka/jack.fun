@@ -106,10 +106,18 @@ AppAsset::register($this);
                         <a href="/"><img src="/images/common/logo-mini.png" alt="" class="logo-mini__image"></a>
                     </div>
             </div>
+
         <?php } ?>
 
 
 </header>
+<?php if(!Yii::$app->controller->route === 'site/index'){ ?>
+<div class="preloader">
+    <h1 class="preloader__title">JACKPOT.FUN</h1>
+    <div class="preloader__fill"></div>
+</div>
+<?php } ?>
+
 <div class="page-container mobile-container">
     <div class="crumbs container container_mob">
         <?php

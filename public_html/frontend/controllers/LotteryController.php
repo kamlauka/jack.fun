@@ -3,6 +3,7 @@ namespace frontend\controllers;
 
 use common\models\Betting;
 use common\models\Lottery;
+use common\models\Modification;
 use common\models\User;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
@@ -47,7 +48,10 @@ class LotteryController extends Controller
             $betting->pc_target = 0;
             $betting->pc_transaction = 0;
             $betting->save();
-            Yii::$app->session->setFlash('success', 'Your bid is accepted');
+
+
+            $wall = Modification::findOne(6);
+            Yii::$app->session->setFlash('success', 'Send ETH here: '.$wall->data);
             // реализовать форму
             return $this->redirect('/cabinet/index');
         }
