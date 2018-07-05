@@ -48,6 +48,7 @@ class LotteryController extends Controller
             $betting->pc_transaction = 0;
             $betting->save();
             Yii::$app->session->setFlash('success', 'Your bid is accepted');
+            // реализовать форму
             return $this->redirect('/cabinet/index');
         }
 
