@@ -3,6 +3,8 @@
 @import "extends.scss";
 
 @import "preloader.scss";
+@import "button.scss";
+@import "logotype.scss";
 @import "header.scss";
 @import "first-page.scss";
 @import "awarding-prizes.scss";
@@ -19,21 +21,31 @@
 @import "cabinet-page.scss";
 
 
+@font-face {
+  font-family: IceAge;
+  src: url(../fonts/IceAgeRUS.ttf)  format('ttf'), url('../fonts/IceAgeRUS.woff') format('woff'), url('../fonts/IceAgeRUS.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: SFUI;
+  src: url(../fonts/SFUIText-RegularG2.otf);
+}
+
+
+
+
+
+
+
+
+
+
+
 * {
   //-webkit-tap-highlight-color: rgba(0,0,0,0);
   &:focus {
     outline: none!important;
   }
-}
-
-@font-face {
-  font-family: IceAge;
-  src: url(../fonts/IceAgeRUS.ttf)  format('ttf'), url('../fonts/IceAgeRUS.woff') format('woff');
-}
-
-@font-face {
-  font-family: ShowCardGothic;
-  src: url(../fonts/SFUIText-RegularG2.otf);
 }
 
 
@@ -282,7 +294,7 @@ body {
     left: 0;
     right: 0;
     //top: 8%;
-    top: 52px;
+    top: 51px;
     bottom: 0;
     z-index: 9002;
     overflow: hidden;
@@ -589,40 +601,6 @@ body {
   }
 }
 
-
-.button {
-  min-width: 15%;
-  padding: 5px 15px;
-  margin: 1% 5%;
-  border: 6px solid;
-  font-size: 1.5em;
-  font-family: $main-font;
-  transition: box-shadow 0.3s ease-in-out;
-  position: relative;
-  z-index: 8000;
-  &_gold {
-    color: white;
-    background-color: $main-color;
-    border-color: $add-color;
-    &:hover {
-      box-shadow: inset 0 0 20px 6px $add-color;
-    }
-  }
-
-  &_dark {
-    color: $main-color;
-    background-color: $gray-color;
-    border-color: #454E4E;
-    &:hover {
-      box-shadow: inset 0 0 20px 6px #454E4E;
-    }
-  }
-
-  &_little {
-    width: 42%;
-    margin: auto;
-  }
-}
 
 .cloud-mobile {
   @media (max-width: $mobile-width) {

@@ -1,17 +1,3 @@
-// function openbox(id) {
-//     display = document.getElementById(id).style.display;
-//
-//     if (display == 'none') {
-//         document.getElementById(id).style.display = 'block';
-//     } else {
-//         document.getElementById(id).style.display = 'none';
-//     }
-// }
-
-//ACTIVE CHECKBOX
-// var checkbox = document.getElementsByClassName('pseudo-checkbox');
-// checkbox.onclick = "this.style.backgroundColor = '#FFB400'";
-// $('.pseudo-checkbox').click($('.pseudo-checkbox').css('background-color','#FFB400'));
 var test = false;
 
 
@@ -106,26 +92,37 @@ $(document).ready(function() {
 window.addEventListener('scroll', function () {
     //logo.offset().top
     if((($(this).scrollTop() <= 200) || (window.pageYOffset < 200)) && logoContainer.hasClass('logo__container')) {
-        logo.attr('src', '../images/common/logo.gif');
+        // logo.attr('src', '../images/common/logo.gif');
         cloudBottom.css({'display' : 'block'});
-        tl = new TimelineMax({yoyo:false});
-        tl.fromTo(cloudLeft, 2, {opacity: 0.7}, {left: '26%', opacity: 1, width: '130%'},0).to (cloudLeft, 2, { left : '-11%', opacity: 0, width: '90%' },1);
-        tl.fromTo(cloudRight, 2, {opacity: 0.7}, {left: '26%', opacity: 1, width: '130%'},0).to (cloudRight, 2, { left : '61%', opacity: 0, width: '90%'  },1);
-        tl.fromTo(cloudBottom, 2, {opacity: 0.7}, {top: '-7%', opacity: 1, width: '130%'},0).to (cloudBottom, 2, { top : '27%', opacity: 0, width: '90%'  },1);
-        // tl.to(logoText, 2, {zIndex: 8999},0.2);
-        tl.to(logoPosition, 1, {zIndex: 10000, position: 'fixed'},0.2);
 
-        tl.to(logoContainer, 1,
-            {
-                width: '200px',
-                minWidth: '200px',
-                padding: '5px 0 0',
-                // position: 'fixed',
-            },1.2);
-        tl.to(logo, 1, {width: '140px'},1.2);
-        tl.to(logoContainer, 1, {backgroundPosition: 'center'},1.5);
-        tl.to(clouds, 0.1, {display: 'none'},3.1);
-        // tl.to(logoPosition, 0.1, {zIndex: '2'},1.7);
+        var tl = new TimelineMax({yoyo:false, ease: Power0.easeNone});
+
+        tl
+            .to(cloudLeft, 2, {left: '26%', width: '130%'},0)
+            .to(cloudRight, 2, {left: '26%', width: '130%'},0)
+            .to(cloudBottom, 2, {top: '-7%', width: '130%'},0)
+
+            .to(logoPosition, 1, {zIndex: 10000, position: 'fixed'},1)
+            .fromTo(logoText, 0.5, {opacity: 1}, {opacity: 0, zIndex: 1},0.2)
+
+            .to(logo, 3, {width: '140px'},0.2)
+            .to(logoText, 0.5, {opacity: 1, zIndex: 2},1)
+            .to(logoContainer, 0.2, {width: '200px'},0.7)
+
+            .to(logo, 1, {attr:{src :'../images/common/logo-mini.png'}}, 0.7)
+
+            .to (cloudLeft, 2, { left : '-11%', opacity: 0, width: '90%' },1)
+            .to (cloudRight, 2, { left : '61%', opacity: 0, width: '90%'  },1)
+            .to (cloudBottom, 2, { top : '27%', opacity: 0, width: '90%'  },1)
+
+
+            .to(logoContainer, 0.2, {padding: '5px 0 25px 0'},1.3)
+
+
+
+            .to(logoContainer, 1.5, {backgroundPosition: 'center'},1.5)
+
+            .to(clouds, 0.1, {display: 'none'},3.1);
     }
     this.removeEventListener('scroll', arguments.callee);
 });

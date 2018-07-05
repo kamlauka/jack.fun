@@ -24,6 +24,7 @@ class AppAsset extends AssetBundle
         'js/gsap/src/minified/TimelineMax.min.js',
         'js/jquery.scrollbar-gh-pages/jquery.scrollbar.min.js',
         'js/scrollbar.js',
+        'js/currency.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',
