@@ -68,17 +68,22 @@ class CabinetController extends Controller
         $model = User::findOne(\Yii::$app->user->id);
 
         if ($model->load(Yii::$app->request->post()) ) {
+            if($model->validate()) {
 
-           if($img = UploadedFile::getInstance($model, 'avatar')){
+                if ($img = UploadedFile::getInstance($model, 'avatar')) {
 
-               $img->saveAs(  Yii::getAlias('@common/uploads/avatar/' . $img->baseName . '.' . $img->extension));
-               $model->avatar = '/../../common/uploads/avatar/' . $img->baseName . '.' . $img->extension;
+                    $img->saveAs(Yii::getAlias('@common/uploads/avatar/' . $img->baseName . '.' . $img->extension));
+                    $model->avatar = '/../../common/uploads/avatar/' . $img->baseName . '.' . $img->extension;
 
-           }else{
-               $model->avatar = $model->oldAttributes['avatar'];
-           }
-            $model->save();
-           return $this->redirect(['index']);
+                } else {
+                    $model->avatar = $model->oldAttributes['avatar'];
+                }
+                $model->save();
+                return $this->redirect(['index']);
+            }
+            //если ошибка
+            Yii::$app->session->setFlash('success', 'Ошибка в валидации');
+            return $this->redirect(['index']);
         }
         return $this->renderPartial('editing', [
             'model' => $model,

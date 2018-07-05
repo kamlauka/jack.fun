@@ -29,8 +29,7 @@ class Modification extends \yii\db\ActiveRecord
     {
         return [
             [['name', 'data', 'description'], 'required'],
-            [['data'], 'number'],
-            [['description'], 'string'],
+            [['description','data'], 'string'],
             [['name'], 'string', 'max' => 255],
         ];
     }

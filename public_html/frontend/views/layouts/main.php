@@ -73,6 +73,10 @@ AppAsset::register($this);
     </div>
 
     <div class="orange-border orange-border_edge"></div>
+    <?php $p = isset(Yii::$app->params['popup'])? Yii::$app->params['popup']: '' ?>
+    <?php $s = isset(Yii::$app->params['signup'])?Yii::$app->params['signup']: ''?>
+    <?php $l = isset(Yii::$app->params['login'])? Yii::$app->params['login']: '' ?>
+    <?php $pas = isset(Yii::$app->params['password'])?Yii::$app->params['password']:'' ?>
     <div class="forms <?= isset(Yii::$app->params['popup']) ? 'forms_active-flex': ''?>" data="<?= isset(Yii::$app->params['popup']) ? 'activ': ''?>">
 
         <div class="popup forms__popup"  onclick="targetFunc(e)">
@@ -96,19 +100,12 @@ AppAsset::register($this);
 
     </div>
 
-
-
-        <?php if(Yii::$app->controller->route === 'site/index'){?>
-            <!--            если главнкая то показать картинку-->
-
-        <?php }else{ ?>
-            <!--            если не главнкая то показать картинку-->
-    <div class="logo-mini">
-            <div class="logo-mini__container">
-                <a href="/"><img src="/images/common/logo-mini.png" alt="" class="logo-mini__image"></a>
+        <?php if(!Yii::$app->controller->route === 'site/index'){ ?>
+            <div class="logo-mini">
+                    <div class="logo-mini__container">
+                        <a href="/"><img src="/images/common/logo-mini.png" alt="" class="logo-mini__image"></a>
+                    </div>
             </div>
-    </div>
-
         <?php } ?>
 
 
