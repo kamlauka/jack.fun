@@ -43,6 +43,9 @@
     display: none;
     position: relative;
   }
+  &__configuration {
+    position: relative;
+  }
   &__forgot-pass {
     display: block;
     margin-top: 20px;

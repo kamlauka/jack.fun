@@ -62,6 +62,7 @@ class Alert extends Widget
 
                 <div class="popup__configuration" >
                     <div class="popup__close" onclick="$('.forms').hide()"></div>
+                    <br>
                     <p><?= $message; ?></p>
                 </div>
                 <?php

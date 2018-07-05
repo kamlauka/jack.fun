@@ -173,18 +173,16 @@ class SiteController extends Controller
 
                     Yii::$app->session->setFlash('success', '<p>Congratulations</p> You have successfully registered.');
                     return $this->goHome();
-
                 }
             }
+            //если не прошел валидация
+            $model->agreement = null;
         }
 
         Yii::$app->params['popup'] = 'signup';
         Yii::$app->params[Yii::$app->params['popup']] = $model;
 
         return $this->render('index');
-//        return $this->render('signup', [
-//            'model' => $model,
-//        ]);
     }
 
     /**

@@ -46,7 +46,8 @@ INSERT INTO `betting` (`id`, `user_id`, `target_id`, `rate`, `pc_target`, `pc_ja
 (5,	8,	51,	0.03,	0,	0,	0,	0,	0),
 (6,	2,	51,	0.03,	0,	0,	0,	0,	0),
 (7,	2,	51,	0.03,	0,	0,	0,	0,	0),
-(8,	17,	51,	0.03,	0,	0,	0,	0,	0)
+(8,	17,	51,	0.03,	0,	0,	0,	0,	0),
+(9,	2,	51,	0.03,	0,	0,	0,	0,	0)
 ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `user_id` = VALUES(`user_id`), `target_id` = VALUES(`target_id`), `rate` = VALUES(`rate`), `pc_target` = VALUES(`pc_target`), `pc_jackpot` = VALUES(`pc_jackpot`), `pc_transaction` = VALUES(`pc_transaction`), `pc_keep` = VALUES(`pc_keep`), `pc_organizer` = VALUES(`pc_organizer`);
 
 DROP TABLE IF EXISTS `comment`;
@@ -165,17 +166,18 @@ DROP TABLE IF EXISTS `modification`;
 CREATE TABLE `modification` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
-  `data` float NOT NULL,
+  `data` varchar(64) NOT NULL,
   `description` text NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `modification` (`id`, `name`, `data`, `description`) VALUES
-(1,	'% в фонд текущей лотереи',	2,	'Процентов от ставки плюхнется в фонд текшей лотереи'),
-(2,	'% в Джекпот ',	0.2,	'% в Джекпот - общий фонд, который будет разыгрываться, к примеру, раз в месяц между всеми игроками'),
-(3,	'% комиссии за транзакцию от биржи',	0.001,	'биржа https://bitshares.org/ берет комиссию за транзакцию'),
-(4,	'% на содержание сайта',	5,	'5% на содержание сайта и на зп модераторам'),
-(5,	'% организаторам споров.',	1,	'1 % организаторам споров.')
+(1,	'percent_lottery',	'2',	'Процентов от ставки плюхнется в фонд текшей лотереи'),
+(2,	'percent_jackpot',	'0.2',	'% в Джекпот - общий фонд, будет разыгрываться, раз в месяц между всеми игроками'),
+(3,	'percent_exchange',	'0.001',	'%  комиссия биржы https://bitshares.org/ за транзакцию'),
+(4,	'percent_admin',	'5',	'5% на содержание сайта и на зп модераторам'),
+(5,	'percent_organizer_dispute ',	'1',	'1 % организаторам споров.'),
+(6,	'wallet account',	'P5HxqgByoxPYbtYgdSAe9MWPRqbH4msAYL5T3QDQWuKYX',	'Кошелек администратора')
 ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `name` = VALUES(`name`), `data` = VALUES(`data`), `description` = VALUES(`description`);
 
 DROP TABLE IF EXISTS `online`;
@@ -303,7 +305,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `username`, `auth_key`, `password_hash`, `password_reset_token`, `email`, `status`, `created_at`, `updated_at`, `phone`, `type`, `balance`, `avatar`, `wallet`, `file`) VALUES
 (1,	'admin',	'A1qwgmpDchz5AztmbE-YOaTOLZZkQmDm',	'$2y$13$oMa6rChD.bP0pDJUlVQHr.eP5Lm8eqBzAW0rd3VCWVRqCFaYe.S1O',	NULL,	'admin@admin.com',	1,	1526915570,	1527671490,	'0969361424',	2,	NULL,	'',	'',	''),
-(2,	'root',	'USa0h80IbiOH9p-lSFFfAl7yvFswoQ0I',	'$2y$13$25e0jZX5tQ8cXYBdV9.uKOUxh45AswnxS/zwZBEMqMGZQL762R4A6',	NULL,	'root@terlabs.com7',	1,	1526983224,	1530708338,	'0969361424',	1,	NULL,	'/../../common/uploads/avatar/log1o (1)-min.gif',	'5555555',	''),
+(2,	'root',	'USa0h80IbiOH9p-lSFFfAl7yvFswoQ0I',	'$2y$13$ppL79Bi8/tV9Qa.LGFDtGeFW..Q4ibLIqxsBOt6TY/a0ewG4f3Wj.',	NULL,	'root@terlabs.com7',	1,	1526983224,	1530714968,	'0969361424',	1,	NULL,	'/../../common/uploads/avatar/cherno-belye_kartinki_na_avu_dla_devushek_01.jpg',	'55555556',	''),
 (4,	'stas',	'yqT1Xeh_9INiGRVGmPJG4JgSwCqq9BbM',	'$2y$13$q5U60U2xvEdyuE0CT9pSOOlasH6LtOSxsUNHV2FZGTevdM0dXFN9W',	NULL,	'sd@terlabs.com',	1,	1527671853,	1527673999,	'063-598-52-52',	0,	0,	'',	'dfgfdgdfgfdg',	''),
 (5,	'antoshka',	'cob2oHjSdtFVGq0iOoM4ADjWH6JMYL1v',	'$2y$13$3yqII9CCzCyECY85LGF.cuWY9M3wqK7SVY7aP73xLqkaV2Unt6J6q',	NULL,	NULL,	1,	1527771944,	1527771944,	NULL,	0,	0,	NULL,	'dsg43rt34v43vt4ftc43c34c43crt43',	NULL),
 (6,	'12345678',	'cCo_FPRm9fIljH9zJ5VpTvtBWadyLiW4',	'$2y$13$Op74koF1nyEHYAjZO7ou..q.fd1oT/WNXF5VDY6I6I/5ajK7W1Vsq',	NULL,	NULL,	1,	1527777279,	1527777279,	NULL,	0,	0,	NULL,	'12345678',	NULL),
@@ -322,4 +324,4 @@ INSERT INTO `user` (`id`, `username`, `auth_key`, `password_hash`, `password_res
 (19,	'wefwefwefewfew',	'wrUyGUvf12c423KD6r5h88MYVl6SbpJ6',	'$2y$13$GkfkplPi3wrNK6hNSzwVuukR0T67xpd1cLKnh0LX3sf37OQ.mR9q.',	NULL,	NULL,	1,	1530699085,	1530699085,	NULL,	0,	0,	NULL,	'wefwefwefewfew',	NULL)
 ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `username` = VALUES(`username`), `auth_key` = VALUES(`auth_key`), `password_hash` = VALUES(`password_hash`), `password_reset_token` = VALUES(`password_reset_token`), `email` = VALUES(`email`), `status` = VALUES(`status`), `created_at` = VALUES(`created_at`), `updated_at` = VALUES(`updated_at`), `phone` = VALUES(`phone`), `type` = VALUES(`type`), `balance` = VALUES(`balance`), `avatar` = VALUES(`avatar`), `wallet` = VALUES(`wallet`), `file` = VALUES(`file`);
 
--- 2018-07-04 13:45:07
+-- 2018-07-05 09:06:47

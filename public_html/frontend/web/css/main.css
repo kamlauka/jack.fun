@@ -659,6 +659,8 @@
   .popup__registration, .popup__login, .popup__password-reset {
     display: none;
     position: relative; }
+  .popup__configuration {
+    position: relative; }
   .popup__forgot-pass {
     display: block;
     margin-top: 20px;
@@ -1693,7 +1695,27 @@ select:-webkit-autofill:focus {
   background: url("../images/common/grass.png") bottom no-repeat, linear-gradient(to bottom, #44dffb 0%, #f9f9f9 73%);
   background-size: contain; }
 
+.user-logo-wrap {
+  position: relative;
+  width: 100px;
+  margin: auto; }
+  .user-logo-wrap::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: block;
+    background: #406973 url("../images/cabinet/edit-pencil.png") no-repeat;
+    width: 20px;
+    height: 20px;
+    background-size: contain;
+    background-position: center;
+    border-radius: 50%;
+    border: 3px solid #406973;
+    z-index: 1; }
+
 .user-logo-container {
+  position: relative;
   width: 100px;
   height: 100px;
   overflow: hidden;
@@ -1702,6 +1724,7 @@ select:-webkit-autofill:focus {
   margin: auto; }
 
 .grass {
+  pointer-events: none;
   position: absolute;
   top: 77%;
   left: 0;
@@ -1719,8 +1742,7 @@ select:-webkit-autofill:focus {
   align-items: flex-end;
   position: relative;
   width: 51.5%;
-  height: 100vh;
-  max-height: 700px; }
+  height: 90vh; }
   @media (max-width: 1052px) {
     .about-user-info {
       width: 57%; } }
@@ -1734,6 +1756,7 @@ select:-webkit-autofill:focus {
     right: -6%; }
   .about-user-info__wrapper {
     position: relative;
+    bottom: 0;
     width: 46%;
     /* height: 64vh; */
     margin: 0 auto;
@@ -1765,8 +1788,9 @@ select:-webkit-autofill:focus {
   .about-user-info__title {
     font-family: Corbel;
     font-weight: bold;
-    color: #24445E;
-    margin-bottom: 0; }
+    color: #0e5390;
+    margin-bottom: 0;
+    font-size: 1.2em; }
   .about-user-info__info {
     margin: 5px 0; }
   .about-user-info__user-name {
@@ -1781,8 +1805,7 @@ select:-webkit-autofill:focus {
   justify-content: flex-end;
   flex-direction: column;
   width: 45%;
-  height: 100vh;
-  max-height: 700px;
+  height: 90vh;
   margin-right: 5%;
   background: url(../images/common/scene.png) bottom no-repeat;
   background-size: cover; }
@@ -2116,7 +2139,8 @@ body {
   .cloud-container_bottom-scale {
     left: 26%;
     top: 25%;
-    z-index: 8001; }
+    z-index: 8001;
+    display: none; }
   .cloud-container_left-big {
     left: -11%;
     top: -7%;
