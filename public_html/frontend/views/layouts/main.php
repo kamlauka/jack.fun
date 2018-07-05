@@ -111,7 +111,8 @@ AppAsset::register($this);
 
 
 </header>
-<?php if(!Yii::$app->controller->route === 'site/index'){ ?>
+<?php if(Yii::$app->controller->route === 'site/index'){ ?>
+
 <div class="preloader">
     <h1 class="preloader__title">JACKPOT.FUN</h1>
     <div class="preloader__fill"></div>
