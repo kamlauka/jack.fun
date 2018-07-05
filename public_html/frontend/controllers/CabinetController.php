@@ -42,7 +42,6 @@ class CabinetController extends Controller
         ];
     }
 
-
     /**
      * Displays homepage.
      *
@@ -66,6 +65,13 @@ class CabinetController extends Controller
         }
 
         $model = User::findOne(\Yii::$app->user->id);
+
+        if(Yii::$app->request->isPjax){
+
+            return $this->render('editing', [
+                'model' => $model,
+            ]);
+        }
 
         if ($model->load(Yii::$app->request->post()) ) {
             if($model->validate()) {
