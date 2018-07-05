@@ -59,9 +59,6 @@ class CabinetController extends Controller
 
     public function actionEditing()
     {
-//        return $this->render('index', [
-//            'md5' => md5(Yii::$app->request->post('string'))
-//        ]);
 
         if(!\Yii::$app->user->id){
            return $this->redirect(['index']);
@@ -94,7 +91,7 @@ class CabinetController extends Controller
             Yii::$app->session->setFlash('success', 'Ошибка в валидации');
             return $this->redirect(['index']);
         }
-        return $this->render('index', [
+        return $this->renderPartial('editing', [
             'model' => $model,
         ]);
     }

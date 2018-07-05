@@ -9,10 +9,8 @@
     <div class="empty-block empty-block_left"></div>
 <!--    <div class="container wrap_cabinet">-->
 
-
     <div class="cabinet__about-user about-user-info">
         <div class="about-user-info__wrapper" id="user-info" onclick="event.stopPropagation()">
-            <?php \yii\widgets\Pjax::begin(['linkSelector'=>'#user-info']); ?>
             <div class="user-info about-user-info__paragraph" >
 
                     <div class="user-logo-container">
@@ -32,7 +30,6 @@
                 } ?>
 
             </div>
-
             <?php if(isset($user->phone)){ ?>
                 <div class="number about-user-info__paragraph">
                     <p class="about-user-info__title">my phone-number:</p>
@@ -53,16 +50,11 @@
                     <p class="about-user-info__info"><?= $user->email ?></p>
                 </div>
             <?php } ?>
-            <?= Html::a(
-                    'Edit info',
-                    ["/cabinet/editing"],
-                    ['class'=>'button button_gold','data-pjax'=>1]) ?>
-            <a href="/cabinet/editing"  id='user-info' class="button button_gold"> Edit info</a>
+
+            <a class="button button_gold" id="button-edit">Edit info</a>
             <a class="button button_gold" id="edit-password" >Edit password</a>
-            <?php \yii\widgets\Pjax::end(); ?>
         </div>
     </div>
-
     <div class="cabinet__disputes disputes mobile-border-gray">
         <h1 class="disputes__title">Coming soon</h1>
         <div class="disputes__image-container">
