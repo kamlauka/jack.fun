@@ -168,7 +168,6 @@ AppAsset::register($this);
     <div class="footer-container footer-container_dark">
         <div class="footer-block container  flex-gorizontal">
             <div class="footer-block__left-align-block footer-block__left-align-block__margin">
-                <p>38 (093) 670 670 70 </p>
                 <?= Html::a('www.jackpo.fun.com','#',['class'=>'footer-block__link footer-block__link_font_gold']) ?>
             </div>
             <div class="footer-block__center-align-block">
@@ -179,13 +178,14 @@ AppAsset::register($this);
                 <a class="footer-block__icon footer-block__icon_vk" href="#"><img src="/images/common/icon-v.svg" alt=""></a>
             </div>
             <div class="footer-block__right-align-block">
-                <a class="footer-block__terlabs" href="http://terlabs.com">
-                    <img class="footer-block__terlabs-image"src="/images/common/terlabs.png" alt="terlabs">
-                </a>
-                <p>
-                    <span class="footer-block__terlabs-work">Создание и разработка сайтов</span>
-                    <span class="footer-block__small-number"> +38 048 789 44 54</span>
-                </p>
+                <p>38 (093) 670 670 70 </p>
+<!--                <a class="footer-block__terlabs" href="http://terlabs.com">-->
+<!--                    <img class="footer-block__terlabs-image"src="/images/common/terlabs.png" alt="terlabs">-->
+<!--                </a>-->
+<!--                <p>-->
+<!--                    <span class="footer-block__terlabs-work">Создание и разработка сайтов</span>-->
+<!--                    <span class="footer-block__small-number"> +38 048 789 44 54</span>-->
+<!--                </p>-->
             </div>
         </div>
     </div>

@@ -50,9 +50,9 @@
                     <p class="about-user-info__info"><?= $user->email ?></p>
                 </div>
             <?php } ?>
-
+            <a class="button-link" id="edit-password" >Edit password</a>
             <a class="button button_gold" id="button-edit">Edit info</a>
-            <a class="button button_gold" id="edit-password" >Edit password</a>
+
         </div>
     </div>
     <div class="cabinet__disputes disputes mobile-border-gray">

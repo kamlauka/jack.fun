@@ -14,7 +14,7 @@
 ._font__1-5em, .footer-container {
   font-size: 1.5em; }
 
-._font__1-3em, .seo-block__text {
+._font__1-3em {
   font-size: 1.3em; }
 
 ._font__1-2em {
@@ -145,9 +145,9 @@
   .button_gold {
     color: white;
     background-color: #FFB400;
-    border-color: #DE7300; }
+    border-color: #B27214; }
     .button_gold:hover {
-      box-shadow: inset 0 0 20px 6px #DE7300; }
+      box-shadow: inset 0 0 20px 6px #B27214; }
   .button_dark {
     color: #FFB400;
     background-color: #5F6E6E;
@@ -266,7 +266,7 @@
     width: 92%;
     height: 100%;
     padding: 7px 3%;
-    border: 2px solid #DE7300;
+    border: 2px solid #B27214;
     background-color: #B3C7C2;
     transform-style: preserve-3d; }
     .menu a:hover, .menu a:focus {
@@ -635,7 +635,7 @@
     .participate__text_image_apple:before {
       content: url("../images/main/apple.png"); }
     .participate__text_image_apple:after {
-      content: url("../images/main/apple.png"); }
+      content: url("../images/main/bitten-apple.png"); }
     .participate__text_border_dark {
       border: 4px solid #4D4D4D; }
   .participate__button {
@@ -674,7 +674,7 @@
   flex-wrap: nowrap;
   width: 25%;
   padding: 0px 30px 20px;
-  border: 6px solid #DE7300;
+  border: 6px solid #B27214;
   box-shadow: inset 0 0 0 8px #FFB400, 0 0 0 3px #FFB400;
   background-color: #91AAA9; }
   .popup__registration, .popup__login, .popup__password-reset {
@@ -759,7 +759,8 @@
   outline: 0;
   box-sizing: border-box;
   background-color: #5D6C6C;
-  color: white; }
+  color: white;
+  font-family: SFUI, sans-serif; }
 
 .title-h3 {
   color: white;
@@ -790,7 +791,7 @@ select:-webkit-autofill:focus {
 .prizes {
   position: relative;
   width: 100%;
-  border-top: 10px solid #DE7300;
+  border-top: 10px solid #B27214;
   background: white;
   background: -webkit-linear-gradient(0deg, white 0%, #aafffe 100%);
   background: -o-linear-gradient(0deg, white 0%, #aafffe 100%);
@@ -1286,7 +1287,8 @@ select:-webkit-autofill:focus {
   position: relative;
   border-top: 60px solid #173750;
   text-align: center;
-  background: url("../images/main/ferryman.png") 25% bottom no-repeat, url("../images/main/stone-undeworld.png") 80% bottom no-repeat, linear-gradient(0deg, #7f5643 0%, white 79%); }
+  background: url(../images/main/ferryman.png) 68% bottom no-repeat, url(../images/main/stone-undeworld.png) 84% bottom no-repeat, linear-gradient(0deg, #7f5643 0%, white 47%);
+  background-size: 25%,17%; }
   .seo-section:before {
     content: ''; }
   .seo-section:after {
@@ -1297,6 +1299,7 @@ select:-webkit-autofill:focus {
       background: linear-gradient(0deg, #7f5643 0%, white 79%); } }
 
 .seo-block__title {
+  margin: 50px 0;
   color: #050A24; }
   @media (max-width: 768px) {
     .seo-block__title {
@@ -1319,7 +1322,8 @@ select:-webkit-autofill:focus {
   max-height: 400px;
   padding: 0 20px;
   font-family: SFUI, sans-serif;
-  font-weight: bold; }
+  font-weight: bold;
+  font-size: 1.1em; }
   @media (max-width: 820px) {
     .seo-block__text {
       font-size: 1em; } }
@@ -1348,7 +1352,7 @@ select:-webkit-autofill:focus {
     .footer-container {
       font-size: 1.2em; } }
   .footer-container_gradient {
-    background: linear-gradient(0deg, #ac6037, #6f5145);
+    background: #0A2132;
     color: white; }
   .footer-container_dark {
     background-color: #0B181D;
@@ -1383,13 +1387,14 @@ select:-webkit-autofill:focus {
 
 .footer-block__link {
   display: block;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  color: white; }
+  margin: 20px 0;
+  color: white;
+  font-family: SFUI, sans-serif; }
   .footer-block__link:hover {
     color: #FFB400; }
   .footer-block__link_font_gold {
-    color: #FFB400; }
+    color: #FFB400;
+    font-family: IceAge, sans-serif; }
     .footer-block__link_font_gold:hover {
       color: white; }
   @media (max-width: 768px) {
@@ -1469,6 +1474,7 @@ select:-webkit-autofill:focus {
   .terms__text {
     padding: 0 20px;
     font-family: SFUI, sans-serif;
+    font-weight: bold;
     font-size: 1.3em; }
 
 .jackpot-page {
@@ -1743,7 +1749,7 @@ select:-webkit-autofill:focus {
   height: 100px;
   overflow: hidden;
   border-radius: 50%;
-  border: 6px solid #DE7300;
+  border: 6px solid #B27214;
   margin: auto; }
 
 .grass {
@@ -1812,17 +1818,20 @@ select:-webkit-autofill:focus {
       .about-user-info__paragraph {
         font-size: 2em; } }
   .about-user-info__title {
-    font-family: Corbel;
     font-weight: bold;
-    color: #0e5390;
     margin-bottom: 0;
     font-size: 1.2em; }
   .about-user-info__info {
-    margin: 5px 0; }
+    margin: 5px 0;
+    font-family: SFUI, sans-serif; }
   .about-user-info__user-name {
-    font-family: Corbel;
-    font-weight: bold;
-    color: #24445E; }
+    font-family: SFUI, sans-serif;
+    font-weight: bold; }
+
+.button-link {
+  font-family: SFUI, sans-serif;
+  display: block;
+  text-decoration: underline; }
 
 .disputes {
   display: flex;
@@ -1914,7 +1923,7 @@ select:-webkit-autofill:focus {
 
 @font-face {
   font-family: SFUI;
-  src: url(../fonts/SFUIDisplay-Regular.ttf) format("ttf"), url(../fonts/SFUIDisplay-Regular.woff) format("woff"), url(../fonts/SFUIDisplay-Regular.eot) format("eot"), url(../fonts/SFUIDisplay-Regular.otf) format("otf"); }
+  src: url(../fonts/SFUIText-Bold.ttf) format("ttf"), url(../fonts/SFUIText-Bold.woff) format("woff"), url(../fonts/SFUIText-Bold.eot) format("eot"), url(../fonts/SFUIText-Bold.otf) format("otf"); }
 
 *:focus {
   outline: none !important; }
@@ -1988,8 +1997,8 @@ body {
   z-index: 8000;
   position: relative;
   padding: 10px 0;
-  border-top: 6px solid #DE7300;
-  border-bottom: 6px solid #DE7300;
+  border-top: 6px solid #B27214;
+  border-bottom: 6px solid #B27214;
   background: #FFB326 url("../images/common/pattern1.png") repeat-x;
   background-size: contain;
   background-origin: content-box; }
@@ -2008,7 +2017,7 @@ body {
   .orange-border_edge {
     height: 5px;
     padding: 2px 0 0;
-    border-top: 2px solid #DE7300;
+    border-top: 2px solid #B27214;
     border-bottom: 0;
     background-size: 2.5% auto;
     z-index: 0; }
