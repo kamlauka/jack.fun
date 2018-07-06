@@ -16,7 +16,40 @@
 
             <?= include 'content/'.Yii::$app->controller->action->id.'.php' ?>
 
+<<<<<<< HEAD
             <?php Pjax::end(); ?>
+=======
+
+                <?php
+                if(isset($user->username)){
+                    echo Html::tag('p',$user->username,['class'=>'user-name about-user-info__user-name']);
+                } ?>
+
+            </div>
+            <?php if(isset($user->phone)){ ?>
+                <div class="number about-user-info__paragraph">
+                    <p class="about-user-info__title">my phone-number:</p>
+                    <p class="about-user-info__info"><?= $user->phone ?></p>
+                </div>
+            <?php } ?>
+
+            <?php  if(isset($user->wallet)){ ?>
+                <div class="wallet about-user-info__paragraph">
+                    <p class="about-user-info__title">my wallet:</p>
+                    <p class="about-user-info__info"><?= $user->wallet ?></p>
+                </div>
+            <?php } ?>
+
+            <?php  if(isset($user->email)){ ?>
+                <div class="mail about-user-info__paragraph">
+                    <p class="about-user-info__title">my email:</p>
+                    <p class="about-user-info__info"><?= $user->email ?></p>
+                </div>
+            <?php } ?>
+            <a class="button-link" id="edit-password" >Edit password</a>
+            <a class="button button_gold" id="button-edit">Edit info</a>
+
+>>>>>>> as
         </div>
     </div>
     <div class="cabinet__disputes disputes mobile-border-gray">

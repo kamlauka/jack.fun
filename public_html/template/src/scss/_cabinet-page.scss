@@ -31,7 +31,7 @@
   height: 100px;
   overflow: hidden;
   border-radius: 50%;
-  border: 6px solid #DE7300;
+  border: 6px solid $add-color3;
   margin: auto;
 
 }
@@ -138,26 +138,29 @@
     }
   }
   &__title {
-    font-family: Corbel;
     font-weight: bold;
-    color: #0e5390;;
     margin-bottom: 0;
     font-size: 1.2em;
   }
 
   &__info {
     margin: 5px 0;
+    font-family: $add-font;
   }
 
 
   &__user-name {
-    font-family: Corbel;
+    font-family: $add-font;
     font-weight: bold;
-    color: #24445E;
+
   }
 }
 
-
+.button-link {
+  font-family: $add-font;
+  display: block;
+  text-decoration: underline;
+}
 
 .disputes {
   display: flex;

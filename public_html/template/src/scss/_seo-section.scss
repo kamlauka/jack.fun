@@ -8,7 +8,9 @@
   //background: -webkit-linear-gradient(0deg, rgb(127, 86, 67) 0%, rgb(255, 255, 255) 79%);
   //background: -o-linear-gradient(0deg, rgb(127, 86, 67) 0%, rgb(255, 255, 255) 79%);
   //background: -ms-linear-gradient(0deg, rgb(127, 86, 67) 0%, rgb(255, 255, 255) 79%);
-  background: $pat-ferryman 25% bottom no-repeat, $pat-underworld 80% bottom no-repeat, linear-gradient(0deg, rgb(127, 86, 67) 0%, rgb(255, 255, 255) 79%);
+  //background: $pat-ferryman 25% bottom no-repeat, $pat-underworld 80% bottom no-repeat, linear-gradient(0deg, rgb(127, 86, 67) 0%, rgb(255, 255, 255) 79%);
+  background: url(../images/main/ferryman.png) 68% bottom no-repeat, url(../images/main/stone-undeworld.png) 84% bottom no-repeat, linear-gradient(0deg, #7f5643 0%, white 47%);
+  background-size: 25%,17%;
 
   &:before {
     content: '';
@@ -33,6 +35,7 @@
 .seo-block {
 
   &__title {
+    margin: 50px 0;
     color: #050A24;
     @extend ._font__3em;
     @include mini-font_1-3em($mobile-width);
@@ -60,7 +63,7 @@
 
     font-family: $add-font;
     font-weight: bold;
-    @extend ._font__1-3em;
+    font-size: 1.1em;
     @include mini-font_1em($fourth-width);
 
 

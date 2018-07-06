@@ -7,7 +7,8 @@
 
 
   &_gradient {
-    background: linear-gradient(0deg,#ac6037,#6f5145);
+    //background: linear-gradient(0deg,#ac6037,#6f5145);
+    background: #0A2132;
     color: white;
   }
 
@@ -62,15 +63,16 @@
 
   &__link {
     display: block;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin: 20px 0;
     color: white;
+    font-family: $add-font;
     &:hover {
       color: $main-color;
     }
 
     &_font_gold {
       color: $main-color;
+      font-family: $main-font;
       &:hover {
         color: white;
       }
