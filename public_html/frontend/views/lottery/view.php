@@ -33,8 +33,7 @@
                        onclick="showForm('.popup__login')"
                     <?php } else { ?>
                        onclick="showForm('.popup__transaction')"
-                    <?php } ?>
-                   href="/lottery/participate?id=<?= $lottery['data']->id ?>">
+                    <?php } ?>>
                     Participate</a>
             </div>
             <div class="steps-container flex-gorizontal">

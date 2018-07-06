@@ -170,7 +170,14 @@ use yii\helpers\Html;
                     <p class="participate__text participate__text_image_apple flex-gorizontal"><?= $lottery['description']->text ?></p>
                 </div>
                 <div class="participate__buttons container">
-                    <a class="button button_gold participate__button" href="/lottery/view">Participate</a>
+                    <a class="button button_gold participate__button" href="/lottery/view">View details</a>
+                    <a class="button button_gold participate__button"
+                        <?php if(Yii::$app->user->isGuest) { ?>
+                            onclick="showForm('.popup__login')"
+                        <?php } else { ?>
+                            onclick="showForm('.popup__transaction')"
+                        <?php } ?>>
+                        Participate</a>
                 </div>
             </section>
         </section>
@@ -221,7 +228,14 @@ use yii\helpers\Html;
                 <p class="participate__text participate__text_image_dollar flex-gorizontal"><?= $jackpot['description']->text ?></p>
             </div>
             <div class="participate__buttons container">
-                <a class="button button_gold participate__button" href="/jackpot/view">Participate</a>
+                <a class="button button_gold participate__button" href="/jackpot/view">View details</a>
+                <a class="button button_gold participate__button"
+                    <?php if(Yii::$app->user->isGuest) { ?>
+                        onclick="showForm('.popup__login')"
+                    <?php } else { ?>
+                        onclick="showForm('.popup__transaction')"
+                    <?php } ?>>
+                    Participate</a>
             </div>
         </section>
 

@@ -47,6 +47,9 @@
   background: $pat-grass bottom no-repeat;
   background-size: 100%;
   @media (max-width: $mobile-width) {
+    height: 130px;
+    bottom: 26px;
+    top: auto;
     background-size: cover;
   }
 }

@@ -1755,6 +1755,9 @@ select:-webkit-autofill:focus {
   background-size: 100%; }
   @media (max-width: 768px) {
     .grass {
+      height: 130px;
+      bottom: 26px;
+      top: auto;
       background-size: cover; } }
 
 .about-user-info {
