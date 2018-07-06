@@ -55,6 +55,9 @@ use yii\widgets\ActiveForm;
             <br>
 
             <div class="form-group">
+
+                <a class="button-link" href="/cabinet/change-password" id="edit-password" >Edit password</a>
+                <a class="button button_dark" href="/cabinet/index" >Back</a>
                 <?= Html::submitButton('Save', ['class' => 'button button_gold']) ?>
             </div>
 

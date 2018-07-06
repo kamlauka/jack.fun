@@ -1749,7 +1749,7 @@ select:-webkit-autofill:focus {
   height: 100px;
   overflow: hidden;
   border-radius: 50%;
-  border: 6px solid #B27214;
+  border: 6px solid #DE7300;
   margin: auto; }
 
 .grass {
@@ -1830,6 +1830,8 @@ select:-webkit-autofill:focus {
 
 .button-link {
   font-family: SFUI, sans-serif;
+  color: #35403B;
+  margin-bottom: 20px;
   display: block;
   text-decoration: underline; }
 

@@ -1,6 +1,6 @@
 
 
-function animateNotes() {
+function animateCurrency() {
     var currency = $(".currency__image");
 
     var tl = new TimelineMax({yoyo:true, repeat:-1,ease: Sine.easeInOut,});
