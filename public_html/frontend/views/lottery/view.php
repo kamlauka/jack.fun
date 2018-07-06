@@ -28,7 +28,7 @@
         <p class="prize-page-without-clouds__text text-wrap"><?php if(isset($lottery['description']->text)) echo $lottery['description']->text  ?></p>
         <div class="participate prize-page-without-clouds__participate">
             <div class="participate__buttons container">
-                <a class="button button_gold participate__button"
+                <a class="button button_gold participate__button" data-id="<?= $lottery['data']->id ?>"
                    <?php if(Yii::$app->user->isGuest) { ?>
                        onclick="showForm('.popup__login')"
                     <?php } else { ?>

@@ -49,10 +49,9 @@ class LotteryController extends Controller
             $betting->pc_transaction = 0;
             $betting->save();
 
-            $wall = Modification::findOne(6);
-            Yii::$app->session->setFlash('success', 'Send ETH here: '.$wall->data.'<label class="label" for="s123">Tranzaction hash</label><input id="s123" class="input-text" type="text"><button type="submit" class="button button_gold button_little"> Accept</button>');
+            Yii::$app->session->setFlash('success', '<p>Congratulations</p> Transaction has been send!');
             // реализовать форму
-            return $this->redirect('/cabinet/index');
+            return $this->redirect(Yii::$app->request->referrer);
         }
 
     }
