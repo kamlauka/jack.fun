@@ -1,6 +1,6 @@
 <?php
-    use yii\helpers\Html;
 
+    use yii\widgets\Pjax;
     $this->params['breadcrumbs'][] = ['label' =>'Cabinet','template' => "<li class='crumbs__link crumbs__link_active'><span class='crumb-active'>{link}</span></li>"];
 ?>
 
@@ -10,49 +10,13 @@
 <!--    <div class="container wrap_cabinet">-->
 
     <div class="cabinet__about-user about-user-info">
-        <div class="about-user-info__wrapper" id="user-info" onclick="event.stopPropagation()">
-            <div class="user-info about-user-info__paragraph" >
+<!--        onclick="event.stopPropagation()"-->
+        <div class="about-user-info__wrapper" id="user-info" >
+            <?php Pjax::begin(['id'=>Yii::$app->controller->action->id]); ?>
 
-                    <div class="user-logo-container">
-                        <?php
-                        if(isset($user->avatar)){
-                            echo Html::img($user->avatar,['alt'=>"your logo", 'class'=>"user-logo about-user-info__user-logo"]);
-                        }else{
-                            echo '<img class="user-logo about-user-info__user-logo" src="../../images/cabinet/default-logo.png" alt="">';
-                        }
-                        ?>
-                    </div>
+            <?= include 'content/'.Yii::$app->controller->action->id.'.php' ?>
 
-
-                <?php
-                if(isset($user->username)){
-                    echo Html::tag('p',$user->username,['class'=>'user-name about-user-info__user-name']);
-                } ?>
-
-            </div>
-            <?php if(isset($user->phone)){ ?>
-                <div class="number about-user-info__paragraph">
-                    <p class="about-user-info__title">my phone-number:</p>
-                    <p class="about-user-info__info"><?= $user->phone ?></p>
-                </div>
-            <?php } ?>
-
-            <?php  if(isset($user->wallet)){ ?>
-                <div class="wallet about-user-info__paragraph">
-                    <p class="about-user-info__title">my wallet:</p>
-                    <p class="about-user-info__info"><?= $user->wallet ?></p>
-                </div>
-            <?php } ?>
-
-            <?php  if(isset($user->email)){ ?>
-                <div class="mail about-user-info__paragraph">
-                    <p class="about-user-info__title">my email:</p>
-                    <p class="about-user-info__info"><?= $user->email ?></p>
-                </div>
-            <?php } ?>
-
-            <a class="button button_gold" id="button-edit">Edit info</a>
-            <a class="button button_gold" id="edit-password" >Edit password</a>
+            <?php Pjax::end(); ?>
         </div>
     </div>
     <div class="cabinet__disputes disputes mobile-border-gray">

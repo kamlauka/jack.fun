@@ -165,6 +165,9 @@ class SiteController extends Controller
     public function actionSignup()
     {
 
+//        if(Yii::$app->request->isPjax){
+//            $ff = 'ok';
+//        }
         $model = new SignupForm();
         if ($model->load(Yii::$app->request->post())) {
 

@@ -17,7 +17,7 @@ class AppAsset extends AssetBundle
         'css/main.css',
     ];
     public $js = [
-        'https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js',
+        //'https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js',
         'js/preloader.js',
         'js/app.js',
         'js/gsap/src/minified/TweenMax.min.js',

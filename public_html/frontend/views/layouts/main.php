@@ -15,6 +15,7 @@ AppAsset::register($this);
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
 <head>
+    <script src="/js/jquery-3.3.1.min.js"></script>
     <meta charset="<?= Yii::$app->charset ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -120,17 +121,15 @@ AppAsset::register($this);
 <?php } ?>
 
 <div class="page-container mobile-container">
-    <div class="crumbs container container_mob">
-        <?php
-        if(isset($this->params['breadcrumbs'])){
 
-            echo  Breadcrumbs::widget([
-                'homeLink' => ['label' => 'Home','template' => '<li class="crumbs__link">{link}</li>', 'url' => '/'],
-                'links' => $this->params['breadcrumbs'],
-            ]);
-
-        }?>
-    </div>
+        <?php if(isset($this->params['breadcrumbs'])){?>
+            <div class="crumbs container container_mob">
+            <?php   echo  Breadcrumbs::widget([
+                    'homeLink' => ['label' => 'Home','template' => '<li class="crumbs__link">{link}</li>', 'url' => '/'],
+                    'links' => $this->params['breadcrumbs'],
+                ]);?>
+            </div>
+        <?php } ?>
 
     <?= $content ?>
 </div>

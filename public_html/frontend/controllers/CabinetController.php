@@ -50,10 +50,10 @@ class CabinetController extends Controller
     public function actionIndex()
     {
         $user_id = \Yii::$app->user->identity->id;
-        $user = User::findOne($user_id);
+        $model = User::findOne($user_id);
 
         return $this->render('index',[
-            'user'=>$user,
+            'model'=>$model,
         ]);
     }
 
@@ -68,14 +68,7 @@ class CabinetController extends Controller
 
         if(Yii::$app->request->isPjax){
 
-            return $this->render('editing', [
-                'model' => $model,
-            ]);
-        }
-
-        if ($model->load(Yii::$app->request->post()) ) {
-            if($model->validate()) {
-
+            if ($model->load(Yii::$app->request->post()) ) {
                 if ($img = UploadedFile::getInstance($model, 'avatar')) {
 
                     $img->saveAs(Yii::getAlias('@common/uploads/avatar/' . $img->baseName . '.' . $img->extension));
@@ -84,14 +77,21 @@ class CabinetController extends Controller
                 } else {
                     $model->avatar = $model->oldAttributes['avatar'];
                 }
-                $model->save();
-                return $this->redirect(['index']);
+                if($model->validate()) {
+                    $model->save();
+                    Yii::$app->session->setFlash('success', 'Your information has been successfully changed)');
+                    return $this->redirect(['index']);
+                }
+                //если ошибка
+
+               // return $this->redirect(['index']);
             }
-            //если ошибка
-            Yii::$app->session->setFlash('success', 'Ошибка в валидации');
-            return $this->redirect(['index']);
+            return $this->renderPartial('content/editing', [
+                'model' => $model,
+            ]);
         }
-        return $this->renderPartial('editing', [
+
+        return $this->render('index', [
             'model' => $model,
         ]);
     }
@@ -103,38 +103,46 @@ class CabinetController extends Controller
         }
 
         $model = new ChangePasswordForm();
+        if(Yii::$app->request->isPjax){
+            if($model->load(Yii::$app->request->post())) {
+              //  $hash = Yii::$app->getSecurity()->generatePasswordHash($model->passold);
 
-        if($model->load(Yii::$app->request->post())) {
-          //  $hash = Yii::$app->getSecurity()->generatePasswordHash($model->passold);
+                $user = User::findOne(\Yii::$app->user->id);
 
-            $user = User::findOne(\Yii::$app->user->id);
+                if (Yii::$app->getSecurity()->validatePassword($model->passold, $user->password_hash) && $model->validate()) {
 
-            if (Yii::$app->getSecurity()->validatePassword($model->passold, $user->password_hash)) {
+                    if($model->change()){
 
-                if($model->change()){
+                        Yii::$app->session->setFlash('success', 'Your password has been successfully changed!');
+                        return $this->redirect('/cabinet');
 
-                    Yii::$app->session->setFlash('success', 'Your password has been successfully changed!');
-                    return $this->redirect('/cabinet');
+                    }else{
+                        Yii::$app->session->setFlash('success', 'Пароль не сохранен');
+                        return $this->redirect('/cabinet');
+                    }
 
-                }else{
-                    Yii::$app->session->setFlash('success', 'Пароль не сохранен');
-                    return $this->redirect('/cabinet');
+
+                    } else {
+                    $model->addError('passold', 'Old password is not correct');
+
+                        // неправильный пароль
+                        //$model
+                        return $this->renderPartial('content/change-password',[
+                        'model' => $model
+                    ]);
+                    }
+
                 }
-
-
-            } else {
-                // неправильный пароль
-                Yii::$app->session->setFlash('success', 'Ошибка в старом пароле');
-                return $this->redirect('/cabinet');
-            }
-
-            } else {
-
-            return $this->renderPartial('change-password', [
+            return $this->renderPartial('content/change-password', [
                 'model' => $model,
             ]);
 
-        }
+            }
+            return $this->render('index', [
+                'model' => $model,
+            ]);
+
+
     }
 
 
