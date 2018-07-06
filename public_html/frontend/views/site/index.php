@@ -44,72 +44,72 @@ use yii\helpers\Html;
     <section class="first-page">
 
         <div class="first-page__container">
-<!--            <div class="clouds">-->
-<!--                <div class="cloud-container cloud-container_left-big">-->
-<!--                    <div class="cloud">-->
-<!--                        <div class="cloud cloud__cloud1"></div>-->
-<!--                        <div class="cloud cloud__cloud2"></div>-->
-<!--                        <div class="cloud cloud__cloud3"></div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="cloud-container cloud-container_right-big">-->
-<!--                    <div class="cloud">-->
-<!--                        <div class="cloud cloud__cloud1"></div>-->
-<!--                        <div class="cloud cloud__cloud2"></div>-->
-<!--                        <div class="cloud cloud__cloud3"></div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="cloud-container cloud-container_left-small" >-->
-<!--                    <div class="cloud">-->
-<!--                        <div class="cloud_bottom-big cloud cloud__cloud1"></div>-->
-<!--                        <div class="cloud cloud__cloud2"></div>-->
-<!--                        <div class="cloud cloud__cloud3"></div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="cloud-container cloud-container_second-small">-->
-<!--                    <div class="cloud">-->
-<!--                        <div class="cloud_bottom-big cloud cloud__cloud1"></div>-->
-<!--                        <div class="cloud cloud__cloud2"></div>-->
-<!--                        <div class="cloud cloud__cloud3"></div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="cloud-container cloud-container_third-small">-->
-<!--                    <div class="cloud">-->
-<!--                        <div class="cloud_bottom-big cloud cloud__cloud1"></div>-->
-<!--                        <div class="cloud cloud__cloud2"></div>-->
-<!--                        <div class="cloud cloud__cloud3"></div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="cloud-container cloud-container_right-small">-->
-<!--                    <div class="cloud">-->
-<!--                        <div class="cloud_bottom-big cloud cloud__cloud1"></div>-->
-<!--                        <div class="cloud cloud__cloud2"></div>-->
-<!--                        <div class="cloud cloud__cloud3"></div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="cloud-container cloud-container_bottom-big">-->
-<!--                    <div class="cloud">-->
-<!--                        <div class="cloud_bottom-big cloud cloud__cloud1"></div>-->
-<!--                        <div class="cloud cloud__cloud2"></div>-->
-<!--                        <div class="cloud cloud__cloud3"></div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
+            <div class="clouds">
+                <div class="cloud-container cloud-container_left-big">
+                    <div class="cloud">
+                        <div class="cloud cloud__cloud1"></div>
+                        <div class="cloud cloud__cloud2"></div>
+                        <div class="cloud cloud__cloud3"></div>
+                    </div>
+                </div>
+                <div class="cloud-container cloud-container_right-big">
+                    <div class="cloud">
+                        <div class="cloud cloud__cloud1"></div>
+                        <div class="cloud cloud__cloud2"></div>
+                        <div class="cloud cloud__cloud3"></div>
+                    </div>
+                </div>
+                <div class="cloud-container cloud-container_left-small" >
+                    <div class="cloud">
+                        <div class="cloud_bottom-big cloud cloud__cloud1"></div>
+                        <div class="cloud cloud__cloud2"></div>
+                        <div class="cloud cloud__cloud3"></div>
+                    </div>
+                </div>
+                <div class="cloud-container cloud-container_second-small">
+                    <div class="cloud">
+                        <div class="cloud_bottom-big cloud cloud__cloud1"></div>
+                        <div class="cloud cloud__cloud2"></div>
+                        <div class="cloud cloud__cloud3"></div>
+                    </div>
+                </div>
+                <div class="cloud-container cloud-container_third-small">
+                    <div class="cloud">
+                        <div class="cloud_bottom-big cloud cloud__cloud1"></div>
+                        <div class="cloud cloud__cloud2"></div>
+                        <div class="cloud cloud__cloud3"></div>
+                    </div>
+                </div>
+                <div class="cloud-container cloud-container_right-small">
+                    <div class="cloud">
+                        <div class="cloud_bottom-big cloud cloud__cloud1"></div>
+                        <div class="cloud cloud__cloud2"></div>
+                        <div class="cloud cloud__cloud3"></div>
+                    </div>
+                </div>
+                <div class="cloud-container cloud-container_bottom-big">
+                    <div class="cloud">
+                        <div class="cloud_bottom-big cloud cloud__cloud1"></div>
+                        <div class="cloud cloud__cloud2"></div>
+                        <div class="cloud cloud__cloud3"></div>
+                    </div>
+                </div>
+            </div>
             <div class="currency">
                 <?= Html::img('../../images/main/currency.gif', ['alt' => 'currency', 'class' => 'currency__image']) ?>
             </div>
             <div class="colons flex-gorizontal flex-gorizontal_top">
                 <?php if(isset($text['T']->text)){ ?>
-                    <div class="colons__item">
-                        <div class="colons__image-container">
-                            <?= Html::img('../../images/main/tt.png', ['alt' => 'T', 'class' => 'colons__image']) ?>
-                        </div>
-                        <p class="colons__text"><?= $text['T']->text ?></p>
-                    </div>
+<!--                    <div class="colons__item">-->
+<!--                        <div class="colons__image-container">-->
+<!--                            --><?//= Html::img('../../images/main/tt.png', ['alt' => 'T', 'class' => 'colons__image']) ?>
+<!--                        </div>-->
+<!--                        <p class="colons__text">--><?//= $text['T']->text ?><!--</p>-->
+<!--                    </div>-->
                 <?php } if(isset($text['bitcoin']->text)){ ?>
                     <div class="colons__item">
                         <div class="colons__image-container">
-                            <?= Html::img('../../images/main/bitcoin.png', ['alt' => 'bitcoin', 'class' => 'colons__image']) ?>
+                            <?= Html::img('../../images/main/bitcoinE.png', ['alt' => 'bitcoin', 'class' => 'colons__image']) ?>
                         </div>
                         <p class="colons__text"><?= $text['bitcoin']->text ?></p>
                     </div>

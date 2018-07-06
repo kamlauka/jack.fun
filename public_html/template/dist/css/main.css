@@ -42,7 +42,7 @@
       .pillar_color_grey, .terrestrial-world:before, .terrestrial-world:after {
         background-size: 47%, 47%, 32.5%; } }
   .pillar_color_gold, .prizes:before, .prizes:after {
-    background: url("../images/common/gold-pillar-1.png") top left no-repeat, url("../images/common/gold-pillar-3.png") bottom left no-repeat, url("../images/common/gold-pillar-2.png") repeat-y; }
+    background: url("../images/common/pillar.svg") top left no-repeat; }
     @media (max-width: 1550px) {
       .pillar_color_gold, .prizes:before, .prizes:after {
         background-size: 47%, 47%, 32.5%; } }
@@ -139,7 +139,7 @@
   margin: 1% 5%;
   border: 6px solid;
   font-size: 1.5em;
-  font-family: IceAge;
+  font-family: IceAge, sans-serif;
   transition: box-shadow 0.3s ease-in-out;
   cursor: pointer; }
   .button_gold {
@@ -284,7 +284,8 @@
     list-style-type: none;
     transition: visibility 0ms ease-out 600ms;
     visibility: hidden;
-    transform-style: preserve-3d; }
+    transform-style: preserve-3d;
+    font-family: SFUI, sans-serif; }
     @media (max-width: 768px) {
       .menu ul {
         width: 95vw; } }
@@ -784,7 +785,7 @@ select:-webkit-autofill:focus {
   -webkit-box-shadow: 0 0 0px 1000px white inset;
   transition: white 5000s ease-in-out 0s;
   background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(0, 174, 255, 0.04) 50%, rgba(255, 255, 255, 0) 51%, rgba(0, 174, 255, 0.03) 100%);
-  font-family: IceAge; }
+  font-family: IceAge, sans-serif; }
 
 .prizes {
   position: relative;
@@ -1317,7 +1318,7 @@ select:-webkit-autofill:focus {
 .seo-block__text {
   max-height: 400px;
   padding: 0 20px;
-  font-family: ShowCardGothic;
+  font-family: SFUI, sans-serif;
   font-weight: bold; }
   @media (max-width: 820px) {
     .seo-block__text {
@@ -1433,7 +1434,7 @@ select:-webkit-autofill:focus {
     width: 170px; } }
 
 .footer-block__terlabs-work {
-  font-family: ShowCardGothic;
+  font-family: SFUI, sans-serif;
   font-size: 0.75em;
   color: white; }
   @media (max-width: 820px) {
@@ -1466,7 +1467,9 @@ select:-webkit-autofill:focus {
         margin: 1em 0 0.2em;
         font-size: 2.3em; } }
   .terms__text {
-    padding: 0 20px; }
+    padding: 0 20px;
+    font-family: SFUI, sans-serif;
+    font-size: 1.3em; }
 
 .jackpot-page {
   position: relative;
@@ -1907,11 +1910,11 @@ select:-webkit-autofill:focus {
 
 @font-face {
   font-family: IceAge;
-  src: url(../fonts/IceAgeRUS.ttf) format("ttf"), url("../fonts/IceAgeRUS.woff") format("woff"), url("../fonts/IceAgeRUS.woff2") format("woff2"); }
+  src: url(../fonts/IceAgeRUS.ttf) format("ttf"), url(../fonts/IceAgeRUS.woff) format("woff"), url(../fonts/IceAgeRUS.woff2) format("woff2"); }
 
 @font-face {
   font-family: SFUI;
-  src: url(../fonts/SFUIText-RegularG2.otf); }
+  src: url(../fonts/SFUIDisplay-Regular.ttf) format("ttf"), url(../fonts/SFUIDisplay-Regular.woff) format("woff"), url(../fonts/SFUIDisplay-Regular.eot) format("eot"), url(../fonts/SFUIDisplay-Regular.otf) format("otf"); }
 
 *:focus {
   outline: none !important; }
@@ -1920,7 +1923,7 @@ body {
   margin: 0;
   text-align: center;
   font-size: 14px;
-  font-family: IceAge;
+  font-family: IceAge, sans-serif;
   color: #35403B; }
   body a {
     display: inline-block;

@@ -23,12 +23,14 @@
 
 @font-face {
   font-family: IceAge;
-  src: url(../fonts/IceAgeRUS.ttf)  format('ttf'), url('../fonts/IceAgeRUS.woff') format('woff'), url('../fonts/IceAgeRUS.woff2') format('woff2');
+  src: url(../fonts/IceAgeRUS.ttf)  format('ttf'), url(../fonts/IceAgeRUS.woff) format('woff'), url(../fonts/IceAgeRUS.woff2) format('woff2');
 }
 
 @font-face {
   font-family: SFUI;
-  src: url(../fonts/SFUIText-RegularG2.otf);
+
+  //src: url(../fonts/SFUIDisplay-Regular.ttf)  format('ttf'), url(../fonts/SFUIDisplay-Regular.woff) format('woff'), url(../fonts/SFUIDisplay-Regular.otf) format('otf'), url(../fonts/SFUIDisplay-Regular.eot) format('eot');
+  src: url(../fonts/SFUIDisplay-Regular.ttf)  format('ttf'), url(../fonts/SFUIDisplay-Regular.woff) format('woff'), url(../fonts/SFUIDisplay-Regular.eot) format('eot'), url(../fonts/SFUIDisplay-Regular.otf) format('otf');
 }
 
 
