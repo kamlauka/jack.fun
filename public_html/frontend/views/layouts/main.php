@@ -77,9 +77,12 @@ AppAsset::register($this);
     <?php $s = isset(Yii::$app->params['signup'])?Yii::$app->params['signup']: ''?>
     <?php $l = isset(Yii::$app->params['login'])? Yii::$app->params['login']: '' ?>
     <?php $pas = isset(Yii::$app->params['password'])?Yii::$app->params['password']:'' ?>
-    <div class="forms <?= isset(Yii::$app->params['popup']) ? 'forms_active-flex': ''?>" data="<?= isset(Yii::$app->params['popup']) ? 'activ': ''?>">
 
-        <div class="popup forms__popup"  onclick="targetFunc(e)">
+
+
+    <div  onclick="targetFunc(event)" class="forms <?= isset(Yii::$app->params['popup']) ? 'forms_active-flex': ''?>" data="<?= isset(Yii::$app->params['popup']) ? 'activ': ''?>">
+
+        <div class="popup forms__popup" >
 
             <?= \frontend\widgets\PopupForm::widget([
                 'model' => isset(Yii::$app->params['login']) ? Yii::$app->params['login'] :  new \common\models\LoginForm,
