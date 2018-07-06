@@ -100,12 +100,7 @@ use yii\helpers\Html;
             </div>
             <div class="colons flex-gorizontal flex-gorizontal_top">
                 <?php if(isset($text['T']->text)){ ?>
-<!--                    <div class="colons__item">-->
-<!--                        <div class="colons__image-container">-->
-<!--                            --><?//= Html::img('../../images/main/tt.png', ['alt' => 'T', 'class' => 'colons__image']) ?>
-<!--                        </div>-->
-<!--                        <p class="colons__text">--><?//= $text['T']->text ?><!--</p>-->
-<!--                    </div>-->
+
                 <?php } if(isset($text['bitcoin']->text)){ ?>
                     <div class="colons__item">
                         <div class="colons__image-container">
