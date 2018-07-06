@@ -103,44 +103,32 @@ class CabinetController extends Controller
         }
 
         $model = new ChangePasswordForm();
-        if(Yii::$app->request->isPjax){
+        $user = User::findOne(\Yii::$app->user->id);
+
             if($model->load(Yii::$app->request->post())) {
-              //  $hash = Yii::$app->getSecurity()->generatePasswordHash($model->passold);
-
-                $user = User::findOne(\Yii::$app->user->id);
-
+              //  if($model->validatePassword($model->passold)){
                 if (Yii::$app->getSecurity()->validatePassword($model->passold, $user->password_hash) && $model->validate()) {
-
-                    if($model->change()){
 
                         Yii::$app->session->setFlash('success', 'Your password has been successfully changed!');
                         return $this->redirect('/cabinet');
 
-                    }else{
-                        Yii::$app->session->setFlash('success', 'Пароль не сохранен');
-                        return $this->redirect('/cabinet');
-                    }
-
-
                     } else {
                     $model->addError('passold', 'Old password is not correct');
-
                         // неправильный пароль
-                        //$model
-                        return $this->renderPartial('content/change-password',[
-                        'model' => $model
-                    ]);
                     }
-
                 }
-            return $this->renderPartial('content/change-password', [
-                'model' => $model,
-            ]);
 
-            }
-            return $this->render('index', [
-                'model' => $model,
-            ]);
+                if(Yii::$app->request->isPjax){
+                    return $this->renderPartial('content/change-password', [
+                        'model' => $model,
+                    ]);
+
+                }else{
+
+                    return $this->render('index', [
+                        'model' => $model,
+                    ]);
+                }
 
 
     }
