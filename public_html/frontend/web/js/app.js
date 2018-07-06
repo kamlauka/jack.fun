@@ -95,7 +95,7 @@ $(document).ready(function() {
         animateNotes();
     }
 
-    if ($('div').hasClass('popup__configuration')||$('div').hasClass('jackpot-flex-gorizontal')) {
+    if ($('div').hasClass('logo__container')||$('div').hasClass('jackpot-flex-gorizontal')) {
         var date = $('.timer__days').attr('data');
         var time = $('.timer__time').attr('data');
 
