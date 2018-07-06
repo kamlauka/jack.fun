@@ -17,7 +17,13 @@ use yii\widgets\ActiveForm;
         <div class="user-form__editing-container">
             <?php $form = ActiveForm::begin([
                 'id' => 'editing',
-                'action' => \yii\helpers\Url::toRoute(['editing', 'id' => $model->id]),
+                'enableAjaxValidation' => true,
+               // 'action' => \yii\helpers\Url::toRoute(['editing', 'id' => $model->id]),
+                'action' => 'editing',
+                'options' => [
+                    'data-pjax' => true,
+                ],
+
             ]); ?>
 
             <div class="user-info about-user-info__paragraph" >
@@ -35,7 +41,6 @@ use yii\widgets\ActiveForm;
                     </div>
                 </div>
 
-
                 <?php
                 if(isset($user->username)){
                     echo Html::tag('p',$user->username,['class'=>'user-name about-user-info__user-name']);
@@ -43,19 +48,12 @@ use yii\widgets\ActiveForm;
 
             </div>
 
-
-
-
-
             <br>
             <?= $form->field($model, 'phone')->textInput(['maxlength' => true, 'class'=>'label__input input-text'])->label('my phone-number:',['class'=>'about-user-info__title']); ?>
             <?= $form->field($model, 'wallet')->textInput(['maxlength' => true, 'class'=>'label__input input-text'])->label('my wallet:',['class'=>'about-user-info__title']); ?>
             <?= $form->field($model, 'email')->textInput(['maxlength' => true, 'class'=>'label__input input-text'])->label('my email:',['class'=>'about-user-info__title']); ?>
+            <br>
 
-
-
-
-<br>
             <div class="form-group">
                 <?= Html::submitButton('Save', ['class' => 'button button_gold']) ?>
             </div>
