@@ -1902,16 +1902,16 @@ select:-webkit-autofill:focus {
   width: 80%;
   margin: 50px auto; }
 
-*:focus {
-  outline: none !important; }
-
 @font-face {
   font-family: IceAge;
-  src: url(../fonts/IceAgeRUS.ttf) format("ttf"), url("../fonts/IceAgeRUS.woff") format("woff"); }
+  src: url(../fonts/IceAgeRUS.ttf) format("ttf"), url("../fonts/IceAgeRUS.woff") format("woff"), url("../fonts/IceAgeRUS.woff2") format("woff2"); }
 
 @font-face {
-  font-family: ShowCardGothic;
+  font-family: SFUI;
   src: url(../fonts/SFUIText-RegularG2.otf); }
+
+*:focus {
+  outline: none !important; }
 
 body {
   margin: 0;
