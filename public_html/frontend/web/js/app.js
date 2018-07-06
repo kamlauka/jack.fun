@@ -94,6 +94,17 @@ $(document).ready(function() {
     if($("div").is(".disputes__image-container")) {
         animateNotes();
     }
+
+    if ($('div').hasClass('popup__configuration')||$('div').hasClass('jackpot-flex-gorizontal')) {
+        var date = $('.timer__days').attr('data');
+        var time = $('.timer__time').attr('data');
+
+        var deadline = date + 'T' + time; //CURRENT DEADLINE OF TIMER
+        initializeClock(deadline);
+    }
+
+
+
 });
 
 //если с начала, то включаем начальное лого и анимируем его
@@ -176,14 +187,8 @@ function initializeClock(endtime) {
     var timeinterval = setInterval(updateClock, 1000);
 }
 
-var date = $('.timer__days').attr('data');
-var time = $('.timer__time').attr('data');
-
-var deadline = date + 'T' + time; //CURRENT DEADLINE OF TIMER
 
 
-// //START THE TIMER
-// initializeClock(deadline);
 
 
 //поведение облаков

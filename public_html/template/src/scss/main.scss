@@ -144,7 +144,8 @@ body {
 }
 
 .orange-border {
-  z-index: 8000;
+  //z-index: 8000;
+  z-index: 2;
   position: relative;
   padding: 10px 0;
   border-top: 6px solid $add-color;
@@ -303,7 +304,7 @@ body {
 
   }
   &_bottom {
-    top: 1032px;
+    top: 81%;
     //top: 75%;
     width: 170%;
     //bottom: -10%;
@@ -588,7 +589,7 @@ body {
   }
   &_right-bottom-middle-jackpot {
     left: 33%;
-    top: -15%;
+    top: -20%;
     width: 102%;
   }
   &_center-middle-jackpot {

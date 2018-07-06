@@ -107,6 +107,7 @@
   }
   &__name {
     margin-left: 20px;
+    font-family: $add-font;
     @media (max-width: '400px') {
       font-size: 0.8em;
     }
@@ -177,4 +178,15 @@ select:-webkit-autofill:focus {
   font-family: $main-font;
 }
 
-
+.input-white {
+  width: 100%;
+  padding: 5px 10px;
+  margin-top: 15px;
+  border: 0;
+  border-color: white;
+  outline: 0;
+  box-sizing: border-box;
+  background-color: white;
+  font-family: SFUI, sans-serif;
+  text-align: center;
+}

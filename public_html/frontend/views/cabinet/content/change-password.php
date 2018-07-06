@@ -16,15 +16,22 @@ $form = ActiveForm::begin([
     ],
 ]);
 ?>
-<div class="user-form">
+<div id="change-password" class="user-form">
     <div class="user-form__editing-container">
 <h1><?= Html::encode($this->title) ?></h1>
 <div class="col-sm-6 col-sm-offset-3">
-    <?= $form->field($model, 'passold')->textInput(['class'=>'label__input input-text'])->label('Old password',['class'=>'about-user-info__title']); ?>
-    <?= $form->field($model, 'password')->textInput(['class'=>'label__input input-text'])->label('New password',['class'=>'about-user-info__title']); ?>
-    <?= $form->field($model, 'password_repeat')->textInput(['class'=>'label__input input-text'])->label('Repeat new password',['class'=>'about-user-info__title']);; ?>
-    <br>
+    <div class="about-user-info__paragraph">
+    <?= $form->field($model, 'passold')->textInput(['type' => 'password','class'=>'label__input input-white'])->label('Old password',['class'=>'about-user-info__title']); ?>
+    </div>
+    <div class="about-user-info__paragraph">
+    <?= $form->field($model, 'password')->textInput(['type' => 'password','class'=>'label__input input-white'])->label('New password',['class'=>'about-user-info__title']); ?>
+    </div>
+    <div class="about-user-info__paragraph">
+    <?= $form->field($model, 'password_repeat')->textInput(['type' => 'password','class'=>'label__input input-white'])->label('Repeat new password',['class'=>'about-user-info__title']);; ?>
+    </div>
     <div class="form-group">
+
+        <a class="button button_dark" href="/cabinet/editing" >Back</a>
         <?= \yii\helpers\Html::submitButton('Save', ['class' => 'button button_gold']) ?>
     </div>
 

@@ -82,6 +82,7 @@
     width: 30%;
     @media (max-width: $third-width) {
       margin-top: 0%;
+
       width: 100%;
     }
   }
@@ -92,7 +93,9 @@
     }
   }
   &__text {
-    padding: 0 20px;
+    &_nomargin {
+      margin: auto;
+    }
   }
   &__second {
     @media (max-width: $third-width) {
@@ -128,7 +131,8 @@
   &__number {
     position: absolute;
     top: 4%;
-    color: #FFB400;
+    //color: #FFB400;
+    color: white;
     font-size: 2em;
     &_position-right {
       right: 4%;

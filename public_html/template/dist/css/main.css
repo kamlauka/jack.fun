@@ -42,7 +42,7 @@
       .pillar_color_grey, .terrestrial-world:before, .terrestrial-world:after {
         background-size: 47%, 47%, 32.5%; } }
   .pillar_color_gold, .prizes:before, .prizes:after {
-    background: url("../images/common/pillar.svg") top left no-repeat; }
+    background: url("../images/common/gold-pillar-1.png") top left no-repeat, url("../images/common/gold-pillar-3.png") bottom left no-repeat, url("../images/common/gold-pillar-2.png") repeat-y; }
     @media (max-width: 1550px) {
       .pillar_color_gold, .prizes:before, .prizes:after {
         background-size: 47%, 47%, 32.5%; } }
@@ -147,7 +147,8 @@
     background-color: #FFB400;
     border-color: #B27214; }
     .button_gold:hover {
-      box-shadow: inset 0 0 20px 6px #B27214; }
+      border-color: #DE7300;
+      box-shadow: inset 0 0 20px 6px #DE7300; }
   .button_dark {
     color: #FFB400;
     background-color: #5F6E6E;
@@ -616,8 +617,11 @@
   padding: 20px 0;
   background: #B4C3BE;
   border-top: 2em solid; }
-  .participate__text {
+  .participate__title {
     font-size: 1.3em; }
+  .participate__text {
+    font-family: SFUI, sans-serif;
+    font-size: 1.1em; }
     @media (max-width: 1550px) {
       .participate__text {
         margin: 0 40px; } }
@@ -731,7 +735,8 @@
   padding: 35px 0 20px; }
 
 .label-for-checkbox__name {
-  margin-left: 20px; }
+  margin-left: 20px;
+  font-family: SFUI, sans-serif; }
   @media (max-width: 400px) {
     .label-for-checkbox__name {
       font-size: 0.8em; } }
@@ -787,6 +792,18 @@ select:-webkit-autofill:focus {
   transition: white 5000s ease-in-out 0s;
   background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(0, 174, 255, 0.04) 50%, rgba(255, 255, 255, 0) 51%, rgba(0, 174, 255, 0.03) 100%);
   font-family: IceAge, sans-serif; }
+
+.input-white {
+  width: 100%;
+  padding: 5px 10px;
+  margin-top: 15px;
+  border: 0;
+  border-color: white;
+  outline: 0;
+  box-sizing: border-box;
+  background-color: white;
+  font-family: SFUI, sans-serif;
+  text-align: center; }
 
 .prizes {
   position: relative;
@@ -898,7 +915,7 @@ select:-webkit-autofill:focus {
     background: url("../images/main/cloud-5.png") center no-repeat;
     background-size: contain;
     font-size: 5em;
-    color: #00CC69; }
+    color: #F6B23A; }
     @media (max-width: 1400px) {
       .scene-of-prize__prize-price {
         padding: 12%;
@@ -1115,7 +1132,7 @@ select:-webkit-autofill:focus {
         .jackpot__cloud_six {
           display: none; } }
     .jackpot__cloud_twenty {
-      background-size: 50%;
+      background-size: 56%;
       z-index: 8001;
       transform: scaleX(1.1);
       background-position: 9% 160%; }
@@ -1551,8 +1568,8 @@ select:-webkit-autofill:focus {
     .participate_bottom {
       padding-bottom: 0; } }
 
-.participate__text {
-  padding: 0 20px; }
+.participate__text_nomargin {
+  margin: auto; }
 
 @media (max-width: 1052px) {
   .participate__second {
@@ -1583,7 +1600,7 @@ select:-webkit-autofill:focus {
   .algorithm__number {
     position: absolute;
     top: 4%;
-    color: #FFB400;
+    color: white;
     font-size: 2em; }
     .algorithm__number_position-right {
       right: 4%; }
@@ -1790,13 +1807,12 @@ select:-webkit-autofill:focus {
     position: relative;
     bottom: 0;
     width: 46%;
-    /* height: 64vh; */
+    height: 59vh;
     margin: 0 auto;
     padding: 5% 2% 145px;
     z-index: 200;
-    background: url(../images/cabinet/leaf-3.png) bottom no-repeat, url(../images/cabinet/stone.png) bottom no-repeat;
-    background-size: 70%, cover;
-    border-image: url(../images/common/pattern.png) 100% 0%/1 0 repeat; }
+    background: url(../images/common/pattern.png) top repeat-x, url(../images/cabinet/leaf-3.png) bottom no-repeat, url(../images/cabinet/stone.png) bottom no-repeat;
+    background-size: 5%, 70%, cover; }
     @media (max-width: 768px) {
       .about-user-info__wrapper {
         width: 100%;
@@ -1822,7 +1838,7 @@ select:-webkit-autofill:focus {
     margin-bottom: 0;
     font-size: 1.2em; }
   .about-user-info__info {
-    margin: 5px 0;
+    margin: 20px 0;
     font-family: SFUI, sans-serif; }
   .about-user-info__user-name {
     font-family: SFUI, sans-serif;
@@ -1870,8 +1886,7 @@ select:-webkit-autofill:focus {
     @media (max-width: 768px) {
       .disputes__image {
         bottom: -2%;
-        width: 73%;
-        margin-top: 11%; } }
+        width: 73%; } }
     .disputes__image img {
       width: 100%; }
       @media (max-width: 768px) {
@@ -1885,9 +1900,6 @@ select:-webkit-autofill:focus {
       margin: 15px 0 0 0;
       width: 100px;
       position: relative; }
-      @media (max-width: 768px) {
-        .disputes__image-container {
-          display: none; } }
   .disputes__title {
     color: white; }
 
@@ -1917,7 +1929,10 @@ select:-webkit-autofill:focus {
 
 .user-form__editing-container {
   width: 80%;
-  margin: 50px auto; }
+  margin: auto; }
+
+#change-password {
+  margin-top: 135px; }
 
 @font-face {
   font-family: IceAge;
@@ -1996,7 +2011,7 @@ body {
         flex-direction: row; } }
 
 .orange-border {
-  z-index: 8000;
+  z-index: 2;
   position: relative;
   padding: 10px 0;
   border-top: 6px solid #B27214;
@@ -2104,7 +2119,7 @@ body {
     z-index: 9002;
     overflow: hidden; }
   .clouds_bottom {
-    top: 1032px;
+    top: 81%;
     width: 170%; }
     @media (max-width: 1052px) {
       .clouds_bottom {
@@ -2276,7 +2291,7 @@ body {
     z-index: 8001; }
   .cloud-container_right-bottom-middle-jackpot {
     left: 33%;
-    top: -15%;
+    top: -20%;
     width: 102%; }
   .cloud-container_center-middle-jackpot {
     width: 73%;

@@ -115,7 +115,7 @@
   }
 
   &_color_gold {
-    background: url("../images/common/pillar.svg") top left no-repeat;
+    background: $pat-gold-pillar-1 top left no-repeat, $pat-gold-pillar-3 bottom left no-repeat, $pat-gold-pillar-2 repeat-y;
     @media (max-width: $first-width) {
       background-size: 47%, 47%, 32.5%;
     }

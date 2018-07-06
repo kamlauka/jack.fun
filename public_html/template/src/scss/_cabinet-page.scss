@@ -88,13 +88,14 @@
     width: 46%;
     //min-height: 385px;
     //bottom: -14%;
-    /* height: 64vh; */
+    height: 59vh;
     margin: 0 auto;
     padding: 5% 2% 145px;
     z-index: 200;
-    background: url(../images/cabinet/leaf-3.png) bottom no-repeat, url(../images/cabinet/stone.png) bottom no-repeat;
-    background-size: 70%, cover;
-    border-image: url(../images/common/pattern.png) 100% 0%/1 0 repeat;
+    background: url(../images/common/pattern.png) top repeat-x, url(../images/cabinet/leaf-3.png) bottom no-repeat, url(../images/cabinet/stone.png) bottom no-repeat;
+    background-size: 5%, 70%, cover;
+    //border-image:  100% 0%/1 0 repeat;
+    //border-top: 2em solid;
     //@media (max-width: $first-width) {
     //  bottom: -19%;
     //}
@@ -144,7 +145,8 @@
   }
 
   &__info {
-    margin: 5px 0;
+    //margin: 5px 0;
+    margin: 20px 0;
     font-family: $add-font;
   }
 
@@ -215,7 +217,7 @@
     @media (max-width: $mobile-width) {
       bottom: -2%;
       width: 73%;
-      margin-top: 11%;
+      //margin-top: 11%;
     }
     img {
       width: 100%;
@@ -237,9 +239,9 @@
       margin: 15px 0 0 0;
       width: 100px;
       position: relative;
-      @media (max-width: $mobile-width) {
-       display: none;
-      }
+      //@media (max-width: $mobile-width) {
+      // display: none;
+      //}
     }
   }
   &__title {
@@ -290,5 +292,9 @@
 
 .user-form__editing-container {
   width: 80%;
-  margin: 50px auto;
+  margin: auto;
+}
+
+#change-password {
+  margin-top: 135px;
 }

@@ -23,13 +23,20 @@
 
 }
 
+
+
+
 .participate {
   padding: 20px 0;
   background: $stone-color;
   @extend .border-pattern;
   border-top: 2em solid;
-  &__text {
+  &__title {
     font-size: 1.3em;
+  }
+  &__text {
+    font-family: SFUI, sans-serif;
+    font-size: 1.1em;
     @media (max-width: $first-width) {
       margin: 0 40px;
     }
