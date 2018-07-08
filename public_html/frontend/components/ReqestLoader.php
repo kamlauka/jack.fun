@@ -17,12 +17,11 @@ class ReqestLoader {
     public function __construct()
     {
 
-        $session = Yii::$app->session;
         if(!Yii::$app->session->get('language')) {
 
             $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
             $lang = Language::find()->where(['alias' => $lang])->one();
-            $session->set('language', $lang->id);
+            Yii::$app->session->set('language', $lang->id);
         }
 
         $path = explode("/", \Yii::$app->request->pathInfo);
