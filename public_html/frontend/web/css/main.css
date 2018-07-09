@@ -651,7 +651,7 @@
   position: absolute;
   z-index: 2;
   width: 100%;
-  height: 100vh;
+  height: 94.3vh;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.7); }
   .forms__popup {
@@ -661,6 +661,9 @@
         margin-top: 90px; } }
   .forms_active-flex {
     display: flex; }
+  @media (max-width: 768px) {
+    .forms {
+      height: 91vh; } }
 
 .help-block {
   position: absolute;
@@ -692,10 +695,11 @@
     display: none;
     position: relative; }
   .popup__configuration {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     right: 0;
     width: 25%;
+    margin-bottom: 3px;
     padding: 0px 30px 20px;
     border: 6px solid #B27214;
     box-shadow: inset 0 0 0 8px #FFB400, 0 0 0 3px #FFB400;
@@ -713,7 +717,14 @@
     height: 28px;
     border-radius: 50%;
     background-color: #5F6E6E;
-    cursor: pointer; }
+    cursor: pointer;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease; }
+    .popup__close_alert {
+      right: 14px; }
     .popup__close:hover {
       background-color: #FFB400; }
       .popup__close:hover:before, .popup__close:hover:after {
