@@ -8,6 +8,7 @@
   position: relative;
   width: 100px;
   margin: auto;
+  bottom: -104px;
   &::before {
     content: '';
     position: absolute;
@@ -22,6 +23,7 @@
     border-radius: 50%;
     border: 3px solid #406973;
     z-index: 1;
+    cursor: pointer;
   }
 }
 
@@ -39,18 +41,20 @@
 .grass {
   pointer-events: none;
   position: absolute;
-  top: 77%;
+  top: 0;
   left: 0;
   right: 0;
   bottom: -3%;
   z-index: 2000;
-  background: $pat-grass bottom no-repeat;
-  background-size: 100%;
+  background: url(../images/common/grass.png) bottom no-repeat, url(../images/cabinet/leaf-3.png) 38% bottom no-repeat;
+  background-size: contain, 14%;
   @media (max-width: $mobile-width) {
     height: 130px;
-    bottom: 26px;
+    bottom: 13px;
     top: auto;
+    background: url(../images/common/grass.png) bottom no-repeat;
     background-size: cover;
+    z-index: 1;
   }
 }
 
@@ -60,9 +64,7 @@
   position: relative;
   width: 51.5%;
   height: 90vh;
-  //height: 100vh;
-  //min-height: 770px;
-  //max-height: 700px;
+  min-height: 730px;
   @media (max-width: $third-width) {
     width: 57%;
   }
@@ -86,14 +88,22 @@
     position: relative;
     bottom: 0;
     width: 46%;
-    //min-height: 385px;
-    //bottom: -14%;
+    min-height: 480px;
     height: 59vh;
     margin: 0 auto;
     padding: 5% 2% 145px;
     z-index: 200;
-    background: url(../images/common/pattern.png) top repeat-x, url(../images/cabinet/leaf-3.png) bottom no-repeat, url(../images/cabinet/stone.png) bottom no-repeat;
-    background-size: 5%, 70%, cover;
+    background: url(../images/common/pattern.png) top repeat-x, url(../images/cabinet/stone.png) bottom no-repeat;
+    background-size: 5%, cover;
+
+    @media (max-width: 1200px) {
+      font-size: 0.8em;
+    }
+
+    //background: url(../images/common/pattern.png) top repeat-x, url(../images/cabinet/leaf-3.png) bottom no-repeat, url(../images/cabinet/stone.png) bottom no-repeat;
+    //background-size: 5%, 70%, cover;
+
+
     //border-image:  100% 0%/1 0 repeat;
     //border-top: 2em solid;
     //@media (max-width: $first-width) {
@@ -133,7 +143,7 @@
 
   &__paragraph {
     font-size: 1.2em;
-    margin: 20px 0;
+    margin: 21px 0;
     @media (max-width: $mobile-width) {
       font-size: 2em;
     }
@@ -142,11 +152,12 @@
     font-weight: bold;
     margin-bottom: 0;
     font-size: 1.2em;
+    display: inline-block;
+    margin-top: 0;
   }
 
   &__info {
-    //margin: 5px 0;
-    margin: 20px 0;
+    margin: 20px 0 26px;
     font-family: $add-font;
   }
 
@@ -174,8 +185,7 @@
   flex-direction: column;
   width: 45%;
   height: 90vh;
-  //height: 100vh;
-  //max-height: 700px;
+  min-height: 730px;
   margin-right: 5%;
   background: url(../images/common/scene.png) bottom no-repeat;
   background-size: cover;
@@ -291,8 +301,13 @@
 }
 
 .user-form__editing-container {
-  width: 80%;
+  width: 85%;
   margin: auto;
+  h1 {
+    font-size: 2em;
+    //margin: 1.9em 0;
+     margin: 0.8em 0;
+  }
 }
 
 #change-password {

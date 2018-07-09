@@ -9,9 +9,11 @@ use yii\bootstrap\ActiveForm;
 
 $this->title = 'Registration';
 ?>
+
 <div class="popup__registration  <?php if((isset(Yii::$app->params['popup'])) and Yii::$app->params['popup'] == 'signup' ) echo 'activ' ?>" >
     <div class="popup__close"  onclick="$('.forms').hide()"></div>
     <h3 class="title-h3"><?= $this->title ?></h3>
+    <p class="popup__other-popup">or &nbsp;<span class="popup__other-popup-link" onclick="showForm('.popup__login')">login</span></p>
     <?php $form = ActiveForm::begin([
         'id' => 'form-signup',
         'action' => '/site/signup',
@@ -36,7 +38,7 @@ $this->title = 'Registration';
         <?= $form->field($model, 'agreement')->checkbox(['class'=>'label-for-checkbox__checkbox'])->label(null,['class'=>' input-hidden']) ?>
         <div class="label-for-checkbox__wrap">
             <a class="pseudo-checkbox" onclick="checkboxClick()"></a>
-            <span class="label-for-checkbox__name">I accept the <a class="white-link-underlining"  target="_blank" href="/site/agreement">&nbsp Terms of agreement</a></span>
+            <span class="label-for-checkbox__name">I accept the &nbsp <a class="white-link-underlining"  target="_blank" href="/site/agreement"> Terms of agreement</a></span>
         </div>
     </label>
 

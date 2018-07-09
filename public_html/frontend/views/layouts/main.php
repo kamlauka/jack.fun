@@ -103,7 +103,7 @@ AppAsset::register($this);
                 'model' => new \yii\base\DynamicModel(['hash' => '']),
                 'view' => 'transaction'
             ]) ?>
-            <?= Alert::widget() ?>
+
         </div>
 
     </div>
@@ -120,6 +120,7 @@ AppAsset::register($this);
 
 
 </header>
+<?= Alert::widget() ?>
 <?php if(Yii::$app->controller->route === 'site/index'){ ?>
 
 <!--<div class="preloader">-->

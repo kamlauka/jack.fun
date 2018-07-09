@@ -28,27 +28,24 @@ use yii\widgets\ActiveForm;
 
             <div class="user-info about-user-info__paragraph" >
 
-                <div class="user-logo-wrap">
-                    <div class="user-logo-container">
-                        <?php if(isset($model->avatar)){
-                            //если есть картинка
-                            echo Html::img($model->avatar,['alt'=>"your logo", 'class'=>"user-logo about-user-info__user-logo"]);
-                        } else{
-                            //если нет картинки
-                            echo '<img class="user-logo about-user-info__user-logo" src="../../images/cabinet/default-logo.png" alt="">';
-                        }?>
-                        <?= $form->field($model, 'avatar')->fileInput() ?>
-                    </div>
+                <div class="user-logo-wrap"></div>
+                <div class="user-logo-container">
+                    <?php if(isset($model->avatar)){
+                        //если есть картинка
+                        echo Html::img($model->avatar,['alt'=>"your logo", 'class'=>"user-logo about-user-info__user-logo"]);
+                    } else{
+                        //если нет картинки
+                        echo '<img class="user-logo about-user-info__user-logo" src="../../images/cabinet/default-logo.png" alt="">';
+                    }?>
+                    <?= $form->field($model, 'avatar')->fileInput() ?>
                 </div>
 
                 <?php
-                if(isset($user->username)){
-                    echo Html::tag('p',$user->username,['class'=>'user-name about-user-info__user-name']);
+                if(isset($model->username)){
+                    echo Html::tag('p',$model->username,['class'=>'user-name about-user-info__user-name']);
                 } ?>
 
             </div>
-
-            <br>
             <div class="about-user-info__paragraph">
             <?= $form->field($model, 'phone')->textInput(['maxlength' => true, 'class'=>'label__input input-white'])->label('my phone-number:',['class'=>'about-user-info__title']); ?>
             </div>

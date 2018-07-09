@@ -6,6 +6,21 @@ $(window).on('load', function () {
     tl.to(preloaderFill, 3, {height: '100%'},0);
 });
 
+//
+// jQuery(document).ready(function($) {
+//     $(window).load(function() {
+//         if (!window.localStorage.getItem('preloaderIsShown')) {
+//             setTimeout(function() {
+//                 $('#preloader').fadeOut('slow');
+//                 window.localStorage.setItem('preloaderIsShown', true);
+//             }, 2000);
+//         } else {
+//             $('#preloader').css('display', 'none');
+//         }
+//     });
+// });
+
+
 //canvas
 //
 // var canvas = document.getElementById('canvas');

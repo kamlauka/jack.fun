@@ -96,11 +96,14 @@ $e: cubic-bezier(0,.5,.5,1.1);
     @media (max-width: 400px) {
       width: 90vw;
     }
+
     li {
-      background: $pat-chain left repeat-y, $pat-chain right repeat-y;
+      background: $pat-chain left -24px repeat-y, $pat-chain right -24px repeat-y;
+      background-size: 23px 49%;
       opacity: 0;
-      padding: 4px 10px;
-      margin: 0;
+      padding: 4px 9px;
+
+
       transform-style: preserve-3d;
       @for $i from 1 through $n {
         //  @if $i == 1 {
@@ -111,7 +114,12 @@ $e: cubic-bezier(0,.5,.5,1.1);
         }
       }
 
+      &:last-child {
+        background: $pat-chain-end left -28px no-repeat, $pat-chain-end right -28px no-repeat;
+        background-size: 23px 75px;
+      }
     }
+
   }
 
   > ul {
@@ -205,9 +213,11 @@ $e: cubic-bezier(0,.5,.5,1.1);
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.5);
     height: 100vh;
-    visibility: hidden;
+
     opacity: 0;
-    transition: opacity 1s ease-in-out;
+    //transition: opacity 1s ease-in-out;
+    visibility: hidden;
+    transition: opacity 1s, visibility 0s linear 0s;
     //transition-delay: 0.5s
   }
 }
