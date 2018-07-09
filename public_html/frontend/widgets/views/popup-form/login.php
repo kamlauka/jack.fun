@@ -15,7 +15,9 @@ $this->title = 'Login';
     <h3 class="title-h3"><?= Html::encode($this->title) ?></h3>
     <?php $form = ActiveForm::begin([
             'id' => 'login-form',
-            'action' => '/site/login']);
+            'action' => '/site/login',
+            'enableAjaxValidation' => true,
+    ]);
     ?>
     <label class="label">
         <?= $form->field($model, 'username')->textInput(['autofocus' => true,'class'=>'input-text'])->label('Username',['class'=>'label']) ?>

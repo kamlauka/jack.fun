@@ -15,6 +15,7 @@ $this->title = 'Registration';
     <?php $form = ActiveForm::begin([
         'id' => 'form-signup',
         'action' => '/site/signup',
+
 //        'options' => [
 //            'onsubmit' => 'sendAjax(this, myAction)'
 //        ],

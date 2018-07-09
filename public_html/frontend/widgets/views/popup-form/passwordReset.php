@@ -18,7 +18,8 @@ use yii\bootstrap\ActiveForm;
 
             <?php $form = ActiveForm::begin([
                     'id' => 'request-password-reset-form',
-                    'action'=> '/site/requestPasswordReset'
+                    'action'=> '/site/requestPasswordReset',
+                    'enableAjaxValidation' => true,
             ]); ?>
 
             <?= $form->field($model, 'email')->textInput(['autofocus' => true,'class'=>'label__input input-text'])->label('Email',['class'=>'label']) ?>
