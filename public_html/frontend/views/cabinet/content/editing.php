@@ -17,12 +17,12 @@ use yii\widgets\ActiveForm;
         <div class="user-form__editing-container">
             <?php $form = ActiveForm::begin([
                 'id' => 'editing',
-                'enableAjaxValidation' => true,
+                //'enableAjaxValidation' => true,
                // 'action' => \yii\helpers\Url::toRoute(['editing', 'id' => $model->id]),
-                'action' => 'editing',
-                'options' => [
-                    'data-pjax' => true,
-                ],
+              //  'action' => 'editing',
+//                'options' => [
+//                    'data-pjax' => 1,
+//                ],
 
             ]); ?>
 

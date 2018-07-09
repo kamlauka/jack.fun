@@ -35,6 +35,7 @@ class LotteryController extends Controller
         if(Yii::$app->user->isGuest){
             return $this->redirect('/site/login');
         }else{
+
             $lottery = Lottery::findOne($id);
             //реализовать принятия участия
             $betting = new Betting();

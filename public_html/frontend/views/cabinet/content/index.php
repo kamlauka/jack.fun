@@ -48,5 +48,4 @@ use yii\widgets\ActiveForm;
         <p class="about-user-info__info"><?= $model->email ?> </p>
     </div>
 <?php } ?>
-
 <a class="button button_gold" href="/cabinet/editing" >Edit info</a>

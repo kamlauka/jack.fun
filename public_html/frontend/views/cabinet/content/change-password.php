@@ -7,13 +7,13 @@ use yii\helpers\Html;
 $this->title = 'change password';
 $form = ActiveForm::begin([
     'action' => \yii\helpers\Url::toRoute(['change-password']),
-    'id' => 'editing',
-    'enableAjaxValidation' => true,
-    // 'action' => \yii\helpers\Url::toRoute(['editing', 'id' => $model->id]),
-
-    'options' => [
-        'data-pjax' => true,
-    ],
+    'id' => 'changePassword',
+//    'enableAjaxValidation' => true,
+//    // 'action' => \yii\helpers\Url::toRoute(['editing', 'id' => $model->id]),
+//
+//    'options' => [
+//        'data-pjax' => true,
+//    ],
 ]);
 ?>
 <div id="change-password" class="user-form">
