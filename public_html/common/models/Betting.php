@@ -35,7 +35,9 @@ class Betting extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_id', 'target_id', 'rate', 'pc_target', 'pc_jackpot', 'pc_transaction', 'pc_keep', 'pc_organizer'], 'required'],
+            [['user_id', 'target_id', 'rate', 'pc_target', 'pc_jackpot', 'pc_transaction', 'pc_keep', 'pc_organizer', 'date_creation'], 'required'],
+            [['date_creation'], 'safe'],
+            [['status'], 'safe'],
             [['user_id', 'target_id'], 'integer'],
             [['rate', 'pc_target', 'pc_jackpot', 'pc_transaction', 'pc_keep', 'pc_organizer'], 'number'],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
@@ -57,6 +59,7 @@ class Betting extends \yii\db\ActiveRecord
             'pc_transaction' => 'Pc Transaction',
             'pc_keep' => 'Pc Keep',
             'pc_organizer' => 'Pc Organizer',
+            'date_creation' => 'Date creation',
         ];
     }
 

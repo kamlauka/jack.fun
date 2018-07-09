@@ -99,8 +99,8 @@ AppAsset::register($this);
                 'model' => isset(Yii::$app->params['password']) ? Yii::$app->params['password'] :  new \frontend\models\PasswordResetRequestForm,
                 'view' => 'passwordReset'
             ]) ?>
-            <?= \frontend\widgets\PopupForm::widget([
-                'model' => new \yii\base\DynamicModel(['hash' => '']),
+            <?= \frontend\widgets\PopupFormTransaction::widget([
+                'model' => new \yii\base\DynamicModel(['hash' => '',]),
                 'view' => 'transaction'
             ]) ?>
             <?= Alert::widget() ?>

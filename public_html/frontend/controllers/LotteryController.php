@@ -42,17 +42,25 @@ class LotteryController extends Controller
             $betting->user_id = Yii::$app->user->identity->id;
             $betting->target_id = $id;
             $betting->rate = $lottery->rate;
+            $betting->date_creation = date("Y-m-d h:i:s");
             //реализовать процентное распределение ставки
+
             $betting->pc_jackpot = 0;
             $betting->pc_keep = 0;
             $betting->pc_organizer = 0;
             $betting->pc_target = 0;
             $betting->pc_transaction = 0;
-            $betting->save();
 
-            Yii::$app->session->setFlash('success', '<p>Congratulations</p> Transaction has been send!');
+
+
+            if($betting->save()){
+                Yii::$app->session->setFlash('success', '<p>Congratulations</p> Transaction has been send!');
+                return $this->redirect(Yii::$app->request->referrer);
+            }
+
+
             // реализовать форму
-            return $this->redirect(Yii::$app->request->referrer);
+
         }
 
     }

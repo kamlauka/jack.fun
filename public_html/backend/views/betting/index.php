@@ -31,6 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'target_id',
             'rate',
             'pc_target',
+            'date_creation',
             //'pc_jackpot',
             //'pc_transaction',
             //'pc_keep',

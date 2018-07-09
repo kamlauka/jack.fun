@@ -31,6 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'type',
             'target_id',
             'amount',
+            'hash',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
