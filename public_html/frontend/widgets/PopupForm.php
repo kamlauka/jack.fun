@@ -23,8 +23,7 @@ class PopupForm extends Widget {
             parent::init();
             echo $this->render('popup-form/'.$this->view, [
                 'model' => $this->model,
-                'lottery' => $lottery['data']->rate,
-                'lottery_id' => $lottery['data']->id,
+                'lottery' => $lottery['data'],
                 'wallet' => $wallet->data,
             ]);
 

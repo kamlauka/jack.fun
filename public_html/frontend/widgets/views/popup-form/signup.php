@@ -17,6 +17,7 @@ $this->title = 'Registration';
     <?php $form = ActiveForm::begin([
         'id' => 'form-signup',
         'action' => '/site/signup',
+        'enableAjaxValidation' => true,
 
 //        'options' => [
 //            'onsubmit' => 'sendAjax(this, myAction)'
