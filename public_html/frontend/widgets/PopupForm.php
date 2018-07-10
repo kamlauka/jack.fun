@@ -24,7 +24,7 @@ class PopupForm extends Widget {
             echo $this->render('popup-form/'.$this->view, [
                 'model' => $this->model,
                 'lottery' => $lottery['data'],
-                'wallet' => $wallet->data,
+                'wallet' => $wallet,
             ]);
 
         }else{

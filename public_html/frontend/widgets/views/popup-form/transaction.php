@@ -18,7 +18,7 @@ $this->title = 'Participate';
         'action' => '/lottery/participate']);
     ?>
     <p>Send <b><?=$lottery->rate?> ETH</b> on the wallet:</p>
-    <b> <?= $wallet?> </b>
+    <b> <?= $wallet->data ?> </b>
 
     <label class="label">
         <?= $form->field($model, 'hash')->textInput(['class'=>'input-text'])->label('Transaction hash',['class'=>'label']) ?>
