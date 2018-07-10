@@ -21,8 +21,6 @@ use common\models\User;
 
     <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'wallet')->textInput(['maxlength' => true]) ?>
-
     <?= $form->field($model, 'phone')->textInput(['maxlength' => true]) ?>
 
    <?php if(isset($model->status))  {

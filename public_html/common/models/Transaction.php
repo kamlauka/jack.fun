@@ -35,7 +35,7 @@ class Transaction extends \yii\db\ActiveRecord
             [['user_id', 'target_id'], 'integer'],
             [['amount'], 'number'],
             [['hash'], 'string','max' => 127],
-            [['type'], 'string', 'max' => 4],
+            [['type'], 'string', 'max' => 16],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
         ];
     }

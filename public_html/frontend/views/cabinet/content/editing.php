@@ -50,9 +50,6 @@ use yii\widgets\ActiveForm;
             <?= $form->field($model, 'phone')->textInput(['maxlength' => true, 'class'=>'label__input input-white'])->label('my phone-number:',['class'=>'about-user-info__title']); ?>
             </div>
             <div class="about-user-info__paragraph">
-            <?= $form->field($model, 'wallet')->textInput(['maxlength' => true, 'class'=>'label__input input-white'])->label('my wallet:',['class'=>'about-user-info__title']); ?>
-            </div>
-            <div class="about-user-info__paragraph">
             <?= $form->field($model, 'email')->textInput(['maxlength' => true, 'class'=>'label__input input-white'])->label('my email:',['class'=>'about-user-info__title']); ?>
             </div>
 
