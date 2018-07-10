@@ -33,6 +33,21 @@
   position: relative;
 }
 
+
+.alert {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 25%;
+  margin-bottom: 3px;
+  padding: 0px 30px 20px;
+  border: 6px solid #B27214;
+  box-shadow: inset 0 0 0 8px #FFB400, 0 0 0 3px #FFB400;
+  background-color: #91AAA9;
+  z-index: 20000;
+
+}
+
 .popup {
   display: flex;
   flex-direction: column;
@@ -53,19 +68,6 @@
   &__registration, &__login, &__password-reset {
     display: none;
     position: relative;
-  }
-  &__configuration {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    width: 25%;
-    margin-bottom: 3px;
-    padding: 0px 30px 20px;
-    border: 6px solid #B27214;
-    box-shadow: inset 0 0 0 8px #FFB400, 0 0 0 3px #FFB400;
-    background-color: #91AAA9;
-    z-index: 20000;
-
   }
   &__forgot-pass {
     display: block;
