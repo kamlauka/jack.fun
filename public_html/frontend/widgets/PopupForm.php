@@ -20,10 +20,11 @@ class PopupForm extends Widget {
             $lottery = Lottery::getActiveLottery();
             $wallet = Modification::getAdminWallet();
             $lottery = $lottery['data'];
+            $lottery = $lottery->rate;
             parent::init();
             echo $this->render('popup-form/'.$this->view, [
                 'model' => $this->model,
-                'lottery' => $lottery->rate,
+                'lottery' => $lottery,
                 'wallet' => $wallet,
             ]);
 
