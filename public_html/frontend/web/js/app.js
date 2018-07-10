@@ -6,11 +6,12 @@ function mobileBackgroundUnderMenu() {
     if($('#link-top').prop('checked')) {
         $('#white-background').css('opacity', '1')
         $('#white-background').css('visibility', 'visible');
+        $('#white-background').css('transition', 'opacity 1s ease-in-out');
 
     } else {
         $('#white-background').css('opacity', '0');
         $('#white-background').css('visibility', 'hidden');
-        $('#white-background').css('transition', 'opacity 1s ease-in-out, visibility 1s ease-in-out 1s');
+        $('#white-background').css('transition', 'opacity 1s ease-in-out, visibility 1s linear 1s');
     }
 }
 
@@ -206,9 +207,6 @@ function animateClouds() {
 
     tl.fromTo(cloud1, 3, {rotation:1, transformOrigin:"50% 50%", ease: Power1.easeInOut}, {rotation:-1, ease: Power1.easeInOut}, 'edge');
     tl2.fromTo(cloud2, 2, {rotation:1,transformOrigin:"50% 50%", ease: Power1.easeInOut}, {rotation:-1, ease: Power1.easeInOut}, 'edge');
-    // tl3.fromTo(cloud3, 1, {rotation:0, transformOrigin:"0 0", ease: Power1.easeInOut}, {rotation:-0.5, ease: Power1.easeInOut}, 'edge');
-    //     tl.to(cloud,12,{rotation:1,transformOrigin:"50% 10px",ease:Linear.easeNone})
-    //     tl.to(".cloud",12,{rotation:-1,ease:Linear.easeNone},0);
 }
 
 //поведение ноток
@@ -217,23 +215,6 @@ function animateNotes() {
     var note2 = $(".note2");
     var note3 = $(".note3");
     var note4 = $(".note4");
-
-    //
-    // var tl1 = new TimelineMax({yoyo:true, repeat:-1, ease: Power0.easeNone});
-    // var tl2 = new TimelineMax({yoyo:true, repeat:-1, ease: Back.easeInOut.config(1.7)});
-    // tl1.to(note1, 1, {rotation:-20, ease: Power0.easeNone}, 'edge');
-    // tl1.to(note2, 1, {rotation:20, ease: Power0.easeNone}, 'edge');
-    // tl1.to(note3, 1, {rotation:-20, ease: Power0.easeNone}, 'edge');
-    // tl1.to(note4, 1, {rotation:20, ease: Power0.easeNone}, 'edge');
-    //
-    // tl2.to(note1, 0.5, {y: -20}, 0);
-    // tl2.to(note1, 0.5, {y: 0}, 1);
-    // tl2.to(note2, 0.5, {y: -20}, 2);
-    // tl2.to(note2, 0.5, {y: 0}, 2);
-    // tl2.to(note3, 0.5, {y: -20}, 3);
-    // tl2.to(note3, 0.5, {y: 0}, 3);
-    // tl2.to(note4, 0.5, {y: -20}, 4);
-
 
     var tl1 = new TimelineMax({yoyo:true, repeat:-1, ease: Power0.easeNone});
     var tl2 = new TimelineMax({yoyo:true, repeat:-1, ease: Back.easeInOut.config(1.7)});

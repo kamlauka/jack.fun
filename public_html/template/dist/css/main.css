@@ -27,25 +27,23 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 15%;
+  width: 5%;
   z-index: 2000;
   background-size: contain;
   background-repeat: no-repeat; }
   .pillar_color_dark, .seo-section:before, .seo-section:after {
-    background: url("../images/common/dark-pillar-1.png") top left no-repeat, url("../images/common/dark-pillar-3.png") bottom left no-repeat, url("../images/common/dark-pillar-2.png") repeat-y; }
+    background: url("../images/common/dark-pillar-1.png") top left no-repeat, url("../images/common/dark-pillar-3.png") bottom left no-repeat, url("../images/common/dark-pillar-2.png") top left repeat-y; }
     @media (max-width: 1550px) {
       .pillar_color_dark, .seo-section:before, .seo-section:after {
         background-size: 47%, 47%, 32.5%; } }
   .pillar_color_grey, .terrestrial-world:before, .terrestrial-world:after {
-    background: url("../images/common/grey-pillar-1.png") top left no-repeat, url("../images/common/grey-pillar-3.png") bottom left no-repeat, url("../images/common/grey-pillar-2.png") repeat-y; }
+    background: url("../images/common/grey-pillar-1.png") top left no-repeat, url("../images/common/grey-pillar-3.png") bottom left no-repeat, url("../images/common/grey-pillar-2.png") top left repeat-y; }
     @media (max-width: 1550px) {
       .pillar_color_grey, .terrestrial-world:before, .terrestrial-world:after {
         background-size: 47%, 47%, 32.5%; } }
   .pillar_color_gold, .prizes:before, .prizes:after {
-    background: url("../images/common/gold-pillar-1.png") top left no-repeat, url("../images/common/gold-pillar-3.png") bottom left no-repeat, url("../images/common/gold-pillar-2.png") repeat-y; }
-    @media (max-width: 1550px) {
-      .pillar_color_gold, .prizes:before, .prizes:after {
-        background-size: 47%, 47%, 32.5%; } }
+    background: url("../images/common/gold-pillar-top.svg") top left no-repeat, url("../images/common/gold-pillar-bottom.svg") bottom left no-repeat, url("../images/common/gold-pillar-center.svg") -1px repeat-y;
+    background-size: 99%, 99%, 102%; }
   .pillar_all-pillar, .about-user-info:after, .empty-block, .empty-block_left {
     position: absolute;
     z-index: 8000;
@@ -297,10 +295,10 @@
       .menu ul {
         width: 90vw; } }
     .menu ul li {
-      background: url("../images/common/mini-chain.png") left repeat-y, url("../images/common/mini-chain.png") right repeat-y;
+      background: url("../images/common/mini-chain.png") left -24px repeat-y, url("../images/common/mini-chain.png") right -24px repeat-y;
+      background-size: 23px 49%;
       opacity: 0;
-      padding: 4px 10px;
-      margin: 0;
+      padding: 4px 9px;
       transform-style: preserve-3d; }
       .menu ul li:nth-child(1) {
         transition: transform 150ms cubic-bezier(0, 0.5, 0.5, 1.1) 500ms, opacity 100ms ease-out 500ms; }
@@ -312,6 +310,9 @@
         transition: transform 150ms cubic-bezier(0, 0.5, 0.5, 1.1) 200ms, opacity 100ms ease-out 200ms; }
       .menu ul li:nth-child(5) {
         transition: transform 150ms cubic-bezier(0, 0.5, 0.5, 1.1) 100ms, opacity 100ms ease-out 100ms; }
+      .menu ul li:last-child {
+        background: url("../images/common/mini-chain-nd.png") left -28px no-repeat, url("../images/common/mini-chain-nd.png") right -28px no-repeat;
+        background-size: 23px 75px; }
   .menu > ul {
     position: absolute;
     right: 0; }
@@ -352,9 +353,9 @@
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.5);
     height: 100vh;
-    visibility: hidden;
     opacity: 0;
-    transition: opacity 1s ease-in-out; } }
+    visibility: hidden;
+    transition: opacity 1s, visibility 0s linear 0s; } }
 
 .container {
   margin: 0 auto;
@@ -650,7 +651,7 @@
   position: absolute;
   z-index: 2;
   width: 100%;
-  height: 100vh;
+  height: 94.3vh;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.7); }
   .forms__popup {
@@ -660,6 +661,9 @@
         margin-top: 90px; } }
   .forms_active-flex {
     display: flex; }
+  @media (max-width: 768px) {
+    .forms {
+      height: 91vh; } }
 
 .help-block {
   position: absolute;
@@ -681,11 +685,26 @@
   border: 6px solid #B27214;
   box-shadow: inset 0 0 0 8px #FFB400, 0 0 0 3px #FFB400;
   background-color: #91AAA9; }
+  .popup__other-popup {
+    margin: 0 0 20px; }
+  .popup__other-popup-link {
+    text-decoration: underline;
+    color: white;
+    cursor: pointer; }
   .popup__registration, .popup__login, .popup__password-reset {
     display: none;
     position: relative; }
   .popup__configuration {
-    position: relative; }
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 25%;
+    margin-bottom: 3px;
+    padding: 0px 30px 20px;
+    border: 6px solid #B27214;
+    box-shadow: inset 0 0 0 8px #FFB400, 0 0 0 3px #FFB400;
+    background-color: #91AAA9;
+    z-index: 20000; }
   .popup__forgot-pass {
     display: block;
     margin-top: 20px;
@@ -698,7 +717,14 @@
     height: 28px;
     border-radius: 50%;
     background-color: #5F6E6E;
-    cursor: pointer; }
+    cursor: pointer;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease; }
+    .popup__close_alert {
+      right: 14px; }
     .popup__close:hover {
       background-color: #FFB400; }
       .popup__close:hover:before, .popup__close:hover:after {
@@ -769,7 +795,9 @@
 
 .title-h3 {
   color: white;
-  font-size: 2em; }
+  font-size: 2.5em;
+  font-weight: normal;
+  margin-bottom: 5px; }
 
 .white-link-underlining {
   color: white;
@@ -1744,7 +1772,8 @@ select:-webkit-autofill:focus {
 .user-logo-wrap {
   position: relative;
   width: 100px;
-  margin: auto; }
+  margin: auto;
+  bottom: -104px; }
   .user-logo-wrap::before {
     content: '';
     position: absolute;
@@ -1758,7 +1787,8 @@ select:-webkit-autofill:focus {
     background-position: center;
     border-radius: 50%;
     border: 3px solid #406973;
-    z-index: 1; }
+    z-index: 1;
+    cursor: pointer; }
 
 .user-logo-container {
   position: relative;
@@ -1772,26 +1802,29 @@ select:-webkit-autofill:focus {
 .grass {
   pointer-events: none;
   position: absolute;
-  top: 77%;
+  top: 0;
   left: 0;
   right: 0;
   bottom: -3%;
   z-index: 2000;
-  background: url("../images/common/grass.png") bottom no-repeat;
-  background-size: 100%; }
+  background: url(../images/common/grass.png) bottom no-repeat, url(../images/cabinet/leaf-3.png) 38% bottom no-repeat;
+  background-size: contain, 14%; }
   @media (max-width: 768px) {
     .grass {
       height: 130px;
-      bottom: 26px;
+      bottom: 13px;
       top: auto;
-      background-size: cover; } }
+      background: url(../images/common/grass.png) bottom no-repeat;
+      background-size: cover;
+      z-index: 1; } }
 
 .about-user-info {
   display: flex;
   align-items: flex-end;
   position: relative;
   width: 51.5%;
-  height: 90vh; }
+  height: 90vh;
+  min-height: 730px; }
   @media (max-width: 1052px) {
     .about-user-info {
       width: 57%; } }
@@ -1807,12 +1840,16 @@ select:-webkit-autofill:focus {
     position: relative;
     bottom: 0;
     width: 46%;
+    min-height: 480px;
     height: 59vh;
     margin: 0 auto;
     padding: 5% 2% 145px;
     z-index: 200;
-    background: url(../images/common/pattern.png) top repeat-x, url(../images/cabinet/leaf-3.png) bottom no-repeat, url(../images/cabinet/stone.png) bottom no-repeat;
-    background-size: 5%, 70%, cover; }
+    background: url(../images/common/pattern.png) top repeat-x, url(../images/cabinet/stone.png) bottom no-repeat;
+    background-size: 5%, cover; }
+    @media (max-width: 1200px) {
+      .about-user-info__wrapper {
+        font-size: 0.8em; } }
     @media (max-width: 768px) {
       .about-user-info__wrapper {
         width: 100%;
@@ -1829,16 +1866,18 @@ select:-webkit-autofill:focus {
     width: 100px; }
   .about-user-info__paragraph {
     font-size: 1.2em;
-    margin: 20px 0; }
+    margin: 21px 0; }
     @media (max-width: 768px) {
       .about-user-info__paragraph {
         font-size: 2em; } }
   .about-user-info__title {
     font-weight: bold;
     margin-bottom: 0;
-    font-size: 1.2em; }
+    font-size: 1.2em;
+    display: inline-block;
+    margin-top: 0; }
   .about-user-info__info {
-    margin: 20px 0;
+    margin: 20px 0 26px;
     font-family: SFUI, sans-serif; }
   .about-user-info__user-name {
     font-family: SFUI, sans-serif;
@@ -1859,6 +1898,7 @@ select:-webkit-autofill:focus {
   flex-direction: column;
   width: 45%;
   height: 90vh;
+  min-height: 730px;
   margin-right: 5%;
   background: url(../images/common/scene.png) bottom no-repeat;
   background-size: cover; }
@@ -1928,8 +1968,11 @@ select:-webkit-autofill:focus {
   left: 0; }
 
 .user-form__editing-container {
-  width: 80%;
+  width: 85%;
   margin: auto; }
+  .user-form__editing-container h1 {
+    font-size: 2em;
+    margin: 0.8em 0; }
 
 #change-password {
   margin-top: 135px; }

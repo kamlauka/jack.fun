@@ -95,30 +95,30 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 15%;
+  width: 5%;
   z-index: 2000;
   background-size: contain;
   background-repeat: no-repeat;
 
   &_color_dark {
-    background: $pat-dark-pillar-1 top left no-repeat, $pat-dark-pillar-3 bottom left no-repeat, $pat-dark-pillar-2 repeat-y;
+    background: $pat-dark-pillar-1 top left no-repeat, $pat-dark-pillar-3 bottom left no-repeat, $pat-dark-pillar-2 top left repeat-y;
     @media (max-width: $first-width) {
       background-size: 47%, 47%, 32.5%;
     }
   }
 
   &_color_grey {
-    background: $pat-grey-pillar-1 top left no-repeat, $pat-grey-pillar-3 bottom left no-repeat, $pat-grey-pillar-2 repeat-y;
+    background: $pat-grey-pillar-1 top left no-repeat, $pat-grey-pillar-3 bottom left no-repeat, $pat-grey-pillar-2 top left repeat-y;
     @media (max-width: $first-width) {
       background-size: 47%, 47%, 32.5%;
     }
   }
 
   &_color_gold {
-    background: $pat-gold-pillar-1 top left no-repeat, $pat-gold-pillar-3 bottom left no-repeat, $pat-gold-pillar-2 repeat-y;
-    @media (max-width: $first-width) {
-      background-size: 47%, 47%, 32.5%;
-    }
+    //background: $pat-gold-pillar-1 top left no-repeat, $pat-gold-pillar-3 bottom left no-repeat, $pat-gold-pillar-2 top left repeat-y;
+    //background-size: 99%, 99%, 68%;
+    background: $pat-gold-pillar-1  top left no-repeat, $pat-gold-pillar-3 bottom left no-repeat, $pat-gold-pillar-2 -1px repeat-y;
+    background-size: 99%, 99%, 102%;
   }
 
   &_all-pillar {
