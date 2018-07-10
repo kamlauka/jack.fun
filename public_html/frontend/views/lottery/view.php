@@ -1,6 +1,6 @@
 <?php
     use yii\helpers\Html;
-    $this->params['breadcrumbs'][] = ['label' =>'Lottery','template' => "<li class='crumbs__link crumbs__link_active'><span class='crumb-active'>{link}</span></li>"];
+    $this->params['breadcrumbs'][] = ['label' =>'Lottery','template' => "<li class='crumbs__link crumbs__link_active'><a class='crumb-active'>{link}</a></li>"];
 ?>
 <section class="prize-page">
     <div class="prize-page-without-clouds container container_mob mobile-container">
@@ -18,16 +18,18 @@
 
                 <h2 class="prize-page-without-clouds__prize-text">
                     for only
-                    <span class="gold-text"></span>
+                    <span class="money-text">
                     <?php if(isset($lottery['data']->rate)) {
-                        echo $lottery['data']->rate .' ETH';
+                        echo $lottery['data']->rate;
                     } ?>
+                    </span>
+                    <span class="money-text money-text_mini-size">ETH</span>
                 </h2>
 
                 <div class="prize-money">
-                    <p class="prize-page-without-clouds__text text-wrap"><span class="gold-text"><?= $lottery['data']->total ?> ETH</span> out of <span class="gold-text"><?= $lottery['data']->currency_start ?> ETH</span></p>
-                    <p>left before the draw of the prize</p>
-                    <div class="participate__buttons container">
+                    <p class="prize-page-without-clouds__text text-wrap"><span class="gold-text"><?= $lottery['data']->total ?> </span> ETH / <span class="gold-text"><?= $lottery['data']->currency_start ?> </span> ETH</p>
+                    <p class="prize-page-without-clouds__text text-wrap text-wrap_add-font">Left before the draw of the prize</p>
+                    <div class="participate__buttons">
                         <a class="button button_gold participate__button" data-id="<?= $lottery['data']->id ?>"
                             <?php if(Yii::$app->user->isGuest) { ?>
                                 onclick="showForm('.popup__login')"
@@ -59,6 +61,13 @@
         </div>
     </div>
     <div class="clouds">
+        <div class="cloud-container cloud-container_center-center-medium">
+            <div class="cloud">
+                <div class="cloud cloud__cloud1"></div>
+                <div class="cloud cloud__cloud2"></div>
+                <!--                <div class="cloud cloud__cloud3"></div>-->
+            </div>
+        </div>
         <div class="cloud-container cloud-container_center-page">
             <div class="cloud">
                 <div class="cloud cloud__cloud1"></div>
@@ -66,13 +75,7 @@
 <!--                <div class="cloud cloud__cloud3"></div>-->
             </div>
         </div>
-        <div class="cloud-container cloud-container_center-center-medium">
-            <div class="cloud">
-                <div class="cloud cloud__cloud1"></div>
-                <div class="cloud cloud__cloud2"></div>
-<!--                <div class="cloud cloud__cloud3"></div>-->
-            </div>
-        </div>
+
         <div class="cloud-container cloud-container_center-left-medium">
             <div class="cloud">
                 <div class="cloud cloud__cloud1"></div>

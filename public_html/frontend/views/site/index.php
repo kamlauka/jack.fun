@@ -180,6 +180,7 @@ use yii\helpers\Html;
                 </div>
             </section>
         </section>
+        <div class="orange-border orange-border_all"></div>
     <?php } ?>
     <?php if(isset($jackpot)){ ?>
         <section class="jackpot">
@@ -191,7 +192,7 @@ use yii\helpers\Html;
             <div class="jackpot__cloud jackpot__cloud_four"></div>
             <div class="jackpot__cloud-container"></div>
             <div class="jackpot__cloud jackpot__cloud_six"></div>
-            <div class="orange-border orange-border_all"></div>
+
             <div> <h2 class="title-wih-pattern jackpot__title">JACKPOT</h2></div>
             <div class="jackpot__container flex-gorizontal">
                 <div class="jackpot__cloud jackpot__cloud_twenty"></div>

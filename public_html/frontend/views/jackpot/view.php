@@ -1,5 +1,5 @@
 <?php
-    $this->params['breadcrumbs'][] = ['label' =>'Jackpot','template' => "<li class='crumbs__link crumbs__link_active'><span class='crumb-active'>{link}</span></li>"];
+    $this->params['breadcrumbs'][] = ['label' =>'Jackpot','template' => "<li class='crumbs__link crumbs__link_active'><a class='crumb-active'>{link}</a></li>"];
 ?>
 
     <?php if($model){?>

@@ -6,18 +6,24 @@
     align-items: flex-end;
     flex-wrap: nowrap;
     margin: auto;
+    margin-bottom: 40px;
     //padding-left: 3%;
     padding-top: 7%;
     justify-content: center;
     @media (max-width: $fourth-width) {
       flex-direction: column;
     }
+    @media (max-width: $mobile-width) {
+      margin-bottom: 0;
+    }
   }
     &__image {
-      width: 20%;
-      margin: 0 20px;
+      width: 22%;
+      margin: 0 80px 0 0;
+
       @media (max-width:$fourth-width) {
         width: 30%;
+        margin: auto;
     }
   }
   &__prize-name {
@@ -51,10 +57,11 @@
     }
   }
   &__prize-text {
-    margin: 0;
+
+    margin: 30px 0;
     line-height: 1em;
     color: #616161;
-    font-family: Corbel;
+    font-family: $add-font;
     font-size: 5em;
     @media (max-width: $third-width) {
       font-size: 3em;
@@ -64,6 +71,10 @@
       margin: 0 auto;
       font-size: 2em;
     }
+    @media (max-width: $mobile-width) {
+      margin-bottom: 20px;
+    }
+
   }
   &__timer {
     font-size: 0.4em;
@@ -100,6 +111,7 @@
   margin: auto;
   max-width: 80%;
   background-color: #7C918C;
+  min-width: 245px;
   @media (max-width: $third-width) {
     width: 30%;
     height: 100%;
@@ -142,14 +154,37 @@
 
 .gold-text {
   font-family: $main-font;
-  color: $main-color;
+  color: white;
 }
 .text-wrap {
-  margin: 20px 10px;
+  //margin: 20px 10px;
+  margin: 0 0 10px;
+  font-size: 2em;
+  &_add-font {
+    font-family: $add-font;
+    color: white;
+  }
 }
 
 .prize-money {
-  padding: 20px 0;
+  padding: 20px;
+  text-align: center;
   background: $pat-prize-stone no-repeat;
   background-size: 100% 100%;
+  box-shadow: inset 0px 0px 0px 3px #89A79F, inset 0px 0px 0px 6px #B4C4BF;
+}
+
+.prize {
+  text-align: left;
+  @media (max-width: $mobile-width) {
+    text-align: center;
+  }
+}
+
+.money-text {
+  color: $main-color;
+  font-family: $main-font;
+  &_mini-size {
+    font-size: 0.7em;
+  }
 }

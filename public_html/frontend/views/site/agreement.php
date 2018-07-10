@@ -5,7 +5,7 @@
 use yii\helpers\Html;
 use yii\widgets\Breadcrumbs;
 
-$this->params['breadcrumbs'][] = ['label' =>'Terms of agreement','template' => "<li class='crumbs__link crumbs__link_active'><span class='crumb-active'>{link}</span></li>"];
+$this->params['breadcrumbs'][] = ['label' =>'Terms of agreement','template' => "<li class='crumbs__link crumbs__link_active'><a class='crumb-active'>{link}</a></li>"];
 
 $this->title = 'Terms of agreement';
 //$this->params['breadcrumbs'][] = $this->title;
@@ -23,13 +23,6 @@ $this->title = 'Terms of agreement';
     </div>
 
     <div class="clouds">
-        <div class="cloud-container cloud-container_center-center-medium">
-            <div class="cloud">
-                <div class="cloud cloud__cloud1"></div>
-                <div class="cloud cloud__cloud2"></div>
-                <div class="cloud cloud__cloud3"></div>
-            </div>
-        </div>
         <div class="cloud-container cloud-container_center-left-medium">
             <div class="cloud">
                 <div class="cloud cloud__cloud1"></div>
