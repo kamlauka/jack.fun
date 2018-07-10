@@ -3,7 +3,7 @@
   z-index: 1;
   &__small-container {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     flex-wrap: nowrap;
     margin: auto;
     //padding-left: 3%;
@@ -14,8 +14,7 @@
     }
   }
     &__image {
-      width: 15%;
-      align-self: center;
+      width: 20%;
       margin: 0 20px;
       @media (max-width:$fourth-width) {
         width: 30%;
@@ -93,20 +92,23 @@
   }
 }
 
+
+
 .steps-container {
   position: relative;
-  height: 4vh;
-  padding: 20px 0;
+  padding: 3px 0;
+  margin: auto;
+  max-width: 80%;
+  background-color: #7C918C;
   @media (max-width: $third-width) {
+    width: 30%;
     height: 100%;
     padding-bottom: 0;
     flex-direction: column;
   }
 }
 .steps {
-  min-width: 126px;
-  padding: 6px 25px;
-  background-color: #7C918C;
+  padding: 6px 20px;
 
   @media (max-width: $third-width) {
     margin-bottom: 2%;
@@ -115,14 +117,15 @@
   }
 
   &__digit {
-    color: $main-color;
+    color: white;
     padding-right: 10px;
     font-size: 1.5em;
   }
   &-arrow {
     width: 5%;
-    height: 25px;
-    background: url(../images/prizes/arrow.png) no-repeat;
+    min-width: 20px;
+    height: 30px;
+    background: url(../images/prizes/arrow.png) center no-repeat;
     background-size: contain;
     margin: auto;
     @media (max-width: $third-width) {
@@ -138,8 +141,15 @@
 }
 
 .gold-text {
+  font-family: $main-font;
   color: $main-color;
 }
 .text-wrap {
   margin: 20px 10px;
+}
+
+.prize-money {
+  padding: 20px 0;
+  background: $pat-prize-stone no-repeat;
+  background-size: 100% 100%;
 }

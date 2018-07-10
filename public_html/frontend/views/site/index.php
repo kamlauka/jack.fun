@@ -96,7 +96,7 @@ use yii\helpers\Html;
                 </div>
             </div>
             <div class="currency">
-                <?= Html::img('../../images/main/currency.gif', ['alt' => 'currency', 'class' => 'currency__image']) ?>
+                <img class="currency__image" src="../../images/main/currency-left.gif" alt="currency">
             </div>
             <div class="colons flex-gorizontal flex-gorizontal_top">
                 <?php if(isset($text['T']->text)){ ?>
