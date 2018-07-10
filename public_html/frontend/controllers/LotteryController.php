@@ -27,7 +27,7 @@ class LotteryController extends Controller
     }
 
 
-    public function actionParticipate($id){
+    public function actionParticipate(){
 
 //        $user_id = \Yii::$app->user->identity->id;
 //        $user = User::findOne($user_id);
@@ -36,12 +36,12 @@ class LotteryController extends Controller
             return $this->redirect('/site/login');
         }else{
 
-            $lottery = Lottery::findOne($id);
+            $lottery = Lottery::getActiveLottery();
             //реализовать принятия участия
             $betting = new Betting();
             $betting->user_id = Yii::$app->user->identity->id;
-            $betting->target_id = $id;
-            $betting->rate = $lottery->rate;
+            $betting->target_id = $lottery['data']->id;
+            $betting->rate = $lottery['data']->rate;
             $betting->date_creation = date("Y-m-d h:i:s");
             //реализовать процентное распределение ставки
 
