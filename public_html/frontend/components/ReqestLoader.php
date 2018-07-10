@@ -22,8 +22,11 @@ class ReqestLoader
 
             $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
             $lang = Language::find()->where(['alias' => $lang])->one();
-            Yii::$app->session->set('language', $lang->id);
-        }
+            if($lang){
+                Yii::$app->session->set('language', $lang->id);
+            }else
+                Yii::$app->session->set('language', 1);
+            }
 
         $path = explode("/", \Yii::$app->request->pathInfo);
         if ($path[0] == 'lottery' || $path[0] == 'jackpot') {
