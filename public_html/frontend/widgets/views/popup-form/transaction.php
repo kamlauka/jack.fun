@@ -17,7 +17,7 @@ $this->title = 'Participate';
         'id' => 'participate',
         'action' => '/lottery/participate']);
     ?>
-    <p>Send <b><?= $lottery->rate?> ETH</b> on the wallet:</p>
+    <p>Send <b><?= $lottery?> ETH</b> on the wallet:</p>
     <b> <?= $wallet->data ?> </b>
 
     <label class="label">
