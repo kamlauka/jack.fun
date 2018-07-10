@@ -17,12 +17,12 @@ use yii\widgets\ActiveForm;
         <div class="user-form__editing-container">
             <?php $form = ActiveForm::begin([
                 'id' => 'editing',
-                'enableAjaxValidation' => true,
+                //'enableAjaxValidation' => true,
                // 'action' => \yii\helpers\Url::toRoute(['editing', 'id' => $model->id]),
-                'action' => 'editing',
-                'options' => [
-                    'data-pjax' => true,
-                ],
+              //  'action' => 'editing',
+//                'options' => [
+//                    'data-pjax' => 1,
+//                ],
 
             ]); ?>
 
@@ -48,9 +48,6 @@ use yii\widgets\ActiveForm;
             </div>
             <div class="about-user-info__paragraph">
             <?= $form->field($model, 'phone')->textInput(['maxlength' => true, 'class'=>'label__input input-white'])->label('my phone-number:',['class'=>'about-user-info__title']); ?>
-            </div>
-            <div class="about-user-info__paragraph">
-            <?= $form->field($model, 'wallet')->textInput(['maxlength' => true, 'class'=>'label__input input-white'])->label('my wallet:',['class'=>'about-user-info__title']); ?>
             </div>
             <div class="about-user-info__paragraph">
             <?= $form->field($model, 'email')->textInput(['maxlength' => true, 'class'=>'label__input input-white'])->label('my email:',['class'=>'about-user-info__title']); ?>

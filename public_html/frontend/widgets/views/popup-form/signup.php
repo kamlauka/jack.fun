@@ -17,6 +17,7 @@ $this->title = 'Registration';
     <?php $form = ActiveForm::begin([
         'id' => 'form-signup',
         'action' => '/site/signup',
+
 //        'options' => [
 //            'onsubmit' => 'sendAjax(this, myAction)'
 //        ],
@@ -25,7 +26,7 @@ $this->title = 'Registration';
         <?= $form->field($model, 'username')->textInput(['autofocus' => true,'class'=>'label__input input-text'])->label('Username',['class'=>'label']) ?>
     </label>
     <label class="label">
-        <?= $form->field($model, 'wallet')->textInput(['class'=>'input-text'])->label('wallet',['class'=>'label']) ?>
+        <?= $form->field($model, 'email')->textInput(['class'=>'input-text'])->label('email',['class'=>'label']) ?>
     </label>
     <label class="label">
         <?= $form->field($model, 'password')->passwordInput(['class'=>'input-text'])->label('password',['class'=>'label']) ?>

@@ -31,10 +31,11 @@ class Transaction extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_id', 'type', 'target_id', 'amount'], 'required'],
+            [['user_id', 'type', 'target_id', 'amount','hash'], 'required'],
             [['user_id', 'target_id'], 'integer'],
             [['amount'], 'number'],
-            [['type'], 'string', 'max' => 4],
+            [['hash'], 'string','max' => 127],
+            [['type'], 'string', 'max' => 16],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
         ];
     }

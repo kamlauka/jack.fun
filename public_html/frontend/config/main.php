@@ -45,6 +45,8 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                'lottery'=>'lottery/view',
+                'jackpot'=>'lottery/view'
             ],
         ],
 

@@ -100,7 +100,7 @@ AppAsset::register($this);
                 'view' => 'passwordReset'
             ]) ?>
             <?= \frontend\widgets\PopupForm::widget([
-                'model' => new \yii\base\DynamicModel(['hash' => '']),
+                'model' => new \yii\base\DynamicModel(['hash' => '',]),
                 'view' => 'transaction'
             ]) ?>
 

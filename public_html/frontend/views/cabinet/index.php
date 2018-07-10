@@ -14,10 +14,9 @@
         <div class="about-user-info__wrapper" id="user-info" >
             <?php Pjax::begin(['id'=>Yii::$app->controller->action->id]); ?>
 
-            <?= include 'content/'.Yii::$app->controller->action->id.'.php' ?>
+            <?php include 'content/'.Yii::$app->controller->action->id.'.php' ?>
 
             <?php Pjax::end(); ?>
-
 
         </div>
     </div>

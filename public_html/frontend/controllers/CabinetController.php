@@ -66,9 +66,7 @@ class CabinetController extends Controller
 
         $model = User::findOne(\Yii::$app->user->id);
 
-        if(Yii::$app->request->isPjax){
-
-            if ($model->load(Yii::$app->request->post()) ) {
+            if ($model->validate() && $model->load(Yii::$app->request->post()) ) {
                 if ($img = UploadedFile::getInstance($model, 'avatar')) {
 
                     $img->saveAs(Yii::getAlias('@common/uploads/avatar/' . $img->baseName . '.' . $img->extension));
@@ -86,14 +84,16 @@ class CabinetController extends Controller
 
                // return $this->redirect(['index']);
             }
+
+        if(Yii::$app->request->isPjax){
             return $this->renderPartial('content/editing', [
                 'model' => $model,
             ]);
+        }else{
+            return $this->render('index', [
+                'model' => $model,
+            ]);
         }
-
-        return $this->render('index', [
-            'model' => $model,
-        ]);
     }
 
     public function actionChangePassword() {

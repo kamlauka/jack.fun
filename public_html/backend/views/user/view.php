@@ -44,7 +44,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'type',
             'balance',
             'avatar',
-            'wallet',
             'file',
         ],
     ]) ?>

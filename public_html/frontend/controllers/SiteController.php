@@ -16,6 +16,8 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use yii\web\Response;
+use yii\widgets\ActiveForm;
 
 /**
  * Site controller
@@ -99,10 +101,16 @@ class SiteController extends Controller
         }
 
         $model = new LoginForm();
+
+        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
+            Yii::$app->response->format = Response::FORMAT_JSON;
+            return ActiveForm::validate($model);
+        }
+
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
         } elseif(!$model->validate()) {
-
+// todo сделать рефакторинг метода
             $model->password = '';
             $lottery = Lottery::getActiveLottery();
             $jackpot = Jackpot::getActiveJackpot();
@@ -164,10 +172,6 @@ class SiteController extends Controller
      */
     public function actionSignup()
     {
-
-//        if(Yii::$app->request->isPjax){
-//            $ff = 'ok';
-//        }
         $model = new SignupForm();
         if ($model->load(Yii::$app->request->post())) {
 
@@ -196,6 +200,7 @@ class SiteController extends Controller
     public function actionRequestPasswordReset()
     {
         $model = new PasswordResetRequestForm();
+
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->sendEmail()) {
                 Yii::$app->session->setFlash('success', 'Check your email for further instructions.');

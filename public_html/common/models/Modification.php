@@ -46,4 +46,10 @@ class Modification extends \yii\db\ActiveRecord
             'description' => 'Description',
         ];
     }
+
+    public static function getAdminWallet(){
+
+       return Modification::findOne(6);
+
+    }
 }

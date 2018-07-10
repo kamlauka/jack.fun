@@ -16,7 +16,9 @@ $this->title = 'Login';
     <p class="popup__other-popup">or &nbsp;<span class="popup__other-popup-link" onclick="showForm('.popup__registration')">registration</span></p>
     <?php $form = ActiveForm::begin([
             'id' => 'login-form',
-            'action' => '/site/login']);
+            'action' => '/site/login',
+            'enableAjaxValidation' => true,
+    ]);
     ?>
     <label class="label">
         <?= $form->field($model, 'username')->textInput(['autofocus' => true,'class'=>'input-text'])->label('Username',['class'=>'label']) ?>

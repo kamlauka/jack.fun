@@ -35,18 +35,10 @@ use yii\widgets\ActiveForm;
     </div>
 <?php } ?>
 
-<?php  if(isset($model->wallet)){ ?>
-    <div class="about-user-info__paragraph">
-        <p class="about-user-info__title">my wallet:</p>
-        <p class="about-user-info__info"><?= $model->wallet ?> </p>
-    </div>
-<?php } ?>
-
 <?php  if(isset($model->email)){ ?>
     <div class="about-user-info__paragraph">
         <p class="about-user-info__title">my email:</p>
         <p class="about-user-info__info"><?= $model->email ?> </p>
     </div>
 <?php } ?>
-
 <a class="button button_gold" href="/cabinet/editing" >Edit info</a>

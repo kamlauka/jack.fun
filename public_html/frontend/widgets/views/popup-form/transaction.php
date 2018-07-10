@@ -15,10 +15,10 @@ $this->title = 'Participate';
     <h3 class="title-h3"><?= Html::encode($this->title) ?></h3>
     <?php $form = ActiveForm::begin([
         'id' => 'participate',
-        'action' => '/lottery/participate?id=51']);
+        'action' => '/lottery/participate']);
     ?>
-    <p>Send <b>0.03 ETH</b> on the wallet:</p>
-    <b>sdv8s9df8vsd8fv9sd9f8v9sd</b>
+    <p>Send <b><?=$lottery?> ETH</b> on the wallet:</p>
+    <b> <?= $wallet?> </b>
 
     <label class="label">
         <?= $form->field($model, 'hash')->textInput(['class'=>'input-text'])->label('Transaction hash',['class'=>'label']) ?>

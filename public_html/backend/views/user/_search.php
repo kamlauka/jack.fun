@@ -41,8 +41,6 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'avatar') ?>
 
-    <?php // echo $form->field($model, 'wallet') ?>
-
     <?php // echo $form->field($model, 'file') ?>
 
     <div class="form-group">
