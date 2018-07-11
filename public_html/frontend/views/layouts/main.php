@@ -123,6 +123,7 @@ AppAsset::register($this);
 
 </header>
 <?= Alert::widget() ?>
+
 <?php if(Yii::$app->controller->route === 'site/index'){ ?>
 
 <div class="preloader">
@@ -136,7 +137,7 @@ AppAsset::register($this);
         <?php if(isset($this->params['breadcrumbs'])){?>
             <div class="crumbs container container_mob">
             <?php   echo  Breadcrumbs::widget([
-                    'homeLink' => ['label' => 'Home','template' => '<li class="crumbs__link">{link}</li>', 'url' => '/'],
+                    'homeLink' => ['label' => 'Home','template' => '<li class="crumbs__link crumbs__link_home">{link}</li>', 'url' => '/'],
                     'links' => $this->params['breadcrumbs'],
                 ]);?>
             </div>

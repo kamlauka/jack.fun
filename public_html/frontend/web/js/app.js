@@ -31,6 +31,7 @@ function checkboxClick() {
 
 //Вызов попапа с какой-либо формой
 function showForm(activeForm) {
+    console.log(true);
     $('#link-top').prop('checked', false);
     $('.forms').css('display', 'flex');
     var kids = $('.forms__popup').children();
