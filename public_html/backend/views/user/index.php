@@ -12,7 +12,9 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-index">
     <p>
-        <?= Html::a('Banlist', ['/banlist/index'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('All banlist', ['/banlist/index'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('All betting', ['/betting/index'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('All transaction', ['/transaction/index'], ['class' => 'btn btn-success']) ?>
     </p>
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>

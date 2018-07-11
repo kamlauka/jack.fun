@@ -5,8 +5,10 @@ use common\models\Jackpot;
 use common\models\Language;
 use common\models\Lottery;
 use common\models\Translation;
+use common\models\Url;
 use Yii;
 use yii\base\InvalidParamException;
+use yii\helpers\Html;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
@@ -182,11 +184,14 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->request->post())) {
 
             if ($user = $model->signup()) {
-                if (Yii::$app->getUser()->login($user)) {
 
-                    Yii::$app->session->setFlash('success', '<p>Congratulations</p> You have successfully registered.');
-                    return $this->goHome();
-                }
+
+               if($this->mail_activation ($user->email, $user->active)){
+                   Yii::$app->session->setFlash('success', 'We sent you message to confirm email address.');
+                   return $this->goHome();
+
+               }
+
             }
             //если не прошел валидация
             $model->agreement = null;
@@ -274,5 +279,47 @@ class SiteController extends Controller
 
         return $text;
     }
+
+    public function mail_activation ($email, $cod){
+
+        $absoluteHomeUrl = \yii\helpers\Url::home(true); //http://сайт
+        $serverName = Yii::$app->request->serverName; // сайт без http
+        $url = $absoluteHomeUrl.'site/activation?code='.$cod;
+
+        $msg = "Здравствуйте! Спасибо за регистрацию на сайте $serverName!  Вам осталось только подтвердить свой e-mail. Для этого перейдите по ссылке $url";
+
+        $msg_html  = "<html><body style='font-family:Arial,sans-serif;'>";
+        $msg_html .= "<h2 style='font-weight:bold;border-bottom:1px dotted #ccc;'>Здравствуйте! Спасибо за регистрацию на сайте <a href='". $absoluteHomeUrl ."'>$serverName</a></h2>\r\n";
+        $msg_html .= "<p><strong>Вам осталось только подтвердить свой e-mail.</strong></p>\r\n";
+        $msg_html .= "<p><strong>Для этого перейдите по ссылке </strong><a href='". $url."'>$url</a></p>\r\n";
+        $msg_html .= "</body></html>";
+
+        Yii::$app->mailer->compose()
+            ->setFrom('admin@terlabs.com') //не надо указывать если указано в common\config\main-local.php
+            ->setTo($email) // кому отправляем - реальный адрес куда придёт письмо формата asdf @asdf.com
+            ->setSubject('Подтверждение регистрации.') // тема письма
+            ->setTextBody($msg) // текст письма без HTML
+            ->setHtmlBody($msg_html) // текст письма с HTML
+            ->send();
+        return true;
+    }
+
+    public function actionActivation(){
+        $code = Yii::$app->request->get('code');
+        $code = Html::encode($code);
+        $find = \common\models\User::find()->where(['active'=>$code])->one();
+        if($find){
+            $find->status = 1;
+            if ($find->save()) {
+                if (Yii::$app->getUser()->login($find)) {
+                    Yii::$app->session->setFlash('success', '<p>Congratulations</p> You have successfully registered.');
+                    return $this->goHome();
+                }
+            }
+        }
+        $absoluteHomeUrl = Url::home(true);
+        return $this->redirect($absoluteHomeUrl, 303); //на главную
+    }
+
 
 }

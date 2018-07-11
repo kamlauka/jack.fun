@@ -66,7 +66,7 @@ class CabinetController extends Controller
 
         $model = User::findOne(\Yii::$app->user->id);
 
-            if ($model->validate() && $model->load(Yii::$app->request->post()) ) {
+            if ($model->load(Yii::$app->request->post())) {
                 if ($img = UploadedFile::getInstance($model, 'avatar')) {
 
                     $img->saveAs(Yii::getAlias('@common/uploads/avatar/' . $img->baseName . '.' . $img->extension));
@@ -76,7 +76,9 @@ class CabinetController extends Controller
                     $model->avatar = $model->oldAttributes['avatar'];
                 }
                 if($model->validate()) {
-                    $model->save();
+                    if($model->save()){
+                        $gg = 'сохранил';
+                    }
                     Yii::$app->session->setFlash('success', 'Your information has been successfully changed)');
                     return $this->redirect(['index']);
                 }
@@ -106,29 +108,29 @@ class CabinetController extends Controller
         $user = User::findOne(\Yii::$app->user->id);
 
             if($model->load(Yii::$app->request->post())) {
-              //  if($model->validatePassword($model->passold)){
-                if (Yii::$app->getSecurity()->validatePassword($model->passold, $user->password_hash) && $model->validate()) {
+                if ($user->validatePassword($model->passold)) {
 
+                    $user->setPassword($model->password);
+                    if($user->save()){
                         Yii::$app->session->setFlash('success', 'Your password has been successfully changed!');
                         return $this->redirect('/cabinet');
-
-                    } else {
-                    $model->addError('passold', 'Old password is not correct');
-                        // неправильный пароль
                     }
+
+                } else {
+                        $model->addError('passold', 'Old password is not correct');
                 }
+            }
+            if(Yii::$app->request->isPjax){
+                return $this->renderPartial('content/change-password', [
+                    'model' => $model,
+                ]);
 
-                if(Yii::$app->request->isPjax){
-                    return $this->renderPartial('content/change-password', [
-                        'model' => $model,
-                    ]);
+            }else{
 
-                }else{
-
-                    return $this->render('index', [
-                        'model' => $model,
-                    ]);
-                }
+                return $this->render('index', [
+                    'model' => $model,
+                ]);
+            }
 
 
     }

@@ -1,3 +1,14 @@
+var logoPosition = $(".logo-mini").first();
+var logoContainer = $(".logo__container").first();
+var mobileLogo = $(".logo-mini__image").first();
+var logo = $(".logo__image").first();
+var logoText = $(".logo__text").first();
+var clouds = $(".clouds_fixed").first();
+var cloudBottom = $(".cloud-container_bottom-scale").first();
+var cloudLeft = $(".cloud-container_left-big").first();
+var cloudRight = $(".cloud-container_right-big").first();
+
+
 function EditAvatar() {
     $("#user-avatar").click();
 }
@@ -94,15 +105,7 @@ function targetMenu(e) {
 
 //поведение анимации лого на главной
 
-var logoPosition = $(".logo-mini").first();
-var logoContainer = $(".logo__container").first();
-var mobileLogo = $(".logo-mini__image").first();
-var logo = $(".logo__image").first();
-var logoText = $(".logo__text").first();
-var clouds = $(".clouds_fixed").first();
-var cloudBottom = $(".cloud-container_bottom-scale").first();
-var cloudLeft = $(".cloud-container_left-big").first();
-var cloudRight = $(".cloud-container_right-big").first();
+
 
 // с какого места начал юзер?
 //если с середины страницы, то включаем лого конечное

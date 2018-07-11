@@ -6,6 +6,7 @@ use common\models\User;
 
 /**
  * Signup form
+ * @property string $username
  */
 class SignupForm extends Model
 {
@@ -52,22 +53,19 @@ class SignupForm extends Model
      */
     public function signup()
     {
-
         if ($this->validate()) {
-
-//            if($this->agreement == false){
-//                return null;
-//            }
 
             $user = new User();
             $user->username = $this->username;
             $user->email = $this->email;
+            $TEST =  md5($this->email . time());
+            $user->active = $TEST ;
             $user->setPassword($this->password);
             $user->generateAuthKey();
 
             return $user->save() ? $user : null;
 
         }
-
+        return null;
     }
 }

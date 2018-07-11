@@ -12,12 +12,11 @@ use common\models\Url;
 use common\models\Language;
 use Yii;
 
-class ReqestLoader
+class RequestLoader
 {
-
     public function __construct()
     {
-        //todo отрефакторить и оттестить на китайском
+
         if (!Yii::$app->session->get('language')) {
 
             $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
@@ -25,7 +24,7 @@ class ReqestLoader
             if($lang){
                 Yii::$app->session->set('language', $lang->id);
             }else
-                Yii::$app->session->set('language', 1);
+                Yii::$app->session->set('language', 2); //1 = РУС; 2 = EN; 3 = EN
             }
 
         $path = explode("/", \Yii::$app->request->pathInfo);

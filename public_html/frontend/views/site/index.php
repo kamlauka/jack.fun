@@ -168,7 +168,7 @@ use yii\helpers\Html;
                 <div class="scene-of-prize__empty-block"></div>
             </div>
             <section class="participate participate_border_dark">
-                <h3 class="participate__title">Lorem Ipsum is text</h3>
+                <h3 class="participate__title">Lottery</h3>
                 <div class="container flex-gorizontal">
 
                     <p class="participate__text participate__text_image_apple flex-gorizontal"><?= $lottery['description']->text ?></p>
@@ -233,8 +233,13 @@ use yii\helpers\Html;
 
         <section class="participate participate_border_dark">
             <div class="container">
+<<<<<<< HEAD
                 <h3 class="participate__title">Lorem Ipsum is text</h3>
                 <p class="participate__text participate__text_image_dollar flex-gorizontal"><?= $jackpot['description']->text ?></p>
+=======
+                <h3 class="participate__title">Jackpot</h3>
+                    <p class="participate__text participate__text_image_dollar flex-gorizontal"><?= $jackpot['description']->text ?></p>
+>>>>>>> e725b739892f85b32f09739905c5df608f2e9b8e
             </div>
             <div class="participate__buttons container">
 

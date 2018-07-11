@@ -11,6 +11,7 @@ use Yii;
  * @property int $user_id
  * @property int $type
  * @property int $target_id
+ * @property string $hash
  * @property double $amount
  *
  * @property User $user

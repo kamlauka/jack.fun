@@ -10,10 +10,13 @@ return [
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log',
-        'frontend\components\ReqestLoader'
+        'frontend\components\RequestLoader'
         ],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
+        'mailer' => [
+            'class' => 'yii\swiftmailer\Mailer',
+        ],
         'request' => [
             'csrfParam' => '_csrf-frontend',
             'class' => 'common\components\Request',
@@ -46,7 +49,9 @@ return [
             'showScriptName' => false,
             'rules' => [
                 'lottery'=>'lottery/view',
-                'jackpot'=>'lottery/view'
+                'jackpot'=>'lottery/view',
+                //'activation/<code:.+>' => 'site/activation',
+
             ],
         ],
 

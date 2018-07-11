@@ -10,7 +10,7 @@ use yii\web\IdentityInterface;
  * This is the model class for table "user".
  *
  * @property int $id
- * @property string $nusername
+ * @property string $username
  * @property string $auth_key
  * @property string $password_hash
  * @property string $password_reset_token
@@ -22,6 +22,7 @@ use yii\web\IdentityInterface;
  * @property int $type
  * @property double $balance
  * @property string $avatar
+ * @property string $active
  * @property string $file
  *
  * @property Banlist[] $banlists
@@ -64,6 +65,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
             [['balance'], 'number'],
             [['username', 'auth_key', 'password_hash','password_reset_token', 'password_reset_token'], 'string'],
             [['status'], 'integer'],
+            [['phone', 'active'], 'string'],
             [['email'], 'email'],
             [['type'], 'integer', 'max' => 2],
             [['avatar','file'], 'file', 'extensions' => 'png, jpg'],
@@ -83,13 +85,12 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
             'password_reset_token' => 'Password Reset Token',
             'email' => 'Email',
             'status' => 'Status',
-//            'created_at' => 'Created At',
-//            'updated_at' => 'Updated At',
             'phone' => 'Phone',
             'type' => 'Type',
             'balance' => 'Balance',
             'avatar' => 'Avatar',
             'file' => 'File',
+            'active' => 'activation',
         ];
     }
 

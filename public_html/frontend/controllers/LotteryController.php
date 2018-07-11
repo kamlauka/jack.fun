@@ -37,19 +37,23 @@ class LotteryController extends Controller
         if (Yii::$app->user->isGuest) {
             return $this->redirect('/site/login');
         } else {
-            //todo закончить правильную реализацию DynamicModel
-            $model = DynamicModel::validateData(array('hash'), [['hash', 'string', 'max' => 127, 'min' => 10]]);
 
-            if ($model->load(Yii::$app->request->post())) {
+            $model = DynamicModel::validateData(array('hash'), [['hash', 'string', 'max' => 127]]);
+
+            if ($model->load(Yii::$app->request->post()) && $model->validate()) {
 
                 if (TransactionController::setTransact($model->hash)) {
 
-                    if (BetController::setBet()) {
+                    if (BetController::setLotteryBet()) {
 
                         Yii::$app->session->setFlash('success', '<p>Congratulations</p> Transaction has been send!');
                         return $this->redirect(Yii::$app->request->referrer);
                     }
                 }
+            }else {
+                Yii::$app->session->setFlash('success', '<p>Error</p> non-correcting hash string');
+                return $this->redirect(Yii::$app->request->referrer);
+
             }
         }
     }
