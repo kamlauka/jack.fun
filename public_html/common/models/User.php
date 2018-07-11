@@ -22,7 +22,7 @@ use yii\web\IdentityInterface;
  * @property int $type
  * @property double $balance
  * @property string $avatar
- * @property string $activation
+ * @property string $active
  * @property string $file
  *
  * @property Banlist[] $banlists
@@ -65,7 +65,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
             [['balance'], 'number'],
             [['username', 'auth_key', 'password_hash','password_reset_token', 'password_reset_token'], 'string'],
             [['status'], 'integer'],
-            [['phone','activation'], 'string'],
+            [['phone','active'], 'string'],
             [['email'], 'email'],
             [['type'], 'integer', 'max' => 2],
             [['avatar','file'], 'file', 'extensions' => 'png, jpg'],
@@ -90,6 +90,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
             'balance' => 'Balance',
             'avatar' => 'Avatar',
             'file' => 'File',
+            'active' => 'activation',
         ];
     }
 

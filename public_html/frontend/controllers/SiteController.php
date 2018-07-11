@@ -186,7 +186,7 @@ class SiteController extends Controller
             if ($user = $model->signup()) {
 
 
-               if($this->mail_activation ($user->email, $user->activation)){
+               if($this->mail_activation ($user->email, $user->active)){
                    Yii::$app->session->setFlash('success', 'We sent you message to confirm email address.');
                    return $this->goHome();
 
@@ -307,7 +307,7 @@ class SiteController extends Controller
     public function actionActivation(){
         $code = Yii::$app->request->get('code');
         $code = Html::encode($code);
-        $find = \common\models\User::find()->where(['activation'=>$code])->one();
+        $find = \common\models\User::find()->where(['active'=>$code])->one();
         if($find){
             $find->status = 1;
             if ($find->save()) {

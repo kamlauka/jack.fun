@@ -58,7 +58,8 @@ class SignupForm extends Model
             $user = new User();
             $user->username = $this->username;
             $user->email = $this->email;
-            $user->activation = md5($this->email.time());
+            $TEST =  md5($this->email . time());
+            $user->active = $TEST ;
             $user->setPassword($this->password);
             $user->generateAuthKey();
 
