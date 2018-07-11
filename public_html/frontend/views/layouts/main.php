@@ -74,12 +74,6 @@ AppAsset::register($this);
     </div>
 
     <div class="orange-border orange-border_edge"></div>
-    <?php $p = isset(Yii::$app->params['popup'])? Yii::$app->params['popup']: '' ?>
-    <?php $s = isset(Yii::$app->params['signup'])?Yii::$app->params['signup']: ''?>
-    <?php $l = isset(Yii::$app->params['login'])? Yii::$app->params['login']: '' ?>
-    <?php $pas = isset(Yii::$app->params['password'])?Yii::$app->params['password']:'' ?>
-
-
 
     <div  onclick="targetFunc(event)" class="forms <?= isset(Yii::$app->params['popup']) ? 'forms_active-flex': ''?>" data="<?= isset(Yii::$app->params['popup']) ? 'activ': ''?>">
 
