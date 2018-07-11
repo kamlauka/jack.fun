@@ -64,6 +64,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
             [['balance'], 'number'],
             [['username', 'auth_key', 'password_hash','password_reset_token', 'password_reset_token'], 'string'],
             [['status'], 'integer'],
+            [['phone'], 'string'],
             [['email'], 'email'],
             [['type'], 'integer', 'max' => 2],
             [['avatar','file'], 'file', 'extensions' => 'png, jpg'],

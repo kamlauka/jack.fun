@@ -12,6 +12,7 @@ use Yii;
  * @property int $target_id
  * @property double $rate
  * @property double $pc_target
+ * @property double $date_creation
  * @property double $pc_jackpot
  * @property double $pc_transaction
  * @property double $pc_keep

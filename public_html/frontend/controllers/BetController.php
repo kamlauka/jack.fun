@@ -15,7 +15,7 @@ use Yii;
 
 class BetController extends Controller
 {
-    public static function setBet(){
+    public static function setLotteryBet(){
 
         $lottery = Lottery::getActiveLottery();
 
