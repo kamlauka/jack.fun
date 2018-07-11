@@ -56,13 +56,13 @@
             </div>
         </div>
         <div class="clouds clouds_bottom clouds_over-all">
-            <div class="cloud-container cloud-container_left-bottom-jackpot">
-                <div class="cloud">
-                    <!--<div class="cloud cloud__cloud1"></div>-->
-                    <!--<div class="cloud cloud__cloud2"></div>-->
-                    <!--<div class="cloud cloud__cloud3"></div>-->
-                </div>
-            </div>
+<!--            <div class="cloud-container cloud-container_left-bottom-jackpot">-->
+<!--                <div class="cloud">-->
+<!--                    <!--<div class="cloud cloud__cloud1"></div>-->-->
+<!--                    <!--<div class="cloud cloud__cloud2"></div>-->-->
+<!--                    <!--<div class="cloud cloud__cloud3"></div>-->-->
+<!--                </div>-->
+<!--            </div>-->
             <div class="cloud-container cloud-container_left-middle-jackpot">
                 <div class="cloud">
                     <!--<div class="cloud cloud__cloud1"></div>-->
@@ -84,13 +84,13 @@
                     <!--<div class="cloud cloud__cloud3"></div>-->
                 </div>
             </div>
-            <div class="cloud-container cloud-container_right-bottom-jackpot">
-                <div class="cloud">
-                    <!--<div class="cloud cloud__cloud1"></div>-->
-                    <!--<div class="cloud cloud__cloud2"></div>-->
-                    <!--<div class="cloud cloud__cloud3"></div>-->
-                </div>
-            </div>
+<!--            <div class="cloud-container cloud-container_right-bottom-jackpot">-->
+<!--                <div class="cloud">-->
+<!--                    <!--<div class="cloud cloud__cloud1"></div>-->-->
+<!--                    <!--<div class="cloud cloud__cloud2"></div>-->-->
+<!--                    <!--<div class="cloud cloud__cloud3"></div>-->-->
+<!--                </div>-->
+<!--            </div>-->
         </div>
 
         <div class="participate over-all  mobile-border container ">

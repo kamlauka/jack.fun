@@ -28,7 +28,7 @@ use yii\widgets\ActiveForm;
 
             <div class="user-info about-user-info__paragraph" >
 
-                <div class="user-logo-wrap"></div>
+                <div class="user-logo-wrap"><div class="user-logo-wrap__edit" onclick="EditAvatar()"></div></div>
                 <div class="user-logo-container">
                     <?php if(isset($model->avatar)){
                         //если есть картинка
@@ -57,8 +57,8 @@ use yii\widgets\ActiveForm;
             <div class="form-group">
 
                 <a class="button-link" href="/cabinet/change-password" id="edit-password" >Edit password</a>
-                <a class="button button_dark" href="/cabinet/index" >Back</a>
-                <?= Html::submitButton('Save', ['class' => 'button button_gold']) ?>
+                <a class="button button_dark button_several-nearby" href="/cabinet/index" >Back</a>
+                <?= Html::submitButton('Save', ['class' => 'button button_gold button_several-nearby']) ?>
             </div>
 
             <?php ActiveForm::end(); ?>

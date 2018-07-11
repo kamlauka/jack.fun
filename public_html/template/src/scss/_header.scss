@@ -87,6 +87,9 @@ $e: cubic-bezier(0,.5,.5,1.1);
     visibility: hidden;
     transform-style: preserve-3d;
     font-family: $add-font;
+    @media (max-width: 900px) {
+      width: 265%;
+    }
     @media (max-width: $mobile-width) {
       width: 95vw;
     }

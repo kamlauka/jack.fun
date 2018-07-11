@@ -200,6 +200,7 @@ body {
     position: relative;
     order: 2;
     margin: 0;
+    top: 2px;
   }
 
 }
@@ -221,6 +222,10 @@ body {
     background: url("../images/common/crumb-active.png") no-repeat;
     background-size: 100% 100%;
     //background: #8AA59F;
+    @media (max-width: $mobile-width) {
+      background: url(../images/common/crumb-active-mob.png) no-repeat;
+      background-size: 100% 100%;
+    }
   }
   .crumbs__link {
     display: inline-block;
@@ -228,8 +233,16 @@ body {
     z-index: 1;
     text-align: center;
     cursor: pointer;
+    @media (max-width: $mobile-width) {
+      position: static;
+      width: 50%;
+    }
     &_home {
       width: 100px;
+      @media (max-width: $mobile-width) {
+        position: static;
+        width: 50%;
+      }
     }
     &_active {
       //outline: 1px solid #596E6A;
@@ -239,15 +252,15 @@ body {
       left: 120px;
       z-index: -1;
 
-      @media (max-width: $mobile-width) {
-        box-sizing: border-box;
-        width: 50%;
-        text-align: center;
-        order: 2;
-      }
-      @media (max-width: 450px) {
-        font-size: 11px;
-      }
+      //@media (max-width: $mobile-width) {
+      //  box-sizing: border-box;
+      //  width: 50%;
+      //  text-align: center;
+      //  order: 2;
+      //}
+      //@media (max-width: 450px) {
+      //  font-size: 11px;
+      //}
     }
     a {
       padding: 7px;
@@ -256,6 +269,11 @@ body {
       background-size: 100% 100%;
       &:hover {
         color: white;
+      }
+      @media (max-width: $mobile-width) {
+        padding: 10px;
+        background: url(../images/common/crumb-no-active-mob.png) no-repeat;
+        background-size: 100% 100%;
       }
     }
   }
