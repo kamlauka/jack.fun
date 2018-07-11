@@ -46,7 +46,9 @@ return [
             'showScriptName' => false,
             'rules' => [
                 'lottery'=>'lottery/view',
-                'jackpot'=>'lottery/view'
+                'jackpot'=>'lottery/view',
+                //'activation/<code:.+>' => 'site/activation',
+
             ],
         ],
 
