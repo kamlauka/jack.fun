@@ -186,7 +186,7 @@ class SiteController extends Controller
             if ($user = $model->signup()) {
 
 
-               if($this->mail_activation($user->email, $user->active)){
+               if($this->mail_activation ($user->email, $user->active)){
                    Yii::$app->session->setFlash('success', 'We sent you message to confirm email address.');
                    return $this->goHome();
 
@@ -286,12 +286,12 @@ class SiteController extends Controller
         $serverName = Yii::$app->request->serverName; // сайт без http
         $url = $absoluteHomeUrl.'site/activation?code='.$cod;
 
-        $msg = "Здравствуйте! Спасибо за регистрацию на сайте $serverName!  Вам осталось только подтвердить свой e-mail. Для этого перейдите по ссылке $url";
+        $msg = "Спасибо за регистрацию на сайте $serverName!  Вам осталось только подтвердить свой e-mail. Для этого перейдите по ссылке $url";
 
         $msg_html  = "<html><body style='font-family:Arial,sans-serif;'>";
-        $msg_html .= "<h2 style='font-weight:bold;border-bottom:1px dotted #ccc;'>Здравствуйте! Спасибо за регистрацию на сайте <a href='". $absoluteHomeUrl ."'>$serverName</a></h2>\r\n";
+        $msg_html .= "<h2 style='font-weight:bold;border-bottom:1px dotted #ccc;'>Спасибо за регистрацию на сайте <a href='". $absoluteHomeUrl ."'>$serverName</a></h2>\r\n";
         $msg_html .= "<p><strong>Вам осталось только подтвердить свой e-mail.</strong></p>\r\n";
-        $msg_html .= "<p><strong>Для этого перейдите по ссылке </strong><a href='". $url."'>$url</a></p>\r\n";
+        $msg_html .= "<p><strong>Для этого перейдите по ссылке </strong><a href='". $url."'>этой ссылке</a></p>\r\n";
         $msg_html .= "</body></html>";
 
         Yii::$app->mailer->compose()
