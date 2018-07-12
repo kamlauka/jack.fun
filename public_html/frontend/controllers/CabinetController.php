@@ -131,7 +131,7 @@ class CabinetController extends Controller
 
                         $messageBody = "<p>Ваши доступы для входа в личный кабинет:$user->email</p>";
                         //письмо о смене пароля
-                        Yii::$app->mailer->compose('/user_mail',[
+                        Yii::$app->mailer->compose(null,[
                             'content' => $messageBody,
                             'page' => ' Добро пожаловать!'
                         ])
