@@ -10,9 +10,9 @@ return [
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
                 'host' => 'smtp.gmail.com',
-                'username' => 'username@gmail.com',
-                'password' => 'password',
-                'port' => '587',
+                'username' => 'sd@terlabs.com',
+                'password' => '1234stas',
+                'port' => '465',
                 'encryption' => 'tls',
             ],
         ],
