@@ -90,8 +90,6 @@
             </p>
             <p style="font: 18px/1.112 'Roboto','Helvetica Neue',Helvetica,Arial,sans-serif;margin: 0;padding-bottom: 4px;">
 
-                <?= $mail?$mail:'' ?>
-            </p>
         </td>
     </tr>
 
