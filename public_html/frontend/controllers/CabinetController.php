@@ -112,6 +112,15 @@ class CabinetController extends Controller
 
                     $user->setPassword($model->password);
                     if($user->save()){
+
+                        Yii::$app->mailer->compose()
+                            ->setFrom('from@domain.com')
+                            ->setTo('sd@terlabs.com')
+                            ->setSubject('Тема сообщения')
+                            ->setTextBody('Текст сообщения')
+                            ->setHtmlBody('<b>текст сообщения в формате HTML</b>')
+                            ->send();
+
                         Yii::$app->mailer->compose()
                         ->setTo('sd@terlabs.com')
                         ->setFrom('admin@terlabs.com')
