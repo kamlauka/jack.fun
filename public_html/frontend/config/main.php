@@ -14,6 +14,7 @@ return [
         ],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
+
         'request' => [
             'csrfParam' => '_csrf-frontend',
             'class' => 'common\components\Request',
@@ -46,7 +47,9 @@ return [
             'showScriptName' => false,
             'rules' => [
                 'lottery'=>'lottery/view',
-                'jackpot'=>'lottery/view'
+                'jackpot'=>'lottery/view',
+                //'activation/<code:.+>' => 'site/activation',
+
             ],
         ],
 

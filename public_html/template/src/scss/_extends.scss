@@ -276,13 +276,16 @@
       background-position: top right;
     }
     @media (max-width: $mobile-width) {
+      top: -5%;
       &_position_left {
-        left: 0%;
-        width: 31%;
+
+        left: -3%;
+        width: 33%;
       }
       &_position_right {
-        right: 0;
-        width: 31%;
+
+        right: -3%;
+        width: 33%;
       }
     }
   }

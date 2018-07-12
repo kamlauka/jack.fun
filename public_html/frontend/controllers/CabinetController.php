@@ -112,6 +112,15 @@ class CabinetController extends Controller
 
                     $user->setPassword($model->password);
                     if($user->save()){
+
+                        Yii::$app->mailer->compose()
+                        ->setTo($user->email)
+                        ->setFrom('admin@jeckpot.fan')
+                        ->setSubject('Пароль изменен!')
+                        ->setTextBody('Если етого не делали то можете его востановить с помощю этой почты') // текст письма без HTML
+                        ->setHtmlBody('TEXT HTML ') // текст письма с HTML
+                        ->send();
+
                         Yii::$app->session->setFlash('success', 'Your password has been successfully changed!');
                         return $this->redirect('/cabinet');
                     }

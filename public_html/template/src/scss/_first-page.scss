@@ -214,3 +214,14 @@
 }
 
 
+.logo-text-mobile {
+  display: none;
+  @media (max-width: $mobile-width) {
+    display: block;
+    color: $main-color;
+    text-shadow: -5px 0 0 #72602C;
+    font-size: 3em;
+    font-weight: normal;
+  }
+}
+

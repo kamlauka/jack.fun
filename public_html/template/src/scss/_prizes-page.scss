@@ -30,7 +30,7 @@
     margin: 0;
     line-height: 1em;
     color: #2E2E2E;
-    font-family: Corbel;
+    font-family: $add-font;
     font-size: 5em;
     @media (max-width: $third-width) {
       font-size: 3em;
