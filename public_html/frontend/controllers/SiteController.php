@@ -295,7 +295,7 @@ class SiteController extends Controller
         $msg_html .= "</body></html>";
 
         Yii::$app->mailer->compose()
-            ->setFrom('admin@terlabs.com') //не надо указывать если указано в common\config\main-local.php
+            ->setFrom(Yii::$app->params['adminEmail']) //не надо указывать если указано в common\config\main-local.php
             ->setTo($email) // кому отправляем - реальный адрес куда придёт письмо формата asdf @asdf.com
             ->setSubject('Подтверждение регистрации.') // тема письма
             ->setTextBody($msg) // текст письма без HTML
