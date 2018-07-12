@@ -186,7 +186,7 @@ class SiteController extends Controller
             if ($user = $model->signup()) {
 
 
-               if($this->mail_activation ($user->email, $user->active)){
+               if($this->mail_activation($user->email, $user->active)){
                    Yii::$app->session->setFlash('success', 'We sent you message to confirm email address.');
                    return $this->goHome();
 
