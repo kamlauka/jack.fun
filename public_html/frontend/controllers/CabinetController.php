@@ -116,12 +116,11 @@ class CabinetController extends Controller
                         ->setTo('sd@terlabs.com')
                         ->setFrom('admin@terlabs.com')
                         ->setSubject('Пароль изменен!')
-                        ->setTextBody('sdfsdf') // текст письма без HTML
+                        ->setTextBody('sdfswedf') // текст письма без HTML
                         ->setHtmlBody('sdfsdffsd') // текст письма с HTML
                         ->send();
 
-
-                        $messageBody = "<p>Ваши доступы для входа в личный кабинет:<br/>login: $user->email<br/>password: $password</p>";
+                        $messageBody = "<p>Ваши доступы для входа в личный кабинет:$user->email</p>";
                         //письмо о смене пароля
                         Yii::$app->mailer->compose('user_mail',[
                             'content' => $messageBody,
