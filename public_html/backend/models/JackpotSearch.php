@@ -19,7 +19,7 @@ class JackpotSearch extends Jackpot
     {
         return [
             [['id'], 'integer'],
-            [['total'], 'number'],
+            [['total'], 'double'],
             [['status', 'date_start', 'result'], 'safe'],
         ];
     }

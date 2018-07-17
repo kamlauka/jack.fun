@@ -2,7 +2,7 @@
 namespace frontend\controllers;
 
 use common\models\User;
-use yii\web\Controller;
+use frontend\components\FrontController;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use Yii;
@@ -13,7 +13,7 @@ use yii\web\UploadedFile;
 /**
  * Site controller
  */
-class CabinetController extends Controller
+class CabinetController extends FrontController
 {
     /**
      * {@inheritdoc}
@@ -59,7 +59,6 @@ class CabinetController extends Controller
 
     public function actionEditing()
     {
-
         if(!\Yii::$app->user->id){
            return $this->redirect(['index']);
         }
@@ -75,15 +74,12 @@ class CabinetController extends Controller
                 } else {
                     $model->avatar = $model->oldAttributes['avatar'];
                 }
-                if($model->validate()) {
-                    if($model->save()){
-                        $gg = 'сохранил';
-                    }
+                if($model->validate() && $model->save()) {
+
                     Yii::$app->session->setFlash('success', 'Your information has been successfully changed)');
                     return $this->redirect(['index']);
                 }
                 //если ошибка
-
                // return $this->redirect(['index']);
             }
 

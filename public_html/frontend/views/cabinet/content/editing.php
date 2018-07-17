@@ -17,6 +17,7 @@ use yii\widgets\ActiveForm;
         <div class="user-form__editing-container">
             <?php $form = ActiveForm::begin([
                 'id' => 'editing',
+                'options' => ['enctype' => 'multipart/form-data'],
                 //'enableAjaxValidation' => true,
                // 'action' => \yii\helpers\Url::toRoute(['editing', 'id' => $model->id]),
               //  'action' => 'editing',
@@ -37,7 +38,7 @@ use yii\widgets\ActiveForm;
                         //если нет картинки
                         echo '<img class="user-logo about-user-info__user-logo" src="../../images/cabinet/default-logo.png" alt="">';
                     }?>
-                    <?= $form->field($model, 'avatar')->fileInput() ?>
+                    <?= $form->field($model, 'avatar')->fileInput(['multiple'=>true]) ?>
                 </div>
 
                 <?php
@@ -47,7 +48,7 @@ use yii\widgets\ActiveForm;
 
             </div>
             <div class="about-user-info__paragraph">
-            <?= $form->field($model, 'phone')->textInput(['maxlength' => true, 'class'=>'label__input input-white'])->label('my phone-number:',['class'=>'about-user-info__title']); ?>
+            <?= $form->field($model, 'phone')->textInput(['maxlength' => true, 'class'=>'label__input input-white'])->label('phone number:',['class'=>'about-user-info__title']); ?>
             </div>
             <div class="about-user-info__paragraph">
             <?= $form->field($model, 'email')->textInput(['maxlength' => true, 'class'=>'label__input input-white'])->label('my email:',['class'=>'about-user-info__title']); ?>

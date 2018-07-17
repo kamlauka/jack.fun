@@ -68,7 +68,8 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
             [['phone', 'active'], 'string'],
             [['email'], 'email'],
             [['type'], 'integer', 'max' => 2],
-            [['avatar','file'], 'file', 'extensions' => 'png, jpg'],
+            [['avatar'], 'file', 'extensions' => ['png', 'jpg', 'gif'], 'maxSize' => 1024 * 1024 * 1],
+            [['file'], 'file', 'extensions' => 'png, jpg'],
         ];
     }
 
@@ -383,6 +384,16 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
 //      //  $this->_oldTags = $this->tags;
 //    }
 
+    public static function setInfo($phone,$file){
 
+        $model = User::findOne(Yii::$app->user->id);
+        $model->phone = $phone;
+        $model->file = $file;
+        $model->save();
+
+        //Lottery::SetStatus('Issued');
+
+        return true;
+    }
 
 }

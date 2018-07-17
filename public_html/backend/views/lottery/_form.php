@@ -26,8 +26,7 @@ use common\widgets\TranslationForm;
         }
     ?>
 
-    <?= $form->field($model, 'status')->dropDownList(['В ожидание','Публиковать']); ?>
-
+    <?= $form->field($model, 'status')->dropDownList(\common\models\Lottery::getStatusList()); ?>
 
     <?= TranslationForm::widget([
         'attributes' => $attributes,

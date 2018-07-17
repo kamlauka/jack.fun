@@ -30,7 +30,7 @@ use yii\widgets\ActiveForm;
 </div>
 <?php if(isset($model->phone)){ ?>
     <div class="about-user-info__paragraph">
-        <p class="about-user-info__title">my phone-number:</p>
+        <p class="about-user-info__title">phone number:</p>
         <p class="about-user-info__info"><?= $model->phone ?> </p>
     </div>
 <?php } ?>

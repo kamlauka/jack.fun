@@ -6,25 +6,22 @@ use common\models\Language;
 use common\models\Lottery;
 use common\models\Translation;
 use common\models\Url;
+use frontend\components\FrontController;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\helpers\Html;
 use yii\web\BadRequestHttpException;
-use yii\web\Controller;
-use yii\filters\VerbFilter;
-use yii\filters\AccessControl;
 use common\models\LoginForm;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
-use frontend\models\ContactForm;
 use yii\web\Response;
 use yii\widgets\ActiveForm;
 
 /**
  * Site controller
  */
-class SiteController extends Controller
+class SiteController extends FrontController
 {
 //    /**
 //     * {@inheritdoc}
@@ -112,7 +109,7 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
         } elseif(!$model->validate()) {
-// todo сделать рефакторинг метода
+
             $model->password = '';
             $lottery = Lottery::getActiveLottery();
             $jackpot = Jackpot::getActiveJackpot();
@@ -125,7 +122,6 @@ class SiteController extends Controller
                 'lottery' => $lottery,
                 'jackpot' => $jackpot,
                 'text' => $text,
-
             ]);
         }
         return $this->redirect('/');
@@ -138,7 +134,6 @@ class SiteController extends Controller
     public function actionLogout()
     {
         Yii::$app->user->logout();
-
         return $this->goHome();
     }
 
@@ -161,14 +156,16 @@ class SiteController extends Controller
 //        }
 //    }
 
-
+    /**
+    * @return string
+    */
     public function actionAgreement()
     {
         return $this->render('agreement');
     }
 
     /**
-     * Signs user up.
+     * Signs user up and confirm password.
      *
      * @return mixed
      */
@@ -185,13 +182,10 @@ class SiteController extends Controller
 
             if ($user = $model->signup()) {
 
-
-               if($this->mail_activation($user->email, $user->active)){
+               if($this->mail_activation ($user->email, $user->active)){
                    Yii::$app->session->setFlash('success', 'We sent you message to confirm email address.');
                    return $this->goHome();
-
                }
-
             }
             //если не прошел валидация
             $model->agreement = null;
@@ -255,6 +249,10 @@ class SiteController extends Controller
         ]);
     }
 
+    /**
+     * @param $lang
+     * @return Response
+     */
     public function actionLanguage($lang){
 
         $lang =  Language::find()->where(['alias'=>$lang])->one();
@@ -263,6 +261,9 @@ class SiteController extends Controller
         return $this->redirect(Yii::$app->request->referrer);
     }
 
+    /**
+     * @return array
+     */
     protected function getIndexInfo(){
 
         $id_lang = $_SESSION['language'];
@@ -280,30 +281,40 @@ class SiteController extends Controller
         return $text;
     }
 
+    /**
+     * @param $email
+     * @param $cod
+     * @return bool
+     */
     public function mail_activation ($email, $cod){
 
         $absoluteHomeUrl = \yii\helpers\Url::home(true); //http://сайт
         $serverName = Yii::$app->request->serverName; // сайт без http
         $url = $absoluteHomeUrl.'site/activation?code='.$cod;
 
-        $msg = "Спасибо за регистрацию на сайте $serverName!  Вам осталось только подтвердить свой e-mail. Для этого перейдите по ссылке $url";
+        $msg = "Thank you for registering on the site $serverName!  You needed to confirm your e-mail. To do this, follow the link $url";
 
         $msg_html  = "<html><body style='font-family:Arial,sans-serif;'>";
-        $msg_html .= "<h2 style='font-weight:bold;border-bottom:1px dotted #ccc;'>Спасибо за регистрацию на сайте <a href='". $absoluteHomeUrl ."'>$serverName</a></h2>\r\n";
-        $msg_html .= "<p><strong>Вам осталось только подтвердить свой e-mail.</strong></p>\r\n";
-        $msg_html .= "<p><strong>Для этого перейдите по ссылке </strong><a href='". $url."'>этой ссылке</a></p>\r\n";
+        $msg_html .= "<h2 style='font-weight:bold;border-bottom:1px dotted #ccc;'>Thank you for registering on the site <a href='". $absoluteHomeUrl ."'>$serverName</a></h2>\r\n";
+        $msg_html .= "<p><strong>You needed to confirm your e-mail.</strong></p>\r\n";
+        $msg_html .= "<p><strong>To do this, follow the link </strong><a href='". $url."'> link</a></p>\r\n";
         $msg_html .= "</body></html>";
 
         Yii::$app->mailer->compose()
-            ->setFrom('admin@jackpot.fun') //не надо указывать если указано в common\config\main-local.php
-            ->setTo($email) // кому отправляем - реальный адрес куда придёт письмо формата asdf @asdf.com
-            ->setSubject('Подтверждение регистрации.') // тема письма
+            ->setFrom(Yii::$app->params['adminEmail']) //не надо указывать если указано в common\config\main-local.php
+            ->setTo($email) // кому отправляем - реальный адрес куда придёт письмо формата asdf@asdf.com
+            ->setSubject('Confirmation of email address.') // тема письма
             ->setTextBody($msg) // текст письма без HTML
             ->setHtmlBody($msg_html) // текст письма с HTML
             ->send();
         return true;
     }
 
+    /**
+     * Login and active user.
+     *
+     * @return Response
+     */
     public function actionActivation(){
         $code = Yii::$app->request->get('code');
         $code = Html::encode($code);

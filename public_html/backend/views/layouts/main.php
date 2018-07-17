@@ -43,6 +43,7 @@ AppAsset::register($this);
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
 
     } else {
+        $menuItems[] = ['label' => 'SetWinner', 'url' => ['/winner/set-winner-lottery']];
         $menuItems[] = ['label' => 'Log', 'url' => ['/log/index']];
         $menuItems[] = ['label' => 'Translations', 'url' => ['/translation/index']];
         $menuItems[] = ['label' => 'Lottery', 'url' => ['/lottery/index']];

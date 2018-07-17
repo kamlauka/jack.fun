@@ -15,20 +15,27 @@ class PopupForm extends Widget {
 
         parent::init();
 
-        if($this->view === 'transaction'){
+         if($this->view === 'transaction'){
 
             $lottery = Lottery::getActiveLottery();
-            $wallet = Modification::getAdminWallet();
+             $wallet = Modification::getAdminWallet();
 
-            parent::init();
-
-            echo $this->render('popup-form/'.$this->view, [
-                'model' => $this->model,
-                'lottery' => $lottery['data']?$lottery['data']:'',
-                'wallet' => $wallet?$wallet:'',
-            ]);
+             echo $this->render('popup-form/'.$this->view, [
+                 'model' => $this->model,
+                 'lottery' => $lottery['data']?$lottery['data']:'',
+                 'wallet' => $wallet?$wallet:'',
+             ]);
 
         }else{
+
+             if($this->view ==='winner'){
+                 $last_lottery = Lottery::find()->where(['status'=>'Wait_participant'])->one();
+
+                 if(\Yii::$app->user->id == $last_lottery->result){
+
+                    // echo $this->render('popup-form/'.$this->view, ['model' => $this->model]);
+                 }
+             }
 
             echo $this->render('popup-form/'.$this->view, ['model' => $this->model]);
         }

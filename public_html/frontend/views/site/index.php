@@ -162,7 +162,7 @@ use yii\helpers\Html;
                 <div class="scene-of-prize__empty-block"></div>
                 <img class="scene-of-prize__image" src="<?= $lottery['data']->img ?>" alt="iphone">
                 <div class="scene-of-prize__text">
-                    <h2 class="scene-of-prize__prize-name"><?= $lottery['name_prize']->text ?></h2>
+                    <h2 class="scene-of-prize__prize-name"><?= isset($lottery['name_prize']->text)?$lottery['name_prize']->text:'' ?></h2>
                     <div class="scene-of-prize__prize-price"><?= $lottery['data']->rate ?> ETH</div>
                 </div>
                 <div class="scene-of-prize__empty-block"></div>
@@ -171,18 +171,20 @@ use yii\helpers\Html;
                 <h3 class="participate__title">Lottery</h3>
                 <div class="container flex-gorizontal">
 
-                    <p class="participate__text participate__text_image_apple flex-gorizontal"><?= $lottery['description']->text ?></p>
+                    <p class="participate__text participate__text_image_apple flex-gorizontal"><?= isset($lottery['description']->text)?$lottery['description']->text:'' ?></p>
                 </div>
                 <div class="participate__buttons container">
-
-
-                    <a class="button button_gold participate__button"
-                        <?php if (Yii::$app->user->isGuest) { ?>
-                            onclick="showForm('.popup__login')"
-                        <?php } else { ?>
-                            onclick="showForm('.popup__transaction')"
-                        <?php } ?>>
+                    <?php if(!Yii::$app->user->isGuest && $lottery['user_transaction_hash'] != null ){
+                        echo '<br>Bid accepted:<br>'. $lottery['user_transaction_hash']->hash.'<br>';
+                    }else{ ?>
+                        <a class="button button_gold participate__button"
+                            <?php if (Yii::$app->user->isGuest) { ?>
+                                 onclick="showForm('.popup__login')"
+                            <?php } else { ?>
+                                 onclick="showForm('.popup__transaction')"
+                            <?php } ?>>
                         Participate</a>
+                    <?php } ?>
                     <a class="button button_dark participate__button" href="/lottery/view">View details</a>
                 </div>
             </section>
@@ -233,23 +235,12 @@ use yii\helpers\Html;
 
         <section class="participate participate_border_dark">
             <div class="container">
-<<<<<<< HEAD
-                <h3 class="participate__title">Lorem Ipsum is text</h3>
-                <p class="participate__text participate__text_image_dollar flex-gorizontal"><?= $jackpot['description']->text ?></p>
-=======
+
                 <h3 class="participate__title">Jackpot</h3>
                     <p class="participate__text participate__text_image_dollar flex-gorizontal"><?= $jackpot['description']->text ?></p>
->>>>>>> e725b739892f85b32f09739905c5df608f2e9b8e
             </div>
             <div class="participate__buttons container">
 
-                <a class="button button_gold participate__button"
-                    <?php if (Yii::$app->user->isGuest) { ?>
-                        onclick="showForm('.popup__login')"
-                    <?php } else { ?>
-                        onclick="showForm('.popup__transaction')"
-                    <?php } ?>>
-                    Participate</a>
                 <a class="button button_dark participate__button" href="/jackpot/view">View details</a>
             </div>
         </section>
