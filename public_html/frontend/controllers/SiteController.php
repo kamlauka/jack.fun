@@ -257,7 +257,7 @@ class SiteController extends FrontController
 
         $lang =  Language::find()->where(['alias'=>$lang])->one();
         $_SESSION['language'] = $lang->id;
-
+        Language::setCurrent();
         return $this->redirect(Yii::$app->request->referrer);
     }
 
@@ -266,7 +266,8 @@ class SiteController extends FrontController
      */
     protected function getIndexInfo(){
 
-        $id_lang = $_SESSION['language'];
+
+        $id_lang = Language::getCurrent()->id;//Yii::$app->session->get('language');
 
         $text = [];
 

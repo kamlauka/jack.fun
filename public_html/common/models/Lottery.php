@@ -65,7 +65,7 @@ class Lottery extends \yii\db\ActiveRecord
 
     public static function getActiveLottery(){
 
-        $id_lang = $_SESSION['language'];
+        $id_lang = Language::getCurrent()->id;
         $lottery = [];
         if(Lottery::getActiveLotteryObject() != null){
 

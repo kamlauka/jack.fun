@@ -10,10 +10,14 @@ use Yii;
  * @property int $id
  * @property string $alias
  * @property string $name
+ * @property string $local
  * @property string $activ
  */
 class Language extends \yii\db\ActiveRecord
 {
+
+    //Переменная, для хранения текущего объекта языка
+    static $current = null;
     /**
      * @inheritdoc
      */
@@ -28,9 +32,9 @@ class Language extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['alias', 'name', 'activ'], 'required'],
+            [['alias', 'name', 'activ', 'local'], 'required'],
             [['alias', 'name'], 'string', 'max' => 32],
-            [['activ','alias'], 'string', 'max' => 8],
+            [['activ','alias','local'], 'string', 'max' => 8],
         ];
     }
 
@@ -43,7 +47,54 @@ class Language extends \yii\db\ActiveRecord
             'id' => 'ID',
             'alias' => 'Alias',
             'name' => 'Name',
+            'local' => 'Local',
             'activ' => 'Activ',
         ];
     }
+
+    static function getCurrent()
+    {
+        if( self::$current === null ){
+            self::$current = self::getDefaultLang();
+        }
+        return self::$current;
+    }
+
+//Установка текущего объекта языка и локаль пользователя
+    static function setCurrent($alias = null)
+    {
+        $language = self::getLangByUrl($alias);
+        self::$current = ($language === null) ? self::getDefaultLang() : $language;
+
+        Yii::$app->language = self::$current->local;
+    }
+
+//Получения объекта языка по умолчанию
+    static function getDefaultLang()
+    {
+        return Language::find()->where(['alias'=>'en'])->one();
+    }
+
+//Получения объекта языка по буквенному идентификатору
+    static function getLangByUrl($alias = null)
+    {
+        if ($alias === null) {
+            return null;
+        } else {
+            $language = Language::find()->where(['alias'=>$alias])->one();
+            if ( $language === null ) {
+                return null;
+            }else{
+                return $language;
+            }
+        }
+    }
+
+
+
+
+
+
 }
+
+

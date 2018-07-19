@@ -53,7 +53,7 @@ class Jackpot extends \yii\db\ActiveRecord
 
     public static function getActiveJackpot(){
 
-        $id_lang = $_SESSION['language'];
+        $id_lang = Language::getCurrent()->id;
 
         $jackpot = [];
 

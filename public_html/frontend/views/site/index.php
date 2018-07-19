@@ -1,7 +1,7 @@
 <?php
 
 use yii\helpers\Html;
-
+use yii\helpers\Url;
 /* @var $this yii\web\View */
 
 //$this->title = 'My Yii Application';
@@ -42,7 +42,7 @@ use yii\helpers\Html;
             </div>
         </div>
     <?php } ?>
-    <h1 class="logo__text">JACKPOT<span class="logo__text_blue">.FUN</span></h1>
+    <h1 class="logo__text">JOLLY<span class="logo__text_blue">.BET</span></h1>
     <section class="first-page">
 
         <div class="first-page__container">
@@ -185,7 +185,7 @@ use yii\helpers\Html;
                             <?php } ?>>
                         Participate</a>
                     <?php } ?>
-                    <a class="button button_dark participate__button" href="/lottery/view">View details</a>
+                    <?= Html::a('View details',Url::to(['/lottery/view']),['class'=>'button button_dark participate__button']) ?>
                 </div>
             </section>
         </section>
@@ -240,8 +240,7 @@ use yii\helpers\Html;
                     <p class="participate__text participate__text_image_dollar flex-gorizontal"><?= $jackpot['description']->text ?></p>
             </div>
             <div class="participate__buttons container">
-
-                <a class="button button_dark participate__button" href="/jackpot/view">View details</a>
+                <?= Html::a('View details',Url::to(['/jackpot/view']),['class'=>'button button_dark participate__button']) ?>
             </div>
         </section>
 

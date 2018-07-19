@@ -8,6 +8,7 @@ use yii\helpers\Html;
 use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
+use yii\helpers\Url;
 
 AppAsset::register($this);
 ?>
@@ -41,9 +42,9 @@ AppAsset::register($this);
             else{Html::addCssClass($ch , ['flags__image_active']);}
             ?>
 
-            <?= Html::a(Html::img('/images/common/flag3.png',  $ru ),'/site/language?lang=ru') ?>
-            <?= Html::a(Html::img('/images/common/flag2.png',  $ch ),'/site/language?lang=ch') ?>
-            <?= Html::a(Html::img('/images/common/flag1.png',  $en ),'/site/language?lang=en') ?>
+            <?= Html::a(Html::img('/images/common/flag3.png',  $ru ),'/ru') ?>
+            <?= Html::a(Html::img('/images/common/flag2.png',  $ch ),'/ch') ?>
+            <?= Html::a(Html::img('/images/common/flag1.png',  $en ),'/en') ?>
 
         </div>
         <div class="menu-container flex-gorizontal flex-gorizontal_none-vertical">
@@ -56,14 +57,14 @@ AppAsset::register($this);
                     </div>
                 </label>
                 <ul>
-                    <li><?= Html::a('Jackpot','/jackpot/view') ?></li>
-                    <li><?= Html::a('Lottery','/lottery/view') ?></li>
+                    <li><?= Html::a('Jackpot',Url::to(['/jackpot/view'])) ?></li>
+                    <li><?= Html::a('Lottery',Url::to(['/lottery/view'])) ?></li>
                     <?php if (Yii::$app->user->isGuest) { ?>
                         <li><?= Html::a('Signup',false,['id'=>'sign-up','onclick'=>"showForm('.popup__registration')"]) ?></li>
                         <li><?= Html::a('Login',false, ['id'=>'sign-in','onclick'=>"showForm('.popup__login')"]) ?></li>
                     <?php } else { ?>
-                        <li><?= Html::a('Cabinet','/cabinet/index') ?></li>
-                        <li><?= Html::a('Logout('.Yii::$app->user->identity->username .')','/site/logout') ?></li>
+                        <li><?= Html::a('Cabinet',Url::to(['/cabinet/index'])) ?></li>
+                        <li><?= Html::a('Logout('.Yii::$app->user->identity->username .')',Url::to(['/site/logout'])) ?></li>
 
                     <?php } ?>
                 </ul>
@@ -120,7 +121,7 @@ AppAsset::register($this);
         <?php if(Yii::$app->controller->route != 'site/index'){ ?>
             <div class="logo-mini">
                     <div class="logo-mini__container">
-                        <a href="/"><img src="/images/common/logo-mini.png" alt="" class="logo-mini__image"></a>
+                        <a href="<?= Url::to([Yii::$app->homeUrl])?>"><img src="/images/common/logo-mini.png" alt="" class="logo-mini__image"></a>
                     </div>
             </div>
 
@@ -133,7 +134,7 @@ AppAsset::register($this);
 <?php if(Yii::$app->controller->route === 'site/index'){ ?>
 
 <div class="preloader">
-    <h1 class="preloader__title">JACKPOT.FUN</h1>
+    <h1 class="preloader__title">JOLLY.BET</h1>
     <div class="preloader__fill"></div>
 </div>
 <?php } ?>
@@ -143,7 +144,7 @@ AppAsset::register($this);
         <?php if(isset($this->params['breadcrumbs'])){?>
             <div class="crumbs container container_mob">
             <?php   echo  Breadcrumbs::widget([
-                    'homeLink' => ['label' => 'Home','template' => '<li class="crumbs__link crumbs__link_home">{link}</li>', 'url' => '/'],
+                    'homeLink' => ['label' => 'Home','template' => '<li class="crumbs__link crumbs__link_home">{link}</li>', 'url' => Url::to([Yii::$app->homeUrl])],
                     'links' => $this->params['breadcrumbs'],
                 ]);?>
             </div>
@@ -156,25 +157,25 @@ AppAsset::register($this);
         <div class="footer-block container  flex-gorizontal">
             <div class="footer-block__left-align-block">
 
-                <?= Html::a('Home page',Yii::$app->homeUrl,['class'=>'footer-block__link footer-block__link_first']) ?>
-                <?= Html::a('Lottery "Drawing of goods"','/lottery/view',['class'=>'footer-block__link']) ?>
+                <?= Html::a('Home page',Url::to([Yii::$app->homeUrl]),['class'=>'footer-block__link footer-block__link_first']) ?>
+                <?= Html::a('Lottery "Drawing of goods"',Url::to(['/lottery/view']),['class'=>'footer-block__link']) ?>
 
             </div>
             <div class="footer-block__center-align-block">
 
-                <?= Html::a('Jackpot','/jackpot/view',['class'=>'footer-block__link']) ?>
+                <?= Html::a('Jackpot',Url::to(['/jackpot/view']),['class'=>'footer-block__link']) ?>
                 <?php //echo Html::a('List of disputes','#',['class'=>'footer-block__link']) ?>
                 <?php //echo Html::a('The page of the dispute','#',['class'=>'footer-block__link']) ?>
 
             </div>
             <div class="footer-block__right-align-block">
 
-                <?= Html::a('Terms of agreement','/site/agreement',['class'=>'footer-block__link']) ?>
+                <?= Html::a('Terms of agreement',Url::to(['/site/agreement']),['class'=>'footer-block__link']) ?>
 
                 <?php if (Yii::$app->user->isGuest) { ?>
-                    <?= Html::a('My Account / Login / Register','/site/signup',['class'=>'footer-block__link']) ?>
+                    <?= Html::a('My Account / Login / Register',Url::to(['/site/signup']),['class'=>'footer-block__link']) ?>
                 <?php } else { ?>
-                    <?= Html::a('Cabinet','/cabinet/index',['class'=>'footer-block__link']) ?>
+                    <?= Html::a('Cabinet',Url::to(['/cabinet/index']),['class'=>'footer-block__link']) ?>
                 <?php } ?>
             </div>
         </div>
@@ -182,7 +183,7 @@ AppAsset::register($this);
     <div class="footer-container footer-container_dark">
         <div class="footer-block container  flex-gorizontal">
             <div class="footer-block__left-align-block footer-block__left-align-block__margin">
-                <?= Html::a('www.jackpo.fun.com','#',['class'=>'footer-block__link footer-block__link_font_gold']) ?>
+                <?= Html::a('www.jolly.bet','#',['class'=>'footer-block__link footer-block__link_font_gold']) ?>
             </div>
             <div class="footer-block__center-align-block">
                 <a class="footer-block__icon footer-block__icon_facebook" href="#"><img src="/images/common/icon-f.svg" alt=""></a>
