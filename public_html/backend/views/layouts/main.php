@@ -28,7 +28,7 @@ AppAsset::register($this);
 
 <div class="wrap">
     <?php
-    $dd  = $_SERVER["REQUEST_SCHEME"] . "://" . $_SERVER["SERVER_NAME"];
+   // $dd  = $_SERVER["REQUEST_SCHEME"] . "://" . $_SERVER["SERVER_NAME"];
     NavBar::begin([
             'brandLabel' => 'Control Panel',
             'brandUrl' => $_SERVER["REQUEST_SCHEME"] . "://" . $_SERVER["SERVER_NAME"],
