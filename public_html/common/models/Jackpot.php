@@ -30,7 +30,7 @@ class Jackpot extends \yii\db\ActiveRecord
     {
         return [
             [['total', 'status', 'date_start'], 'required'],
-            [['total'], 'number'],
+            [['total'], 'double'],
             [['date_start'], 'safe'],
             [['status'], 'number', 'max' => 4],
             [['result'], 'string', 'max' => 255],
@@ -53,7 +53,7 @@ class Jackpot extends \yii\db\ActiveRecord
 
     public static function getActiveJackpot(){
 
-        $id_lang = $_SESSION['language'];
+        $id_lang = Language::getCurrent()->id;
 
         $jackpot = [];
 

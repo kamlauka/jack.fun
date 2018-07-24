@@ -28,12 +28,14 @@ AppAsset::register($this);
 
 <div class="wrap">
     <?php
+    $dd  = $_SERVER["REQUEST_SCHEME"] . "://" . $_SERVER["SERVER_NAME"];
     NavBar::begin([
-        'brandLabel' => 'Control Panel',
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
-        ],
+            'brandLabel' => 'Control Panel',
+            'brandUrl' => $_SERVER["REQUEST_SCHEME"] . "://" . $_SERVER["SERVER_NAME"],
+            'options' => [
+                'class' => 'navbar-inverse navbar-fixed-top',
+            ],
+
     ]);
     $menuItems = [
         ['label' => 'Clear cache |', 'url' => ['/site/clear-cache']],
@@ -43,6 +45,7 @@ AppAsset::register($this);
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
 
     } else {
+        $menuItems[] = ['label' => 'SetWinner', 'url' => ['/winner/set-winner-lottery']];
         $menuItems[] = ['label' => 'Log', 'url' => ['/log/index']];
         $menuItems[] = ['label' => 'Translations', 'url' => ['/translation/index']];
         $menuItems[] = ['label' => 'Lottery', 'url' => ['/lottery/index']];

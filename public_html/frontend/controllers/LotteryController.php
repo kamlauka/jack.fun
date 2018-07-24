@@ -2,22 +2,19 @@
 
 namespace frontend\controllers;
 
-use common\models\Betting;
+
 use common\models\Lottery;
-use frontend\controllers\TransactionController;
-use common\models\Transaction;
+use frontend\components\FrontController;
 use yii\base\DynamicModel;
 use common\models\User;
-use yii\web\Controller;
-use yii\filters\VerbFilter;
-use yii\filters\AccessControl;
 use Yii;
+use yii\web\UploadedFile;
 
 
 /**
  * Site controller
  */
-class LotteryController extends Controller
+class LotteryController extends FrontController
 {
 
     public function actionView()
@@ -56,6 +53,37 @@ class LotteryController extends Controller
 
             }
         }
+    }
+
+    public function actionGetPrize(){
+
+        if(!\Yii::$app->user->id){
+            return $this->redirect(['index']);
+        }
+
+        $model = new \yii\base\DynamicModel(['phone','file']);
+        $model->addRule(['phone','file'], 'required')
+              ->addRule('phone', 'string')
+              ->addRule('file', 'file');
+
+        if ($model->load(Yii::$app->request->post())) {
+
+            if ($img = UploadedFile::getInstance($model, 'file')) {
+
+                $img->saveAs(Yii::getAlias('@common/uploads/avatar/' . $img->baseName . '.' . $img->extension));
+                $model->file = '/../../common/uploads/avatar/' . $img->baseName . '.' . $img->extension;
+
+            } else {
+                $model->file = $model->oldAttributes['file'];
+            }
+
+            if (User::setInfo($model->phone,$model->file)) {
+                Yii::$app->session->setFlash('success', 'You will be contacted by a moderator');
+                return $this->redirect(Yii::$app->request->referrer);
+            }
+        }
+        Yii::$app->session->setFlash('success', 'ERROR');
+        return $this->redirect(Yii::$app->request->referrer);
     }
 
 }

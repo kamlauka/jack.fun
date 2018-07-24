@@ -30,13 +30,17 @@
                     <p class="prize-page-without-clouds__text text-wrap"><span class="gold-text"><?= $lottery['data']->total ?> </span> ETH / <span class="gold-text"><?= $lottery['data']->currency_start ?> </span> ETH</p>
                     <p class="prize-page-without-clouds__text text-wrap text-wrap_add-font">Left before the draw of the prize</p>
                     <div class="participate__buttons">
-                        <a class="button button_gold participate__button" data-id="<?= $lottery['data']->id ?>"
-                            <?php if(Yii::$app->user->isGuest) { ?>
-                                onclick="showForm('.popup__login')"
-                            <?php } else { ?>
-                                onclick="showForm('.popup__transaction')"
-                            <?php } ?>>
+                        <?php if(!Yii::$app->user->isGuest && $lottery['user_transaction_hash'] != null ){
+                            echo '<br>Bid accepted:<br>'. $lottery['user_transaction_hash']->hash.'<br>';
+                        }else{ ?>
+                            <a class="button button_gold participate__button"
+                                <?php if (Yii::$app->user->isGuest) { ?>
+                                    onclick="showForm('.popup__login')"
+                                <?php } else { ?>
+                                    onclick="showForm('.popup__transaction')"
+                                <?php } ?>>
                             Participate</a>
+                        <?php } ?>
                     </div>
                 </div>
             </div>

@@ -2,6 +2,7 @@
 
 namespace common\models;
 
+use frontend\controllers\TransactionController;
 use Yii;
 
 /**
@@ -10,7 +11,7 @@ use Yii;
  * @property int $id
  * @property string $name
  * @property int $total
- * @property int $status
+ * @property string $status
  * @property string $currency_start
  * @property string $result
  * @property string $description
@@ -36,12 +37,10 @@ class Lottery extends \yii\db\ActiveRecord
         return [
             [['name', 'currency_start', 'rate', 'name_prize', 'img'], 'required'],
            // [['img'],'image','extensions' => 'png, jpg, jpeg, gif','skipOnEmpty' => true, 'on' => 'update-photo-upload'],
-            [['total'], 'integer'],
             [['description'], 'string'],
-            [['rate','currency_start'], 'number'],
+            [['rate','total','currency_start'], 'double'],
             [['name', 'name_prize'], 'string', 'max' => 32],
-            [['status'], 'string', 'max' => 2],
-            [['result'], 'string', 'max' => 10],
+            [['result','status'], 'string', 'max' => 16],
         ];
     }
 
@@ -66,18 +65,40 @@ class Lottery extends \yii\db\ActiveRecord
 
     public static function getActiveLottery(){
 
-        $id_lang = $_SESSION['language'];
+        $id_lang = Language::getCurrent()->id;
         $lottery = [];
-        if($lotteries =  Lottery::find()->where(['status' => '1', 'result'=>null])->all()){
+        if(Lottery::getActiveLotteryObject() != null){
 
-            $lottery['data'] =  Lottery::find()->where(['status' => '1', 'result'=>null ])->one();
+            $lottery['data'] =  Lottery::getActiveLotteryObject();
             $lottery['name_prize'] = Translation::find()->where(['alias'=>'name_prize','target_id'=>$lottery['data']->id,'language_id'=>$id_lang])->one();
             $lottery['description'] = Translation::find()->where(['alias'=>'description','target_id'=>$lottery['data']->id,'language_id'=>$id_lang])->one();
             $lottery['text'] = Translation::find()->where(['alias'=>'lottery_view_text','language_id'=>$id_lang])->one();
+            $lottery['user_transaction_hash'] =  Transaction::find()->select('hash')->where(['user_id'=>Yii::$app->user->id,'target_id'=>$lottery['data']->id] )->one();
+            $lottery['winner'] = Lottery::find()->where(['status'=>'Wait_participant'])->one();
             return $lottery;
         }
-
         return null;
     }
 
+    /**
+     * @return object|\yii\db\ActiveRecord[]
+     */
+    public static function getActiveLotteryObject(){
+
+        return Lottery::find()->where(['status' => 'Active', 'result'=>null])->one();
+    }
+
+    /**
+     * @return array
+     */
+    public static function getStatusList(){
+        return[
+            'Issued' => 'Выдан учаснику',
+            'Waiting' => 'Ожидание',
+            'Active' => 'В розыгрыше',
+            'Wait_participant' => 'Ожидание учасника',
+            'Next' => 'Следующий',
+            'Questionable' => 'Под вопросом'
+        ];
+    }
 }

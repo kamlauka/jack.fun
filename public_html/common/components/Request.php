@@ -11,7 +11,11 @@ class Request extends \yii\web\Request
 		return str_replace($this->web, "", parent::getBaseUrl()) . $this->adminUrl;
 	}
 
-	public function resolvePathInfo()
+    /**
+     * @return string
+     * @throws \yii\base\InvalidConfigException
+     */
+    public function resolvePathInfo()
 	{
 
 		if ($this->getUrl() === $this->adminUrl) {
