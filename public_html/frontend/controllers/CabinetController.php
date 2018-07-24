@@ -67,7 +67,7 @@ class CabinetController extends FrontController
 
             if ($model->load(Yii::$app->request->post())) {
                 if ($img = UploadedFile::getInstance($model, 'avatar')) {
-
+                    //exif_read_data()
                     $img->saveAs(Yii::getAlias('@common/uploads/avatar/' . $img->baseName . '.' . $img->extension));
                     $model->avatar = '/../../common/uploads/avatar/' . $img->baseName . '.' . $img->extension;
 

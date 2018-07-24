@@ -43,6 +43,7 @@ class BettingSearch extends Betting
     {
         $query = Betting::find();
 
+
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
