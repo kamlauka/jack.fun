@@ -6,41 +6,41 @@ use yii\helpers\Html;
 
 //$this->title = 'My Yii Application';
 ?>
-<!--<canvas width="200" height="300" class="canvas" id="canvas"></canvas>-->
+<canvas class="canvas" id="canvas"></canvas>
 <div class="site-index">
 
     <?php if (Yii::$app->controller->route === 'site/index') { ?>
-
-        <div class="logo-mini">
-            <div class="logo__container">
-                <img src="/images/common/logo.png" alt="" class="logo__image">
-                <img src="/images/common/logo-mini.png" alt="" class="logo-mini__image hidden">
-            </div>
-
-            <div class="clouds clouds_fixed">
-                <div class="cloud-container cloud-container_left-big">
-                    <div class="cloud">
-                        <div class="cloud cloud__cloud1"></div>
-                        <div class="cloud cloud__cloud2"></div>
-                        <div class="cloud cloud__cloud3"></div>
-                    </div>
-                </div>
-                <div class="cloud-container cloud-container_right-big">
-                    <div class="cloud">
-                        <div class="cloud cloud__cloud1"></div>
-                        <div class="cloud cloud__cloud2"></div>
-                        <div class="cloud cloud__cloud3"></div>
-                    </div>
-                </div>
-                <div class="cloud-container cloud-container_bottom-scale">
-                    <!--                <div class="cloud">-->
-                    <!--                    <div class="cloud cloud__cloud1"></div>-->
-                    <div class="cloud cloud__cloud2"></div>
-                    <div class="cloud cloud__cloud3"></div>
-                    <!--                </div>-->
-                </div>
-            </div>
-        </div>
+<!---->
+<!--        <div class="logo-mini">-->
+<!--            <div class="logo__container">-->
+<!--                <img src="/images/common/logo.png" alt="" class="logo__image">-->
+<!--                <img src="/images/common/logo-mini.png" alt="" class="logo-mini__image hidden">-->
+<!--            </div>-->
+<!---->
+<!--            <div class="clouds clouds_fixed">-->
+<!--                <div class="cloud-container cloud-container_left-big">-->
+<!--                    <div class="cloud">-->
+<!--                        <div class="cloud cloud__cloud1"></div>-->
+<!--                        <div class="cloud cloud__cloud2"></div>-->
+<!--                        <div class="cloud cloud__cloud3"></div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="cloud-container cloud-container_right-big">-->
+<!--                    <div class="cloud">-->
+<!--                        <div class="cloud cloud__cloud1"></div>-->
+<!--                        <div class="cloud cloud__cloud2"></div>-->
+<!--                        <div class="cloud cloud__cloud3"></div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="cloud-container cloud-container_bottom-scale">-->
+<!--                    <!--                <div class="cloud">-->-->
+<!--                    <!--                    <div class="cloud cloud__cloud1"></div>-->-->
+<!--                    <div class="cloud cloud__cloud2"></div>-->
+<!--                    <div class="cloud cloud__cloud3"></div>-->
+<!--                    <!--                </div>-->-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
     <?php } ?>
     <h1 class="logo__text">JACKPOT<span class="logo__text_blue">.FUN</span></h1>
     <section class="first-page">
