@@ -6,7 +6,10 @@ use yii\helpers\Html;
 
 //$this->title = 'My Yii Application';
 ?>
-<canvas class="canvas" id="canvas"></canvas>
+<div class="canvas-container">
+    <canvas class="canvas" id="canvas"></canvas>
+</div>
+
 <div class="site-index">
 
     <?php if (Yii::$app->controller->route === 'site/index') { ?>
