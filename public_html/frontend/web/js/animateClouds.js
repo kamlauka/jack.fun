@@ -95,15 +95,15 @@ function animateClouds() {
 
 
 var cloud = new Image(), cloud2 = new Image(), cloud3 = new Image();
-var canvas = document.getElementsByClassName('canvas');
+var canvases = document.getElementsByClassName('canvas');
 var ts0;
-for(var i = 0; i < canvas.length; i++) {
-    console.log(i);
-    console.log(canvas[i]);
-    var ctx = canvas[i].getContext('2d');
+var canvasSize = document.documentElement.clientWidth;
+
+
+for(var i = 0; i < canvases.length; i++) {
+    var ctx = canvases[i].getContext('2d');
     function draw(ts) {
-        console.log(i);
-        ctx.clearRect(0,0,canvas.width,canvas.height);
+        ctx.clearRect(0,0,canvasSize,canvasSize);
 
         ctx.save();
         // cloud
@@ -111,21 +111,20 @@ for(var i = 0; i < canvas.length; i++) {
         const dt = ts - ts0; // milliseconds
 
         ctx.translate(50, 50 + Math.sin(dt/500)/20);
-        console.log(Math.sin(dt/500)/20 + 50);
         ctx.rotate( Math.sin(dt/340) / 200 );
 
-        ctx.drawImage(cloud,0,0, canvas.width*0.95, canvas.height*0.95);
+        ctx.drawImage(cloud,0,0, canvasSize*0.95, canvasSize*0.95);
         ctx.restore();
         ctx.save();
         ctx.translate(5, 0 + Math.sin(dt/382)*2);
         ctx.rotate( Math.sin(dt/630) / 40 );
-        ctx.drawImage(cloud2,150,100, canvas.width*0.84, canvas.height*0.84);
+        ctx.drawImage(cloud2,150,100,canvasSize*0.84, canvasSize*0.84);
         ctx.restore();
 
         ctx.save();
         ctx.translate(8, 150 + Math.sin(dt/198)*3);
         ctx.rotate( Math.sin(dt/500) / 450 );
-        ctx.drawImage(cloud3,0,0, canvas.width*0.7, canvas.height*0.7);
+        ctx.drawImage(cloud3,0,0, canvasSize*0.7, canvasSize*0.7);
         ctx.restore();
         ctx.restore();
         window.requestAnimationFrame(draw);
@@ -135,8 +134,8 @@ for(var i = 0; i < canvas.length; i++) {
         cloud.src = '..//images/common/cl1.png';
         cloud2.src= '..//images/common/cl2.png';
         cloud3.src= '..//images/common/cl3.png';
-        canvas[i].setAttribute('width', document.documentElement.clientWidth);
-        canvas[i].setAttribute('height', document.documentElement.clientWidth);
+        canvases[i].setAttribute('width', canvasSize);
+        canvases[i].setAttribute('height', canvasSize);
         window.requestAnimationFrame(draw);
     }
 
