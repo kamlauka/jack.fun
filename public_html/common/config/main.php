@@ -7,9 +7,6 @@ return [
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'components' => [
         'cache' => [
-//            'mailer' => [
-//                'class' => 'yii\swiftmailer\Mailer',
-//            ],
             'class' => 'yii\caching\FileCache',
         ],
         'db' => [

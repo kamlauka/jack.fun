@@ -33,9 +33,9 @@ class BettingController extends Controller
      * Lists all Betting models.
      * @return mixed
      */
-    public function actionIndex()
+    public function actionIndex($id = null)
     {
-        $searchModel = new BettingSearch();
+        $searchModel = new BettingSearch($id);
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [

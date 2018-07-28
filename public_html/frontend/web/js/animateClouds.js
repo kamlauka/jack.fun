@@ -14,8 +14,8 @@ function animateClouds() {
     tl.fromTo(cloud1, 3, {rotation:1, transformOrigin:"50% 50%", ease: Power1.easeInOut}, {rotation:-1, ease: Power1.easeInOut}, 'edge');
     tl2.fromTo(cloud2, 2, {rotation:1,transformOrigin:"50% 50%", ease: Power1.easeInOut}, {rotation:-1, ease: Power1.easeInOut}, 'edge');
 }
-
-canvas
+//
+// canvas
 
 // var canvas = document.getElementById('canvas');
 // var ctx = canvas.getContext('2d');

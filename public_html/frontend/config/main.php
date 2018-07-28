@@ -10,18 +10,17 @@ return [
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log',
-        'frontend\components\RequestLoader'
+        'frontend\components\PagesLoader'
         ],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
-        'mailer' => [
-            'class' => 'yii\swiftmailer\Mailer',
-        ],
+
         'request' => [
             'csrfParam' => '_csrf-frontend',
-            'class' => 'common\components\Request',
+            'class' => 'frontend\components\LangRequest',
             'web'=> '/frontend/web',
         ],
+
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
@@ -47,13 +46,26 @@ return [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'rules' => [
-                'lottery'=>'lottery/view',
-                'jackpot'=>'lottery/view',
-                //'activation/<code:.+>' => 'site/activation',
-
-            ],
+            'class'=>'frontend\components\LangUrlManager',
+            'rules'=>[
+                '/' => 'site/index',
+                '<controller:\w+>/<action:\w+>/*'=>'<controller>/<action>',
+            ]
         ],
+//
+//        'language'=>'ru-RU',
+//        'i18n' => [
+//            'translations' => [
+//                '*' => [
+//                    'class' => 'yii\i18n\PhpMessageSource',
+//                    'basePath' => '@frontend/messages',
+//                    'sourceLanguage' => 'en',
+//                    'fileMap' => [
+//                        //'main' => 'main.php',
+//                    ],
+//                ],
+//            ],
+//        ],
 
     ],
     'params' => $params,

@@ -8,8 +8,8 @@ use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
 $this->title = 'Participate';
-
 ?>
+
 <div class="popup__transaction  <?php if((isset(Yii::$app->params['popup'])) and Yii::$app->params['popup'] == 'transaction' ) echo 'activ' ?>" >
     <div class="popup__close" onclick="$('.forms').hide()"></div>
     <h3 class="title-h3"><?= Html::encode($this->title) ?></h3>
@@ -18,9 +18,8 @@ $this->title = 'Participate';
         'action' => '/lottery/participate']);
     ?>
 
-
-    <p>Send <b><?= $lottery->rate?> ETH</b> on the wallet:</p>
-    <b> <?= $wallet->data ?> </b>
+    <p>Send <b><?= isset($lottery->rate)?$lottery->rate:''?> ETH</b> on the wallet:</p>
+    <b> <?= isset($wallet->data)?$wallet->data:'' ?> </b>
 
     <label class="label">
         <?= $form->field($model, 'hash')->textInput(['class'=>'input-text'])->label('Transaction hash',['class'=>'label']) ?>
