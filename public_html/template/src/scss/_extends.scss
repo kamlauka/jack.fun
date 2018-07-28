@@ -293,19 +293,14 @@
 }
 
 
-//.canvas {
-//  width: 38%;
-//  height: 20vw;
-//  border: 1px solid gray;
-//}
+.canvas {
+  width: 57%;
+  height: 28vw;
+  border: 1px solid gray;
+}
 
 .canvas-container {
   position: absolute;
-  left:     50%;
-  top:      50%;
-}
-
-.canvas {
+  z-index: 10000;
   width: 100%;
-  height: 100%;
 }

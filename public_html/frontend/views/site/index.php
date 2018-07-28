@@ -9,7 +9,10 @@ use yii\helpers\Url;
 <div class="canvas-container">
     <canvas class="canvas" id="canvas"></canvas>
 </div>
-
+<div class="canvas-container">
+    <canvas class="canvas"></canvas>
+    <canvas class="canvas"></canvas>
+</div>
 <div class="site-index">
 
     <?php if (Yii::$app->controller->route === 'site/index') { ?>
