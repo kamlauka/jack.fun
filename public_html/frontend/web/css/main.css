@@ -129,9 +129,14 @@
           width: 33%; } }
 
 .canvas {
-  width: 38%;
-  height: 20vw;
+  width: 57%;
+  height: 28vw;
   border: 1px solid gray; }
+
+.canvas-container {
+  position: absolute;
+  z-index: 10000;
+  width: 100%; }
 
 .preloader {
   position: fixed;
