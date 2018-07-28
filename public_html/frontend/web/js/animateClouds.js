@@ -1,19 +1,20 @@
-//поведение облаков
-function animateClouds() {
-    //Animate clouds
-    var cloud = $(".cloud-container");
-    var cloud1 = $(".cloud__cloud1");
-    var cloud2 = $(".cloud__cloud2");
-    var cloud3 = $(".cloud__cloud3");
+// //поведение облаков
+// function animateClouds() {
+//     //Animate clouds
+//     var cloud = $(".cloud-container");
+//     var cloud1 = $(".cloud__cloud1");
+//     var cloud2 = $(".cloud__cloud2");
+//     var cloud3 = $(".cloud__cloud3");
+//
+//
+//     var tl = new TimelineMax({yoyo:true, repeat:-1, ease: Power1.easeInOut});
+//     var tl2 = new TimelineMax({yoyo:true, repeat:-1, ease: Power1.easeInOut});
+//     var tl3 = new TimelineMax({yoyo:true, repeat:-1, ease: Power1.easeInOut});
+//
+//     tl.fromTo(cloud1, 3, {rotation:1, transformOrigin:"50% 50%", ease: Power1.easeInOut}, {rotation:-1, ease: Power1.easeInOut}, 'edge');
+//     tl2.fromTo(cloud2, 2, {rotation:1,transformOrigin:"50% 50%", ease: Power1.easeInOut}, {rotation:-1, ease: Power1.easeInOut}, 'edge');
+// }
 
-
-    var tl = new TimelineMax({yoyo:true, repeat:-1, ease: Power1.easeInOut});
-    var tl2 = new TimelineMax({yoyo:true, repeat:-1, ease: Power1.easeInOut});
-    var tl3 = new TimelineMax({yoyo:true, repeat:-1, ease: Power1.easeInOut});
-
-    tl.fromTo(cloud1, 3, {rotation:1, transformOrigin:"50% 50%", ease: Power1.easeInOut}, {rotation:-1, ease: Power1.easeInOut}, 'edge');
-    tl2.fromTo(cloud2, 2, {rotation:1,transformOrigin:"50% 50%", ease: Power1.easeInOut}, {rotation:-1, ease: Power1.easeInOut}, 'edge');
-}
 
 
 
@@ -99,8 +100,8 @@ var ts0;
 var canvasSize = document.documentElement.clientWidth;
 
 
-for(var i = 0; i < canvases.length; i++) {
-    var ctx = canvases[i].getContext('2d');
+for(let i = 0; i < canvases.length; i++) {
+    let ctx = canvases[i].getContext('2d');
     function draw(ts) {
         ctx.clearRect(0,0,canvasSize,canvasSize);
 
@@ -130,9 +131,9 @@ for(var i = 0; i < canvases.length; i++) {
     }
 
     function init(){
-        cloud.src = '..//images/common/cl1.png';
-        cloud2.src= '..//images/common/cl2.png';
-        cloud3.src= '..//images/common/cl3.png';
+        cloud.src = 'http://i.imgur.com/GigS3KR.png';
+        cloud2.src= 'http://i.imgur.com/y3JAe69.png';
+        cloud3.src= 'http://i.imgur.com/v30JIWp.png';
         canvases[i].setAttribute('width', canvasSize);
         canvases[i].setAttribute('height', canvasSize);
         window.requestAnimationFrame(draw);
@@ -140,4 +141,3 @@ for(var i = 0; i < canvases.length; i++) {
 
     init();
 }
-
