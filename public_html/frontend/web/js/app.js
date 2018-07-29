@@ -122,21 +122,21 @@ $(document).ready(function() {
         if ($('div').hasClass('popup__configuration')) {
             showForm('.popup__configuration');
         }
-        // logoText.css('z-index', '8999');
-        // logoPosition.css('z-index', '2');
-        // logo.attr('src', '../images/common/logo-mini.png');
-        // logo.removeClass("logo__image");
-        // logo.addClass("logo-mini__image");
-        // }
-        // else {
-        //     console.log('window' + window.pageYOffset +'body' + document.body.scrollTop + 'raznoe' + window.pageYOffset + 'i' + document.documentElement.scrollTop)
-        //     logoPosition.css('z-index', '1');
-        // }
+        logoText.css('z-index', '8999');
+        logoPosition.css('z-index', '2');
+        logo.attr('src', '../images/common/logo-mini.png');
+        logo.removeClass("logo__image");
+        logo.addClass("logo-mini__image");
+        }
+        else {
+            console.log('window' + window.pageYOffset +'body' + document.body.scrollTop + 'raznoe' + window.pageYOffset + 'i' + document.documentElement.scrollTop)
+            logoPosition.css('z-index', '1');
+        }
 
         animateCurrency();
     }
 
-    animateClouds();
+    // animateClouds();
     if($("div").is(".disputes__image-container")) {
         animateNotes();
     }

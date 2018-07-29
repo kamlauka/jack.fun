@@ -6,47 +6,39 @@ use yii\helpers\Url;
 
 //$this->title = 'My Yii Application';
 ?>
-<div class="canvas-container">
-    <canvas class="canvas" id="canvas"></canvas>
-</div>
-<div class="canvas-container">
-    <canvas class="canvas"></canvas>
-    <canvas class="canvas"></canvas>
-</div>
+<!--<div class="canvas-container">-->
+<!--    <canvas class="canvas" id="canvas"></canvas>-->
+<!--</div>-->
+<!--<div class="canvas-container">-->
+<!--    <canvas class="canvas"></canvas>-->
+<!--    <canvas class="canvas"></canvas>-->
+<!--</div>-->
 <div class="site-index">
 
     <?php if (Yii::$app->controller->route === 'site/index') { ?>
-<!---->
-<!--        <div class="logo-mini">-->
-<!--            <div class="logo__container">-->
-<!--                <img src="/images/common/logo.png" alt="" class="logo__image">-->
-<!--                <img src="/images/common/logo-mini.png" alt="" class="logo-mini__image hidden">-->
-<!--            </div>-->
-<!---->
-<!--            <div class="clouds clouds_fixed">-->
-<!--                <div class="cloud-container cloud-container_left-big">-->
-<!--                    <div class="cloud">-->
-<!--                        <div class="cloud cloud__cloud1"></div>-->
-<!--                        <div class="cloud cloud__cloud2"></div>-->
-<!--                        <div class="cloud cloud__cloud3"></div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="cloud-container cloud-container_right-big">-->
-<!--                    <div class="cloud">-->
-<!--                        <div class="cloud cloud__cloud1"></div>-->
-<!--                        <div class="cloud cloud__cloud2"></div>-->
-<!--                        <div class="cloud cloud__cloud3"></div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="cloud-container cloud-container_bottom-scale">-->
-<!--                    <!--                <div class="cloud">-->-->
-<!--                    <!--                    <div class="cloud cloud__cloud1"></div>-->-->
-<!--                    <div class="cloud cloud__cloud2"></div>-->
-<!--                    <div class="cloud cloud__cloud3"></div>-->
-<!--                    <!--                </div>-->-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
+
+        <div class="logo-mini">
+            <div class="logo__container">
+                <img src="/images/common/logo.png" alt="" class="logo__image">
+                <img src="/images/common/logo-mini.png" alt="" class="logo-mini__image hidden">
+            </div>
+
+            <div class="clouds clouds_fixed">
+                <div class="cloud-container cloud-container_left-big">
+                    <canvas class="canvas"></canvas>
+                </div>
+                <div class="cloud-container cloud-container_right-big">
+                    <canvas class="canvas"></canvas>
+                </div>
+                <div class="cloud-container cloud-container_bottom-scale">
+                    <!--                <div class="cloud">-->
+                    <!--                    <div class="cloud cloud__cloud1"></div>-->
+                    <div class="cloud cloud__cloud2"></div>
+                    <div class="cloud cloud__cloud3"></div>
+                    <!--                </div>-->
+                </div>
+            </div>
+        </div>
     <?php } ?>
     <h1 class="logo__text">JOLLY<span class="logo__text_blue">.BET</span></h1>
     <section class="first-page">
@@ -54,53 +46,25 @@ use yii\helpers\Url;
         <div class="first-page__container">
             <div class="clouds">
                 <div class="cloud-container cloud-container_left-big">
-                    <div class="cloud">
-                        <div class="cloud cloud__cloud1"></div>
-                        <div class="cloud cloud__cloud2"></div>
-                        <div class="cloud cloud__cloud3"></div>
-                    </div>
+                    <canvas class="canvas"></canvas>
                 </div>
                 <div class="cloud-container cloud-container_right-big">
-                    <div class="cloud">
-                        <div class="cloud cloud__cloud1"></div>
-                        <div class="cloud cloud__cloud2"></div>
-                        <div class="cloud cloud__cloud3"></div>
-                    </div>
+                    <canvas class="canvas"></canvas>
                 </div>
                 <div class="cloud-container cloud-container_left-small">
-                    <div class="cloud">
-                        <div class="cloud_bottom-big cloud cloud__cloud1"></div>
-                        <div class="cloud cloud__cloud2"></div>
-                        <div class="cloud cloud__cloud3"></div>
-                    </div>
+                    <canvas class="canvas"></canvas>
                 </div>
                 <div class="cloud-container cloud-container_second-small">
-                    <div class="cloud">
-                        <div class="cloud_bottom-big cloud cloud__cloud1"></div>
-                        <div class="cloud cloud__cloud2"></div>
-                        <div class="cloud cloud__cloud3"></div>
-                    </div>
+                    <canvas class="canvas"></canvas>
                 </div>
                 <div class="cloud-container cloud-container_third-small">
-                    <div class="cloud">
-                        <div class="cloud_bottom-big cloud cloud__cloud1"></div>
-                        <div class="cloud cloud__cloud2"></div>
-                        <div class="cloud cloud__cloud3"></div>
-                    </div>
+                    <canvas class="canvas"></canvas>
                 </div>
                 <div class="cloud-container cloud-container_right-small">
-                    <div class="cloud">
-                        <div class="cloud_bottom-big cloud cloud__cloud1"></div>
-                        <div class="cloud cloud__cloud2"></div>
-                        <div class="cloud cloud__cloud3"></div>
-                    </div>
+                    <canvas class="canvas"></canvas>
                 </div>
                 <div class="cloud-container cloud-container_bottom-big">
-                    <div class="cloud">
-                        <div class="cloud_bottom-big cloud cloud__cloud1"></div>
-                        <div class="cloud cloud__cloud2"></div>
-                        <div class="cloud cloud__cloud3"></div>
-                    </div>
+                    <div class="cloud"></div>
                 </div>
             </div>
             <h1 class="logo-text-mobile">JACKPOT.FUN</h1>
