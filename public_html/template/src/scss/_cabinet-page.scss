@@ -4,26 +4,31 @@
 
 }
 
+.form-group.field-user-avatar {
+  display: none;
+}
+
 .user-logo-wrap {
   position: relative;
-  width: 100px;
+  width: 10px;
   margin: auto;
   bottom: -104px;
+  //bottom: 0;
+  right: 0;
+  display: block;
+  background: #406973 url("../images/cabinet/edit-pencil.png") no-repeat;
+  width: 20px;
+  height: 20px;
+  background-size: contain;
+  background-position: center;
+  border-radius: 50%;
+  border: 3px solid #406973;
+  z-index: 1;
+  cursor: pointer;
   &::before {
     content: '';
     position: absolute;
-    bottom: 0;
-    right: 0;
-    display: block;
-    background: #406973 url("../images/cabinet/edit-pencil.png") no-repeat;
-    width: 20px;
-    height: 20px;
-    background-size: contain;
-    background-position: center;
-    border-radius: 50%;
-    border: 3px solid #406973;
-    z-index: 1;
-    cursor: pointer;
+
   }
 }
 

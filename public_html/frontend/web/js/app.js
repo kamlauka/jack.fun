@@ -127,14 +127,15 @@ $(document).ready(function() {
         logo.attr('src', '../images/common/logo-mini.png');
         logo.removeClass("logo__image");
         logo.addClass("logo-mini__image");
+
+        animateCurrency();
         }
         else {
-            console.log('window' + window.pageYOffset +'body' + document.body.scrollTop + 'raznoe' + window.pageYOffset + 'i' + document.documentElement.scrollTop)
             logoPosition.css('z-index', '1');
         }
 
-        animateCurrency();
-    }
+
+    // }
 
     // animateClouds();
     if($("div").is(".disputes__image-container")) {
@@ -156,7 +157,6 @@ $(document).ready(function() {
 //если с начала, то включаем начальное лого и анимируем его
 window.addEventListener('scroll', function () {
     if($("div").is(".logo__container")) {
-        //logo.offset().top
         if ((($(this).scrollTop() <= 200) || (window.pageYOffset < 200)) && logoContainer.hasClass('logo__container')) {
             animateLogoScroll();
         }
