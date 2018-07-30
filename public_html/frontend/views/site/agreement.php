@@ -8,7 +8,7 @@ use yii\widgets\Breadcrumbs;
 $this->params['breadcrumbs'][] = ['label' =>'Terms of agreement','template' => "<li class='crumbs__link crumbs__link_active'><a class='crumb-active'>{link}</a></li>"];
 
 $this->title = 'Terms of agreement';
-//$this->params['breadcrumbs'][] = $this->title;
+
 ?>
 <section class="terms-page">
     <div class="container container_mob mobile-container">

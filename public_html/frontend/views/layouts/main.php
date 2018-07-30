@@ -102,12 +102,8 @@ AppAsset::register($this);
                 'view' => 'transaction'
             ]) ?>
 
-            <?php if(Yii::$app->session->get('winner') != 0) {
-                Yii::$app->session->set('winner',0);
-//                echo '<script type="text/javascript">',
-//                'showForm(".popup__winner")',
-//                '</script>'
-//                ;
+            <?php if(Yii::$app->session->get('winner') != null) {
+                Yii::$app->session->set('winner','looked');
                echo \frontend\widgets\PopupForm::widget([
                     'model' => new \yii\base\DynamicModel(['phone'=>'','file'=>'']),
                     'view' => 'winner'
