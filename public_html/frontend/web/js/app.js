@@ -1,15 +1,4 @@
-var logoPosition = $(".logo-mini").first();
-var logoContainer = $(".logo__container").first();
-var mobileLogo = $(".logo-mini__image").first();
-var logo = $(".logo__image").first();
-var logoText = $(".logo__text").first();
-var clouds = $(".clouds_fixed").first();
-var cloudBottom = $(".cloud-container_bottom-scale").first();
-var cloudLeft = $(".cloud-container_left-big").first();
-var cloudRight = $(".cloud-container_right-big").first();
-
-
-function EditAvatar() {
+function editAvatar() {
     $("#user-avatar").click();
 }
 
@@ -105,7 +94,15 @@ function targetMenu(e) {
 
 //поведение анимации лого на главной
 
-
+var logoPosition = $(".logo-mini").first();
+var logoContainer = $(".logo__container").first();
+var mobileLogo = $(".logo-mini__image").first();
+var logo = $(".logo__image").first();
+var logoText = $(".logo__text").first();
+var clouds = $(".clouds_fixed").first();
+var cloudBottom = $(".cloud-container_bottom-scale").first();
+var cloudLeft = $(".cloud-container_left-big").first();
+var cloudRight = $(".cloud-container_right-big").first();
 
 // с какого места начал юзер?
 //если с середины страницы, то включаем лого конечное
@@ -122,22 +119,21 @@ $(document).ready(function() {
         if ($('div').hasClass('popup__configuration')) {
             showForm('.popup__configuration');
         }
-        logoText.css('z-index', '8999');
-        logoPosition.css('z-index', '2');
-        logo.attr('src', '../images/common/logo-mini.png');
-        logo.removeClass("logo__image");
-        logo.addClass("logo-mini__image");
+        // logoText.css('z-index', '8999');
+        // logoPosition.css('z-index', '2');
+        // logo.attr('src', '../images/common/logo-mini.png');
+        // logo.removeClass("logo__image");
+        // logo.addClass("logo-mini__image");
+        // }
+        // else {
+        //     console.log('window' + window.pageYOffset +'body' + document.body.scrollTop + 'raznoe' + window.pageYOffset + 'i' + document.documentElement.scrollTop)
+        //     logoPosition.css('z-index', '1');
+        // }
 
         animateCurrency();
-        }
-        else {
-            logoPosition.css('z-index', '1');
-        }
+    }
 
-
-    // }
-
-    // animateClouds();
+    animateClouds();
     if($("div").is(".disputes__image-container")) {
         animateNotes();
     }
@@ -157,6 +153,7 @@ $(document).ready(function() {
 //если с начала, то включаем начальное лого и анимируем его
 window.addEventListener('scroll', function () {
     if($("div").is(".logo__container")) {
+        //logo.offset().top
         if ((($(this).scrollTop() <= 200) || (window.pageYOffset < 200)) && logoContainer.hasClass('logo__container')) {
             animateLogoScroll();
         }

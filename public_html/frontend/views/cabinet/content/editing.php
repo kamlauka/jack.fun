@@ -29,7 +29,7 @@ use yii\widgets\ActiveForm;
 
             <div class="user-info about-user-info__paragraph" >
 
-                <div class="user-logo-wrap"><div class="user-logo-wrap__edit" onclick="EditAvatar()"></div></div>
+                <div class="user-logo-wrap"><div class="user-logo-wrap__edit" onclick="editAvatar()"></div></div>
                 <div class="user-logo-container">
                     <?php if(isset($model->avatar)){
                         //если есть картинка

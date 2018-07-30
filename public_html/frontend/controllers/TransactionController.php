@@ -17,13 +17,13 @@ class TransactionController extends Controller
 {
     public static function setTransact($hash){
 
-        $lottery = Lottery::getActiveLottery();
+        $lottery = Lottery::getActiveLotteryObject();
 
         $transaction = new Transaction();
         $transaction->user_id = Yii::$app->user->identity->id;
         $transaction->type = 'not confirmed';
-        $transaction->target_id = $lottery['data']->id;
-        $transaction->amount = $lottery['data']->rate;
+        $transaction->target_id = $lottery->id;
+        $transaction->amount = $lottery->rate;
         $transaction->hash = $hash;
        return $transaction->save();
     }

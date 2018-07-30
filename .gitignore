@@ -8,7 +8,6 @@ puphpet/config-custom.yaml
 /html
 .vagrant
 .idea
-public_html/template/dist/fonts/IceAgeRUS.ttf
 /node_modules
 /.idea
 
