@@ -9,7 +9,7 @@ var cloudLeft = $(".cloud-container_left-big").first();
 var cloudRight = $(".cloud-container_right-big").first();
 
 
-function EditAvatar() {
+function editAvatar() {
     $("#user-avatar").click();
 }
 

@@ -33,7 +33,7 @@ class PopupForm extends Widget {
 
                  if(\Yii::$app->user->id == $last_lottery->result){?>
 
-                    <script> onclick="showForm('.popup__transaction')" </script>
+                    <script>showForm('.popup__transaction');</script>
                      <?php
                  }
              }
