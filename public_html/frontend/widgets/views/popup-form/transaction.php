@@ -10,7 +10,7 @@ use yii\bootstrap\ActiveForm;
 $this->title = 'Participate';
 ?>
 
-<div class="popup__transaction  <?php if((isset(Yii::$app->params['popup'])) and Yii::$app->params['popup'] == 'transaction' ) echo 'activ' ?>" >
+<div class="popup__transaction" >
     <div class="popup__close" onclick="$('.forms').hide()"></div>
     <h3 class="title-h3"><?= Html::encode($this->title) ?></h3>
     <?php $form = ActiveForm::begin([

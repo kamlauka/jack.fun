@@ -31,9 +31,10 @@ class PopupForm extends Widget {
              if($this->view ==='winner'){
                  $last_lottery = Lottery::find()->where(['status'=>'Wait_participant'])->one();
 
-                 if(\Yii::$app->user->id == $last_lottery->result){
+                 if(\Yii::$app->user->id == $last_lottery->result){?>
 
-                    // echo $this->render('popup-form/'.$this->view, ['model' => $this->model]);
+                    <script> onclick="showForm('.popup__transaction')" </script>
+                     <?php
                  }
              }
 
