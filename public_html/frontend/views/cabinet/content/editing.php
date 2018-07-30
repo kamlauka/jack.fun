@@ -38,9 +38,10 @@ use yii\widgets\ActiveForm;
                         //если нет картинки
                         echo '<img class="user-logo about-user-info__user-logo" src="../../images/cabinet/default-logo.png" alt="">';
                     }?>
-                    <?= $form->field($model, 'avatar')->fileInput(['multiple'=>true]) ?>
-                </div>
 
+                </div>
+                <?= $form->field($model, 'avatar')->fileInput(['multiple'=>true]) ?>
+                <div class="help-block help-block_image"></div>
                 <?php
                 if(isset($model->username)){
                     echo Html::tag('p',$model->username,['class'=>'user-name about-user-info__user-name']);
