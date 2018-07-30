@@ -111,18 +111,18 @@ class SiteController extends FrontController
         } elseif(!$model->validate()) {
 
             $model->password = '';
-            $lottery = Lottery::getActiveLottery();
-            $jackpot = Jackpot::getActiveJackpot();
-            $text = $this->getIndexInfo();
+//            $lottery = Lottery::getActiveLottery();
+//            $jackpot = Jackpot::getActiveJackpot();
+//            $text = $this->getIndexInfo();
 
             Yii::$app->params['popup'] = 'login';
             Yii::$app->params[Yii::$app->params['popup']] = $model;
 
-            return $this->render('index',[
-                'lottery' => $lottery,
-                'jackpot' => $jackpot,
-                'text' => $text,
-            ]);
+//            return $this->render('index',[
+//                'lottery' => $lottery,
+//                'jackpot' => $jackpot,
+//                'text' => $text,
+//            ]);
         }
         return $this->redirect('/');
     }

@@ -1,4 +1,5 @@
 namespace: frontend\tests
+
 actor_suffix: Tester
 paths:
     tests: tests
@@ -7,9 +8,12 @@ paths:
     support: tests/_support
 settings:
     bootstrap: _bootstrap.php
-    colors: true
+    colors: false
     memory_limit: 1024M
 modules:
     config:
         Yii2:
             configFile: 'config/test-local.php'
+include:
+  - frontend
+

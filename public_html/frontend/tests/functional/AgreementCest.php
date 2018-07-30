@@ -7,7 +7,7 @@ class AgreementCest
 {
     public function checkAgreement(FunctionalTester $I)
     {
-        $I->amOnRoute('site/agreement');
+        $I->amOnRoute('frontend/ite/agreement');
         $I->see('Terms of agreement', 'h2');
        // $I->see('lorem ipsum', 'h2');
     }
