@@ -4,33 +4,55 @@
 
 }
 
-.form-group.field-user-avatar {
+
+//.form-group.field-user-avatar {
+//  display: none;
+//}
+
+label.control-label {
   display: none;
 }
 
+input#user-avatar {
+  display: none;
+}
+
+
+.form-group.field-user-avatar.has-success .help-block {
+  position: absolute;
+  top: auto;
+  left: auto;
+  bottom: -15px;
+  width: 100%;
+  margin: auto;
+  color: #bd1616;
+  font-size: 10px;
+}
+
+
 .user-logo-wrap {
   position: relative;
-  width: 10px;
+  width: 100px;
   margin: auto;
   bottom: -104px;
-  //bottom: 0;
-  right: 0;
-  display: block;
-  background: #406973 url("../images/cabinet/edit-pencil.png") no-repeat;
-  width: 20px;
-  height: 20px;
-  background-size: contain;
-  background-position: center;
-  border-radius: 50%;
-  border: 3px solid #406973;
-  z-index: 1;
-  cursor: pointer;
-  &::before {
+  div {
     content: '';
     position: absolute;
-
+    bottom: 0;
+    right: 0;
+    display: block;
+    background: #406973 url("../images/cabinet/edit-pencil.png") no-repeat;
+    width: 20px;
+    height: 20px;
+    background-size: contain;
+    background-position: center;
+    border-radius: 50%;
+    border: 3px solid #406973;
+    z-index: 1;
+    cursor: pointer;
   }
 }
+
 
 .user-logo-container {
   position: relative;
@@ -40,7 +62,7 @@
   border-radius: 50%;
   border: 6px solid $add-color3;
   margin: auto;
-
+  background: white;
 }
 
 .grass {
@@ -146,10 +168,12 @@
   }
 
   &__user-logo {
-    width: 100px;
+    //width: 100px;
+    height: 100px;
   }
 
   &__paragraph {
+    position: relative;
     font-size: 1.2em;
     margin: 21px 0;
     @media (max-width: $mobile-width) {

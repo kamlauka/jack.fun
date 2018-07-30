@@ -103,6 +103,7 @@
 
   &_color_dark {
     background: $pat-dark-pillar-1 top left no-repeat, $pat-dark-pillar-3 bottom left no-repeat, $pat-dark-pillar-2 repeat-y;
+    background-size: 47%, 47%, 32%;
     @media (max-width: $first-width) {
       background-size: 47%, 47%, 32.5%;
     }
@@ -110,6 +111,7 @@
 
   &_color_grey {
     background: $pat-grey-pillar-1 top left no-repeat, $pat-grey-pillar-3 bottom left no-repeat, $pat-grey-pillar-2 repeat-y;
+    background-size: 47%, 47%, 32%;
     @media (max-width: $first-width) {
       background-size: 47%, 47%, 32.5%;
     }
@@ -128,9 +130,7 @@
     z-index: 8000;
     background: $pat-all-pillar-1 top left no-repeat, $pat-all-pillar-3 bottom left no-repeat, $pat-all-pillar-2 top center repeat-y;
     background-size: 100%, 100%, 68.5%;
-    @media (max-width: $first-width) {
 
-    }
   }
 
   &_position_right {
