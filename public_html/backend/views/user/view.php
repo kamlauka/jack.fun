@@ -12,8 +12,8 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-view">
 
-    <?= Html::a('Betting', ['/betting/index'], ['class' => 'btn btn-success']) ?>
-    <?= Html::a('Transaction', ['/transaction/index'], ['class' => 'btn btn-success']) ?>
+    <?= Html::a('Betting', ['/betting/index', 'id' => $model->id], ['class' => 'btn btn-success']) ?>
+    <?= Html::a('Transaction', ['/transaction/index', 'id' => $model->id], ['class' => 'btn btn-success']) ?>
 
 
     <h1>User №<?= Html::encode($this->title) ?></h1>

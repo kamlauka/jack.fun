@@ -35,10 +35,14 @@ class BettingController extends Controller
      */
     public function actionIndex($id = null)
     {
-        $searchModel = new BettingSearch($id);
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        return $this->render('index', [
+        $searchModel = new BettingSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        if($id != null){
+            $dataProvider->query->andWhere(['in','user_id',[$id]]);
+        }
+
+         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);

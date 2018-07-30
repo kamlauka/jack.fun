@@ -6,13 +6,13 @@ use frontend\tests\FunctionalTester;
 
 class SignupCest
 {
-    protected $formId = '#form-signup';
-
-
-    public function _before(FunctionalTester $I)
-    {
-        $I->amOnRoute('site/signup');
-    }
+//    protected $formId = '#form-signup';
+//
+//
+//    public function _before(FunctionalTester $I)
+//    {
+//        $I->amOnRoute('site/signup');
+//    }
 
     public function signupWithEmptyFields(FunctionalTester $I)
     {
