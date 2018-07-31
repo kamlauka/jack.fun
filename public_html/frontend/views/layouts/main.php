@@ -82,7 +82,7 @@ AppAsset::register($this);
 
     <div class="orange-border orange-border_edge"></div>
 
-    <div  onclick="targetFunc(event)" class="forms <?= isset(Yii::$app->params['popup']) ? 'forms_active-flex': ''?>" data="<?= isset(Yii::$app->params['popup']) ? 'activ': ''?>">
+    <div   <!--   зачем этот блок если он не работает? -->  onclick="targetFunc(event)" class="forms <?= isset(Yii::$app->params['popup']) ? 'forms_active-flex': ''?>" data="<?= isset(Yii::$app->params['popup']) ? 'activ': ''?>">
 
         <div class="popup forms__popup" >
 
