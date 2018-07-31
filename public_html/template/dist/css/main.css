@@ -761,7 +761,7 @@
     text-decoration: underline;
     color: white;
     cursor: pointer; }
-  .popup__registration, .popup__login, .popup__password-reset {
+  .popup__content {
     display: none;
     position: relative; }
   .popup__forgot-pass {
