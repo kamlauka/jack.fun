@@ -34,14 +34,18 @@ AppAsset::register($this);
         <div class="flags flex-gorizontal flex-gorizontal_none-vertical">
 
             <?php
-            $ru = $en = $ch = ['class' => 'flags__image'];
-            if(Yii::$app->session->get('language') == 1 )
-            {Html::addCssClass($ru , ['flags__image_active']);}
-            elseif(Yii::$app->session->get('language') == 2 )
-            {Html::addCssClass($en , ['flags__image_active']);
-                Html::addCssClass($en, ['btn-success', 'btn-lg']);}
 
-            else{Html::addCssClass($ch , ['flags__image_active']);}
+                $ru = $en = $ch = ['class' => 'flags__image'];
+                $lang_id = \common\models\Language::getCurrent()->id;
+
+                if($lang_id == 1 ){
+                    Html::addCssClass($ru , ['flags__image_active']);
+                }elseif($lang_id == 2 ){
+                    Html::addCssClass($en , ['flags__image_active']);
+                }
+                else{
+                    Html::addCssClass($ch , ['flags__image_active']);
+                }
             ?>
 
             <?= Html::a(Html::img('/images/common/flag3.png',  $ru ),'/ru') ?>
