@@ -10,8 +10,8 @@ use yii\bootstrap\ActiveForm;
 $this->title = 'Participate';
 ?>
 
-<div class="popup__transaction" >
-    <div class="popup__close" onclick="$('.forms').hide()"></div>
+<div class="popup__transaction popup__content" >
+    <div class="popup__close" onclick="closeForm()"></div>
     <h3 class="title-h3"><?= Html::encode($this->title) ?></h3>
     <?php $form = ActiveForm::begin([
         'id' => 'participate',

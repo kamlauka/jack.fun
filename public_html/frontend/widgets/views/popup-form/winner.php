@@ -10,8 +10,8 @@ use yii\bootstrap\ActiveForm;
 $this->title = 'our congratulations';
 
 ?>
-<div class="popup__winner  <?php if((isset(Yii::$app->params['popup'])) and Yii::$app->params['popup'] == 'winner' ) echo 'activ' ?>" >
-    <div class="popup__close" onclick="$('.forms').hide()"></div>
+<div class="popup__winner popup__content" >
+    <div class="popup__close" onclick="closeForm()"></div>
     <h3 class="title-h3"><?= Html::encode($this->title) ?></h3>
     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
     <img src="" alt="">

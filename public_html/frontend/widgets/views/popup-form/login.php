@@ -10,8 +10,8 @@ use yii\bootstrap\ActiveForm;
 $this->title = 'Login';
 
 ?>
-<div class="popup__login  <?php if((isset(Yii::$app->params['popup'])) and Yii::$app->params['popup'] == 'login' ) echo 'activ' ?>" >
-    <div class="popup__close" onclick="$('.forms').hide()"></div>
+<div class="popup__login popup__content" >
+    <div class="popup__close" onclick="closeForm()"></div>
     <h3 class="title-h3"><?= Html::encode($this->title) ?></h3>
     <p class="popup__other-popup">or &nbsp;<span class="popup__other-popup-link" onclick="showForm('.popup__registration')">registration</span></p>
     <?php $form = ActiveForm::begin([
