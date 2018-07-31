@@ -66,47 +66,23 @@
     </div>
     <div class="clouds">
         <div class="cloud-container cloud-container_center-center-medium">
-            <div class="cloud">
-                <div class="cloud cloud__cloud1"></div>
-                <div class="cloud cloud__cloud2"></div>
-                <!--                <div class="cloud cloud__cloud3"></div>-->
-            </div>
+            <canvas class="canvas"></canvas>
         </div>
         <div class="cloud-container cloud-container_center-page">
-            <div class="cloud">
-                <div class="cloud cloud__cloud1"></div>
-                <div class="cloud cloud__cloud2"></div>
-<!--                <div class="cloud cloud__cloud3"></div>-->
-            </div>
+            <canvas class="canvas"></canvas>
         </div>
 
         <div class="cloud-container cloud-container_center-left-medium">
-            <div class="cloud">
-                <div class="cloud cloud__cloud1"></div>
-                <div class="cloud cloud__cloud2"></div>
-<!--                <div class="cloud cloud__cloud3"></div>-->
-            </div>
+            <canvas class="canvas"></canvas>
         </div>
         <div class="cloud-container cloud-container_center-right-medium">
-            <div class="cloud">
-                <div class="cloud cloud__cloud1"></div>
-                <div class="cloud cloud__cloud2"></div>
-<!--                <div class="cloud cloud__cloud3"></div>-->
-            </div>
+            <canvas class="canvas"></canvas>
         </div>
         <div class="cloud-container cloud-container_border-left-medium">
-            <div class="cloud">
-                <div class="cloud cloud__cloud1"></div>
-                <div class="cloud cloud__cloud2"></div>
-<!--                <div class="cloud cloud__cloud3"></div>-->
-            </div>
+            <canvas class="canvas"></canvas>
         </div>
         <div class="cloud-container cloud-container_border-right-medium">
-            <div class="cloud">
-                <div class="cloud cloud__cloud1"></div>
-                <div class="cloud cloud__cloud2"></div>
-<!--                <div class="cloud cloud__cloud3"></div>-->
-            </div>
+            <canvas class="canvas"></canvas>
         </div>
     </div>
     <div class="clouds clouds_bottom-default">

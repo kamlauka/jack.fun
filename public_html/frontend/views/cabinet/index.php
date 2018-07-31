@@ -23,12 +23,12 @@
     <div class="cabinet__disputes disputes mobile-border-gray">
         <h1 class="disputes__title">Coming soon</h1>
         <div class="disputes__image-container">
-            <img class="disputes__notes note1" src="../../images/cabinet/note-1.png" alt="">
-            <img class="disputes__notes note2" src="../../images/cabinet/note-1.png" alt="">
-            <img class="disputes__notes note3" src="../../images/cabinet/note2.png" alt="">
-            <img class="disputes__notes note4" src="../../images/cabinet/note3.png" alt="">
+            <img class="disputes__notes note1" src="../../../images/cabinet/note-1.png" alt="">
+            <img class="disputes__notes note2" src="../../../images/cabinet/note-1.png" alt="">
+            <img class="disputes__notes note3" src="../../../images/cabinet/note2.png" alt="">
+            <img class="disputes__notes note4" src="../../../images/cabinet/note3.png" alt="">
         </div>
-        <div class="disputes__image" ><img src="../../images/cabinet/favn2.png" alt="favn"></div>
+        <div class="disputes__image" ><img src="../../../images/cabinet/favn2.png" alt="favn"></div>
 
     </div>
 
