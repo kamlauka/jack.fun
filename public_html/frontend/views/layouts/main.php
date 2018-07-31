@@ -70,7 +70,7 @@ AppAsset::register($this);
                         <li><?= Html::a('Login',false, ['id'=>'sign-in','onclick'=>"showForm('.popup__login')"]) ?></li>
                     <?php } else { ?>
                         <li><?= Html::a('Cabinet',Url::to(['/cabinet/index'])) ?></li>
-                        <li><?= Html::a('Logout('.Yii::$app->user->identity->username .')',Url::to(['/site/logout'])) ?></li>
+                        <li><?= Html::a('Logout('.Yii::$app->user->identity->username .')',Url::to(['/default/logout'])) ?></li>
 
                     <?php } ?>
                 </ul>
@@ -120,7 +120,7 @@ AppAsset::register($this);
     </div>
 
 
-        <?php if(Yii::$app->controller->route != 'site/index'){ ?>
+        <?php if(Yii::$app->controller->route != 'default/index'){ ?>
             <div class="logo-mini">
                     <div class="logo-mini__container">
                         <a href="<?= Url::to([Yii::$app->homeUrl])?>"><img src="/images/common/logo-mini.png" alt="" class="logo-mini__image"></a>
@@ -133,7 +133,7 @@ AppAsset::register($this);
 </header>
 <?= Alert::widget() ?>
 
-<?php if(Yii::$app->controller->route === 'site/index'){ ?>
+<?php if(Yii::$app->controller->route === 'default/index'){ ?>
 
 <div class="preloader">
     <h1 class="preloader__title">JOLLY.BET</h1>
@@ -172,10 +172,10 @@ AppAsset::register($this);
             </div>
             <div class="footer-block__right-align-block">
 
-                <?= Html::a('Terms of agreement',Url::to(['/site/agreement']),['class'=>'footer-block__link']) ?>
+                <?= Html::a('Terms of agreement',Url::to(['/page/agreement']),['class'=>'footer-block__link']) ?>
 
                 <?php if (Yii::$app->user->isGuest) { ?>
-                    <?= Html::a('My Account / Login / Register',Url::to(['/site/signup']),['class'=>'footer-block__link']) ?>
+                    <?= Html::a('My Account / Login / Register',Url::to(['/default/signup']),['class'=>'footer-block__link']) ?>
                 <?php } else { ?>
                     <?= Html::a('Cabinet',Url::to(['/cabinet/index']),['class'=>'footer-block__link']) ?>
                 <?php } ?>

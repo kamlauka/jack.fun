@@ -48,8 +48,18 @@ class Modification extends \yii\db\ActiveRecord
     }
 
     public static function getAdminWallet(){
-
        return Modification::findOne(6);
+    }
 
+    public static function getPercentJackpot(){
+        return Modification::find()->select('data')->where(['id'=>2,'name'=>'percent_jackpot'])->one();
+    }
+
+    public static function getPercentAdmin(){
+        return Modification::find()->select('data')->where(['id'=>4,'name'=>'percent_admin'])->one();
+    }
+
+    public static function getPercentExchange(){
+        return  Modification::find()->select('data')->where(['id'=>3,'name'=>'percent_exchange'])->one();
     }
 }

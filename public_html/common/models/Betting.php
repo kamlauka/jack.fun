@@ -71,4 +71,28 @@ class Betting extends \yii\db\ActiveRecord
     {
         return $this->hasOne(User::className(), ['id' => 'user_id']);
     }
+
+    public static function createNewBetLottery(){
+
+
+
+        $lottery = Lottery::getActiveLotteryObject();
+
+        $pc_jackpot = $lottery->rate / 100 * Modification::getPercentJackpot()->data;
+        $pc_keep = $lottery->rate / 100 * Modification::getPercentAdmin()->data;
+        $pc_transaction = $lottery->rate / 100 * Modification::getPercentExchange()->data;
+
+        $betting = new Betting();
+        $betting->user_id = Yii::$app->user->identity->id;
+        $betting->target_id = $lottery->id;
+        $betting->rate = $lottery->rate - $pc_jackpot - $pc_keep - $pc_transaction ;
+        $betting->date_creation = date("Y-m-d h:i:s");
+        $betting->pc_jackpot = $pc_jackpot;
+        $betting->pc_keep = $pc_keep;
+        $betting->pc_organizer = 0;
+        $betting->pc_target = 0;
+        $betting->pc_transaction = $pc_transaction;
+        return $betting->save();
+
+    }
 }

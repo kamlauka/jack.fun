@@ -18,7 +18,7 @@ use yii\bootstrap\ActiveForm;
 
             <?php $form = ActiveForm::begin([
                     'id' => 'request-password-reset',
-                    'action'=> '/site/request-password-reset',
+                    'action'=> '/default/request-password-reset',
                     'enableAjaxValidation' => true,
             ]); ?>
 

@@ -4,7 +4,7 @@ namespace frontend\tests\functional;
 
 use frontend\tests\FunctionalTester;
 use common\fixtures\UserFixture;
-use frontend\controllers\SiteController;
+use frontend\controllers\DefaultController;
 
 class LoginCest
 {
@@ -23,7 +23,7 @@ class LoginCest
 //
 //    public function _before(FunctionalTester $I)
 //    {
-//        $I->amOnRoute('site/login');
+//        $I->amOnRoute('default/login');
 //    }
 
     protected function formParams($login, $password)
@@ -40,8 +40,8 @@ class LoginCest
     {
         $I->amOnPage('/');
         $I->see('JOLLY.BET');
-        $I->seeLink('/frontend/site/agreement');
-        $I->click('/frontend/site/agreement');
+        $I->seeLink('/frontend/default/agreement');
+        $I->click('/frontend/default/agreement');
         $I->see('Terms of agreement');
     }
 

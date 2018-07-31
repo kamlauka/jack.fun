@@ -40,7 +40,7 @@ return [
             ],
         ],
         'errorHandler' => [
-            'errorAction' => 'site/error',
+            'errorAction' => 'page/error',
         ],
 
         'urlManager' => [
@@ -48,7 +48,7 @@ return [
             'showScriptName' => false,
             'class'=>'frontend\components\LangUrlManager',
             'rules'=>[
-                '/' => 'site/index',
+                '/' => 'page/index',
                 '<controller:\w+>/<action:\w+>/*'=>'<controller>/<action>',
             ]
         ],

@@ -12,15 +12,14 @@ use yii\web\UploadedFile;
 
 
 /**
- * Site controller
+ * Lottery controller
  */
 class LotteryController extends FrontController
 {
 
     public function actionView()
     {
-
-        $lottery = Lottery::getActiveLottery();
+        $lottery = Lottery::getInfoActiveLottery();
 
         return $this->render('view', [
             'lottery' => $lottery
@@ -32,7 +31,7 @@ class LotteryController extends FrontController
     {
 
         if (Yii::$app->user->isGuest) {
-            return $this->redirect('/site/login');
+            return $this->redirect('/default/login');
         } else {
 
             $model = DynamicModel::validateData(array('hash'), [['hash', 'string', 'max' => 127]]);

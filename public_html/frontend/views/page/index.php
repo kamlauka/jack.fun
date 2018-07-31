@@ -15,7 +15,7 @@ use yii\helpers\Url;
 <!--</div>-->
 <div class="site-index">
 
-    <?php if (Yii::$app->controller->route === 'site/index') { ?>
+    <?php if (Yii::$app->controller->route === 'default/index') { ?>
 
         <div class="logo-mini">
             <div class="logo__container">

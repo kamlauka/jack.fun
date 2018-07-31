@@ -16,7 +16,7 @@ $this->title = 'Login';
     <p class="popup__other-popup">or &nbsp;<span class="popup__other-popup-link" onclick="showForm('.popup__registration')">registration</span></p>
     <?php $form = ActiveForm::begin([
             'id' => 'login-form',
-            'action' => '/site/login',
+            'action' => '/default/login',
             'enableAjaxValidation' => true,
     ]);
     ?>

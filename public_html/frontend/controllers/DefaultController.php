@@ -21,73 +21,8 @@ use yii\widgets\ActiveForm;
 /**
  * Site controller
  */
-class SiteController extends FrontController
+class DefaultController extends FrontController
 {
-//    /**
-//     * {@inheritdoc}
-//     */
-//    public function behaviors()
-//    {
-//        return [
-//            'access' => [
-//                'class' => AccessControl::className(),
-//                'only' => ['logout', 'signup'],
-//                'rules' => [
-//                    [
-//                        'actions' => ['signup'],
-//                        'allow' => true,
-//                        'roles' => ['?'],
-//                    ],
-//                    [
-//                        'actions' => ['logout'],
-//                        'allow' => true,
-//                        'roles' => ['@'],
-//                    ],
-//                ],
-//            ],
-//            'verbs' => [
-//                'class' => VerbFilter::className(),
-//                'actions' => [
-//                    'logout' => ['post'],
-//                ],
-//            ],
-//        ];
-//    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function actions()
-    {
-        return [
-            'error' => [
-                'class' => 'yii\web\ErrorAction',
-            ],
-            'captcha' => [
-                'class' => 'yii\captcha\CaptchaAction',
-                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
-            ],
-        ];
-    }
-
-    /**
-     * Displays homepage.
-     *
-     * @return mixed
-     */
-    public function actionIndex()
-    {
-        $lottery = Lottery::getActiveLottery();
-        $jackpot = Jackpot::getActiveJackpot();
-        $text = $this->getIndexInfo();
-
-        return $this->render('index',[
-           'lottery' => $lottery,
-           'jackpot' => $jackpot,
-           'text' => $text,
-        ]);
-    }
-
     /**
      * Logs in a user.
      *
@@ -123,15 +58,7 @@ class SiteController extends FrontController
         return $this->goHome();
     }
 
-    /**
-    * @return string
-    */
-    public function actionAgreement()
-    {
-        return $this->render('agreement');
-    }
-
-    /**
+     /**
      * Signs user up and confirm password.
      *
      * @return mixed
@@ -149,12 +76,12 @@ class SiteController extends FrontController
 
             if ($user = $model->signup()) {
 
-               if($this->mail_activation ($user->email, $user->active)){
+               if($this->sendMailActivation($user->email, $user->active)){
                    Yii::$app->session->setFlash('success', 'We sent you message to confirm email address.');
                    return $this->goHome();
                }
             }
-            //если не прошел валидация
+            //если не прошел валидацию
             $model->agreement = null;
         }
 
@@ -179,8 +106,6 @@ class SiteController extends FrontController
             Yii::$app->response->format = Response::FORMAT_JSON;
             return ActiveForm::validate($model);
         }
-
-
 
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->sendEmail()) {
@@ -225,49 +150,16 @@ class SiteController extends FrontController
         ]);
     }
 
-//    /**
-//     * @param $lang
-//     * @return Response
-//     */
-//    public function actionLanguage($lang){
-//
-//        $lang =  Language::find()->where(['alias'=>$lang])->one();
-//        $_SESSION['language'] = $lang->id;
-//        Language::setCurrent();
-//        return $this->redirect(Yii::$app->request->referrer);
-//    }
-
-    /**
-     * @return array
-     */
-    protected function getIndexInfo(){
-
-
-        $id_lang = Language::getCurrent()->id;//Yii::$app->session->get('language');
-
-        $text = [];
-
-        $text['T'] = Translation::find()->where(['alias' => 'main_T'])->andWhere(['language_id' => $id_lang])->one();
-        $text['bitcoin'] = Translation::find()->where(['alias'=>'main_bitcoin','language_id' => $id_lang])->one();
-        $text['hands'] = Translation::find()->where(['alias'=>'main_hands','language_id' => $id_lang])->one();
-        $text['play'] = Translation::find()->where(['alias'=>'main_play','language_id' => $id_lang])->one();
-        $text['prize'] = Translation::find()->where(['alias'=>'main_prize','language_id' => $id_lang])->one();
-        $text['seo_block_title'] = Translation::find()->where(['alias' => 'seo_block_title', 'language_id' => $id_lang])->one();
-        $text['seo_block_text'] = Translation::find()->where(['alias' => 'seo_block_text', 'language_id' => $id_lang])->one();
-
-        return $text;
-    }
-
     /**
      * @param $email
      * @param $cod
      * @return bool
      */
-    public function mail_activation ($email, $cod){
+    public function sendMailActivation($email, $cod){
 
         $absoluteHomeUrl = \yii\helpers\Url::home(true); //http://сайт
         $serverName = Yii::$app->request->serverName; // сайт без http
-        $url = $absoluteHomeUrl.'site/activation?code='.$cod;
+        $url = $absoluteHomeUrl.'default/activation?code='.$cod;
 
         $msg = "Thank you for registering on the site $serverName!  You needed to confirm your e-mail. To do this, follow the link $url";
 
@@ -292,7 +184,7 @@ class SiteController extends FrontController
      *
      * @return Response
      */
-    public function actionActivation(){
+    public function actionGetMailActivation(){
         $code = Yii::$app->request->get('code');
         $code = Html::encode($code);
         $find = \common\models\User::find()->where(['active'=>$code])->one();
