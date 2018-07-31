@@ -33,10 +33,17 @@ class TransactionController extends Controller
      * Lists all Transaction models.
      * @return mixed
      */
-    public function actionIndex()
+    public function actionIndex($id = null)
     {
         $searchModel = new TransactionSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        if($id != null){
+            $dataProvider->query->andWhere(['in','user_id',[$id]]);
+        }
+
+
+
 
         return $this->render('index', [
             'searchModel' => $searchModel,

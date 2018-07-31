@@ -107,24 +107,10 @@ class SiteController extends FrontController
         }
 
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
-        } elseif(!$model->validate()) {
-
-            $model->password = '';
-            $lottery = Lottery::getActiveLottery();
-            $jackpot = Jackpot::getActiveJackpot();
-            $text = $this->getIndexInfo();
-
-            Yii::$app->params['popup'] = 'login';
-            Yii::$app->params[Yii::$app->params['popup']] = $model;
-
-            return $this->render('index',[
-                'lottery' => $lottery,
-                'jackpot' => $jackpot,
-                'text' => $text,
-            ]);
+            return $this->redirect(Yii::$app->request->referrer);
         }
-        return $this->redirect('/');
+
+       // return $this->redirect('/');
     }
 
     /**
@@ -136,25 +122,6 @@ class SiteController extends FrontController
         Yii::$app->user->logout();
         return $this->goHome();
     }
-
-
-//    public function actionContact()
-//    {
-//        $model = new ContactForm();
-//        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-//            if ($model->sendEmail(Yii::$app->params['adminEmail'])) {
-//                Yii::$app->session->setFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.');
-//            } else {
-//                Yii::$app->session->setFlash('error', 'There was an error sending your message.');
-//            }
-//
-//            return $this->refresh();
-//        } else {
-//            return $this->render('contact', [
-//                'model' => $model,
-//            ]);
-//        }
-//    }
 
     /**
     * @return string
@@ -204,7 +171,16 @@ class SiteController extends FrontController
      */
     public function actionRequestPasswordReset()
     {
+
         $model = new PasswordResetRequestForm();
+
+
+        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
+            Yii::$app->response->format = Response::FORMAT_JSON;
+            return ActiveForm::validate($model);
+        }
+
+
 
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->sendEmail()) {
@@ -249,17 +225,17 @@ class SiteController extends FrontController
         ]);
     }
 
-    /**
-     * @param $lang
-     * @return Response
-     */
-    public function actionLanguage($lang){
-
-        $lang =  Language::find()->where(['alias'=>$lang])->one();
-        $_SESSION['language'] = $lang->id;
-        Language::setCurrent();
-        return $this->redirect(Yii::$app->request->referrer);
-    }
+//    /**
+//     * @param $lang
+//     * @return Response
+//     */
+//    public function actionLanguage($lang){
+//
+//        $lang =  Language::find()->where(['alias'=>$lang])->one();
+//        $_SESSION['language'] = $lang->id;
+//        Language::setCurrent();
+//        return $this->redirect(Yii::$app->request->referrer);
+//    }
 
     /**
      * @return array
