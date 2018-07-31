@@ -126,7 +126,9 @@ var cloudRight = $(".cloud-container_right-big").first();
 // с какого места начал юзер?
 //если с середины страницы, то включаем лого конечное
 $(document).ready(function() {
+
     if($("div").is(".logo__container")) {
+        animateCurrency();
         if (window.pageYOffset > 200 || document.body.scrollTop > 200) {
             clouds.css('display', 'none');
             logoPosition.css({'z-index': '10000', 'position': 'fixed'});
@@ -149,7 +151,7 @@ $(document).ready(function() {
         //     logoPosition.css('z-index', '1');
         // }
 
-        animateCurrency();
+
     }
 
     // animateClouds();
