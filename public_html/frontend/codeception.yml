@@ -1,4 +1,4 @@
-namespace: frontend\tests
+namespace: app\frontend\tests
 actor_suffix: Tester
 paths:
     tests: tests
@@ -13,3 +13,6 @@ modules:
     config:
         Yii2:
             configFile: 'config/test-local.php'
+extensions:
+    enabled:
+        - Codeception\Extension\RunFailed

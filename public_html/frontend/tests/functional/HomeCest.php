@@ -8,7 +8,7 @@ class HomeCest
 {
     public function checkOpen(FunctionalTester $I)
     {
-       // $I->amOnPage(\Yii::$app->homeUrl);
+        $I->amOnPage('site/index');
         $I->see('JOLLY.BET');
         $I->seeLink('site/agreement');
         $I->click('site/agreement');

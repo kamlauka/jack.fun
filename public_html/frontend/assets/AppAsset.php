@@ -25,7 +25,7 @@ class AppAsset extends AssetBundle
         'js/jquery.scrollbar-gh-pages/jquery.scrollbar.min.js',
         'js/timer.js',
 //        'js/scrollbar.js',
-        'js/currency.js',
+//        'js/currency.js',
         'js/animateClouds.js',
         'js/animateNotes.js',
     ];
