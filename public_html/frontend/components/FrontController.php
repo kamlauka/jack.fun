@@ -16,19 +16,14 @@ class FrontController extends Controller
 {
     public function beforeAction($action)
     {
-
-        if(Yii::$app->session->get('winner') != 0){
+        if(Yii::$app->session->get('winner') != 'looked'){
             if($last_lottery = Lottery::find()->where(['status'=>'Wait_participant', 'result' => Yii::$app->user->id])->one()){
-              \Yii::$app->session->set('winner', $last_lottery->result);
+                Yii::$app->session->set('winner', $last_lottery->result);
                 Yii::$app->params['popup'] = 'winner';
-            };
+            }else{
+                Yii::$app->session->set('winner', null);
+            }
         }
-//        if(Yii::$app->cache->get('id_winner')){
-//            if($last_lottery = Lottery::find()->where(['status'=>'Wait_participant', 'result' => Yii::$app->user->id])->one()){
-//                \Yii::$app->cache->set('id_winner', $last_lottery->result);
-//                Yii::$app->params['popup'] = 'winner';
-//            };
-//        }
         return true;
     }
 }

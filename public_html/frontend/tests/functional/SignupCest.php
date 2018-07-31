@@ -6,8 +6,9 @@ use frontend\tests\FunctionalTester;
 
 class SignupCest
 {
+
 //    protected $formId = '#form-signup';
-//
+
 //
 //    public function _before(FunctionalTester $I)
 //    {

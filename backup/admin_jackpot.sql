@@ -338,5 +338,3 @@ INSERT INTO `user` (`id`, `username`, `auth_key`, `password_hash`, `password_res
 (49,	'fdgdfgdfg',	'dgqBUTbdcfQR35gMe6KIU8FbUUhvkUhu',	'$2y$13$iUnd8EaThN/1U1PLgL2ao.olbgpsCynmF.j4eBJuwtkdFF2pJ/k0y',	NULL,	'fgf@fgfdg.fg',	0,	1531406971,	1531406971,	NULL,	0,	0,	NULL,	NULL,	'9d43ffef4acba5abdbcebdec25ed7c30'),
 (50,	'fdgdfgdfgw',	'ADLLzOgM4DT9ru64Dd2OPu3KmrayRrG-',	'$2y$13$aUU9lxGD/7q7IvJ5z4kds.MBBwU9o8o2.Q4tikaj2XgbAQwHNxiCy',	NULL,	'fgf@fgfdg.fgw',	0,	1531407037,	1531407037,	NULL,	0,	0,	NULL,	NULL,	'f37be569606db8bc6687f1df1b1554d3')
 ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `username` = VALUES(`username`), `auth_key` = VALUES(`auth_key`), `password_hash` = VALUES(`password_hash`), `password_reset_token` = VALUES(`password_reset_token`), `email` = VALUES(`email`), `status` = VALUES(`status`), `created_at` = VALUES(`created_at`), `updated_at` = VALUES(`updated_at`), `phone` = VALUES(`phone`), `type` = VALUES(`type`), `balance` = VALUES(`balance`), `avatar` = VALUES(`avatar`), `file` = VALUES(`file`), `active` = VALUES(`active`);
-
--- 2018-07-30 08:34:54

@@ -4,3 +4,6 @@ modules:
     enabled:
         - Filesystem
         - Yii2
+config:
+            url: 'http://jackpot.loc/'
+error_level: 'E_ALL'
