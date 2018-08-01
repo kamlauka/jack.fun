@@ -3,57 +3,82 @@
 namespace frontend\controllers;
 
 
-use common\models\Lottery;
+use frontend\models\DisputeSearch;
+use common\models\Dispute;
 use frontend\components\FrontController;
 use yii\base\DynamicModel;
 use common\models\User;
 use Yii;
 use yii\web\UploadedFile;
+use yii\data\ActiveDataProvider;
 
 
 /**
  * Lottery controller
  */
-class LotteryController extends FrontController
+class DisputeController extends FrontController
 {
-
-    public function actionView()
+    public function actionIndex()
     {
-        $lottery = Lottery::getInfoActiveLottery();
+        $model = new DisputeSearch();
+        $dataProvider = $model->search(Yii::$app->request->queryParams);
 
-        return $this->render('view', [
-            'lottery' => $lottery
+        $disputesDataProvider = new ActiveDataProvider([
+            'query' => $dataProvider->query,
+            'pagination' => [
+                'pageSize' => 10,
+            ],
         ]);
+
+        return $this->render('index', [
+            'disputesDataProvider' => $disputesDataProvider,
+            'searchModel' => $model,
+        ]);
+
     }
 
 
+    public function actionView($id)
+    {
+        $model = Dispute::findOne($id);
+
+        return $this->render('view', [
+            'model' => $model
+        ]);
+    }
+
+    /**
+     * @return \yii\web\Response
+     * @throws \yii\base\InvalidConfigException
+     */
     public function actionParticipate()
     {
 
         if (Yii::$app->user->isGuest) {
             return $this->redirect('/default/login');
-        } else {
+        }
 
-            $model = DynamicModel::validateData(array('hash'), [['hash', 'string', 'max' => 127]]);
+        $model = DynamicModel::validateData(array('hash'), [['hash', 'string', 'max' => 127]]);
 
-            if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
 
-                if (TransactionController::setTransaction($model->hash)) {
+            if (TransactionController::setTransaction($model->hash)) {
 
-                    if (BetController::setLotteryBet()) {
+                if (BetController::setDisputeBet()) {
 
-                        Yii::$app->session->setFlash('success', '<p>Congratulations</p> Transaction has been send!');
-                        return $this->redirect(Yii::$app->request->referrer);
-                    }
+                    Yii::$app->session->setFlash('success', '<p>Congratulations</p> Transaction has been send!');
+                    return $this->redirect(Yii::$app->request->referrer);
                 }
-            }else {
-                Yii::$app->session->setFlash('success', '<p>Error</p> non-correcting hash string');
-                return $this->redirect(Yii::$app->request->referrer);
-
             }
         }
+
+        Yii::$app->session->setFlash('success', '<p>Error</p> non-correcting hash string');
+        return $this->redirect(Yii::$app->request->referrer);
     }
 
+    /**
+     * @return \yii\web\Response
+     */
     public function actionGetPrize(){
 
         if(!\Yii::$app->user->id){

@@ -62,4 +62,19 @@ class Transaction extends \yii\db\ActiveRecord
     {
         return $this->hasOne(User::className(), ['id' => 'user_id']);
     }
+
+    public static function createTransaction($hash){
+
+        $lottery = Lottery::getActiveLotteryObject();
+        $transaction = new Transaction();
+        $transaction->user_id = Yii::$app->user->identity->id;
+        $transaction->type = 'not confirmed';
+        $transaction->target_id = $lottery->id;
+        $transaction->amount = $lottery->rate;
+        $transaction->hash = $hash;
+        return $transaction->save();
+    }
+
+
+
 }
