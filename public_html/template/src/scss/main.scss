@@ -291,12 +291,21 @@ body {
   //
   ////max-height: 100vh;
   //z-index: 0;
+  //position: absolute;
+  ////top: -4%;
+  //top: -20%;
+  //right: 0;
+  //left: 0;
+  //z-index: 0;
+  //height: 800px;
+
   position: absolute;
-  top: -4%;
+  bottom: 0;
+  top: -219px;
   right: 0;
   left: 0;
   z-index: 0;
-  height: 800px;
+  height: 48vw;
   @media (max-width: 1700px) {
     top: 2%;
   }
@@ -324,14 +333,14 @@ body {
   //animation: opacityc 1s 1s linear;
   &_fixed {
     //display: none;
-    position: fixed;
-    left: 0;
-    right: 0;
-    //top: 8%;
-    top: 51px;
-    bottom: 0;
-    z-index: 9002;
-    overflow: hidden;
+    //position: fixed;
+    //left: 0;
+    //right: 0;
+    ////top: 8%;
+    //top: 51px;
+    //bottom: 0;
+    //z-index: 9002;
+    //overflow: hidden;
 
   }
   &_bottom {
@@ -493,50 +502,82 @@ body {
     display: none;
   }
   &_left-big {
-    left: -11%;
-    top: -7%;
+    //left: -11%;
+    //left: -16%;
+    //top: -7%;
+    //z-index: 8001;
+
+    left: -16%;
+    top: 1%;
     z-index: 8001;
   }
 
   &_right-big {
-    left: 61%;
-    top: -7%;
+    //left: 61%;
+    //left: 59%;
+    //top: -7%;
+    //z-index: 8001;
+
+    left: 59%;
+    top: 1%;
     z-index: 8001;
 
   }
   &_bottom-big {
+
     width: 120%;
-    left: 18%;
-    top: -10%;
+    left: 20%;
+    top: -6%;
     z-index: 0;
-    -webkit-animation: rotate 30s -1s infinite alternate linear;
-    -moz-animation: rotate 30s -1s infinite alternate linear;
-    animation: rotate 30s -1s infinite alternate linear;
+    //width: 120%;
+    //left: 18%;
+    //top: -10%;
+    //z-index: 0;
+    //-webkit-animation: rotate 30s -1s infinite alternate linear;
+    //-moz-animation: rotate 30s -1s infinite alternate linear;
+    //animation: rotate 30s -1s infinite alternate linear;
   }
   &_left-small {
+    //width: 65%;
+    //left: -10%;
+    //top: 17%;
+    //z-index: 7000;
+
     width: 65%;
-    left: -10%;
-    top: 17%;
-    z-index: 7000;
+    left: -4%;
+    top: 37%;
+    //z-index: 7000;
   }
   &_second-small {
+    //width: 65%;
+    //left: 18%;
+    //top: 17%;
+
     width: 65%;
-    left: 18%;
-    top: 17%;
+    left: 21%;
+    top: 50%;
   }
   &_third-small {
+    //width: 65%;
+    //left: 41%;
+    //top: 17%;
+
     width: 65%;
     left: 41%;
-    top: 17%;
+    top: 50%;
   }
   &_right-small {
+    //width: 65%;
+    //right: -36%;
+    //top: 18%;
+    //z-index: 7000;
+    //-webkit-animation: rotate 30s -7s infinite alternate linear;
+    //-moz-animation: rotate 30s -7s infinite alternate linear;
+    //animation: rotate 30s -7s infinite alternate linear;
+
     width: 65%;
-    right: -36%;
-    top: 18%;
-    z-index: 7000;
-    -webkit-animation: rotate 30s -7s infinite alternate linear;
-    -moz-animation: rotate 30s -7s infinite alternate linear;
-    animation: rotate 30s -7s infinite alternate linear;
+    right: -32%;
+    top: 36%;
   }
   &_left-medium {
     left: -11%;
@@ -551,32 +592,52 @@ body {
     z-index: 0;
   }
   &_center-center-medium {
-    left: 9%;
-    bottom: 0;
-    top: 22%;
-    width: 164%;
+    //left: 9%;
+    //bottom: 0;
+    //top: 22%;
+    //width: 164%;
+    //z-index: 0;
+    //left: 4%;
+    //bottom: 0;
+    //top: 28%;
+    //width: 164%;
+    //z-index: 0;
+    //@media (max-width: $fourth-width) {
+    //  left: 0%;
+    //  bottom: 0;
+    //  top: 8%;
+    //  width: 200%;
+    //  z-index: 0;
+    //}
+    //@media (max-width: $mobile-width) {
+    //  display: block;
+    //}
+
+    left: 30%;
+    top: -193px;
+    width: 70%;
     z-index: 0;
-    @media (max-width: $fourth-width) {
-      left: 0%;
-      bottom: 0;
-      top: 8%;
-      width: 200%;
-      z-index: 0;
-    }
-    @media (max-width: $mobile-width) {
-      display: block;
-    }
   }
   &_center-left-medium {
-    left: 15%;
-    //top: -30%;
+    //left: 15%;
+    ////top: -30%;
+    //top: -229px;
+    //width: 70%;
+    //z-index: 0;
+
+    left: 13%;
     top: -229px;
     width: 70%;
     z-index: 0;
   }
   &_center-right-medium {
-    left: 51%;
-    //top: -30%;
+    //left: 51%;
+    ////top: -30%;
+    //top: -229px;
+    //width: 70%;
+    //z-index: 0;
+
+    left: 49%;
     top: -229px;
     width: 70%;
     z-index: 0;
@@ -589,8 +650,13 @@ body {
     z-index: 0;
   }
   &_border-right-medium {
-    left: 84%;
-    //top: -24%;
+    //left: 84%;
+    ////top: -24%;
+    //top: -190px;
+    //width: 70%;
+    //z-index: 0;
+
+    left: 81%;
     top: -190px;
     width: 70%;
     z-index: 0;
@@ -600,10 +666,26 @@ body {
     //width: 110%;
     //top: 0;
     //opacity: 0.9;
-    left: 33%;
-    top: -23%;
-    width: 70%;
+    //left: 33%;
+    //top: -23%;
+    //width: 70%;
+    //z-index: 0;
+
+    left: 4%;
+    bottom: 0;
+    top: 28%;
+    width: 164%;
     z-index: 0;
+    @media (max-width: $fourth-width) {
+      left: 0%;
+      bottom: 0;
+      top: 8%;
+      width: 200%;
+      z-index: 0;
+    }
+    @media (max-width: $mobile-width) {
+      display: block;
+    }
   }
   &_left-bottom {
     left: -8%;

@@ -107,6 +107,9 @@
         <div class="cloud-container cloud-container_center-center-medium">
             <canvas class="canvas"></canvas>
         </div>
+        <div class="cloud-container cloud-container_center-page">
+            <canvas class="canvas canvas_large"></canvas>
+        </div>
         <div class="cloud-container cloud-container_center-left-medium">
             <canvas class="canvas"></canvas>
         </div>
