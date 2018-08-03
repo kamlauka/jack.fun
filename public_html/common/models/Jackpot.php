@@ -87,12 +87,8 @@ class Jackpot extends \yii\db\ActiveRecord
         $jackpot = Jackpot::getActiveJackpotObject();
         $jackpot->total += $pc_jackpot;
 
-        if($jackpot->save()){
-            //todo реализовать логи
-            return true;
-        }else{
-            return false;
-        }
+        return $jackpot->save();
+
     }
 
 

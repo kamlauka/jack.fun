@@ -9,21 +9,34 @@
 namespace frontend\controllers;
 
 use common\models\Jackpot;
-use common\models\Modification;
+use common\models\Log;
 use yii\web\Controller;
 use common\models\Betting;
 use common\models\Lottery;
-use Yii;
 
 class BetController extends Controller
 {
+    /**
+     * @return bool
+     */
     public static function setLotteryBet(){
 
-        Jackpot::addPercentFromLottery();
-        Lottery::addRate();
-        Betting::createNewBetLottery();
+        if(Jackpot::addPercentFromLottery()){
+            Log::setLog();//передать параметры для лога
+            return true;
+        }
+        if(Betting::createNewBetLottery()){
+            Log::setLog();//передать параметры для лога
+            return true;
+        }
+        if(Lottery::addRate()){
+            Log::setLog();//передать параметры для лога
+            return true;
+        }
+        return false;
+    }
 
+    public static function setDisputeBet(){
         return true;
-
     }
 }

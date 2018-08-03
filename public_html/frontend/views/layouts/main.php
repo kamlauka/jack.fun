@@ -65,6 +65,11 @@ AppAsset::register($this);
                 <ul>
                     <li><?= Html::a('Jackpot',Url::to(['/jackpot/view'])) ?></li>
                     <li><?= Html::a('Lottery',Url::to(['/lottery/view'])) ?></li>
+                                  <?php if(Yii::$app->user->identity->username == 'admin' || Yii::$app->user->identity->username == 'root' ){ ?>
+                                      <li><?= Html::a('Disputes',Url::to(['/dispute/index'])) ?></li>
+                                      <li><?= Html::a('Contact',Url::to(['/default/contact'])) ?></li>
+                                      <li><?= Html::a('clear-cache',Url::to(['/default/clear-cache'])) ?></li>
+                                    <?php } ?>
                     <?php if (Yii::$app->user->isGuest) { ?>
                         <li><?= Html::a('Signup',false,['id'=>'sign-up','onclick'=>"showForm('.popup__registration')"]) ?></li>
                         <li><?= Html::a('Login',false, ['id'=>'sign-in','onclick'=>"showForm('.popup__login')"]) ?></li>

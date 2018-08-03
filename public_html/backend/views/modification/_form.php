@@ -11,9 +11,9 @@ use yii\widgets\ActiveForm;
 <div class="modification-form">
 
     <?php $form = ActiveForm::begin(); ?>
-
-    <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
-
+    <?php if(!isset($model->name)){ ?>
+        <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
+    <?php } ?>
     <?= $form->field($model, 'data')->textInput() ?>
 
     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>

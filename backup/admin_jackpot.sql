@@ -54,7 +54,11 @@ INSERT INTO `betting` (`id`, `user_id`, `target_id`, `rate`, `pc_target`, `pc_ja
 (59,	1,	51,	0.0284397,	0,	0,	0,	0,	0,	'2018-07-13 01:34:09',	NULL),
 (60,	2,	51,	0.0284397,	0,	0.00006,	0.0000003,	0.0015,	0,	'2018-07-24 02:18:18',	NULL),
 (61,	2,	51,	0.0284397,	0,	0.00006,	0.0000003,	0.0015,	0,	'2018-07-24 02:22:57',	NULL),
-(62,	2,	51,	0.0284397,	0,	0.00006,	0.0000003,	0.0015,	0,	'2018-07-24 02:25:45',	NULL)
+(62,	2,	51,	0.0284397,	0,	0.00006,	0.0000003,	0.0015,	0,	'2018-07-24 02:25:45',	NULL),
+(63,	2,	51,	0.0284397,	0,	0.00006,	0.0000003,	0.0015,	0,	'2018-07-31 02:52:00',	NULL),
+(64,	2,	51,	0.0284397,	0,	0.00006,	0.0000003,	0.0015,	0,	'2018-07-31 03:10:23',	NULL),
+(65,	2,	51,	0.284397,	0,	0.0006,	0.000003,	0.015,	0,	'2018-07-31 03:13:42',	NULL),
+(66,	2,	51,	0.284397,	0,	0.0006,	0.000003,	0.015,	0,	'2018-07-31 03:16:32',	NULL)
 ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `user_id` = VALUES(`user_id`), `target_id` = VALUES(`target_id`), `rate` = VALUES(`rate`), `pc_target` = VALUES(`pc_target`), `pc_jackpot` = VALUES(`pc_jackpot`), `pc_transaction` = VALUES(`pc_transaction`), `pc_keep` = VALUES(`pc_keep`), `pc_organizer` = VALUES(`pc_organizer`), `date_creation` = VALUES(`date_creation`), `status` = VALUES(`status`);
 
 DROP TABLE IF EXISTS `comment`;
@@ -103,7 +107,18 @@ CREATE TABLE `dispute` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `dispute` (`id`, `name`, `img`, `rate`, `total`, `type`, `active`, `executor_id`, `initiator_id`, `moderator_id`, `date_start`, `date_end`, `result`, `status`, `description`) VALUES
-(5,	'Ты этого не сможеш',	'/../../common/uploads/dispute/arm-tattoo-tattoos.jpg',	1,	400,	3,	1,	NULL,	NULL,	2,	'2018-05-24 14:35:30',	'2018-05-25 14:35:30',	NULL,	0,	'Нужно засунуть лампочку в рот!')
+(5,	'Спр',	'/../../common/uploads/dispute/arm-tattoo-tattoos.jpg',	12,	400,	2,	1,	NULL,	NULL,	2,	'2018-05-24 14:35:30',	'2018-05-25 14:35:30',	NULL,	0,	'Нужно засунуть лампочку в рот!'),
+(6,	'Спор',	'/../../common/uploads/dispute/arm-tattoo-tattoos.jpg',	1,	400,	0,	1,	NULL,	NULL,	2,	'2018-05-24 14:35:30',	'2018-05-25 14:35:30',	NULL,	0,	'Нужно засунуть лампочку в рот!'),
+(7,	'Ты этого не сможеш',	'/../../common/uploads/dispute/arm-tattoo-tattoos.jpg',	1,	400,	0,	1,	NULL,	NULL,	2,	'2018-05-24 14:35:30',	'2018-05-25 14:35:30',	NULL,	0,	'Нужно засунуть лампочку в рот!'),
+(8,	'Ты этого не сможеш',	'/../../common/uploads/dispute/arm-tattoo-tattoos.jpg',	1,	400,	1,	1,	NULL,	NULL,	2,	'2018-05-24 14:35:30',	'2018-05-25 14:35:30',	NULL,	0,	'Нужно засунуть лампочку в рот!'),
+(9,	'Ты этого не сможеш',	'/../../common/uploads/dispute/arm-tattoo-tattoos.jpg',	1,	400,	2,	1,	NULL,	NULL,	2,	'2018-05-24 14:35:30',	'2018-05-25 14:35:30',	NULL,	0,	'Нужно засунуть лампочку в рот!'),
+(10,	'Ты этого не сможеш',	'/../../common/uploads/dispute/arm-tattoo-tattoos.jpg',	1,	400,	0,	1,	NULL,	NULL,	2,	'2018-05-24 14:35:30',	'2018-05-25 14:35:30',	NULL,	0,	'Нужно засунуть лампочку в рот!'),
+(11,	'Ты этого не сможеш',	'/../../common/uploads/dispute/arm-tattoo-tattoos.jpg',	1,	400,	0,	1,	NULL,	NULL,	2,	'2018-05-24 14:35:30',	'2018-05-25 14:35:30',	NULL,	0,	'Нужно засунуть лампочку в рот!'),
+(12,	'Сделай',	'/../../common/uploads/dispute/arm-tattoo-tattoos.jpg',	1,	400,	0,	1,	NULL,	NULL,	2,	'2018-05-24 14:35:30',	'2018-05-25 14:35:30',	NULL,	0,	'Нужно засунуть лампочку в рот!'),
+(13,	'Ты этого не сможеш',	'/../../common/uploads/dispute/arm-tattoo-tattoos.jpg',	1,	400,	0,	1,	NULL,	NULL,	2,	'2018-05-24 14:35:30',	'2018-05-25 14:35:30',	NULL,	0,	'Нужно засунуть лампочку в рот!'),
+(14,	'name',	'/../../common/uploads/dispute/arm-tattoo-tattoos.jpg',	1,	400,	0,	1,	NULL,	NULL,	2,	'2018-05-24 14:35:30',	'2018-05-25 14:35:30',	NULL,	0,	'Нужно засунуть лампочку в рот!'),
+(15,	'Ты этого не сможеш',	'/../../common/uploads/dispute/arm-tattoo-tattoos.jpg',	1,	400,	0,	1,	NULL,	NULL,	2,	'2018-05-24 14:35:30',	'2018-05-25 14:35:30',	NULL,	0,	'Нужно засунуть лампочку в рот!'),
+(16,	'Ты этого не сможеш',	'/../../common/uploads/dispute/arm-tattoo-tattoos.jpg',	1,	400,	0,	1,	NULL,	NULL,	2,	'2018-05-24 14:35:30',	'2018-05-25 14:35:30',	NULL,	0,	'Нужно засунуть лампочку в рот!')
 ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `name` = VALUES(`name`), `img` = VALUES(`img`), `rate` = VALUES(`rate`), `total` = VALUES(`total`), `type` = VALUES(`type`), `active` = VALUES(`active`), `executor_id` = VALUES(`executor_id`), `initiator_id` = VALUES(`initiator_id`), `moderator_id` = VALUES(`moderator_id`), `date_start` = VALUES(`date_start`), `date_end` = VALUES(`date_end`), `result` = VALUES(`result`), `status` = VALUES(`status`), `description` = VALUES(`description`);
 
 DROP TABLE IF EXISTS `jackpot`;
@@ -117,7 +132,7 @@ CREATE TABLE `jackpot` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `jackpot` (`id`, `total`, `status`, `date_start`, `result`) VALUES
-(3,	88.0015103516,	1,	'2018-07-19 18:10:09',	NULL),
+(3,	88.0028903516,	1,	'2018-07-19 18:10:09',	NULL),
 (4,	546,	0,	'2018-06-07 09:25:20',	NULL)
 ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `total` = VALUES(`total`), `status` = VALUES(`status`), `date_start` = VALUES(`date_start`), `result` = VALUES(`result`);
 
@@ -127,15 +142,15 @@ CREATE TABLE `language` (
   `alias` varchar(8) NOT NULL,
   `name` varchar(32) NOT NULL,
   `local` varchar(8) NOT NULL,
-  `activ` varchar(8) NOT NULL,
+  `active` varchar(8) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `language` (`id`, `alias`, `name`, `local`, `activ`) VALUES
-(1,	'ru',	'Русский',	'ru-RU',	'activ'),
-(2,	'en',	'English',	'en-EN',	'activ'),
-(3,	'ch',	'中国',	'zh-cn',	'activ')
-ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `alias` = VALUES(`alias`), `name` = VALUES(`name`), `local` = VALUES(`local`), `activ` = VALUES(`activ`);
+INSERT INTO `language` (`id`, `alias`, `name`, `local`, `active`) VALUES
+(1,	'ru',	'Русский',	'ru-RU',	'active'),
+(2,	'en',	'English',	'en-EN',	'active'),
+(3,	'ch',	'中国',	'zh-cn',	'active')
+ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `alias` = VALUES(`alias`), `name` = VALUES(`name`), `local` = VALUES(`local`), `active` = VALUES(`active`);
 
 DROP TABLE IF EXISTS `log`;
 CREATE TABLE `log` (
@@ -166,12 +181,8 @@ CREATE TABLE `lottery` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-<<<<<<< HEAD
-
-=======
->>>>>>> sd
 INSERT INTO `lottery` (`id`, `name`, `total`, `status`, `currency_start`, `result`, `description`, `rate`, `name_prize`, `img`) VALUES
-(51,	'id = 340,343,346,',	0.2275176,	'Active',	330,	NULL,	'id = 341,344,347,',	0.03,	'id = 342,345,348,',	'/../../common/uploads/lottery/iphone.png'),
+(51,	'id = 340,343,346,',	0.853191,	'Active',	330,	NULL,	'id = 341,344,347,',	0.3,	'id = 342,345,348,',	'/../../common/uploads/lottery/iphone.png'),
 (53,	'id = 340,343,346,',	0.1137588,	'Wait_participant',	330,	'1',	'id = 341,344,347,',	0.03,	'id = 342,345,348,',	'/../../common/uploads/lottery/iphone.png')
 ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `name` = VALUES(`name`), `total` = VALUES(`total`), `status` = VALUES(`status`), `currency_start` = VALUES(`currency_start`), `result` = VALUES(`result`), `description` = VALUES(`description`), `rate` = VALUES(`rate`), `name_prize` = VALUES(`name_prize`), `img` = VALUES(`img`);
 
@@ -180,7 +191,7 @@ CREATE TABLE `modification` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `data` varchar(64) NOT NULL,
-  `description` text NOT NULL,
+  `description` text,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -190,7 +201,10 @@ INSERT INTO `modification` (`id`, `name`, `data`, `description`) VALUES
 (3,	'percent_exchange',	'0.001',	'%  комиссия биржы https://bitshares.org/ за транзакцию'),
 (4,	'percent_admin',	'5',	'5% на содержание сайта и на зп модераторам'),
 (5,	'percent_organizer_dispute ',	'1',	'1 % организаторам споров.'),
-(6,	'wallet_account',	'P5HxqgByoxPYbtYgdSAe9MWPRqbH4msAYL5T3QDQWuKYX',	'Кошелек администратора')
+(6,	'wallet_account',	'P5HxqgByoxPYbtYgdSAe9MWPRqbH4msAYL5T3QDQWuKYX',	'Кошелек администратора'),
+(7,	'dispute',	'11',	'Спор на главной'),
+(8,	'dispute',	'8',	'Спор на главной'),
+(9,	'dispute',	'7',	'Спор на главной')
 ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `name` = VALUES(`name`), `data` = VALUES(`data`), `description` = VALUES(`description`);
 
 DROP TABLE IF EXISTS `online`;
@@ -237,13 +251,8 @@ CREATE TABLE `transaction` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `transaction` (`id`, `user_id`, `type`, `target_id`, `amount`, `hash`) VALUES
-(44,	1,	'not confirmed',	51,	0.03,	'65756756'),
-(75,	2,	'not confirmed',	51,	0.03,	'P5HxqgByoxPYbtYgdSAe9MWPRqbH4msAYL5T3QDQWuKYX')
+(97,	2,	'not confirmed',	51,	0.3,	'P5HxqgByoxPYbtYgdSAe9MWPRqbH4msAYL5T3QDQWuKYX')
 ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `user_id` = VALUES(`user_id`), `type` = VALUES(`type`), `target_id` = VALUES(`target_id`), `amount` = VALUES(`amount`), `hash` = VALUES(`hash`);
-<<<<<<< HEAD
-
-=======
->>>>>>> sd
 
 DROP TABLE IF EXISTS `translation`;
 CREATE TABLE `translation` (
@@ -275,7 +284,6 @@ INSERT INTO `translation` (`id`, `language_id`, `target_id`, `alias`, `text`) VA
 (356,	1,	NULL,	'jackpot_description',	'Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается при простой дубликации \"Здесь ваш текст.. Здесь ваш текст.. Здесь ваш текст..\" Многие программы электронной вёрстки и редакторы HTML используют Lorem Ipsum в качестве текста по умолчанию, так что поиск по ключевым словам \"lorem ipsum\" сразу показывает, как много веб-страниц всё ещё дожидаются своего настоящего рождения. За прошедшие годы текст Lorem Ipsum получил много версий. Некоторые версии появились по ошибке, некоторые - намеренно (например, юмористические варианты)'),
 (357,	2,	NULL,	'jackpot_description',	'jackpot_ descriptionjackpot _descriptionjackpotjackpot_ descriptionjackpot _descriptionjackpotjackpot_ descriptionjackpot _descriptionjackpotjackpot_ descriptionjackpot _descriptionjackpotjackpot_ descriptionjackpot _descriptionjackpotjackpot_ descriptionjackpot _descriptionjackpotjackpot_ descriptionjackpot _descriptionjackpotjackpot_ descriptionjackpot _descriptionjackpotjackpot_ descriptionjackpot _descriptionjackpotjackpot_ descriptionjackpot _descriptionjackpotjackpot_ descriptionjackpot _descriptionjackpotjackpot_ descriptionjackpot _descriptionjackpotjackpot_ descriptionjackpot _descriptionjackpotjackpot_ descriptionjackpot _descriptionjackpotjackpot_ descriptionjackpot _descriptionjackpotjackpot_ descriptionjackpot _descriptionjackpotjackpot_ descriptionjackpot _descriptionjackpotjackpot_ descriptionjackpot _descriptionjackpot'),
 (358,	3,	NULL,	'jackpot_description',	'无可否认，当读者在浏览一个页面的排版时，难免会被可阅读的内容所分散注意力。Lorem Ipsum的目的就是为了保持字母多多少少标准及平均的分配，而不是“此处有文本，此处有文本”，从而让内容更像可读的英语。如今，很多桌面排版软件以及网页编辑用Lorem Ipsum作为默认的示范文本，搜一搜“Lorem Ipsum”就能找到这些网站的雏形。这些年来Lorem Ipsum演变出了各式各样的版本，有些出于偶然，有些则是故意的（刻意的幽默之类的'),
-(359,	2,	NULL,	'main_T',	'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. '),
 (360,	2,	NULL,	'main_bitcoin',	'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. '),
 (361,	2,	NULL,	'main_hands',	'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.'),
 (362,	2,	NULL,	'main_play',	'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.'),
@@ -336,7 +344,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `username`, `auth_key`, `password_hash`, `password_reset_token`, `email`, `status`, `created_at`, `updated_at`, `phone`, `type`, `balance`, `avatar`, `file`, `active`) VALUES
 (1,	'admin',	'A1qwgmpDchz5AztmbE-YOaTOLZZkQmDm',	'$2y$13$oMa6rChD.bP0pDJUlVQHr.eP5Lm8eqBzAW0rd3VCWVRqCFaYe.S1O',	NULL,	'admin@admin.com',	1,	1526915570,	1531830606,	'000000000000',	2,	NULL,	'/../../common/uploads/avatar/Енот.jpg',	'/../../common/uploads/avatar/U1sILnSlyAQ.jpg',	NULL),
-(2,	'root',	'USa0h80IbiOH9p-lSFFfAl7yvFswoQ0I',	'$2y$13$NJ.n66K1A42cpUe2PxbQ6u2hLL2iZzzrVwTyAEEEAzDyeqic9om86',	NULL,	'sd@terlabs.com',	1,	1526983224,	1531829679,	'0969361424',	1,	NULL,	'/../../common/uploads/avatar/smile.png',	'',	NULL),
+(2,	'root',	'USa0h80IbiOH9p-lSFFfAl7yvFswoQ0I',	'$2y$13$NJ.n66K1A42cpUe2PxbQ6u2hLL2iZzzrVwTyAEEEAzDyeqic9om86',	'UcnjVhK_ECeJB9FzDka_b5cXuNxqqXt__1533038737',	'sd@terlabs.com',	1,	1526983224,	1533038737,	'0969361424',	1,	NULL,	'/../../common/uploads/avatar/smile.png',	'',	NULL),
 (43,	'hkjhkhjk',	'7_6ydryZcxx-MOYpFvpr3A6gKpi9rIwR',	'$2y$13$gKaOxDOseH4Exo.SaCiSAeeDMy.ES/NBjideA3Dn5kzlv2qvR0QWq',	NULL,	'sd3@terlabs.com',	0,	1531406226,	1531406226,	NULL,	0,	0,	NULL,	NULL,	'2045179b80cd9ea6d4da82f0ce5e6859'),
 (44,	'hkjhkhjk33',	'peoa_uE3PS7iXWgonnXdTK0Feyp8v1mu',	'$2y$13$faZq.aBEUAyNjKroEbPqyeIPNQgIW8ErzZguxmJKxKpSVow3sj7Ke',	NULL,	'sd33@terlabs.com3',	0,	1531406307,	1531406307,	NULL,	0,	0,	NULL,	NULL,	'bd9fffd883a2af3a6fcf88bf1c5db3a9'),
 (45,	'hkjhkhjk334',	'ornOYkgBIjjuoGqRMiEdu4UAN0y1taX4',	'$2y$13$9PF4iUmN9QNI6XFJXINIFO5zqTdcBProZTQfWPuW3r5QAPQBCI8IW',	NULL,	'sd334@terlabs.com3',	0,	1531406337,	1531406337,	NULL,	0,	0,	NULL,	NULL,	'c34a9d2b2ba22fde4516f184522fdd0d'),
@@ -346,3 +354,5 @@ INSERT INTO `user` (`id`, `username`, `auth_key`, `password_hash`, `password_res
 (49,	'fdgdfgdfg',	'dgqBUTbdcfQR35gMe6KIU8FbUUhvkUhu',	'$2y$13$iUnd8EaThN/1U1PLgL2ao.olbgpsCynmF.j4eBJuwtkdFF2pJ/k0y',	NULL,	'fgf@fgfdg.fg',	0,	1531406971,	1531406971,	NULL,	0,	0,	NULL,	NULL,	'9d43ffef4acba5abdbcebdec25ed7c30'),
 (50,	'fdgdfgdfgw',	'ADLLzOgM4DT9ru64Dd2OPu3KmrayRrG-',	'$2y$13$aUU9lxGD/7q7IvJ5z4kds.MBBwU9o8o2.Q4tikaj2XgbAQwHNxiCy',	NULL,	'fgf@fgfdg.fgw',	0,	1531407037,	1531407037,	NULL,	0,	0,	NULL,	NULL,	'f37be569606db8bc6687f1df1b1554d3')
 ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `username` = VALUES(`username`), `auth_key` = VALUES(`auth_key`), `password_hash` = VALUES(`password_hash`), `password_reset_token` = VALUES(`password_reset_token`), `email` = VALUES(`email`), `status` = VALUES(`status`), `created_at` = VALUES(`created_at`), `updated_at` = VALUES(`updated_at`), `phone` = VALUES(`phone`), `type` = VALUES(`type`), `balance` = VALUES(`balance`), `avatar` = VALUES(`avatar`), `file` = VALUES(`file`), `active` = VALUES(`active`);
+
+-- 2018-08-03 09:12:41
