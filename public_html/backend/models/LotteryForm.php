@@ -69,19 +69,19 @@ public function __construct()
         $lottery->img = $this->img;
         $lottery->save();
 
-        $langs = Language::find()->where(['activ'=>'activ'])->all();
+        $langs = Language::getActiveLanguageObjects();
 
         foreach ($langs as $lang) {
 
-            foreach ($attributes as $attribut)
+            foreach ($attributes as $attribute)
             {
                 $translations = new Translation();
                 $translations->language_id = $lang->id;
                 $translations->target_id = $lottery->id;
-                $translations->alias = $attribut;
-                $translations->text = $this->{$lang->alias.'_'.$attribut};
+                $translations->alias = $attribute;
+                $translations->text = $this->{$lang->alias.'_'.$attribute};
                 $translations->save();
-                $lottery->{$attribut} .= $translations->id.',';
+                $lottery->{$attribute} .= $translations->id.',';
             }
 
         }
@@ -100,14 +100,14 @@ public function __construct()
         $model->rate = $lottery->rate;
         $model->img = $lottery->img;
 
-        $langs = Language::find()->where(['activ'=>'activ'])->all();
+        $langs = Language::getActiveLanguageObjects();
 
         foreach ($langs as $lang) {
 
-            foreach ($attributes as $attribut)
+            foreach ($attributes as $attribute)
             {
-                $ob_text = Translation::find()->where(['language_id'=>$lang->id,'target_id'=>$lottery->id,'alias'=>$attribut])->select(['text'])->one();
-                $model->{$lang->alias.'_'.$attribut} = $ob_text->text;
+                $ob_text = Translation::find()->where(['language_id'=>$lang->id,'target_id'=>$lottery->id,'alias'=>$attribute])->select(['text'])->one();
+                $model->{$lang->alias.'_'.$attribute} = $ob_text->text;
             }
         }
 
@@ -122,14 +122,14 @@ public function __construct()
        // $lottery->img = $model->img;
         $lottery->save();
 
-        $langs = Language::find()->where(['activ'=>'activ'])->all();
+        $langs = Language::getActiveLanguageObjects();
 
         foreach ($langs as $lang) {
 
-            foreach ($attributes as $attribut)
+            foreach ($attributes as $attribute)
             {
-                $translations = Translation::find()->where(['language_id'=>$lang->id,'target_id'=>$lottery->id,'alias'=>$attribut])->one(); ;
-                $translations->text = $model->{$lang->alias.'_'.$attribut};
+                $translations = Translation::find()->where(['language_id'=>$lang->id,'target_id'=>$lottery->id,'alias'=>$attribute])->one(); ;
+                $translations->text = $model->{$lang->alias.'_'.$attribute};
                 $translations->save();
             }
         }

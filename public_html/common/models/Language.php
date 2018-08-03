@@ -32,9 +32,9 @@ class Language extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['alias', 'name', 'activ', 'local'], 'required'],
+            [['alias', 'name', 'active', 'local'], 'required'],
             [['alias', 'name'], 'string', 'max' => 32],
-            [['activ','alias','local'], 'string', 'max' => 8],
+            [['active','alias','local'], 'string', 'max' => 8],
         ];
     }
 
@@ -48,7 +48,7 @@ class Language extends \yii\db\ActiveRecord
             'alias' => 'Alias',
             'name' => 'Name',
             'local' => 'Local',
-            'activ' => 'Activ',
+            'active' => 'Active',
         ];
     }
 
@@ -90,6 +90,12 @@ class Language extends \yii\db\ActiveRecord
         }
     }
 
+    /**
+     * @return array|\yii\db\ActiveRecord[]
+     */
+    public static function getActiveLanguageObjects(){
+        return Language::find()->where(['active'=>'active'])->all();
+    }
 
 
 
