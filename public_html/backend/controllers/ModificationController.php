@@ -8,6 +8,7 @@ use backend\models\ModificationSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\ForbiddenHttpException;
 
 /**
  * ModificationController implements the CRUD actions for Modification model.
@@ -30,11 +31,30 @@ class ModificationController extends Controller
     }
 
     /**
-     * Lists all Modification models.
-     * @return mixed
+     * @param $action
+     * @return bool
+     * @throws ForbiddenHttpException
+     * @throws \yii\web\BadRequestHttpException
+     */
+    public function beforeAction($action)
+    {
+        if (parent::beforeAction($action)) {
+            if (!\Yii::$app->user->can('superAdmin')) {
+                throw new ForbiddenHttpException('Access denied');
+            }
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+    /**
+     * @return string
      */
     public function actionIndex()
     {
+
         $searchModel = new ModificationSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -96,11 +116,12 @@ class ModificationController extends Controller
     }
 
     /**
-     * Deletes an existing Modification model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
+     * @param $id
+     * @return \yii\web\Response
+     * @throws NotFoundHttpException
+     * @throws \Exception
+     * @throws \Throwable
+     * @throws \yii\db\StaleObjectException
      */
     public function actionDelete($id)
     {

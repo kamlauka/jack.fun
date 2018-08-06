@@ -24,6 +24,14 @@ use yii\widgets\ActiveForm;
 class PageController extends FrontController
 {
 
+    public function actionError()
+    {
+        $exception = Yii::$app->errorHandler->exception;
+        if ($exception !== null) {
+            return $this->render('error', ['exception' => $exception]);
+        }
+    }
+
     /**
      * Displays homepage.
      *

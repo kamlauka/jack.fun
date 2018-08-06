@@ -21,7 +21,7 @@ use yii\helpers\Url;
 <!--</div>-->
 <div class="site-index">
 
-    <?php if (Yii::$app->controller->route === 'default/index') { ?>
+    <?php if ($dd = Yii::$app->controller->route === 'page/index') { ?>
 
         <div class="lazy logo-mini" data-loader="customLoaderName">
             <div class="logo__container">

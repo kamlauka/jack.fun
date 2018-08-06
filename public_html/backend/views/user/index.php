@@ -15,6 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('All banlist', ['/banlist/index'], ['class' => 'btn btn-success']) ?>
         <?= Html::a('All betting', ['/betting/index'], ['class' => 'btn btn-success']) ?>
         <?= Html::a('All transaction', ['/transaction/index'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('All Rules', ['/role/index'], ['class' => 'btn btn-success']) ?>
     </p>
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -52,17 +53,32 @@ $this->params['breadcrumbs'][] = $this->title;
                 'label' => 'Type',
                 'class' => 'yii\grid\DataColumn',
                 'value' => function ($data) {
-                    if($data->type == 1 ){return 'moderator';}
-                        elseif($data->type == 2 ){return 'administrator';}
-                            else{return 'gamer';}
-                    },
+                        if(\backend\models\Role::getUserRole($data->id)){
+                            return \backend\models\Role::getUserRole($data->id)->item_name;
+                        }else{
+                            return 'user';
+                        }
+
+                     },
             ],
-            'balance',
             //'avatar',
-            //'wallet',
             //'file',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'yii\grid\ActionColumn',
+                'buttons' => [
+
+                    'delete' => function ($url,$model) {
+                        if (!\Yii::$app->user->can('admin')) {
+                            return null;
+                        }else{
+                            return Html::a(
+                                '<span class="glyphicon glyphicon-trash"></span>',
+                                $url);
+                        }
+                    },
+
+                ],
+            ],
         ],
     ]); ?>
 </div>

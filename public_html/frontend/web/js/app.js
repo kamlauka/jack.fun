@@ -72,39 +72,21 @@ function checkboxClick() {
 
 //Вызов попапа с какой-либо формой
 function showForm(activeForm) {
+    console.log(true);
     $('#link-top').prop('checked', false);
     $('.forms').css('display', 'flex');
     var kids = $('.forms__popup').children();
     kids.css('display', 'none');
     $(activeForm).css('display', 'block');
-    console.log('open')
-
 }
 
-
-
-//При клике на затемнение или кнопку закрытия, форма закрывается
-function closeForm() {
-    $('.forms').css('display', 'none');
-    var kids = $('.forms__popup').children();
-    kids.css('display', 'none');
-    console.log('close')
-}
-
-
-
-
+//При клике на затемнение, форма закрывается
 function targetFunc(e) {
     if (!$(e.target).closest(".popup").length) {
         $(".forms").hide();
     }
     e.stopPropagation();
 }
-
-
-
-
-
 
 function targetMenu(e) {
     if (!$(e.target).closest(".menu>ul").length) {
@@ -125,7 +107,6 @@ var cloudBottom = $(".cloud-container_bottom-scale").first();
 var cloudLeft = $(".cloud-container_left-big").first();
 var cloudRight = $(".cloud-container_right-big").first();
 
-
 // с какого места начал юзер?
 //если с середины страницы, то включаем лого конечное
 $(document).ready(function() {
@@ -140,8 +121,8 @@ $(document).ready(function() {
             logoContainer.removeClass("logo__container");
             logoContainer.addClass("logo-mini__container");
         }
-        if ($('div').hasClass('popup__winner')) {
-            showForm('.popup__winner');
+        if ($('div').hasClass('popup__configuration')) {
+            showForm('.popup__configuration');
         }
         // logoText.css('z-index', '8999');
         // logoPosition.css('z-index', '2');
@@ -157,7 +138,7 @@ $(document).ready(function() {
 
     }
 
-    // animateClouds();
+    animateClouds();
     if($("div").is(".disputes__image-container")) {
         animateNotes();
     }

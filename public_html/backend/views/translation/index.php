@@ -13,8 +13,11 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="translation-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-    <?= Html::a('language', ['/language/index'], ['class' => 'btn btn-success']) ?>
+    <?php
+        if (\Yii::$app->user->can('superAdmin')) {
+            Html::a('language', ['/language/index'], ['class' => 'btn btn-success']);
+        }
+    ?>
     <p>
         <?= Html::a(Yii::t('app', 'Create Translation'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>

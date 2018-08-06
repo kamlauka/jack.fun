@@ -19,8 +19,6 @@ use yii\web\IdentityInterface;
  * @property int $created_at
  * @property int $updated_at
  * @property string $phone
- * @property int $type
- * @property double $balance
  * @property string $avatar
  * @property string $active
  * @property string $file
@@ -62,12 +60,10 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     {
         return [
             [['username', 'auth_key', ], 'required'],
-            [['balance'], 'number'],
             [['username', 'auth_key', 'password_hash','password_reset_token', 'password_reset_token'], 'string'],
             [['status'], 'integer'],
             [['phone', 'active'], 'string'],
             [['email'], 'email'],
-            [['type'], 'integer', 'max' => 2],
             [['avatar'], 'file', 'extensions' => ['png', 'jpg', 'gif'], 'maxSize' => 1024 * 1024 * 1],
             [['file'], 'file', 'extensions' => 'png, jpg'],
         ];
@@ -87,8 +83,6 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
             'email' => 'Email',
             'status' => 'Status',
             'phone' => 'Phone',
-            'type' => 'Type',
-            'balance' => 'Balance',
             'avatar' => 'Avatar',
             'file' => 'File',
             'active' => 'activation',

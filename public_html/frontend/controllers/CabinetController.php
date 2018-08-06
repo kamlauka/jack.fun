@@ -7,6 +7,7 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use Yii;
 use common\models\ChangePasswordForm;
+use yii\web\ForbiddenHttpException;
 use yii\web\UploadedFile;
 
 
@@ -43,9 +44,8 @@ class CabinetController extends FrontController
     }
 
     /**
-     * Displays homepage.
-     *
-     * @return mixed
+     * @return string
+     * @throws ForbiddenHttpException
      */
     public function actionIndex()
     {

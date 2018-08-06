@@ -23,7 +23,7 @@ vagrantfile:
                         id: jolly
                         hostname: jolly.server
                         network:
-                            private_network: 192.168.101.66
+                            private_network: 192.168.101.65
                             forwarded_port:
                                 port1:
                                     host: '7413'

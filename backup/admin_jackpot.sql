@@ -5,6 +5,101 @@ SET time_zone = '+00:00';
 SET foreign_key_checks = 0;
 SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
+DROP TABLE IF EXISTS `auth_assignment`;
+CREATE TABLE `auth_assignment` (
+  `item_name` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
+  `user_id` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` int(11) DEFAULT NULL,
+  PRIMARY KEY (`item_name`,`user_id`),
+  KEY `auth_assignment_user_id_idx` (`user_id`),
+  CONSTRAINT `auth_assignment_ibfk_1` FOREIGN KEY (`item_name`) REFERENCES `auth_item` (`name`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+INSERT INTO `auth_assignment` (`item_name`, `user_id`, `created_at`) VALUES
+('admin',	'2',	1533494582),
+('moderator',	'51',	1533494582),
+('superAdmin',	'1',	1533494582)
+ON DUPLICATE KEY UPDATE `item_name` = VALUES(`item_name`), `user_id` = VALUES(`user_id`), `created_at` = VALUES(`created_at`);
+
+DROP TABLE IF EXISTS `auth_item`;
+CREATE TABLE `auth_item` (
+  `name` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
+  `type` smallint(6) NOT NULL,
+  `description` text COLLATE utf8_unicode_ci,
+  `rule_name` varchar(64) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `data` blob,
+  `created_at` int(11) DEFAULT NULL,
+  `updated_at` int(11) DEFAULT NULL,
+  PRIMARY KEY (`name`),
+  KEY `rule_name` (`rule_name`),
+  KEY `idx-auth_item-type` (`type`),
+  CONSTRAINT `auth_item_ibfk_1` FOREIGN KEY (`rule_name`) REFERENCES `auth_rule` (`name`) ON DELETE SET NULL ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+INSERT INTO `auth_item` (`name`, `type`, `description`, `rule_name`, `data`, `created_at`, `updated_at`) VALUES
+('admin',	1,	'Administrator',	NULL,	NULL,	1533494581,	1533494581),
+('create',	2,	'Create',	NULL,	NULL,	1533494582,	1533494582),
+('createLanguage',	2,	'Создание языков',	NULL,	NULL,	1533494582,	1533494582),
+('createRoles',	2,	'Создание ролей',	NULL,	NULL,	1533494582,	1533494582),
+('delete',	2,	'delete',	NULL,	NULL,	1533494582,	1533494582),
+('deleteBanlist',	2,	'delete Ban list',	NULL,	NULL,	1533494582,	1533494582),
+('deleteLanguage',	2,	'delete Language',	NULL,	NULL,	1533494582,	1533494582),
+('deleteOnline',	2,	'delete Online',	NULL,	NULL,	1533494582,	1533494582),
+('deleteRoles',	2,	'Удаление ролей',	NULL,	NULL,	1533494582,	1533494582),
+('index',	2,	'Index',	NULL,	NULL,	1533494582,	1533494582),
+('indexLanguage',	2,	'Главная Language',	NULL,	NULL,	1533494582,	1533494582),
+('moderator',	1,	'Moderator',	NULL,	NULL,	1533494582,	1533494582),
+('superAdmin',	1,	'SuperAdministrator',	NULL,	NULL,	1533494581,	1533494581),
+('update',	2,	'Update',	NULL,	NULL,	1533494582,	1533494582),
+('updateLanguage',	2,	'update Language',	NULL,	NULL,	1533494582,	1533494582),
+('user',	1,	'user',	NULL,	NULL,	1533494581,	1533494581),
+('view',	2,	'view',	NULL,	NULL,	1533494582,	1533494582),
+('viewLanguage',	2,	'view Language',	NULL,	NULL,	1533494582,	1533494582)
+ON DUPLICATE KEY UPDATE `name` = VALUES(`name`), `type` = VALUES(`type`), `description` = VALUES(`description`), `rule_name` = VALUES(`rule_name`), `data` = VALUES(`data`), `created_at` = VALUES(`created_at`), `updated_at` = VALUES(`updated_at`);
+
+DROP TABLE IF EXISTS `auth_item_child`;
+CREATE TABLE `auth_item_child` (
+  `parent` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
+  `child` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`parent`,`child`),
+  KEY `child` (`child`),
+  CONSTRAINT `auth_item_child_ibfk_1` FOREIGN KEY (`parent`) REFERENCES `auth_item` (`name`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `auth_item_child_ibfk_2` FOREIGN KEY (`child`) REFERENCES `auth_item` (`name`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+INSERT INTO `auth_item_child` (`parent`, `child`) VALUES
+('superAdmin',	'admin'),
+('moderator',	'create'),
+('superAdmin',	'createLanguage'),
+('admin',	'createRoles'),
+('admin',	'delete'),
+('moderator',	'deleteBanlist'),
+('superAdmin',	'deleteLanguage'),
+('moderator',	'deleteOnline'),
+('admin',	'deleteRoles'),
+('moderator',	'index'),
+('superAdmin',	'indexLanguage'),
+('admin',	'moderator'),
+('superAdmin',	'moderator'),
+('moderator',	'update'),
+('superAdmin',	'updateLanguage'),
+('moderator',	'view'),
+('superAdmin',	'viewLanguage')
+ON DUPLICATE KEY UPDATE `parent` = VALUES(`parent`), `child` = VALUES(`child`);
+
+DROP TABLE IF EXISTS `auth_rule`;
+CREATE TABLE `auth_rule` (
+  `name` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
+  `data` blob,
+  `created_at` int(11) DEFAULT NULL,
+  `updated_at` int(11) DEFAULT NULL,
+  PRIMARY KEY (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+INSERT INTO `auth_rule` (`name`, `data`, `created_at`, `updated_at`) VALUES
+('admin',	'<?php\n\nnamespace backend\\controllers;\n\nuse backend\\models\\Role;\n\nuse backend\\models\\RoleSearch;\nuse yii\\web\\Controller;\nuse yii\\web\\NotFoundHttpException;\nuse Yii;\n\n\n/**\n * LogController implements the CRUD actions for Log model.\n */\nclass RoleController extends Controller\n{\n\n    /**\n     * Lists all Log models.\n     * @return mixed\n     */\n    public function actionIndex()\n    {\n        $searchModel = new RoleSearch();\n        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);\n\n        return $this->render(\'index\', [\n            \'searchModel\' => $searchModel,\n            \'dataProvider\' => $dataProvider,\n        ]);\n    }\n\n    /**\n     * Creates a new Log model.\n     * If creation is successful, the browser will be redirected to the \'view\' page.\n     * @return mixed\n     */\n    public function actionCreate()\n    {\n        $model = new Role();\n\n        if ($model->load(Yii::$app->request->post()) && $model->save()) {\n            Yii::$app->session->setFlash(\'success\', \'Role added\');\n        }\n\n        return $this->render(\'create\', [\n            \'model\' => $model,\n        ]);\n    }\n\n    /**\n     * Deletes an existing Log model.\n     * If deletion is successful, the browser will be redirected to the \'index\' page.\n     * @param integer $id\n     * @return mixed\n     * @throws NotFoundHttpException if the model cannot be found\n     */\n    public function actionDelete($id)\n    {\n        if (!\\Yii::$app->user->can(\'Delete\')) {\n            throw new ForbiddenHttpException(\'Access denied\');\n        }\n\n        $this->findModel($id)->delete();\n\n        return $this->redirect([\'index\']);\n    }\n}\n',	NULL,	NULL)
+ON DUPLICATE KEY UPDATE `name` = VALUES(`name`), `data` = VALUES(`data`), `created_at` = VALUES(`created_at`), `updated_at` = VALUES(`updated_at`);
+
 DROP TABLE IF EXISTS `banlist`;
 CREATE TABLE `banlist` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -89,6 +184,29 @@ INSERT INTO `comment` (`id`, `user_id`, `dispute_id`, `text`, `date`, `status`) 
 (1,	1,	5,	1,	'2016-09-09 00:00:00',	1)
 ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `user_id` = VALUES(`user_id`), `dispute_id` = VALUES(`dispute_id`), `text` = VALUES(`text`), `date` = VALUES(`date`), `status` = VALUES(`status`);
 
+DROP TABLE IF EXISTS `copy_auth_rule`;
+CREATE TABLE `copy_auth_rule` (
+  `name` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
+  `data` blob,
+  `created_at` int(11) DEFAULT NULL,
+  `updated_at` int(11) DEFAULT NULL,
+  PRIMARY KEY (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+DROP TABLE IF EXISTS `copy_migration`;
+CREATE TABLE `copy_migration` (
+  `version` varchar(180) NOT NULL,
+  `apply_time` int(11) DEFAULT NULL,
+  PRIMARY KEY (`version`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `copy_migration` (`version`, `apply_time`) VALUES
+('m000000_000000_base',	1533420273),
+('m140506_102106_rbac_init',	1533420278),
+('m170907_052038_rbac_add_index_on_auth_assignment_user_id',	1533420278)
+ON DUPLICATE KEY UPDATE `version` = VALUES(`version`), `apply_time` = VALUES(`apply_time`);
+
 DROP TABLE IF EXISTS `dispute`;
 CREATE TABLE `dispute` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -125,7 +243,6 @@ INSERT INTO `dispute` (`id`, `name`, `img`, `rate`, `total`, `type`, `active`, `
 (11,	'Ты этого не сможеш',	'/../../common/uploads/dispute/arm-tattoo-tattoos.jpg',	1,	400,	0,	1,	NULL,	NULL,	2,	'2018-05-24 14:35:30',	'2018-05-25 14:35:30',	NULL,	0,	'Нужно засунуть лампочку в рот!'),
 (12,	'Сделай',	'/../../common/uploads/dispute/arm-tattoo-tattoos.jpg',	1,	400,	0,	1,	NULL,	NULL,	2,	'2018-05-24 14:35:30',	'2018-05-25 14:35:30',	NULL,	0,	'Нужно засунуть лампочку в рот!'),
 (13,	'Ты этого не сможеш',	'/../../common/uploads/dispute/arm-tattoo-tattoos.jpg',	1,	400,	0,	1,	NULL,	NULL,	2,	'2018-05-24 14:35:30',	'2018-05-25 14:35:30',	NULL,	0,	'Нужно засунуть лампочку в рот!'),
-(14,	'name',	'/../../common/uploads/dispute/arm-tattoo-tattoos.jpg',	1,	400,	0,	1,	NULL,	NULL,	2,	'2018-05-24 14:35:30',	'2018-05-25 14:35:30',	NULL,	0,	'Нужно засунуть лампочку в рот!'),
 (15,	'Ты этого не сможеш',	'/../../common/uploads/dispute/arm-tattoo-tattoos.jpg',	1,	400,	0,	1,	NULL,	NULL,	2,	'2018-05-24 14:35:30',	'2018-05-25 14:35:30',	NULL,	0,	'Нужно засунуть лампочку в рот!'),
 (16,	'Ты этого не сможеш',	'/../../common/uploads/dispute/arm-tattoo-tattoos.jpg',	1,	400,	0,	1,	NULL,	NULL,	2,	'2018-05-24 14:35:30',	'2018-05-25 14:35:30',	NULL,	0,	'Нужно засунуть лампочку в рот!')
 ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `name` = VALUES(`name`), `img` = VALUES(`img`), `rate` = VALUES(`rate`), `total` = VALUES(`total`), `type` = VALUES(`type`), `active` = VALUES(`active`), `executor_id` = VALUES(`executor_id`), `initiator_id` = VALUES(`initiator_id`), `moderator_id` = VALUES(`moderator_id`), `date_start` = VALUES(`date_start`), `date_end` = VALUES(`date_end`), `result` = VALUES(`result`), `status` = VALUES(`status`), `description` = VALUES(`description`);
@@ -183,6 +300,9 @@ CREATE TABLE `log` (
   CONSTRAINT `log_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+INSERT INTO `log` (`id`, `type`, `user_id`, `target_id`, `amount`, `result`) VALUES
+(1,	3,	1,	21,	1,	1)
+ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `type` = VALUES(`type`), `user_id` = VALUES(`user_id`), `target_id` = VALUES(`target_id`), `amount` = VALUES(`amount`), `result` = VALUES(`result`);
 
 DROP TABLE IF EXISTS `lottery`;
 CREATE TABLE `lottery` (
@@ -377,14 +497,13 @@ CREATE TABLE `user` (
   `created_at` int(11) DEFAULT NULL,
   `updated_at` int(11) DEFAULT NULL,
   `phone` varchar(32) CHARACTER SET utf8 COLLATE utf8_estonian_ci DEFAULT NULL,
-  `type` tinyint(2) NOT NULL DEFAULT '0',
-  `balance` float DEFAULT '0',
   `avatar` varchar(255) CHARACTER SET utf8 COLLATE utf8_estonian_ci DEFAULT NULL,
   `file` varchar(255) CHARACTER SET utf8 COLLATE utf8_estonian_ci DEFAULT NULL,
   `active` varchar(255) CHARACTER SET utf8 COLLATE utf8_estonian_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+<<<<<<< HEAD
 INSERT INTO `user` (`id`, `username`, `auth_key`, `password_hash`, `password_reset_token`, `email`, `status`, `created_at`, `updated_at`, `phone`, `type`, `balance`, `avatar`, `file`, `active`) VALUES
 (1,	'admin',	'A1qwgmpDchz5AztmbE-YOaTOLZZkQmDm',	'$2y$13$oMa6rChD.bP0pDJUlVQHr.eP5Lm8eqBzAW0rd3VCWVRqCFaYe.S1O',	NULL,	'admin@admin.com',	1,	1526915570,	1531830606,	'000000000000',	2,	NULL,	'/../../common/uploads/avatar/Енот.jpg',	'/../../common/uploads/avatar/U1sILnSlyAQ.jpg',	NULL),
 (2,	'root',	'USa0h80IbiOH9p-lSFFfAl7yvFswoQ0I',	'$2y$13$NJ.n66K1A42cpUe2PxbQ6u2hLL2iZzzrVwTyAEEEAzDyeqic9om86',	'UcnjVhK_ECeJB9FzDka_b5cXuNxqqXt__1533038737',	'sd@terlabs.com',	1,	1526983224,	1533038737,	'0969361424',	1,	NULL,	'/../../common/uploads/avatar/smile.png',	'',	NULL),
@@ -414,3 +533,20 @@ ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `username` = VALUES(`username`), `a
 =======
 -- 2018-08-03 09:12:41
 >>>>>>> master
+=======
+INSERT INTO `user` (`id`, `username`, `auth_key`, `password_hash`, `password_reset_token`, `email`, `status`, `created_at`, `updated_at`, `phone`, `avatar`, `file`, `active`) VALUES
+(1,	'superAdmin',	'A1qwgmpDchz5AztmbE-YOaTOLZZkQmDm',	'$2y$13$oMa6rChD.bP0pDJUlVQHr.eP5Lm8eqBzAW0rd3VCWVRqCFaYe.S1O',	NULL,	'admin@admin.com',	1,	1526915570,	1531830606,	'000000000000',	'/../../common/uploads/avatar/Енот.jpg',	'/../../common/uploads/avatar/U1sILnSlyAQ.jpg',	NULL),
+(2,	'admin',	'USa0h80IbiOH9p-lSFFfAl7yvFswoQ0I',	'$2y$13$NnR4kE/Vuy7NQnhqtdHUquOpIn2rPASouXd1O6xiTztXJmO8bU2mC',	'UcnjVhK_ECeJB9FzDka_b5cXuNxqqXt__1533038737',	'sd@terlabs.com',	1,	1526983224,	1533560101,	'0969361424',	'/../../common/uploads/avatar/smile.png',	'',	NULL),
+(43,	'dzybenko',	'7_6ydryZcxx-MOYpFvpr3A6gKpi9rIwR',	'$2y$13$NJ.n66K1A42cpUe2PxbQ6u2hLL2iZzzrVwTyAEEEAzDyeqic9om86',	NULL,	'sd3@terlabs.com',	0,	1531406226,	1531406226,	NULL,	NULL,	NULL,	'2045179b80cd9ea6d4da82f0ce5e6859'),
+(44,	'hkjhkhjk33',	'peoa_uE3PS7iXWgonnXdTK0Feyp8v1mu',	'$2y$13$faZq.aBEUAyNjKroEbPqyeIPNQgIW8ErzZguxmJKxKpSVow3sj7Ke',	NULL,	'sd33@terlabs.com3',	0,	1531406307,	1531406307,	NULL,	NULL,	NULL,	'bd9fffd883a2af3a6fcf88bf1c5db3a9'),
+(45,	'hkjhkhjk334',	'ornOYkgBIjjuoGqRMiEdu4UAN0y1taX4',	'$2y$13$9PF4iUmN9QNI6XFJXINIFO5zqTdcBProZTQfWPuW3r5QAPQBCI8IW',	NULL,	'sd334@terlabs.com3',	0,	1531406337,	1531406337,	NULL,	NULL,	NULL,	'c34a9d2b2ba22fde4516f184522fdd0d'),
+(46,	'hkjhkhjk3343',	'4qgdkfXkBXl19JjXck44MsVc1LME6ODL',	'$2y$13$VRMJN1YHHEQjOpi1LvzSve.6YSwprDU0JS9Sz93jH2s7RkCjhZ1jq',	NULL,	'sd334@terlabs.com33',	0,	1531406449,	1531406449,	NULL,	NULL,	NULL,	'b27b3d7a938f5bea53db2f1ca5f83baa'),
+(47,	'hkjhkhjk33433',	'SG5w1-IrCyOp-QhCF9BaNUJT1cXWD-YM',	'$2y$13$U1AusbT9J9BRQvNLxUJVZuhYOh4J8Gs.OqZnOA.NVy3KvjNsydEoW',	NULL,	'sd334@terlabs.com3334',	0,	1531406511,	1531406511,	NULL,	NULL,	NULL,	'8fdb2966c6307002fbb190abf3a9a237'),
+(48,	'hkjh3khjk33433',	'wPjSYsJ1CEBepaA9NOMj5IIJEZDePgdI',	'$2y$13$Geatx/Xejaye2VSM.HS7tes0I28yfvGVXY0reZYmqz4cA.ZgOHnZu',	NULL,	'sd3334@terlabs.com3334',	0,	1531406576,	1531406576,	NULL,	NULL,	NULL,	'16a831a3c396512151739aa88853738b'),
+(49,	'fdgdfgdfg',	'dgqBUTbdcfQR35gMe6KIU8FbUUhvkUhu',	'$2y$13$iUnd8EaThN/1U1PLgL2ao.olbgpsCynmF.j4eBJuwtkdFF2pJ/k0y',	NULL,	'fgf@fgfdg.fg',	0,	1531406971,	1531406971,	NULL,	NULL,	NULL,	'9d43ffef4acba5abdbcebdec25ed7c30'),
+(50,	'fdgdfgdfgw',	'ADLLzOgM4DT9ru64Dd2OPu3KmrayRrG-',	'$2y$13$aUU9lxGD/7q7IvJ5z4kds.MBBwU9o8o2.Q4tikaj2XgbAQwHNxiCy',	NULL,	'fgf@fgfdg.fgw',	0,	1531407037,	1531407037,	NULL,	NULL,	NULL,	'f37be569606db8bc6687f1df1b1554d3'),
+(51,	'stas',	'USa0h80IbiOH9p-lSFFfAl7yvFswoQ0I',	'$2y$13$NJ.n66K1A42cpUe2PxbQ6u2hLL2iZzzrVwTyAEEEAzDyeqic9om86',	'UcnjVhK_ECeJB9FzDka_b5cXuNxqqXt__1533038737',	'sd@terlabs.com',	1,	1526983224,	1533038737,	'0969361424',	'/../../common/uploads/avatar/smile.png',	'',	NULL)
+ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `username` = VALUES(`username`), `auth_key` = VALUES(`auth_key`), `password_hash` = VALUES(`password_hash`), `password_reset_token` = VALUES(`password_reset_token`), `email` = VALUES(`email`), `status` = VALUES(`status`), `created_at` = VALUES(`created_at`), `updated_at` = VALUES(`updated_at`), `phone` = VALUES(`phone`), `avatar` = VALUES(`avatar`), `file` = VALUES(`file`), `active` = VALUES(`active`);
+
+-- 2018-08-06 14:35:52
+>>>>>>> 03655016272093344ffa147e2751be67a49d84f7
