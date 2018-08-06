@@ -5,7 +5,7 @@
 ._font__5em, .timer__days {
   font-size: 5em; }
 
-._font__3em, .title-wih-pattern, .title, .seo-block__title {
+._font__3em, .title-wih-pattern, .seo-block__title {
   font-size: 3em; }
 
 ._font__2-3em {
@@ -23,7 +23,7 @@
 ._font__1em {
   font-size: 1em; }
 
-.pillar, .prizes:before, .prizes:after, .terrestrial-world:before, .terrestrial-world:after, .seo-section:before, .seo-section:after, .about-user-info:after, .empty-block, .empty-block_left {
+.pillar, .prizes:before, .prizes:after, .how-its-work__video-container:before, .how-its-work__video-container:after, .seo-section:before, .seo-section:after, .about-user-info:after, .empty-block, .empty-block_left {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -37,11 +37,11 @@
     @media (max-width: 1550px) {
       .pillar_color_dark, .seo-section:before, .seo-section:after {
         background-size: 47%, 47%, 32.5%; } }
-  .pillar_color_grey, .terrestrial-world:before, .terrestrial-world:after {
+  .pillar_color_grey, .how-its-work__video-container:before, .how-its-work__video-container:after {
     background: url("../images/common/grey-pillar-top.svg") top left no-repeat, url("../images/common/grey-pillar-bottom.svg") bottom left no-repeat, url("../images/common/grey-pillar-2.png") repeat-y;
     background-size: 47%, 47%, 32%; }
     @media (max-width: 1550px) {
-      .pillar_color_grey, .terrestrial-world:before, .terrestrial-world:after {
+      .pillar_color_grey, .how-its-work__video-container:before, .how-its-work__video-container:after {
         background-size: 47%, 47%, 32.5%; } }
   .pillar_color_gold, .prizes:before, .prizes:after {
     background: url("../images/common/gold-pillar-top.svg") top left no-repeat, url("../images/common/gold-pillar-bottom.svg") bottom left no-repeat, url("../images/common/gold-pillar-2.png") repeat-y;
@@ -54,15 +54,15 @@
     z-index: 8000;
     background: url("../images/cabinet/pillar-all-1.png") top left no-repeat, url("../images/cabinet/pillar-all-3.png") bottom left no-repeat, url("../images/cabinet/pillar-all-2.png") top center repeat-y;
     background-size: 100%, 100%, 68.5%; }
-  .pillar_position_right, .prizes:after, .terrestrial-world:after, .seo-section:after, .about-user-info:after, .empty-block {
+  .pillar_position_right, .prizes:after, .how-its-work__video-container:after, .seo-section:after, .about-user-info:after, .empty-block {
     right: 0;
     transform: scale(-1, 1); }
-  .pillar_position_left, .prizes:before, .terrestrial-world:before, .seo-section:before, .empty-block_left {
+  .pillar_position_left, .prizes:before, .how-its-work__video-container:before, .seo-section:before, .empty-block_left {
     left: 0; }
   .pillar_position_top {
     bottom: 6%; }
   @media (max-width: 768px) {
-    .pillar, .prizes:before, .prizes:after, .terrestrial-world:before, .terrestrial-world:after, .seo-section:before, .seo-section:after, .about-user-info:after, .empty-block, .empty-block_left {
+    .pillar, .prizes:before, .prizes:after, .how-its-work__video-container:before, .how-its-work__video-container:after, .seo-section:before, .seo-section:after, .about-user-info:after, .empty-block, .empty-block_left {
       display: none; } }
 
 .curtain, .scene-of-prize:before, .scene-of-prize:after, .about-user-info__wrapper:before, .about-user-info__wrapper:after, .disputes:before, .disputes:after {
@@ -1350,49 +1350,19 @@ select:-webkit-autofill:focus {
     .title-wih-pattern {
       font-size: 1.8em; } }
 
-.terrestrial-world {
-  position: relative;
-  width: 100%;
-  border-top: 5px solid #4D4D4D;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 78%, #b8c6c1 78%, #b8c6c1 88%, #4e4e4e 88%, #4e4e4e 90%, #b8c6c1 90%, #b8c6c1 100%) bottom no-repeat, url("../images/common/scene.png"); }
-  @media (max-width: 768px) {
-    .terrestrial-world {
-      background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 78%, #b8c6c1 78%, #b8c6c1 83%, #4e4e4e 83%, #4e4e4e 88%, #b8c6c1 88%, #b8c6c1 100%) bottom no-repeat, url("../images/common/scene.png"); } }
-  .terrestrial-world:before {
-    content: ''; }
-  .terrestrial-world:after {
-    content: ''; }
-  .terrestrial-world__title {
-    margin: 0 auto;
-    padding-top: 11%; }
-  .terrestrial-world__subtitle {
-    margin-top: 5%; }
-    @media (max-width: 768px) {
-      .terrestrial-world__subtitle {
-        display: none; } }
-  @media (max-width: 768px) {
-    .terrestrial-world__image {
-      width: 90%; } }
+.popular {
+  position: relative; }
 
-.title {
-  width: 50%;
-  color: white;
-  text-shadow: 0 -5px 0 #046070;
-  font-weight: normal; }
-  @media (max-width: 768px) {
-    .title {
-      font-size: 2em; } }
-  @media (max-width: 1052px) {
-    .title {
-      width: 90%; } }
+.how-its-work__video-container {
+  position: relative; }
+  .how-its-work__video-container:before {
+    content: ''; }
+  .how-its-work__video-container:after {
+    content: ''; }
 
-.subtitle {
-  color: #FFB400;
-  font-size: 2.5em;
-  font-weight: normal; }
-  @media (max-width: 768px) {
-    .subtitle {
-      font-size: 1.4em; } }
+.how-its-work__video {
+  width: 100vw;
+  height: 80vh; }
 
 .seo-section {
   width: 100%;

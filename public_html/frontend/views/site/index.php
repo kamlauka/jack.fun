@@ -192,11 +192,11 @@ use yii\helpers\Url;
                         echo $datastart[0] ?>">
                             <span class="days timer__big-day-digit"></span> DAY
                         </h3>
-                        <!--                        <h3 class="timer__time" data="--><? //=  $datastart[1] ?><!--">-->
-                        <!--                            <span class="hours timer__digit"></span> :-->
-                        <!--                            <span class="minutes timer__digit"></span> :-->
-                        <!--                            <span class="seconds timer__digit"></span>-->
-                        <!--                        </h3>s-->
+                                                <h3 class="timer__time" data="<?=  $datastart[1] ?>">
+                                                    <span class="hours timer__digit"></span> :
+                                                    <span class="minutes timer__digit"></span> :
+                                                    <span class="seconds timer__digit"></span>
+                                                </h3>s
                         <h3 class="timer__time" data="<?= $datastart[1] ?>">
                             <span class="hours timer__digit"></span> :
                             <span class="minutes timer__digit"></span> :
