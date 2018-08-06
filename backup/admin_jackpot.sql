@@ -64,6 +64,28 @@ CREATE TABLE `betting` (
   CONSTRAINT `betting_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+<<<<<<< HEAD
+=======
+INSERT INTO `betting` (`id`, `user_id`, `target_id`, `rate`, `pc_target`, `pc_jackpot`, `pc_transaction`, `pc_keep`, `pc_organizer`, `date_creation`, `status`) VALUES
+(42,	2,	51,	0.03,	0,	0,	0,	0,	0,	'2018-07-11 10:30:39',	NULL),
+(47,	1,	51,	0.0284397,	0,	0,	0,	0,	0,	'2018-07-13 12:33:36',	NULL),
+(48,	1,	51,	0.0284397,	0,	0,	0,	0,	0,	'2018-07-13 12:39:59',	NULL),
+(49,	1,	51,	0.0284397,	0,	0,	0,	0,	0,	'2018-07-13 12:46:12',	NULL),
+(50,	1,	51,	0.0284397,	0,	0,	0,	0,	0,	'2018-07-13 12:46:40',	NULL),
+(51,	1,	51,	0.0284397,	0,	0,	0,	0,	0,	'2018-07-13 12:48:36',	NULL),
+(52,	1,	51,	0.0284397,	0,	0,	0,	0,	0,	'2018-07-13 12:52:43',	NULL),
+(53,	1,	51,	0.0284397,	0,	0,	0,	0,	0,	'2018-07-13 12:55:45',	NULL),
+(54,	1,	51,	0.0284397,	0,	0,	0,	0,	0,	'2018-07-13 12:56:47',	NULL),
+(55,	1,	51,	0.0284397,	0,	0,	0,	0,	0,	'2018-07-13 12:59:44',	NULL),
+(56,	1,	51,	0.0284397,	0,	0,	0,	0,	0,	'2018-07-13 01:27:15',	NULL),
+(57,	1,	51,	0.0284397,	0,	0,	0,	0,	0,	'2018-07-13 01:31:06',	NULL),
+(58,	1,	51,	0.0284397,	0,	0,	0,	0,	0,	'2018-07-13 01:33:22',	NULL),
+(59,	1,	51,	0.0284397,	0,	0,	0,	0,	0,	'2018-07-13 01:34:09',	NULL),
+(60,	2,	51,	0.0284397,	0,	0.00006,	0.0000003,	0.0015,	0,	'2018-07-24 02:18:18',	NULL),
+(61,	2,	51,	0.0284397,	0,	0.00006,	0.0000003,	0.0015,	0,	'2018-07-24 02:22:57',	NULL),
+(62,	2,	51,	0.0284397,	0,	0.00006,	0.0000003,	0.0015,	0,	'2018-07-24 02:25:45',	NULL)
+ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `user_id` = VALUES(`user_id`), `target_id` = VALUES(`target_id`), `rate` = VALUES(`rate`), `pc_target` = VALUES(`pc_target`), `pc_jackpot` = VALUES(`pc_jackpot`), `pc_transaction` = VALUES(`pc_transaction`), `pc_keep` = VALUES(`pc_keep`), `pc_organizer` = VALUES(`pc_organizer`), `date_creation` = VALUES(`date_creation`), `status` = VALUES(`status`);
+>>>>>>> tests
 
 DROP TABLE IF EXISTS `comment`;
 CREATE TABLE `comment` (
@@ -119,6 +141,13 @@ CREATE TABLE `jackpot` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+<<<<<<< HEAD
+=======
+INSERT INTO `jackpot` (`id`, `total`, `status`, `date_start`, `result`) VALUES
+(3,	88.0015103516,	1,	'2018-07-19 18:10:09',	NULL),
+(4,	546,	0,	'2018-06-07 09:25:20',	NULL)
+ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `total` = VALUES(`total`), `status` = VALUES(`status`), `date_start` = VALUES(`date_start`), `result` = VALUES(`result`);
+>>>>>>> tests
 
 DROP TABLE IF EXISTS `language`;
 CREATE TABLE `language` (
@@ -165,6 +194,14 @@ CREATE TABLE `lottery` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+<<<<<<< HEAD
+=======
+
+INSERT INTO `lottery` (`id`, `name`, `total`, `status`, `currency_start`, `result`, `description`, `rate`, `name_prize`, `img`) VALUES
+(51,	'id = 340,343,346,',	0.2275176,	'Active',	330,	NULL,	'id = 341,344,347,',	0.03,	'id = 342,345,348,',	'/../../common/uploads/lottery/iphone.png'),
+(53,	'id = 340,343,346,',	0.1137588,	'Wait_participant',	330,	'1',	'id = 341,344,347,',	0.03,	'id = 342,345,348,',	'/../../common/uploads/lottery/iphone.png')
+ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `name` = VALUES(`name`), `total` = VALUES(`total`), `status` = VALUES(`status`), `currency_start` = VALUES(`currency_start`), `result` = VALUES(`result`), `description` = VALUES(`description`), `rate` = VALUES(`rate`), `name_prize` = VALUES(`name_prize`), `img` = VALUES(`img`);
+>>>>>>> tests
 
 DROP TABLE IF EXISTS `modification`;
 CREATE TABLE `modification` (
@@ -219,6 +256,14 @@ CREATE TABLE `transaction` (
   CONSTRAINT `transaction_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+<<<<<<< HEAD
+=======
+INSERT INTO `transaction` (`id`, `user_id`, `type`, `target_id`, `amount`, `hash`) VALUES
+(44,	1,	'not confirmed',	51,	0.03,	'65756756'),
+(75,	2,	'not confirmed',	51,	0.03,	'P5HxqgByoxPYbtYgdSAe9MWPRqbH4msAYL5T3QDQWuKYX')
+ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `user_id` = VALUES(`user_id`), `type` = VALUES(`type`), `target_id` = VALUES(`target_id`), `amount` = VALUES(`amount`), `hash` = VALUES(`hash`);
+
+>>>>>>> tests
 
 DROP TABLE IF EXISTS `translation`;
 CREATE TABLE `translation` (
@@ -323,7 +368,6 @@ CREATE TABLE `user` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-<<<<<<< HEAD
 INSERT INTO `user` (`id`, `username`, `auth_key`, `password_hash`, `password_reset_token`, `email`, `status`, `created_at`, `updated_at`, `phone`, `type`, `balance`, `avatar`, `file`, `active`) VALUES
 (1,	'admin',	'A1qwgmpDchz5AztmbE-YOaTOLZZkQmDm',	'$2y$13$oMa6rChD.bP0pDJUlVQHr.eP5Lm8eqBzAW0rd3VCWVRqCFaYe.S1O',	NULL,	'admin@admin.com',	1,	1526915570,	1531830606,	'000000000000',	2,	NULL,	'/../../common/uploads/avatar/Енот.jpg',	'/../../common/uploads/avatar/U1sILnSlyAQ.jpg',	NULL),
 (2,	'root',	'USa0h80IbiOH9p-lSFFfAl7yvFswoQ0I',	'$2y$13$NJ.n66K1A42cpUe2PxbQ6u2hLL2iZzzrVwTyAEEEAzDyeqic9om86',	NULL,	'sd@terlabs.com',	1,	1526983224,	1531829679,	'0969361424',	1,	NULL,	'/../../common/uploads/avatar/smile.png',	'',	NULL),
@@ -337,9 +381,12 @@ INSERT INTO `user` (`id`, `username`, `auth_key`, `password_hash`, `password_res
 (50,	'fdgdfgdfgw',	'ADLLzOgM4DT9ru64Dd2OPu3KmrayRrG-',	'$2y$13$aUU9lxGD/7q7IvJ5z4kds.MBBwU9o8o2.Q4tikaj2XgbAQwHNxiCy',	NULL,	'fgf@fgfdg.fgw',	0,	1531407037,	1531407037,	NULL,	0,	0,	NULL,	NULL,	'f37be569606db8bc6687f1df1b1554d3')
 ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `username` = VALUES(`username`), `auth_key` = VALUES(`auth_key`), `password_hash` = VALUES(`password_hash`), `password_reset_token` = VALUES(`password_reset_token`), `email` = VALUES(`email`), `status` = VALUES(`status`), `created_at` = VALUES(`created_at`), `updated_at` = VALUES(`updated_at`), `phone` = VALUES(`phone`), `type` = VALUES(`type`), `balance` = VALUES(`balance`), `avatar` = VALUES(`avatar`), `file` = VALUES(`file`), `active` = VALUES(`active`);
 
+<<<<<<< HEAD
 -- 2018-07-17 14:24:59
 >>>>>>> cc03a62d66436ca5fcc24a44b214fdbcf2fe9d95
 =======
 
 -- 2018-07-24 13:47:18
 >>>>>>> sd
+=======
+>>>>>>> tests

@@ -14,20 +14,20 @@ class LoginCest
       * @see \Codeception\Module\Yii2::loadFixtures()
       * @return array
       */
-    public function _fixtures()
-    {
-        return [
-            'user' => [
-                'class' => UserFixture::className(),
-                'dataFile' => codecept_data_dir() . 'login_data.php'
-            ]
-        ];
-    }
-
-    public function _before(FunctionalTester $I)
-    {
-        $I->amOnRoute('site/login');
-    }
+//    public function _fixtures()
+//    {
+//        return [
+//            'user' => [
+//                'class' => UserFixture::className(),
+//                'dataFile' => codecept_data_dir() . 'login_data.php'
+//            ]
+//        ];
+//    }
+//
+//    public function _before(FunctionalTester $I)
+//    {
+//        $I->amOnRoute('site/login');
+//    }
 
     protected function formParams($login, $password)
     {

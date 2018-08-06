@@ -1,6 +1,9 @@
-suite_namespace: frontend\tests\functional
+suite_namespace: app\frontend\tests\functional
 actor: FunctionalTester
 modules:
     enabled:
         - Filesystem
         - Yii2
+config:
+            url: 'http://jackpot.loc/'
+error_level: 'E_ALL'
