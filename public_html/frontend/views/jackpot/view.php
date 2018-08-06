@@ -106,6 +106,12 @@
     <div class="clouds">
         <div class="cloud-container cloud-container_center-center-medium">
             <canvas class="canvas"></canvas>
+<<<<<<< HEAD
+=======
+        </div>
+        <div class="cloud-container cloud-container_center-page">
+            <canvas class="canvas canvas_large"></canvas>
+>>>>>>> 707c4300b652bc688cedd71c7c8730ab4a1f2f6a
         </div>
         <div class="cloud-container cloud-container_center-left-medium">
             <canvas class="canvas"></canvas>

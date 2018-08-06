@@ -16,6 +16,36 @@ AppAsset::register($this);
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
 <head>
+    <style>
+        .preloader {
+            position: fixed;
+            height: 100%;
+            width: 100%;
+            left: 0;
+            top: 0;
+            z-index: 999999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: white no-repeat center center;
+        }
+        .preloader__title {
+            position: relative;
+            z-index: 1;
+            font-family: $main-font;
+            font-size: 5em;
+            font-weight: normal;
+            color: white;
+        }
+        #preloader__canvas {
+            width: 100%;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+
     <link rel="icon" href="/images/favicon/favicon.png" type="image/png">
     <link rel="shortcut icon" href="/images/favicon/favicon.png" type="image/png">
     <script src="/js/jquery-3.3.1.min.js"></script>
@@ -25,6 +55,7 @@ AppAsset::register($this);
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
+<<<<<<< HEAD
 <!--    <style>-->
 <!--        div.lazy, img.lazy {-->
 <!--            width: 700px;-->
@@ -35,8 +66,22 @@ AppAsset::register($this);
 <!---->
 <!---->
 <!--    </style>-->
+=======
+
+
+>>>>>>> 707c4300b652bc688cedd71c7c8730ab4a1f2f6a
 </head>
 <body>
+<?php if(Yii::$app->controller->route === 'site/index'){ ?>
+
+    <div class="preloader">
+        <h1 class="preloader__title">JOLLY.BET</h1>
+        <!--    <div class="preloader__fill"></div>-->
+        <canvas id="preloader__canvas" width="1000" height="1000"></canvas>
+    </div>
+
+
+<?php } ?>
 <?php $this->beginBody() ?>
 <header class="header">
 
@@ -139,13 +184,7 @@ AppAsset::register($this);
 </header>
 <?= Alert::widget() ?>
 
-<?php if(Yii::$app->controller->route === 'site/index'){ ?>
 
-<div class="preloader">
-    <h1 class="preloader__title">JOLLY.BET</h1>
-    <div class="preloader__fill"></div>
-</div>
-<?php } ?>
 
 <div class="page-container mobile-container">
 

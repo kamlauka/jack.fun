@@ -9,25 +9,28 @@ function animateLogoScroll () {
     var tl = new TimelineMax({yoyo: false, ease: Power0.easeNone});
 
     tl
+        .to(logoPosition, 0, {zIndex: 10000, position: 'fixed'}, 0)
         .to(cloudLeft, 2, {left: '26%', width: '130%'}, 0)
         .to(cloudRight, 2, {left: '26%', width: '130%'}, 0)
         .to(cloudBottom, 2, {top: '-7%', width: '130%'}, 0)
 
-        .to(logoPosition, 1, {zIndex: 10000, position: 'fixed'}, 1)
+
         .fromTo(logoText, 0.5, {opacity: 1}, {opacity: 0, zIndex: 1}, 0.2)
-
         .to(logo, 3, {width: '140px'}, 0.2)
-        .to(logoText, 0.5, {opacity: 1, zIndex: 2}, 1)
-        .to(logoContainer, 0.2, {width: '200px'}, 0.7)
 
+
+
+
+        .to(logoContainer, 2, {width: '200px'}, 0.7)
         .to(logo, 1, {attr: {src: '../images/common/logo-mini.png'}}, 0.7)
 
+        .to(logoText, 0.5, {opacity: 1, zIndex: 2}, 1)
         .to(cloudLeft, 2, {left: '-11%', opacity: 0, width: '90%'}, 1)
         .to(cloudRight, 2, {left: '61%', opacity: 0, width: '90%'}, 1)
         .to(cloudBottom, 2, {top: '27%', opacity: 0, width: '90%'}, 1)
 
 
-        .to(logoContainer, 0.2, {padding: '5px 0 25px 0'}, 1.3)
+        .to(logoContainer, 1, {padding: '5px 0 25px 0'}, 1.3)
 
 
         .to(logoContainer, 1.5, {backgroundPosition: 'center'}, 1.5)

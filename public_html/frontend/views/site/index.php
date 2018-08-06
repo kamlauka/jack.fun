@@ -31,16 +31,16 @@ use yii\helpers\Url;
 
             <div class="clouds clouds_fixed">
                 <div class="cloud-container cloud-container_left-big">
-                    <canvas class="canvas"></canvas>
+                    <canvas class="canvas canvas_middle"></canvas>
                 </div>
                 <div class="cloud-container cloud-container_right-big">
-                    <canvas class="canvas"></canvas>
+                    <canvas class="canvas canvas_middle"></canvas>
                 </div>
                 <div class="cloud-container cloud-container_bottom-scale">
                     <!--                <div class="cloud">-->
                     <!--                    <div class="cloud cloud__cloud1"></div>-->
                     <div class="cloud cloud__cloud2"></div>
-                    <div class="cloud cloud__cloud3"></div>
+<!--                    <div class="cloud cloud__cloud3"></div>-->
                     <!--                </div>-->
                 </div>
             </div>
@@ -52,22 +52,22 @@ use yii\helpers\Url;
         <div class="first-page__container">
             <div class="clouds">
                 <div class="cloud-container cloud-container_left-big">
-                    <canvas class="canvas"></canvas>
+                    <canvas class="canvas canvas_middle"></canvas>
                 </div>
                 <div class="cloud-container cloud-container_right-big">
-                    <canvas class="canvas"></canvas>
+                    <canvas class="canvas canvas_middle"></canvas>
                 </div>
                 <div class="cloud-container cloud-container_left-small">
-                    <canvas class="canvas"></canvas>
+                    <canvas class="canvas canvas_small"></canvas>
                 </div>
                 <div class="cloud-container cloud-container_second-small">
-                    <canvas class="canvas"></canvas>
+                    <canvas class="canvas canvas_small"></canvas>
                 </div>
                 <div class="cloud-container cloud-container_third-small">
-                    <canvas class="canvas"></canvas>
+                    <canvas class="canvas canvas_small"></canvas>
                 </div>
                 <div class="cloud-container cloud-container_right-small">
-                    <canvas class="canvas"></canvas>
+                    <canvas class="canvas canvas_small"></canvas>
                 </div>
                 <div class="cloud-container cloud-container_bottom-big">
                     <div class="cloud"></div>
