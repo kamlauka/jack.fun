@@ -223,7 +223,7 @@ use yii\helpers\Url;
 
     <?php } ?>
 
-<<<<<<< HEAD:public_html/frontend/views/site/index.php
+
 <!--    <section class="lazy terrestrial-world" data-loader="customLoaderName">-->
 <!--        <h2 class="title terrestrial-world__title"> Terrestrial world is under reconstruction</h2>-->
 <!--        <h3 class="subtitle terrestrial-world__subtitle">Coming soon</h3>-->
@@ -243,98 +243,22 @@ use yii\helpers\Url;
             <h3>Most popular</h3>
             <div class="grass"></div>
             <div class="popular__main-block">
-                <div class="popular__block disputes-block">
-                    <div class="disputes-block__players">
-                        <div class="disputes-block__first-player player">
-                            <img class="player__image" src="" alt="">
-                            <span class="player__name"></span>
-                        </div>
-
-                        <div class="disputes-block__vs">
-                            <span class="disputes-block__begin">begin: 20:12</span>
-                        </div>
-                        <div class="disputes-block__second-player player">
-                            <img class="player__image" src="" alt="">
-                            <span class="player__name"></span>
-                        </div>
-                    </div>
-
-                    <div class="disputes-block__video"></div>
-                    <div class="disputes-block__description dispute-description">
-                        <h4 class="dispute-description__title">lorem ipsum</h4>
-                        <p class="dispute-description__description"></p>
-                        <button class="dispute-description__watch  button button_gold">watch</button>
-                    </div>
-                </div>
-                <div class="popular__block disputes-block">
-                    <div class="disputes-block__players">
-                        <div class="disputes-block__first-player player">
-                            <img class="player__image" src="" alt="">
-                            <span class="player__name"></span>
-                        </div>
-
-                        <div class="disputes-block__vs">
-                            <span class="disputes-block__begin">begin: 20:12</span>
-                        </div>
-                        <div class="disputes-block__second-player player">
-                            <img class="player__image" src="" alt="">
-                            <span class="player__name"></span>
-                        </div>
-                    </div>
-
-                    <div class="disputes-block__video"></div>
-                    <div class="disputes-block__description dispute-description">
-                        <h4 class="dispute-description__title">lorem ipsum</h4>
-                        <p class="dispute-description__description"></p>
-                        <button class="dispute-description__watch  button button_gold">watch</button>
-                    </div>
-                </div>
-                <div class="popular__block disputes-block">
-                    <div class="disputes-block__players">
-                        <div class="disputes-block__first-player player">
-                            <img class="player__image" src="" alt="">
-                            <span class="player__name"></span>
-                        </div>
-
-                        <div class="disputes-block__vs">
-                            <span class="disputes-block__begin">begin: 20:12</span>
-                        </div>
-                        <div class="disputes-block__second-player player">
-                            <img class="player__image" src="" alt="">
-                            <span class="player__name"></span>
-                        </div>
-                    </div>
-
-                    <div class="disputes-block__video"></div>
-                    <div class="disputes-block__description dispute-description">
-                        <h4 class="dispute-description__title">lorem ipsum</h4>
-                        <p class="dispute-description__description"></p>
-                        <button class="dispute-description__watch  button button_gold">watch</button>
-                    </div>
-                </div>
+                <?= \frontend\widgets\DisputeBlock::widget([
+                    //дефолтные настройки сработают толькокогда админ завтыкает
+                    'defaultOrder' => [
+                        //'type' => SORT_DESC,
+                        //'rate' => SORT_DESC, // SORT_DESC или SORT_ASC ддя сушествующих полей базы
+                        //'date_start' => SORT_DESC,
+                        'id' => SORT_ASC,
+                    ],
+                    'query' => \common\models\Dispute::find()->where(['active'=>1]),
+                    'amount' =>3
+                ]) ?>
             </div>
             <button class="popular__view-more button button_dark">view more</button>
         </div>
-=======
-    <section class="terrestrial-world">
 
-        <?= \frontend\widgets\DisputeBlock::widget([
-                //дефолтные настройки сработают толькокогда админ завтыкает
-                'defaultOrder' => [
-                    //'type' => SORT_DESC,
-                    //'rate' => SORT_DESC, // SORT_DESC или SORT_ASC ддя сушествующих полей базы
-                    //'date_start' => SORT_DESC,
-                    'id' => SORT_ASC,
-                    ],
-                'query' => \common\models\Dispute::find()->where(['active'=>1]),
-                'amount' =>3
-        ]) ?>
 
-        <h2 class="title terrestrial-world__title"> Terrestrial world is under reconstruction</h2>
-        <h3 class="subtitle terrestrial-world__subtitle">Coming soon</h3>
-        <?= Html::img('../../images/main/favn.png', ['alt' => 'favn', 'class' => 'terrestrial-world__image']) ?>
->>>>>>> master:public_html/frontend/views/page/index.php
-    </section>
 
 
 

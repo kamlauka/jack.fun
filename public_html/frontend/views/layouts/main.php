@@ -55,7 +55,7 @@ AppAsset::register($this);
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
-<<<<<<< HEAD
+
 <!--    <style>-->
 <!--        div.lazy, img.lazy {-->
 <!--            width: 700px;-->
@@ -66,10 +66,7 @@ AppAsset::register($this);
 <!---->
 <!---->
 <!--    </style>-->
-=======
 
-
->>>>>>> 707c4300b652bc688cedd71c7c8730ab4a1f2f6a
 </head>
 <body>
 <?php if(Yii::$app->controller->route === 'site/index'){ ?>
@@ -193,11 +190,13 @@ AppAsset::register($this);
 </header>
 <?= Alert::widget() ?>
 
-<<<<<<< HEAD
-=======
 <?php if(Yii::$app->controller->route === 'default/index'){ ?>
->>>>>>> master
 
+    <div class="preloader">
+        <h1 class="preloader__title">JOLLY.BET</h1>
+        <div class="preloader__fill"></div>
+    </div>
+<?php } ?>
 
 <div class="page-container mobile-container">
 
@@ -212,6 +211,7 @@ AppAsset::register($this);
 
     <?= $content ?>
 </div>
+
 <footer class="footer">
     <div class="footer-container footer-container_gradient">
         <div class="footer-block container  flex-gorizontal">
