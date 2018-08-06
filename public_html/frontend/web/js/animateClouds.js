@@ -55,7 +55,7 @@ for(let i = 0; i < canvases.length; i++) {
     }
 
     function init(){
-        cloud.src = '../images/common/cloud.png';
+        cloud.src = 'http://i.imgur.com/GigS3KR.png';
         // cloud2.src= 'http://i.imgur.com/y3JAe69.png';
         // cloud3.src= 'http://i.imgur.com/v30JIWp.png';
         canvases[i].setAttribute('width', canvasSize);
@@ -65,16 +65,6 @@ for(let i = 0; i < canvases.length; i++) {
 
     init();
 }
-
-
-
-
-
-
-
-
-
-
 
 
 

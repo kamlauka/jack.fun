@@ -35,10 +35,6 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'phone') ?>
 
-    <?php // echo $form->field($model, 'type') ?>
-
-    <?php // echo $form->field($model, 'balance') ?>
-
     <?php // echo $form->field($model, 'avatar') ?>
 
     <?php // echo $form->field($model, 'file') ?>
