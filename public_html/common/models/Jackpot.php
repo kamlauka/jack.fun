@@ -51,15 +51,15 @@ class Jackpot extends \yii\db\ActiveRecord
         ];
     }
 
-    public static function getActiveJackpot(){
+    public static function getInfoActiveJackpot(){
 
         $id_lang = Language::getCurrent()->id;
 
         $jackpot = [];
 
-        if($jackpots = Jackpot::find()->where(['status' => 1,'result'=>null ])->all()){
+        if(Jackpot::getActiveJackpotObject() != null){
 
-            $jackpot['data'] = Jackpot::find()->where(['status' => 1,'result'=>null ])->one();
+            $jackpot['data'] = Jackpot::getActiveJackpotObject();
             $jackpot['description'] = Translation::find()->where(['alias' => 'jackpot_description','language_id' => $id_lang])->one();
             //для вюхи
             $jackpot['text_1'] = Translation::find()->where(['alias' => 'jackpot_view_text_1','language_id' => $id_lang])->one();
@@ -69,10 +69,27 @@ class Jackpot extends \yii\db\ActiveRecord
 
             return $jackpot;
         }
-
         return null;
     }
 
+    /**
+     * @return object|\yii\db\ActiveRecord[]
+     */
+    public static function getActiveJackpotObject(){
+
+        return Jackpot::find()->where(['status' => 1,'result'=>null ])->one();
+    }
+
+    public static function addPercentFromLottery(){
+
+        $pc_jackpot = Lottery::getActiveLotteryObject()->rate / 100 * Modification::getPercentJackpot()->data;
+
+        $jackpot = Jackpot::getActiveJackpotObject();
+        $jackpot->total += $pc_jackpot;
+
+        return $jackpot->save();
+
+    }
 
 
 }

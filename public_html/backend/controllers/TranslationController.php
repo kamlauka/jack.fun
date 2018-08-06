@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use backend\models\TranslationForm;
 use Yii;
 use common\models\Translation;
 use backend\models\TranslationSearch;
@@ -14,6 +15,7 @@ use yii\filters\VerbFilter;
  */
 class TranslationController extends Controller
 {
+    protected $attributes = ['text'];// переводимые поля на разные языки
     /**
      * @inheritdoc
      */
@@ -58,20 +60,19 @@ class TranslationController extends Controller
     }
 
     /**
-     * Creates a new Translation model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
+     * @return string|\yii\web\Response
      */
     public function actionCreate()
     {
-        $model = new Translation();
+        $model = new TranslationForm();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post()) && $model->save($model, $this->attributes)) {
+            return $this->redirect(['index']);
         }
 
         return $this->render('create', [
             'model' => $model,
+            'attributes' => $this->attributes,
         ]);
     }
 

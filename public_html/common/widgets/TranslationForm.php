@@ -20,28 +20,20 @@ class TranslationForm extends Widget
 
     public function Run()
     {
-        $langs = Language::find()->where(['activ'=>'activ'])->all();
+        $languages = Language::getActiveLanguageObjects();
 
-        foreach ($langs as $lang) {
+        foreach ($languages as $lang) {
 
             foreach ($this->attributes as $attribut)
             {
-//                return $this->render('TranslationForm',[
-//                    'attribut'=>$lang->alias.'_'.$attribut,
-//                    'form'=>$this->form,
-//                    'model'=>$this->model,
-//                ]);
                 echo $this->form->field($this->model, $lang->alias.'_'.$attribut)->textInput(['maxlength' => true]);
             }
-
         }
 
-        //return $this->render('TranslationForm');
     }
 
     public function init()
     {
-
         parent::init();
     }
 

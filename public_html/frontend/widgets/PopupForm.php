@@ -17,7 +17,7 @@ class PopupForm extends Widget {
 
          if($this->view === 'transaction'){
 
-            $lottery = Lottery::getActiveLottery();
+            $lottery = Lottery::getInfoActiveLottery();
              $wallet = Modification::getAdminWallet();
 
              echo $this->render('popup-form/'.$this->view, [

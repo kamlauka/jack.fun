@@ -15,7 +15,7 @@ class Translations extends DynamicModel
 
     protected function getTranslatable($attributes) {
 
-        $langs = Language::find()->where(['activ'=>'activ'])->all();
+        $langs = Language::getActiveLanguageObjects();
 
         foreach ($langs as $lang) {
 

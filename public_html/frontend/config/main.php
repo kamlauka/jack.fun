@@ -40,7 +40,7 @@ return [
             ],
         ],
         'errorHandler' => [
-            'errorAction' => 'site/error',
+            'errorAction' => 'page/error',
         ],
 
         'urlManager' => [
@@ -48,10 +48,14 @@ return [
             'showScriptName' => false,
             'class'=>'frontend\components\LangUrlManager',
             'rules'=>[
-                '/' => 'site/index',
+                '/' => 'page/index',
                 '<controller:\w+>/<action:\w+>/*'=>'<controller>/<action>',
             ]
         ],
+//        'captcha' => [
+//            'class' => 'yii\captcha\CaptchaAction',
+//            'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
+//        ],
 //
 //        'language'=>'ru-RU',
 //        'i18n' => [

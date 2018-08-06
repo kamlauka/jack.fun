@@ -49,9 +49,8 @@ class CabinetController extends FrontController
      */
     public function actionIndex()
     {
-        $user_id = \Yii::$app->user->identity->id;
-        $model = User::findOne($user_id);
 
+        $model = User::findOne(\Yii::$app->user->identity->id);
         return $this->render('index',[
             'model'=>$model,
         ]);
@@ -67,7 +66,7 @@ class CabinetController extends FrontController
 
             if ($model->load(Yii::$app->request->post())) {
                 if ($img = UploadedFile::getInstance($model, 'avatar')) {
-                    //exif_read_data()
+
                     $img->saveAs(Yii::getAlias('@common/uploads/avatar/' . $img->baseName . '.' . $img->extension));
                     $model->avatar = '/../../common/uploads/avatar/' . $img->baseName . '.' . $img->extension;
 

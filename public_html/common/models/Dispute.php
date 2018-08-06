@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\data\ActiveDataProvider;
 
 /**
  * This is the model class for table "dispute".
@@ -140,5 +141,18 @@ class Dispute extends \yii\db\ActiveRecord
         ];
     }
 
+    public static function getDisputeForMain($set=null){
 
+        $id = Modification::getSQLQueryDisputeIdForMain();
+
+        if(!isset($id) or count($id)<3 ){
+            $dataProvider = new ActiveDataProvider($set);
+        }else{
+            $dataProvider = new ActiveDataProvider([
+                'query' => Dispute::find()->where(['id'=>$id]),
+            ]);
+        }
+
+         return $dataProvider;
+    }
 }

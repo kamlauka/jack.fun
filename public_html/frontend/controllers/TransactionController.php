@@ -9,25 +9,15 @@
 namespace frontend\controllers;
 
 use yii\web\Controller;
-use common\models\Lottery;
 use common\models\Transaction;
-use Yii;
 
 class TransactionController extends Controller
 {
-    public static function setTransact($hash){
+    public static function setTransaction($hash){
 
-        $lottery = Lottery::getActiveLotteryObject();
+        if(Transaction::createTransaction($hash))return true;
 
-        $transaction = new Transaction();
-        $transaction->user_id = Yii::$app->user->identity->id;
-        $transaction->type = 'not confirmed';
-        $transaction->target_id = $lottery->id;
-        $transaction->amount = $lottery->rate;
-        $transaction->hash = $hash;
-       return $transaction->save();
     }
-
 
 }
 

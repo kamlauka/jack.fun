@@ -89,14 +89,18 @@ AppAsset::register($this);
         <div class="flags flex-gorizontal flex-gorizontal_none-vertical">
 
             <?php
-            $ru = $en = $ch = ['class' => 'flags__image'];
-            if(Yii::$app->session->get('language') == 1 )
-            {Html::addCssClass($ru , ['flags__image_active']);}
-            elseif(Yii::$app->session->get('language') == 2 )
-            {Html::addCssClass($en , ['flags__image_active']);
-                Html::addCssClass($en, ['btn-success', 'btn-lg']);}
 
-            else{Html::addCssClass($ch , ['flags__image_active']);}
+                $ru = $en = $ch = ['class' => 'flags__image'];
+                $lang_id = \common\models\Language::getCurrent()->id;
+
+                if($lang_id == 1 ){
+                    Html::addCssClass($ru , ['flags__image_active']);
+                }elseif($lang_id == 2 ){
+                    Html::addCssClass($en , ['flags__image_active']);
+                }
+                else{
+                    Html::addCssClass($ch , ['flags__image_active']);
+                }
             ?>
 
             <?= Html::a(Html::img('/images/common/flag3.png',  $ru ),'/ru') ?>
@@ -116,12 +120,17 @@ AppAsset::register($this);
                 <ul>
                     <li><?= Html::a('Jackpot',Url::to(['/jackpot/view'])) ?></li>
                     <li><?= Html::a('Lottery',Url::to(['/lottery/view'])) ?></li>
+
+                                      <li><?= Html::a('Disputes',Url::to(['/dispute/index'])) ?></li>
+                                      <li><?= Html::a('Contact',Url::to(['/default/contact'])) ?></li>
+                                      <li><?= Html::a('clear-cache',Url::to(['/default/clear-cache'])) ?></li>
+
                     <?php if (Yii::$app->user->isGuest) { ?>
                         <li><?= Html::a('Signup',false,['id'=>'sign-up','onclick'=>"showForm('.popup__registration')"]) ?></li>
                         <li><?= Html::a('Login',false, ['id'=>'sign-in','onclick'=>"showForm('.popup__login')"]) ?></li>
                     <?php } else { ?>
                         <li><?= Html::a('Cabinet',Url::to(['/cabinet/index'])) ?></li>
-                        <li><?= Html::a('Logout('.Yii::$app->user->identity->username .')',Url::to(['/site/logout'])) ?></li>
+                        <li><?= Html::a('Logout('.Yii::$app->user->identity->username .')',Url::to(['/default/logout'])) ?></li>
 
                     <?php } ?>
                 </ul>
@@ -171,7 +180,7 @@ AppAsset::register($this);
     </div>
 
 
-        <?php if(Yii::$app->controller->route != 'site/index'){ ?>
+        <?php if(Yii::$app->controller->route != 'default/index'){ ?>
             <div class="logo-mini">
                     <div class="logo-mini__container">
                         <a href="<?= Url::to([Yii::$app->homeUrl])?>"><img src="/images/common/logo-mini.png" alt="" class="logo-mini__image"></a>
@@ -184,6 +193,10 @@ AppAsset::register($this);
 </header>
 <?= Alert::widget() ?>
 
+<<<<<<< HEAD
+=======
+<?php if(Yii::$app->controller->route === 'default/index'){ ?>
+>>>>>>> master
 
 
 <div class="page-container mobile-container">
@@ -217,10 +230,10 @@ AppAsset::register($this);
             </div>
             <div class="footer-block__right-align-block">
 
-                <?= Html::a('Terms of agreement',Url::to(['/site/agreement']),['class'=>'footer-block__link']) ?>
+                <?= Html::a('Terms of agreement',Url::to(['/page/agreement']),['class'=>'footer-block__link']) ?>
 
                 <?php if (Yii::$app->user->isGuest) { ?>
-                    <?= Html::a('My Account / Login / Register',Url::to(['/site/signup']),['class'=>'footer-block__link']) ?>
+                    <?= Html::a('My Account / Login / Register',Url::to(['/default/signup']),['class'=>'footer-block__link']) ?>
                 <?php } else { ?>
                     <?= Html::a('Cabinet',Url::to(['/cabinet/index']),['class'=>'footer-block__link']) ?>
                 <?php } ?>

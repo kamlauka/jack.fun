@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use common\widgets\TranslationForm;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Translation */
@@ -12,11 +13,20 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'language_id')->dropDownList(\common\models\Language::find()->select(['name','id'])->indexBy('id')->where(['activ'=>'activ'])->column()) ?>
-
     <?= $form->field($model, 'alias')->textInput(['maxlength' => true]) ?>
+    <?php if(isset($attributes)){
 
-    <?= $form->field($model, 'text')->textarea(['rows' => 6]) ?>
+    echo TranslationForm::widget([
+        'attributes' => $attributes,
+        'form' => $form,
+        'model'=> $model
+        ]);
+    }else{
+        echo $form->field($model, 'text')->textarea(['rows' => 6]);
+    } ?>
+
+
+
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>

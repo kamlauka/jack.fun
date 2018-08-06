@@ -63,7 +63,7 @@ class Lottery extends \yii\db\ActiveRecord
         ];
     }
 
-    public static function getActiveLottery(){
+    public static function getInfoActiveLottery(){
 
         $id_lang = Language::getCurrent()->id;
         $lottery = [];
@@ -100,5 +100,22 @@ class Lottery extends \yii\db\ActiveRecord
             'Next' => 'Следующий',
             'Questionable' => 'Под вопросом'
         ];
+    }
+    public static function addRate(){
+
+        $lottery = Lottery::getActiveLotteryObject();
+
+        $pc_jackpot = $lottery->rate / 100 * Modification::getPercentJackpot()->data;
+        $pc_keep = $lottery->rate / 100 * Modification::getPercentAdmin()->data;
+        $pc_transaction = $lottery->rate / 100 * Modification::getPercentExchange()->data;
+
+        $lottery->total += $lottery->rate - $pc_jackpot - $pc_keep - $pc_transaction;
+
+        if($lottery->save()){
+           //todo реализовать логи
+            return true;
+        }else{
+            return false;
+        }
     }
 }
