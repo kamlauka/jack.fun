@@ -302,7 +302,19 @@
   right: 0;
   top: 0;
   bottom: 0;
+  &_small {
+    height: 21vw;
+  }
+  &_middle {
+
+  }
+  &_large {
+
+    height: 47vw;
+  }
 }
+
+
 
 .canvas-container {
   position: absolute;

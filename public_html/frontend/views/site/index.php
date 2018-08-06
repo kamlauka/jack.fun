@@ -6,6 +6,12 @@ use yii\helpers\Url;
 
 //$this->title = 'My Yii Application';
 ?>
+<!--<div class="lazy" data-loader="customLoaderName"></div>-->
+<!--<div class="lazy" data-loader="customLoaderName"></div>-->
+<!--<div class="lazy" data-loader="customLoaderName"></div>-->
+<!--<div class="lazy" data-loader="customLoaderName"></div>-->
+<!--<img class="lazy" data-src="http://jquery.eisbehr.de/lazy/images/1.jpg?t=1533409355" />-->
+<!--<img class="lazy" data-src="http://jquery.eisbehr.de/lazy/images/1.jpg?t=1533409355" />-->
 <!--<div class="canvas-container">-->
 <!--    <canvas class="canvas" id="canvas"></canvas>-->
 <!--</div>-->
@@ -17,9 +23,9 @@ use yii\helpers\Url;
 
     <?php if (Yii::$app->controller->route === 'site/index') { ?>
 
-        <div class="logo-mini">
+        <div class="lazy logo-mini" data-loader="customLoaderName">
             <div class="logo__container">
-                <img src="/images/common/logo.png" alt="" class="logo__image">
+                <img src="/images/common/logo.png" alt="" class="lazy logo__image">
                 <img src="/images/common/logo-mini.png" alt="" class="logo-mini__image hidden">
             </div>
 
@@ -40,8 +46,8 @@ use yii\helpers\Url;
             </div>
         </div>
     <?php } ?>
-    <h1 class="logo__text">JOLLY<span class="logo__text_blue">.BET</span></h1>
-    <section class="first-page">
+    <h1 class="lazy logo__text" data-loader="customLoaderName">JOLLY<span class="logo__text_blue">.BET</span></h1>
+    <section class="lazy  first-page" data-loader="customLoaderName">
 
         <div class="first-page__container">
             <div class="clouds">
@@ -69,7 +75,7 @@ use yii\helpers\Url;
             </div>
             <h1 class="logo-text-mobile">JACKPOT.FUN</h1>
             <div class="currency">
-                <img class="currency__image" src="../../images/main/currency-left.gif" alt="currency">
+                <img class="lazy currency__image" data-src="../../images/main/currency-left.gif" alt="currency">
             </div>
             <div class="colons flex-gorizontal flex-gorizontal_top">
                 <?php if (isset($text['T']->text)) { ?>
@@ -111,7 +117,7 @@ use yii\helpers\Url;
         </div>
     </section>
 
-    <section class="awarding-prizes">
+    <section class="lazy awarding-prizes" data-loader="customLoaderName">
         <div class="awarding-prizes__ivy awarding-prizes__ivy_left_ivy"></div>
         <div class="awarding-prizes__ivy awarding-prizes__ivy_right_ivy"></div>
         <div class="orange-border orange-border_part"></div>
@@ -123,14 +129,14 @@ use yii\helpers\Url;
     </section>
 
     <?php if (isset($lottery)) { ?>
-        <section class="prizes">
+        <section class="lazy prizes" data-loader="customLoaderName">
             <div class="scene-of-prize flex-gorizontal">
                 <div class="scene-of-prize__cloud-rotate scene-of-prize__cloud-rotate__one"></div>
                 <div class="scene-of-prize__cloud-rotate scene-of-prize__cloud-rotate__two"></div>
                 <div class="scene-of-prize__cloud-rotate scene-of-prize__cloud-rotate__three"></div>
                 <div class="scene-of-prize__cloud-rotate scene-of-prize__cloud-rotate__four"></div>
                 <div class="scene-of-prize__empty-block"></div>
-                <img class="scene-of-prize__image" src="<?= $lottery['data']->img ?>" alt="iphone">
+                <img class="lazy scene-of-prize__image" data-src="<?= $lottery['data']->img ?>" alt="iphone">
                 <div class="scene-of-prize__text">
                     <h2 class="scene-of-prize__prize-name"><?= isset($lottery['name_prize']->text)?$lottery['name_prize']->text:'' ?></h2>
                     <div class="scene-of-prize__prize-price"><?= $lottery['data']->rate ?> ETH</div>
@@ -159,10 +165,10 @@ use yii\helpers\Url;
                 </div>
             </section>
         </section>
-        <div class="orange-border orange-border_all"></div>
+        <div class="lazy orange-border orange-border_all" data-loader="customLoaderName"></div>
     <?php } ?>
     <?php if (isset($jackpot)) { ?>
-        <section class="jackpot">
+        <section class="lazy jackpot" data-loader="customLoaderName">
             <div class="jackpot__cloud jackpot__cloud_one"></div>
             <div class="jackpot__cloud jackpot__cloud_two"></div>
             <div class="jackpot__sanctuary"></div>
@@ -196,14 +202,14 @@ use yii\helpers\Url;
                             <span class="minutes timer__digit"></span> :
                             <span class="seconds timer__digit"></span>
                         </h3>
-                        <img class="timer__image" src="../../images/main/chalice.png" alt="chalice">
+                        <img class="lazy timer__image" data-src="../../images/main/chalice.png" alt="chalice">
                         <h3 class="timer__winning-money"><?= $jackpot['data']->total ?> ETH</h3>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="participate participate_border_dark">
+        <section class="lazy participate participate_border_dark" data-loader="customLoaderName">
             <div class="container">
 
                 <h3 class="participate__title">Jackpot</h3>
@@ -217,13 +223,103 @@ use yii\helpers\Url;
 
     <?php } ?>
 
-    <section class="terrestrial-world">
-        <h2 class="title terrestrial-world__title"> Terrestrial world is under reconstruction</h2>
-        <h3 class="subtitle terrestrial-world__subtitle">Coming soon</h3>
-        <?= Html::img('../../images/main/favn.png', ['alt' => 'favn', 'class' => 'terrestrial-world__image']) ?>
+<!--    <section class="lazy terrestrial-world" data-loader="customLoaderName">-->
+<!--        <h2 class="title terrestrial-world__title"> Terrestrial world is under reconstruction</h2>-->
+<!--        <h3 class="subtitle terrestrial-world__subtitle">Coming soon</h3>-->
+<!--        --><?//= Html::img('../../images/main/favn.png', ['alt' => 'favn', 'class' => 'terrestrial-world__image']) ?>
+<!--    </section>-->
+
+    <section class="lazy disputes-main-page">
+        <h2>Disputes</h2>
+        <div class="how-its-work">
+            <h3>How it's work</h3>
+            <div class="how-its-work__video-container">
+                <iframe class="how-its-work__video" src="https://www.youtube.com/embed/GTUruS-lnEo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="popular">
+            <h3>Most popular</h3>
+            <div class="grass"></div>
+            <div class="popular__main-block">
+                <div class="popular__block disputes-block">
+                    <div class="disputes-block__players">
+                        <div class="disputes-block__first-player player">
+                            <img class="player__image" src="" alt="">
+                            <span class="player__name"></span>
+                        </div>
+
+                        <div class="disputes-block__vs">
+                            <span class="disputes-block__begin">begin: 20:12</span>
+                        </div>
+                        <div class="disputes-block__second-player player">
+                            <img class="player__image" src="" alt="">
+                            <span class="player__name"></span>
+                        </div>
+                    </div>
+
+                    <div class="disputes-block__video"></div>
+                    <div class="disputes-block__description dispute-description">
+                        <h4 class="dispute-description__title">lorem ipsum</h4>
+                        <p class="dispute-description__description"></p>
+                        <button class="dispute-description__watch  button button_gold">watch</button>
+                    </div>
+                </div>
+                <div class="popular__block disputes-block">
+                    <div class="disputes-block__players">
+                        <div class="disputes-block__first-player player">
+                            <img class="player__image" src="" alt="">
+                            <span class="player__name"></span>
+                        </div>
+
+                        <div class="disputes-block__vs">
+                            <span class="disputes-block__begin">begin: 20:12</span>
+                        </div>
+                        <div class="disputes-block__second-player player">
+                            <img class="player__image" src="" alt="">
+                            <span class="player__name"></span>
+                        </div>
+                    </div>
+
+                    <div class="disputes-block__video"></div>
+                    <div class="disputes-block__description dispute-description">
+                        <h4 class="dispute-description__title">lorem ipsum</h4>
+                        <p class="dispute-description__description"></p>
+                        <button class="dispute-description__watch  button button_gold">watch</button>
+                    </div>
+                </div>
+                <div class="popular__block disputes-block">
+                    <div class="disputes-block__players">
+                        <div class="disputes-block__first-player player">
+                            <img class="player__image" src="" alt="">
+                            <span class="player__name"></span>
+                        </div>
+
+                        <div class="disputes-block__vs">
+                            <span class="disputes-block__begin">begin: 20:12</span>
+                        </div>
+                        <div class="disputes-block__second-player player">
+                            <img class="player__image" src="" alt="">
+                            <span class="player__name"></span>
+                        </div>
+                    </div>
+
+                    <div class="disputes-block__video"></div>
+                    <div class="disputes-block__description dispute-description">
+                        <h4 class="dispute-description__title">lorem ipsum</h4>
+                        <p class="dispute-description__description"></p>
+                        <button class="dispute-description__watch  button button_gold">watch</button>
+                    </div>
+                </div>
+            </div>
+            <button class="popular__view-more button button_dark">view more</button>
+        </div>
     </section>
+
+
+
     <?php if (isset($text['seo_block_title']->text) && isset($text['seo_block_text']->text)) { ?>
-        <section class="seo-section flex-gorizontal">
+        <section class="lazy seo-section flex-gorizontal" data-loader="customLoaderName">
             <div class="seo-block container ">
                 <h2 class="seo-block__title"><?= $text['seo_block_title']->text ?></h2>
                 <div class="seo-block__text-container scrollbar-external_wrapper">
@@ -241,3 +337,30 @@ use yii\helpers\Url;
     <?php } ?>
 
 </div>
+<!--<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.9/jquery.lazy.min.js"></script>-->
+<!--<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.9/jquery.lazy.plugins.min.js"></script>-->
+<!---->
+<!--<script type="text/javascript">-->
+<!---->
+<!--    $(function() {-->
+<!---->
+<!--        $('.lazy').lazy({-->
+<!--            beforeLoad: function(element) {-->
+<!--                if( element.prop('tagName').toLowerCase() == "div" )-->
+<!--                    console.log('element with "' +'" is about to be loaded');-->
+<!--                else-->
+<!--                    console.log('image "'+'" is about to be loaded');-->
+<!--            },-->
+<!--            asyncLoader: function(element) {-->
+<!--                setTimeout(function() {-->
+<!--                    element.removeClass('bg-warning  text-warning')-->
+<!--                        .addClass('bg-success text-success')-->
+<!--                        .load()-->
+<!--                        .find('p')-->
+<!--                        .html('Loaded successfully by "asyncLoader"!');-->
+<!--                }, 1000);-->
+<!--            }-->
+<!--        });-->
+<!--    });-->
+<!---->
+<!--</script>-->

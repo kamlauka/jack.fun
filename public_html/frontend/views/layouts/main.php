@@ -25,6 +25,16 @@ AppAsset::register($this);
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
+<!--    <style>-->
+<!--        div.lazy, img.lazy {-->
+<!--            width: 700px;-->
+<!--            height: 467px;-->
+<!--            display: block;-->
+<!--            border: 1px solid gray;-->
+<!--        }-->
+<!---->
+<!---->
+<!--    </style>-->
 </head>
 <body>
 <?php $this->beginBody() ?>

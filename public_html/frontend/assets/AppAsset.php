@@ -13,16 +13,18 @@ class AppAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         'css/normalize.css',
-        'css/jquery.scrollbar.css',
+//        'css/jquery.scrollbar.css',
         'css/main.css',
     ];
     public $js = [
-        //'https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js',
+        'js/jquery-lazy/jquery.lazy.min.js',
+        'js/jquery-lazy/jquery.lazy.plugins.min.js',
+        'js/lazy.js',
         'js/preloader.js',
         'js/app.js',
         'js/gsap/src/minified/TweenMax.min.js',
-        'js/gsap/src/minified/TimelineMax.min.js',
-        'js/jquery.scrollbar-gh-pages/jquery.scrollbar.min.js',
+//        'js/gsap/src/minified/TimelineMax.min.js',
+//        'js/jquery.scrollbar-gh-pages/jquery.scrollbar.min.js',
         'js/timer.js',
 //        'js/scrollbar.js',
         'js/currency.js',
