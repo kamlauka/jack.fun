@@ -235,27 +235,30 @@ use yii\helpers\Url;
         <div class="how-its-work">
             <h3>How it's work</h3>
             <div class="how-its-work__video-container">
-                <iframe class="how-its-work__video" src="https://www.youtube.com/embed/GTUruS-lnEo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <iframe class="lazy how-its-work__video" src="https://www.youtube.com/embed/GTUruS-lnEo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             </div>
         </div>
 
         <div class="popular">
             <h3>Most popular</h3>
             <div class="grass"></div>
-            <div class="popular__main-block">
-                <?= \frontend\widgets\DisputeBlock::widget([
-                    //дефолтные настройки сработают толькокогда админ завтыкает
-                    'defaultOrder' => [
-                        //'type' => SORT_DESC,
-                        //'rate' => SORT_DESC, // SORT_DESC или SORT_ASC ддя сушествующих полей базы
-                        //'date_start' => SORT_DESC,
-                        'id' => SORT_ASC,
-                    ],
-                    'query' => \common\models\Dispute::find()->where(['active'=>1]),
-                    'amount' =>3
-                ]) ?>
+            <div class="popular__container">
+                <div class="popular__main-block flex-gorizontal">
+                    <?= \frontend\widgets\DisputeBlock::widget([
+                        //дефолтные настройки сработают толькокогда админ завтыкает
+                        'defaultOrder' => [
+                            //'type' => SORT_DESC,
+                            //'rate' => SORT_DESC, // SORT_DESC или SORT_ASC ддя сушествующих полей базы
+                            //'date_start' => SORT_DESC,
+                            'id' => SORT_ASC,
+                        ],
+                        'query' => \common\models\Dispute::find()->where(['active'=>1]),
+                        'amount' =>3
+                    ]) ?>
+
+                </div>
+                <button class="popular__view-more button button_dark">view more</button>
             </div>
-            <button class="popular__view-more button button_dark">view more</button>
         </div>
 
 
