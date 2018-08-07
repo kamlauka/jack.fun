@@ -217,13 +217,6 @@ use yii\helpers\Url;
 
     <?php } ?>
 
-
-<!--    <section class="lazy terrestrial-world" data-loader="customLoaderName">-->
-<!--        <h2 class="title terrestrial-world__title"> Terrestrial world is under reconstruction</h2>-->
-<!--        <h3 class="subtitle terrestrial-world__subtitle">Coming soon</h3>-->
-<!--        --><?//= Html::img('../../images/main/favn.png', ['alt' => 'favn', 'class' => 'terrestrial-world__image']) ?>
-<!--    </section>-->
-
     <section class="lazy disputes-main-page">
         <h2 class="disputes-main-page__title">Disputes</h2>
         <div class="how-its-work">
@@ -251,8 +244,9 @@ use yii\helpers\Url;
                     ]) ?>
 
                 </div>
-                <button class="popular__view-more button button_dark">view more</button>
-            </div>
+
+
+                 <?= Html::a('view more',Url::to(['/dispute/index']),['class'=>'popular__view-more button button_dark']) ?>
         </div>
 
 

@@ -198,9 +198,8 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     }
 
     /**
-     * Generates password hash from password and sets it to the model
-     *
-     * @param string $password
+     * @param $password
+     * @throws \yii\base\Exception
      */
     public function setPassword($password)
     {
@@ -231,25 +230,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
         $this->password_reset_token = null;
     }
 
-
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getBanlists()
-    {
-        return $this->hasMany(Banlist::className(), ['user_id' => 'id']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getBanlists0()
-    {
-        return $this->hasMany(Banlist::className(), ['moderator_id' => 'id']);
-    }
-
-    /**
+     /**
      * @return \yii\db\ActiveQuery
      */
     public function getBettings()
@@ -268,7 +249,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getDisputes()
+    public function getDisputesExecutors()
     {
         return $this->hasMany(Dispute::className(), ['executor_id' => 'id']);
     }
@@ -276,7 +257,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getDisputes0()
+    public function getDisputesInitiators()
     {
         return $this->hasMany(Dispute::className(), ['initiator_id' => 'id']);
     }
@@ -284,7 +265,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getDisputes1()
+    public function getDisputesModerators()
     {
         return $this->hasMany(Dispute::className(), ['moderator_id' => 'id']);
     }
@@ -308,7 +289,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getTotes()
+    public function getTotesUsers()
     {
         return $this->hasMany(Tote::className(), ['user_id' => 'id']);
     }
@@ -361,22 +342,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
 
     public static function getListAllActivGamer(){
             return User::find()->where(['type' => 0,'status' => 1 ])->select(['id'])->indexBy('id')->column();
-
     }
-
-//    public function afterSave()
-//    {
-//        parent::afterSave();
-//        Tag::model()->updateFrequency($this->_oldTags, $this->tags);
-//    }
-
-//    private $_oldTags;
-//
-//    public function afterFind()
-//    {
-//        parent::afterFind();
-//      //  $this->_oldTags = $this->tags;
-//    }
 
     public static function setInfo($phone,$file){
 
@@ -384,9 +350,6 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
         $model->phone = $phone;
         $model->file = $file;
         $model->save();
-
-        //Lottery::SetStatus('Issued');
-
         return true;
     }
 

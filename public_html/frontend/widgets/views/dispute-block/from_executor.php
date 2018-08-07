@@ -6,26 +6,29 @@
     <div class="disputes-block__players-container players-container">
         <div class="players-container__players">
             <div class="players-container__first-player player">
-                <?php if(isset($initiatorObject->avatar)){?>
-                    <img class="lazy player__image" data-src="<?= $initiatorObject->avatar ?>" alt="">
+                <?php if(isset($executorObject->avatar)){?>
+                    <img class="lazy player__image" data-src="<?= $executorObject->avatar ?>" alt="">
                 <?php }else{ ?>
-                    <img class="lazy player__image" data-src="../../images/common/ava2.png" alt="">
+                    <img class="lazy player__image" data-src="../../images/common/ava1.png" alt="">
                 <?php } ?>
+                
+                <span class="player__name"><?= isset($executorObject->username)?$executorObject->username:'' ?></span>
 
-                <span class="player__name"><?= isset($initiatorObject->username)?$initiatorObject->username:'' ?></span>
             </div>
 
             <div class="players-container__vs">
                 <span class="players-container__begin"><?= $disputeObject->date_start ?></span>
             </div>
             <div class="players-container__second-player player">
-                <?php if(isset($executorObject->avatar)){?>
-                    <img class="lazy player__image" data-src="<?= $executorObject->avatar ?>" alt="">
+
+                <?php if(isset($initiatorObject->avatar)){?>
+                    <img class="lazy player__image" data-src="<?= $initiatorObject->avatar ?>" alt="">
                 <?php }else{ ?>
-                    <img class="lazy player__image" data-src="../../images/common/ava1.png" alt="">
+                    <img class="lazy player__image" data-src="../../images/common/ava2.png" alt="">
                 <?php } ?>
 
-                <span class="player__name"><?= isset($executorObject->username)?$executorObject->username:'' ?></span>
+
+                <span class="player__name"><?= isset($initiatorObject->username)?$initiatorObject->username:'' ?></span>
             </div>
         </div>
     </div>

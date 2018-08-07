@@ -3,6 +3,7 @@ namespace frontend\widgets;
 
 use common\models\Dispute;
 use yii\widgets\ListView;
+use common\models\User;
 
 class DisputeBlock extends ListView {
        // public $dataProvider = null;
@@ -12,7 +13,9 @@ class DisputeBlock extends ListView {
     public $defaultOrder = [];
     public $query = null;
 
-
+    /**
+     * @throws \yii\base\InvalidConfigException
+     */
      public function init()
     {
 
@@ -29,18 +32,28 @@ class DisputeBlock extends ListView {
 
         $this->dataProvider = Dispute::getDisputeForMain($set);
 
-
+        /**
+         * $disputeObjects Object
+         * $initiatorObject Object
+         * $executorObject Object
+         */
         parent::init();
 
              if(!$this->dataProvider == null){
-                    $models = $this->dataProvider->getModels();
-                    foreach ($models as $model){
-                        if($model->type == 0 ){
-                            echo $this->render('dispute-block/from_initiator.php', ['view' => '','model'=>$model ]);//от инициатора
-                        }elseif($model->type == 1 ){
-                            echo $this->render('dispute-block/from_performer.php', ['view' => '','model'=>$model ]);//от испольнителя
-                        }elseif($model->type == 2 ) {
-                            echo $this->render('dispute-block/from_administrator.php', ['view' => '', 'model' => $model]);//от админа
+                    $disputeObjects = $this->dataProvider->getModels();
+                    foreach ($disputeObjects as $disputeObject){
+                        if($disputeObject->type == 0 ){
+                            $executorObject = User::findIdentity($disputeObject->executor_id);
+                            $initiatorObject = User::findIdentity($disputeObject->initiator_id);
+                            echo $this->render('dispute-block/from_initiator.php', ['executorObject' => $executorObject,'initiatorObject' => $initiatorObject ,'disputeObject'=>$disputeObject ]);//от инициатора
+                        }elseif($disputeObject->type == 1 ){
+                            $executorObject = User::findIdentity($disputeObject->executor_id);
+                            $initiatorObject = User::findIdentity($disputeObject->initiator_id);
+                            echo $this->render('dispute-block/from_executor.php', ['executorObject' => $executorObject,'initiatorObject' => $initiatorObject ,'disputeObject'=>$disputeObject ]);//от испольнителя
+                        }elseif($disputeObject->type == 2 ) {
+                            $executorObject = User::findIdentity($disputeObject->executor_id);
+                            $initiatorObject = User::findIdentity($disputeObject->initiator_id);
+                            echo $this->render('dispute-block/from_administrator.php', ['executorObject' => $executorObject,'initiatorObject' => $initiatorObject , 'disputeObject' => $disputeObject]);//от админа
                         }
                     }
              }
