@@ -1,19 +1,34 @@
+<?php
+    use yii\helpers\Html;
+    use yii\helpers\Url;
+?>
+
 <div class="lazy popular__block disputes-block">
     <div class="disputes-block__players-container players-container">
         <div class="players-container__players">
             <div class="players-container__players player">
-                <img class="lazy player__image first-player" data-src="../../images/common/ava1.png" alt=""><!--            картинка юзера 1-->
-                <span class="player__name">Lapot</span><!--           имя юзера 1-->
+
+                <?php if(isset($initiatorObject->avatar)){?>
+                    <img class="lazy player__image" data-src="<?= $initiatorObject->avatar ?>" alt="">
+                <?php }else{ ?>
+                    <img class="lazy player__image" data-src="../../images/common/ava2.png" alt="">
+                <?php } ?>
+
+                <span class="player__name"><?= isset($initiatorObject->username)?$initiatorObject->username:'' ?></span>
 
             </div>
 
             <div class="players-container__vs">
-                <span class="players-container__begin">begin: 20:12</span>
+                <span class="players-container__begin"><?= $disputeObject->date_start ?></span>
             </div>
             <div class="players-container__players player">
-                <img class="lazy player__image second-player" data-src="../../images/common/ava2.png" alt=""><!--            картинка юзера 2-->
+                <?php if(isset($executorObject->avatar)){?>
+                    <img class="lazy player__image" data-src="<?= $executorObject->avatar ?>" alt="">
+                <?php }else{ ?>
+                    <img class="lazy player__image" data-src="../../images/common/ava1.png" alt="">
+                <?php } ?>
 
-                <span class="player__name">Jeday</span><!--           имя юзера 2-->
+                <span class="player__name"><?= isset($executorObject->username)?$executorObject->username:'' ?></span>
             </div>
         </div>
     </div>
@@ -23,10 +38,12 @@
         <img class="lazy disputes-block__video" data-src="../../images/common/video-dispute.png" alt="">
     </div>
     <div class="disputes-block__description dispute-description">
-        <h4 class="dispute-description__title">lorem ipsum</h4><!--           заголовок-->
+        <h4 class="dispute-description__title"><?= $disputeObject->name?></h4>
 
-        <p class="dispute-description__description"><?= $model->name?></p><!--           описание-->
-        <button class="dispute-description__watch  button button_gold">watch</button>
+        <p class="dispute-description__description"><?= $disputeObject->description?></p>
+
+            <?= Html::a('watch',Url::to(['/dispute/view','id'=>$disputeObject->id]),['class'=>'dispute-description__watch  button button_gold']) ?>
+
     </div>
 </div>
 
