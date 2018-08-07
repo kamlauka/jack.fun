@@ -55,10 +55,14 @@ for(let i = 0; i < canvases.length; i++) {
     }
 
     function init(){
+<<<<<<< HEAD
 
 
         cloud.src = 'http://i.imgur.com/GigS3KR.png';
 
+=======
+        cloud.src = '../../../images/common/cloud.png';
+>>>>>>> master
         // cloud2.src= 'http://i.imgur.com/y3JAe69.png';
         // cloud3.src= 'http://i.imgur.com/v30JIWp.png';
         canvases[i].setAttribute('width', canvasSize);
@@ -69,21 +73,6 @@ for(let i = 0; i < canvases.length; i++) {
     init();
 }
 
-
-
-// //many clouds in one cloud
-// var cloud = new Image(), cloud2 = new Image(), cloud3 = new Image();
-// var canvases = document.getElementsByClassName('canvas');
-// var ts0;
-// var canvasSize = document.documentElement.clientWidth;
-
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //

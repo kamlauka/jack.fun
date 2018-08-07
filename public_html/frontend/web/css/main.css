@@ -32,23 +32,19 @@
   background-size: contain;
   background-repeat: no-repeat; }
   .pillar_color_dark, .seo-section:before, .seo-section:after {
-    background: url("../images/common/dark-pillar-1.png") top left no-repeat, url("../images/common/dark-pillar-3.png") bottom left no-repeat, url("../images/common/dark-pillar-2.png") repeat-y; }
+    background: url("../images/common/dark-pillar-top.svg") top left no-repeat, url("../images/common/dark-pillar-bottom.svg") bottom left no-repeat, url("../images/common/dark-pillar-2.png") repeat-y;
+    background-size: 47%, 47%, 32%; }
     @media (max-width: 1550px) {
       .pillar_color_dark, .seo-section:before, .seo-section:after {
         background-size: 47%, 47%, 32.5%; } }
-<<<<<<< HEAD
   .pillar_color_grey, .how-its-work__video-container:before, .how-its-work__video-container:after {
     background: url("../images/common/grey-pillar-top.svg") top left no-repeat, url("../images/common/grey-pillar-bottom.svg") bottom left no-repeat, url("../images/common/grey-pillar-2.png") repeat-y;
     background-size: 47%, 47%, 32%; }
-=======
-  .pillar_color_grey, .terrestrial-world:before, .terrestrial-world:after {
-    background: url("../images/common/grey-pillar-1.png") top left no-repeat, url("../images/common/grey-pillar-3.png") bottom left no-repeat, url("../images/common/grey-pillar-2.png") repeat-y; }
->>>>>>> 03655016272093344ffa147e2751be67a49d84f7
     @media (max-width: 1550px) {
       .pillar_color_grey, .how-its-work__video-container:before, .how-its-work__video-container:after {
         background-size: 47%, 47%, 32.5%; } }
   .pillar_color_gold, .prizes:before, .prizes:after {
-    background: url("../images/common/gold-pillar-1.png") top left no-repeat, url("../images/common/gold-pillar-3.png") bottom left no-repeat, url("../images/common/gold-pillar-2.png") repeat-y;
+    background: url("../images/common/gold-pillar-top.svg") top left no-repeat, url("../images/common/gold-pillar-bottom.svg") bottom left no-repeat, url("../images/common/gold-pillar-2.png") repeat-y;
     background-size: 47%, 47%, 32%; }
     @media (max-width: 1550px) {
       .pillar_color_gold, .prizes:before, .prizes:after {
@@ -137,7 +133,6 @@
 .canvas {
   width: 57%;
   height: 28vw;
-  border: 1px solid gray;
   position: absolute;
   left: 0;
   right: 0;
@@ -152,6 +147,11 @@
   position: absolute;
   z-index: 10000;
   width: 100%; }
+
+.currency-canvas {
+  width: 100%;
+  height: 28vw;
+  border: 1px solid blue; }
 
 .button {
   display: inline-block;
@@ -680,6 +680,29 @@
   padding: 20px 0;
   background: #B4C3BE;
   border-top: 2em solid; }
+  .participate__bet-money {
+    width: 30%;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px; }
+    .participate__bet-money_white {
+      width: 93%;
+      margin-top: 10px;
+      background-color: white;
+      border: 4px solid #FFB400; }
+  .participate__bet-subtitle_check-mark::after {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 17px;
+    margin-left: 5px;
+    background: url(../images/prizes/check.png) no-repeat;
+    background-size: contain; }
+  .participate__bet-hash {
+    color: white;
+    font-family: SFUI, sans-serif; }
+    .participate__bet-hash_dark {
+      color: inherit; }
   .participate__title {
     font-size: 1.3em; }
   .participate__text {
@@ -769,7 +792,7 @@
     text-decoration: underline;
     color: white;
     cursor: pointer; }
-  .popup__registration, .popup__login, .popup__password-reset {
+  .popup__content {
     display: none;
     position: relative; }
   .popup__forgot-pass {
@@ -1350,6 +1373,12 @@ select:-webkit-autofill:focus {
     .title-wih-pattern {
       font-size: 1.8em; } }
 
+.disputes-main-page__title {
+  font-size: 3em; }
+
+.disputes-main-page__subtitle {
+  font-size: 2em; }
+
 .popular {
   position: relative;
   padding: 40px 0 0 0;
@@ -1374,16 +1403,20 @@ select:-webkit-autofill:focus {
   .popular__view-more {
     max-width: 17%;
     margin: 4% auto 3%; }
+    @media (max-width: 1338px) {
+      .popular__view-more {
+        max-width: inherit; } }
 
 .how-its-work__video-container {
-  position: relative; }
+  position: relative;
+  background-color: #b4c7c2;
+  border-bottom: 20px solid #b4c7c2;
+  box-shadow: 0px 5px 0px 0px #4d4d4d;
+  margin-bottom: 5px; }
   .how-its-work__video-container:before {
     content: ''; }
   .how-its-work__video-container:after {
     content: ''; }
-  @media (max-width: 768px) {
-    .how-its-work__video-container {
-      display: none; } }
 
 .how-its-work__video {
   width: 100vw;
@@ -1399,6 +1432,9 @@ select:-webkit-autofill:focus {
   .disputes-block__video-container {
     border-left: 6px solid;
     border-right: 6px solid; }
+    @media (max-width: 768px) {
+      .disputes-block__video-container {
+        display: none; } }
   .disputes-block__video {
     width: 100%; }
 
@@ -1411,11 +1447,11 @@ select:-webkit-autofill:focus {
     flex-direction: row;
     justify-content: center; }
   .players-container__vs {
-    width: 32%;
-    background: url("../../images/common/vs.png") top no-repeat;
+    width: 39%;
+    background: url(../../images/common/vs.png) 0 7px no-repeat;
     background-size: contain; }
   .players-container__begin {
-    margin-top: 91%;
+    margin-top: 80%;
     display: block; }
 
 .player {
@@ -1434,6 +1470,9 @@ select:-webkit-autofill:focus {
   border-left: 6px solid;
   border-right: 6px solid;
   padding: 1px 5% 5%; }
+  .dispute-description__title {
+    font-size: 1.5em;
+    margin-bottom: 0; }
   .dispute-description__description {
     font-family: SFUI, sans-serif; }
 
@@ -1899,28 +1938,42 @@ select:-webkit-autofill:focus {
   background: url("../images/common/grass.png") bottom no-repeat, linear-gradient(to bottom, #44dffb 0%, #f9f9f9 73%);
   background-size: contain; }
 
-.form-group.field-user-avatar {
+label.control-label {
   display: none; }
+
+input#user-avatar {
+  display: none; }
+
+.form-group.field-user-avatar.has-success .help-block {
+  position: absolute;
+  top: auto;
+  left: auto;
+  bottom: -15px;
+  width: 100%;
+  margin: auto;
+  color: #bd1616;
+  font-size: 10px; }
 
 .user-logo-wrap {
   position: relative;
-  width: 10px;
+  width: 100px;
   margin: auto;
-  bottom: -104px;
-  right: 0;
-  display: block;
-  background: #406973 url("../images/cabinet/edit-pencil.png") no-repeat;
-  width: 20px;
-  height: 20px;
-  background-size: contain;
-  background-position: center;
-  border-radius: 50%;
-  border: 3px solid #406973;
-  z-index: 1;
-  cursor: pointer; }
-  .user-logo-wrap::before {
+  bottom: -104px; }
+  .user-logo-wrap div {
     content: '';
-    position: absolute; }
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: block;
+    background: #406973 url("../images/cabinet/edit-pencil.png") no-repeat;
+    width: 20px;
+    height: 20px;
+    background-size: contain;
+    background-position: center;
+    border-radius: 50%;
+    border: 3px solid #406973;
+    z-index: 1;
+    cursor: pointer; }
 
 .user-logo-container {
   position: relative;
@@ -1929,7 +1982,8 @@ select:-webkit-autofill:focus {
   overflow: hidden;
   border-radius: 50%;
   border: 6px solid #DE7300;
-  margin: auto; }
+  margin: auto;
+  background: white; }
 
 .grass {
   pointer-events: none;
@@ -1939,7 +1993,7 @@ select:-webkit-autofill:focus {
   right: 0;
   bottom: -3%;
   z-index: 2000;
-  background: url(../images/common/grass.png) bottom no-repeat, url(../images/cabinet/leaf-3.png) 38% bottom no-repeat;
+  background: url(../images/common/grass.png) bottom no-repeat;
   background-size: contain, 14%; }
   @media (max-width: 768px) {
     .grass {
@@ -1949,6 +2003,26 @@ select:-webkit-autofill:focus {
       background: url(../images/common/grass.png) bottom no-repeat;
       background-size: cover;
       z-index: 1; } }
+  .grass__bush {
+    background: url(../images/common/grass.png) bottom no-repeat, url(../images/cabinet/leaf-3.png) 38% bottom no-repeat; }
+    @media (max-width: 768px) {
+      .grass__bush {
+        height: 130px;
+        bottom: 32px;
+        top: auto;
+        background: url(../images/common/grass.png) bottom no-repeat;
+        background-size: cover;
+        z-index: 1; } }
+  .grass__stone {
+    background: url(../images/common/grass.png) bottom no-repeat, url(../images/cabinet/leaf-3.png) 38% bottom no-repeat; }
+    @media (max-width: 768px) {
+      .grass__stone {
+        height: 130px;
+        bottom: 32px;
+        top: auto;
+        background: url(../images/common/grass.png) bottom no-repeat;
+        background-size: cover;
+        z-index: 1; } }
 
 .about-user-info {
   display: flex;
@@ -1999,8 +2073,9 @@ select:-webkit-autofill:focus {
     .about-user-info__wrapper:after {
       content: ''; }
   .about-user-info__user-logo {
-    width: 100px; }
+    height: 100px; }
   .about-user-info__paragraph {
+    position: relative;
     font-size: 1.2em;
     margin: 21px 0; }
     @media (max-width: 768px) {
