@@ -30,8 +30,9 @@
                     <p class="prize-page-without-clouds__text text-wrap"><span class="gold-text"><?= $lottery['data']->total ?> </span> ETH / <span class="gold-text"><?= $lottery['data']->currency_start ?> </span> ETH</p>
                     <p class="prize-page-without-clouds__text text-wrap text-wrap_add-font">Left before the draw of the prize</p>
                     <div class="participate__buttons">
+
                         <?php if(!Yii::$app->user->isGuest && $lottery['user_transaction_hash'] != null ){
-                            echo '<br>Bid accepted:<br>'. $lottery['user_transaction_hash']->hash.'<br>';
+                            echo '<div class="participate__bet-money participate__bet-money_white"><p class="participate__bet-subtitle participate__bet-subtitle_check-mark" >Your bet is excepted</p><p class="participate__bet-hash participate__bet-hash_dark" >hash: <br>'. $lottery['user_transaction_hash']->hash.'</p></div>';
                         }else{ ?>
                             <a class="button button_gold participate__button"
                                 <?php if (Yii::$app->user->isGuest) { ?>
