@@ -12,12 +12,11 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="modification-index">
 
-    
     <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
     <p>
+        <?php if (\Yii::$app->user->can('superAdmin')) { ?>
         <?= Html::a('Create Modification', ['create'], ['class' => 'btn btn-success']) ?>
+        <?php } ?>
     </p>
 
     <?= GridView::widget([
@@ -31,7 +30,21 @@ $this->params['breadcrumbs'][] = $this->title;
             'data',
             'description:ntext',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'yii\grid\ActionColumn',
+                'buttons' => [
+
+                    'delete' => function ($url,$model) {
+                        if (!\Yii::$app->user->can('admin')) {
+                            return null;
+                        }else{
+                            return Html::a(
+                                '<span class="glyphicon glyphicon-trash"></span>',
+                                $url);
+                        }
+                    },
+
+                ],
+            ],
         ],
     ]); ?>
 </div>

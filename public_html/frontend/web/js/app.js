@@ -138,7 +138,7 @@ $(document).ready(function() {
 
     }
 
-    animateClouds();
+    // animateClouds();
     if($("div").is(".disputes__image-container")) {
         animateNotes();
     }

@@ -53,9 +53,7 @@ AppAsset::register($this);
         $menuItems[] = ['label' => 'Disputes', 'url' => ['/dispute/index']];
         $menuItems[] = ['label' => 'Jackpots', 'url' => ['/jackpot/index']];
         $menuItems[] = ['label' => 'Users', 'url' => ['/user/index']];
-        if (\Yii::$app->user->can('superAdmin')) {
-            $menuItems[] = ['label' => 'Settings', 'url' => ['/modification/index']];
-        }
+        $menuItems[] = ['label' => 'Settings', 'url' => ['/modification/index']];
         $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post')
             . Html::submitButton(

@@ -19,7 +19,7 @@ class ModificationSearch extends Modification
     {
         return [
             [['id'], 'integer'],
-            [['name', 'description'], 'safe'],
+            [['name', 'role','description'], 'safe'],
             [['data'], 'number'],
         ];
     }
@@ -54,7 +54,7 @@ class ModificationSearch extends Modification
 
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails
-            // $query->where('0=1');
+             $query->where('0=1');
             return $dataProvider;
         }
 
@@ -64,8 +64,14 @@ class ModificationSearch extends Modification
             'data' => $this->data,
         ]);
 
+       $roles =  Yii::$app->authManager->getRolesByUser(Yii::$app->user->getId());
+       foreach ($roles as $role){
+           $role = $role->name;
+       }
+
         $query->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'description', $this->description]);
+            ->andFilterWhere(['like', 'description', $this->description])
+            ->andFilterWhere(['like', 'role', $role]);
 
         return $dataProvider;
     }

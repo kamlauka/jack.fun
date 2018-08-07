@@ -33,6 +33,7 @@ class Modification extends \yii\db\ActiveRecord
             [['name', 'data'], 'required'],
             [['description','data'], 'string'],
             [['name'], 'string', 'max' => 255],
+            [['role'], 'string', 'max' => 16],
         ];
     }
 
@@ -46,6 +47,7 @@ class Modification extends \yii\db\ActiveRecord
             'name' => 'Name',
             'data' => 'Data',
             'description' => 'Description',
+            'role' => 'Role',
         ];
     }
 

@@ -28,11 +28,11 @@ use yii\helpers\Html;
                     <?= ListView::widget([
                         'dataProvider' => $disputesDataProvider,
                         'itemView' => '_dispute',
-                        'summary' => 'Показано {count} из {totalCount}',
+                        //'summary' => 'Показано {count} из {totalCount}',
                         'emptyText' => 'Список пуст',
                         'pager' => [
-                            'firstPageLabel' => 'Первая',
-                            'lastPageLabel' => 'Последняя',
+                            'firstPageLabel' => 'First',
+                            'lastPageLabel' => '... Last',
                             'nextPageLabel' => false,
                             'prevPageLabel' => false,
                             'maxButtonCount' => 5,

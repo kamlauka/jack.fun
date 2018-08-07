@@ -238,7 +238,7 @@ use yii\helpers\Url;
             <div class="popular__container">
                 <div class="popular__main-block flex-gorizontal">
                     <?= \frontend\widgets\DisputeBlock::widget([
-                        //дефолтные настройки сработают толькокогда админ завтыкает
+                        //дефолтные настройки(запрос и количество) сработают только когда админ завтыкает
                         'defaultOrder' => [
                             //'type' => SORT_DESC,
                             //'rate' => SORT_DESC, // SORT_DESC или SORT_ASC ддя сушествующих полей базы

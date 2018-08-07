@@ -26,7 +26,7 @@ class DisputeController extends FrontController
         $disputesDataProvider = new ActiveDataProvider([
             'query' => $dataProvider->query,
             'pagination' => [
-                'pageSize' => 10,
+                'pageSize' => 9,
             ],
         ]);
 

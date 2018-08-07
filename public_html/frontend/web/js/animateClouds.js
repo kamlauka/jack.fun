@@ -55,11 +55,10 @@ for(let i = 0; i < canvases.length; i++) {
     }
 
     function init(){
-<<<<<<< HEAD
-        cloud.src = '../../../images/common/cloud.png';
-=======
+
+
         cloud.src = 'http://i.imgur.com/GigS3KR.png';
->>>>>>> 03655016272093344ffa147e2751be67a49d84f7
+
         // cloud2.src= 'http://i.imgur.com/y3JAe69.png';
         // cloud3.src= 'http://i.imgur.com/v30JIWp.png';
         canvases[i].setAttribute('width', canvasSize);
@@ -70,8 +69,6 @@ for(let i = 0; i < canvases.length; i++) {
     init();
 }
 
-<<<<<<< HEAD
-=======
 
 
 // //many clouds in one cloud
@@ -79,7 +76,7 @@ for(let i = 0; i < canvases.length; i++) {
 // var canvases = document.getElementsByClassName('canvas');
 // var ts0;
 // var canvasSize = document.documentElement.clientWidth;
->>>>>>> 03655016272093344ffa147e2751be67a49d84f7
+
 //
 //
 //
