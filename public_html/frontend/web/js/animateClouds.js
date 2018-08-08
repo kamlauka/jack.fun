@@ -18,28 +18,32 @@
 //
 //
 // 'use strict'
-
-var cloud = new Image();
 // var canvases = document.getElementsByClassName('canvas');
+var cloud = new Image();
 var ctx = [];
 var ts0;
 var canvasSize = document.documentElement.clientWidth;
-var time;
+var time, dt;
+
+function timeForAnimation() {
+    time = new Date();
+    if(!ts0) ts0 = time;
+    dt = time - ts0; // milliseconds
+}
 
 
 $('canvas').each(function(i,elem) {
-
+    ctx[i] = elem.getContext('2d');
     function draw() {
-        ctx[i] = elem.getContext('2d');
+
+
         ctx[i].clearRect(0,0,canvasSize,canvasSize);
         ctx[i].save();
         // cloud
 
 
-        time = new Date();
-        if(!ts0) ts0 = time;
-        const dt = time - ts0; // milliseconds
 
+        timeForAnimation();
         ctx[i].translate(50, 50 + Math.sin(dt/500)/20);
         ctx[i].rotate( Math.sin(dt/340) / 200 );
 
@@ -58,14 +62,20 @@ $('canvas').each(function(i,elem) {
         ctx[i].restore();
         ctx[i].restore();
         window.requestAnimationFrame(draw);
+
     }
     function init(elem){
+
+        var t0 = performance.now();
+
         cloud.src = '../../../images/common/cloud.png';
         // cloud2.src= 'http://i.imgur.com/y3JAe69.png';
         // cloud3.src= 'http://i.imgur.com/v30JIWp.png';
         elem.setAttribute('width', canvasSize);
         elem.setAttribute('height', canvasSize);
         window.requestAnimationFrame(draw);
+        var t1 = performance.now();
+        console.log("Call to doSomething took " + (t1 - t0) + " milliseconds.");
     }
 
 
