@@ -24,7 +24,7 @@
 
 
 var cloud = new Image();
-<<<<<<< HEAD
+
 cloud.src = "http://i.imgur.com/GigS3KR.png";
 
 // размеры облака
@@ -129,60 +129,60 @@ $("canvas").each(function(i, canvas) {
 //
 //
 //
-=======
-// var canvases = document.getElementsByClassName('canvas');
-var ctx = [];
-var ts0;
-var canvasSize = document.documentElement.clientWidth;
-var time;
 
+// // var canvases = document.getElementsByClassName('canvas');
+// var ctx = [];
+// var ts0;
+// var canvasSize = document.documentElement.clientWidth;
+// var time;
+//
+//
+// $('canvas').each(function(i,elem) {
+//
+//     function draw() {
+//         ctx[i] = elem.getContext('2d');
+//         ctx[i].clearRect(0,0,canvasSize,canvasSize);
+//         ctx[i].save();
+//         // cloud
+//
+//
+//         time = new Date();
+//         if(!ts0) ts0 = time;
+//         const dt = time - ts0; // milliseconds
+//
+//         ctx[i].translate(50, 50 + Math.sin(dt/500)/20);
+//         ctx[i].rotate( Math.sin(dt/340) / 200 );
+//
+//         ctx[i].drawImage(cloud,0,0, canvasSize*0.95, canvasSize*0.97);
+//         ctx[i].restore();
+//         ctx[i].save();
+//         ctx[i].translate(5, 0 + Math.sin(dt/382)*2);
+//         ctx[i].rotate( Math.sin(dt/630) / 40 );
+//         // ctx.drawImage(cloud2,150,100,canvasSize*0.84, canvasSize*0.84);
+//         // ctx.restore();
+//
+//         // ctx.save();
+//         // ctx.translate(8, 150 + Math.sin(dt/198)*3);
+//         // ctx.rotate( Math.sin(dt/500) / 450 );
+//         // ctx.drawImage(cloud3,0,0, canvasSize*0.7, canvasSize*0.7);
+//         ctx[i].restore();
+//         ctx[i].restore();
+//         window.requestAnimationFrame(draw);
+//     }
+//     function init(elem){
+//         cloud.src = '../../../images/common/cloud.png';
+//         // cloud2.src= 'http://i.imgur.com/y3JAe69.png';
+//         // cloud3.src= 'http://i.imgur.com/v30JIWp.png';
+//         elem.setAttribute('width', canvasSize);
+//         elem.setAttribute('height', canvasSize);
+//         window.requestAnimationFrame(draw);
+//     }
+//
+//
+//     init(elem);
 
-$('canvas').each(function(i,elem) {
+// });
 
-    function draw() {
-        ctx[i] = elem.getContext('2d');
-        ctx[i].clearRect(0,0,canvasSize,canvasSize);
-        ctx[i].save();
-        // cloud
-
-
-        time = new Date();
-        if(!ts0) ts0 = time;
-        const dt = time - ts0; // milliseconds
-
-        ctx[i].translate(50, 50 + Math.sin(dt/500)/20);
-        ctx[i].rotate( Math.sin(dt/340) / 200 );
-
-        ctx[i].drawImage(cloud,0,0, canvasSize*0.95, canvasSize*0.97);
-        ctx[i].restore();
-        ctx[i].save();
-        ctx[i].translate(5, 0 + Math.sin(dt/382)*2);
-        ctx[i].rotate( Math.sin(dt/630) / 40 );
-        // ctx.drawImage(cloud2,150,100,canvasSize*0.84, canvasSize*0.84);
-        // ctx.restore();
-
-        // ctx.save();
-        // ctx.translate(8, 150 + Math.sin(dt/198)*3);
-        // ctx.rotate( Math.sin(dt/500) / 450 );
-        // ctx.drawImage(cloud3,0,0, canvasSize*0.7, canvasSize*0.7);
-        ctx[i].restore();
-        ctx[i].restore();
-        window.requestAnimationFrame(draw);
-    }
-    function init(elem){
-        cloud.src = '../../../images/common/cloud.png';
-        // cloud2.src= 'http://i.imgur.com/y3JAe69.png';
-        // cloud3.src= 'http://i.imgur.com/v30JIWp.png';
-        elem.setAttribute('width', canvasSize);
-        elem.setAttribute('height', canvasSize);
-        window.requestAnimationFrame(draw);
-    }
-
-
-    init(elem);
-
-});
->>>>>>> ad2cd2117e3756db32285a4e8eaff2cd91118c59
 //
 //
 //
