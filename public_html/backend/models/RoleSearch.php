@@ -5,12 +5,12 @@ namespace backend\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\Article;
+use common\models\Log;
 
 /**
- * ArticleSearch represents the model behind the search form of `common\models\Article`.
+ * LogeSearch represents the model behind the search form of `common\models\Log`.
  */
-class ArticleSearch extends Article
+class RoleSearch extends Role
 {
     /**
      * @inheritdoc
@@ -18,8 +18,8 @@ class ArticleSearch extends Article
     public function rules()
     {
         return [
-            [['id'], 'integer'],
-            [['name', 'date_crup', 'text'], 'safe'],
+            [['item_name'], 'string'],
+            [['user_id'], 'integer'],
         ];
     }
 
@@ -41,7 +41,7 @@ class ArticleSearch extends Article
      */
     public function search($params)
     {
-        $query = Article::find();
+        $query = Role::find();
 
         // add conditions that should always apply here
 
@@ -59,12 +59,13 @@ class ArticleSearch extends Article
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'id' => $this->id,
-            'date_crup' => $this->date_crup,
+            'user_id' => $this->user_id,
+            'item_name' => $this->item_name,
+
         ]);
 
-        $query->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'text', $this->text]);
+        $query->andFilterWhere(['like', 'user_id', $this->user_id])
+            ->andFilterWhere(['like', 'item_name', $this->item_name]);
 
         return $dataProvider;
     }

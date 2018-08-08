@@ -177,7 +177,7 @@ AppAsset::register($this);
     </div>
 
 
-        <?php if(Yii::$app->controller->route != 'default/index'){ ?>
+        <?php if(Yii::$app->controller->route != 'page/index'){ ?>
             <div class="logo-mini">
                     <div class="logo-mini__container">
                         <a href="<?= Url::to([Yii::$app->homeUrl])?>"><img src="/images/common/logo-mini.png" alt="" class="logo-mini__image"></a>
@@ -190,7 +190,7 @@ AppAsset::register($this);
 </header>
 <?= Alert::widget() ?>
 
-<?php if(Yii::$app->controller->route === 'default/index'){ ?>
+<?php if(Yii::$app->controller->route === 'page/index'){ ?>
 
     <div class="preloader">
         <h1 class="preloader__title">JOLLY.BET</h1>

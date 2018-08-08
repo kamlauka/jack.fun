@@ -28,7 +28,6 @@ AppAsset::register($this);
 
 <div class="wrap">
     <?php
-   // $dd  = $_SERVER["REQUEST_SCHEME"] . "://" . $_SERVER["SERVER_NAME"];
     NavBar::begin([
             'brandLabel' => 'Control Panel',
             'brandUrl' => $_SERVER["REQUEST_SCHEME"] . "://" . $_SERVER["SERVER_NAME"],
@@ -42,17 +41,21 @@ AppAsset::register($this);
 
     ];
     if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Login', 'url' => ['/default/login']];
+        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
 
     } else {
-        $menuItems[] = ['label' => 'SetWinner', 'url' => ['/winner/set-winner-lottery']];
+        if (\Yii::$app->user->can('admin')) {
+            $menuItems[] = ['label' => 'SetWinner', 'url' => ['/winner/set-winner-lottery']];
+        }
         $menuItems[] = ['label' => 'Log', 'url' => ['/log/index']];
         $menuItems[] = ['label' => 'Translations', 'url' => ['/translation/index']];
         $menuItems[] = ['label' => 'Lottery', 'url' => ['/lottery/index']];
         $menuItems[] = ['label' => 'Disputes', 'url' => ['/dispute/index']];
         $menuItems[] = ['label' => 'Jackpots', 'url' => ['/jackpot/index']];
         $menuItems[] = ['label' => 'Users', 'url' => ['/user/index']];
-        $menuItems[] = ['label' => 'Settings', 'url' => ['/modification/index']];
+        if (\Yii::$app->user->can('superAdmin')) {
+            $menuItems[] = ['label' => 'Settings', 'url' => ['/modification/index']];
+        }
         $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post')
             . Html::submitButton(

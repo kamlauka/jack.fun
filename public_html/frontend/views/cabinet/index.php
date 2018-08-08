@@ -5,7 +5,7 @@
 ?>
 
 <section class="cabinet flex-gorizontal">
-    <div class="grass" ></div>
+    <div class="grass grass__bush" ></div>
     <div class="empty-block empty-block_left"></div>
 <!--    <div class="container wrap_cabinet">-->
 

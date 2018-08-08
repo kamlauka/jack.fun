@@ -19,8 +19,6 @@ use yii\web\IdentityInterface;
  * @property int $created_at
  * @property int $updated_at
  * @property string $phone
- * @property int $type
- * @property double $balance
  * @property string $avatar
  * @property string $active
  * @property string $file
@@ -62,12 +60,10 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     {
         return [
             [['username', 'auth_key', ], 'required'],
-            [['balance'], 'number'],
             [['username', 'auth_key', 'password_hash','password_reset_token', 'password_reset_token'], 'string'],
             [['status'], 'integer'],
             [['phone', 'active'], 'string'],
             [['email'], 'email'],
-            [['type'], 'integer', 'max' => 2],
             [['avatar'], 'file', 'extensions' => ['png', 'jpg', 'gif'], 'maxSize' => 1024 * 1024 * 1],
             [['file'], 'file', 'extensions' => 'png, jpg'],
         ];
@@ -87,8 +83,6 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
             'email' => 'Email',
             'status' => 'Status',
             'phone' => 'Phone',
-            'type' => 'Type',
-            'balance' => 'Balance',
             'avatar' => 'Avatar',
             'file' => 'File',
             'active' => 'activation',
@@ -204,9 +198,8 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     }
 
     /**
-     * Generates password hash from password and sets it to the model
-     *
-     * @param string $password
+     * @param $password
+     * @throws \yii\base\Exception
      */
     public function setPassword($password)
     {
@@ -237,25 +230,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
         $this->password_reset_token = null;
     }
 
-
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getBanlists()
-    {
-        return $this->hasMany(Banlist::className(), ['user_id' => 'id']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getBanlists0()
-    {
-        return $this->hasMany(Banlist::className(), ['moderator_id' => 'id']);
-    }
-
-    /**
+     /**
      * @return \yii\db\ActiveQuery
      */
     public function getBettings()
@@ -274,7 +249,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getDisputes()
+    public function getDisputesExecutors()
     {
         return $this->hasMany(Dispute::className(), ['executor_id' => 'id']);
     }
@@ -282,7 +257,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getDisputes0()
+    public function getDisputesInitiators()
     {
         return $this->hasMany(Dispute::className(), ['initiator_id' => 'id']);
     }
@@ -290,7 +265,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getDisputes1()
+    public function getDisputesModerators()
     {
         return $this->hasMany(Dispute::className(), ['moderator_id' => 'id']);
     }
@@ -314,7 +289,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getTotes()
+    public function getTotesUsers()
     {
         return $this->hasMany(Tote::className(), ['user_id' => 'id']);
     }
@@ -367,22 +342,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
 
     public static function getListAllActivGamer(){
             return User::find()->where(['type' => 0,'status' => 1 ])->select(['id'])->indexBy('id')->column();
-
     }
-
-//    public function afterSave()
-//    {
-//        parent::afterSave();
-//        Tag::model()->updateFrequency($this->_oldTags, $this->tags);
-//    }
-
-//    private $_oldTags;
-//
-//    public function afterFind()
-//    {
-//        parent::afterFind();
-//      //  $this->_oldTags = $this->tags;
-//    }
 
     public static function setInfo($phone,$file){
 
@@ -390,9 +350,6 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
         $model->phone = $phone;
         $model->file = $file;
         $model->save();
-
-        //Lottery::SetStatus('Issued');
-
         return true;
     }
 

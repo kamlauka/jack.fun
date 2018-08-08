@@ -31,6 +31,36 @@
   background: $stone-color;
   @extend .border-pattern;
   border-top: 2em solid;
+  &__bet-money {
+    width: 30%;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    &_white {
+      width: 93%;
+      margin-top: 10px;
+      background-color: white;
+      border: 4px solid $main-color;
+    }
+  }
+  &__bet-subtitle_check-mark {
+    &::after {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 17px;
+      margin-left: 5px;
+      background: url(../images/prizes/check.png) no-repeat;
+      background-size: contain;
+    }
+  }
+  &__bet-hash {
+    color: white;
+    font-family: $add-font;
+    &_dark {
+      color: inherit;
+    }
+  }
   &__title {
     font-size: 1.3em;
   }

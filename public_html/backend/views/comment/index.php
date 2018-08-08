@@ -32,7 +32,21 @@ $this->params['breadcrumbs'][] = $this->title;
             'date',
             //'status',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'yii\grid\ActionColumn',
+                'buttons' => [
+
+                    'delete' => function ($url,$model) {
+                        if (!\Yii::$app->user->can('admin')) {
+                            return null;
+                        }else{
+                            return Html::a(
+                                '<span class="glyphicon glyphicon-trash"></span>',
+                                $url);
+                        }
+                    },
+
+                ],
+            ],
         ],
     ]); ?>
 </div>

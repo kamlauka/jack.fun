@@ -73,7 +73,7 @@ input#user-avatar {
   right: 0;
   bottom: -3%;
   z-index: 2000;
-  background: url(../images/common/grass.png) bottom no-repeat, url(../images/cabinet/leaf-3.png) 38% bottom no-repeat;
+  background: url(../images/common/grass.png) bottom no-repeat;
   background-size: contain, 14%;
   @media (max-width: $mobile-width) {
     height: 130px;
@@ -83,6 +83,29 @@ input#user-avatar {
     background-size: cover;
     z-index: 1;
   }
+  &__bush {
+    background: url(../images/common/grass.png) bottom no-repeat, url(../images/cabinet/leaf-3.png) 38% bottom no-repeat;
+    @media (max-width: $mobile-width) {
+      height: 130px;
+      bottom: 32px;
+      top: auto;
+      background: url(../images/common/grass.png) bottom no-repeat;
+      background-size: cover;
+      z-index: 1;
+    }
+  }
+  &__stone {
+    background: url(../images/common/grass.png) bottom no-repeat, url(../images/cabinet/leaf-3.png) 38% bottom no-repeat;
+    @media (max-width: $mobile-width) {
+      height: 130px;
+      bottom: 32px;
+      top: auto;
+      background: url(../images/common/grass.png) bottom no-repeat;
+      background-size: cover;
+      z-index: 1;
+    }
+  }
+
 }
 
 .about-user-info {
