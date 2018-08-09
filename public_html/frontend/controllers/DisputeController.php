@@ -21,10 +21,17 @@ class DisputeController extends FrontController
     public function actionIndex()
     {
         $model = new DisputeSearch();
+
         $dataProvider = $model->search(Yii::$app->request->queryParams);
+
+        $query = $dataProvider->query->createCommand()->sql;
+       //SELECT * FROM `dispute` WHERE `date_start` <= 2018-09-01
 
         $disputesDataProvider = new ActiveDataProvider([
             'query' => $dataProvider->query,
+            'sort' => [
+                'defaultOrder'=>
+                    ['date_start'=>SORT_ASC]],
             'pagination' => [
                 'pageSize' => 9,
             ],

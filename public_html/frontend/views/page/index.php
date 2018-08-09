@@ -221,6 +221,7 @@ use yii\helpers\Url;
         <h2 class="disputes-main-page__title">Disputes</h2>
         <div class="how-its-work">
             <h3 class="disputes-main-page__subtitle">How it's work</h3>
+            <?= \frontend\widgets\Infographics::widget([]) ?>
             <div class="how-its-work__video-container">
                 <iframe class="lazy how-its-work__video" src="https://www.youtube.com/embed/GTUruS-lnEo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             </div>
