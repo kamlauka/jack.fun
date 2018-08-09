@@ -134,7 +134,7 @@ class Dispute extends \yii\db\ActiveRecord
 
     public static function getListTypes() {
         return [
-            'От инициатора',
+            'От Инициатора',
             'От Исполнителя',
             'От Админа',
 

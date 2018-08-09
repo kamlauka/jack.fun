@@ -221,6 +221,7 @@ use yii\helpers\Url;
         <h2 class="disputes-main-page__title">Disputes</h2>
         <div class="how-its-work">
             <h3 class="disputes-main-page__subtitle">How it's work</h3>
+            <?= \frontend\widgets\Infographics::widget([]) ?>
             <div class="how-its-work__video-container">
                 <iframe class="lazy how-its-work__video" src="https://www.youtube.com/embed/GTUruS-lnEo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             </div>
@@ -232,7 +233,7 @@ use yii\helpers\Url;
             <div class="popular__container">
                 <div class="popular__main-block flex-gorizontal">
                     <?= \frontend\widgets\DisputeBlock::widget([
-                        //дефолтные настройки сработают толькокогда админ завтыкает
+                        //дефолтные настройки(запрос и количество) сработают только когда админ завтыкает
                         'defaultOrder' => [
                             //'type' => SORT_DESC,
                             //'rate' => SORT_DESC, // SORT_DESC или SORT_ASC ддя сушествующих полей базы
