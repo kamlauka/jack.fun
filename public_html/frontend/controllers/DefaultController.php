@@ -59,10 +59,9 @@ class DefaultController extends FrontController
         return $this->goHome();
     }
 
-     /**
-     * Signs user up and confirm password.
-     *
-     * @return mixed
+    /**
+     * @return array|string|Response
+     * @throws \Exception
      */
     public function actionSignup()
     {
@@ -94,7 +93,6 @@ class DefaultController extends FrontController
 
     /**
      * Requests password reset.
-     *
      * @return mixed
      */
     public function actionRequestPasswordReset()

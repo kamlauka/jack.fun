@@ -4,6 +4,7 @@ namespace frontend\widgets;
 use common\models\Dispute;
 use yii\widgets\ListView;
 use common\models\User;
+use Yii;
 
 class DisputeBlock extends ListView {
        // public $dataProvider = null;
@@ -38,6 +39,7 @@ class DisputeBlock extends ListView {
          * $executorObject Object
          */
         parent::init();
+        $this->registerTranslations();
 
              if(!$this->dataProvider == null){
                     $disputeObjects = $this->dataProvider->getModels();
@@ -59,5 +61,25 @@ class DisputeBlock extends ListView {
              }
 
     }
+
+    public function registerTranslations()
+    {
+        $i18n = Yii::$app->i18n;
+        $i18n->translations['widgets/*'] = [
+            'class'          => 'yii\i18n\PhpMessageSource',
+            'sourceLanguage' => 'en-US',
+            'basePath'       => '@frontend/widgets/messages',
+            'fileMap'        => [
+                'widgets/messages' => 'messages.php',
+            ],
+        ];
+    }
+
+
+    public static function t($category, $message, $params = [], $language = null)
+    {
+        return Yii::t('widgets/' . $category, $message, $params, $language);
+    }
+
 
 }

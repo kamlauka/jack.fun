@@ -27,7 +27,6 @@ return [
             'identityCookie' => ['name' => '_identity-frontend', 'httpOnly' => true],
         ],
         'session' => [
-            // this is the name of the session cookie used for login on the frontend
             'name' => 'advanced-frontend',
         ],
         'log' => [
@@ -52,24 +51,25 @@ return [
                 '<controller:\w+>/<action:\w+>/*'=>'<controller>/<action>',
             ]
         ],
+
 //        'captcha' => [
 //            'class' => 'yii\captcha\CaptchaAction',
 //            'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
 //        ],
-//
-//        'language'=>'ru-RU',
-//        'i18n' => [
-//            'translations' => [
-//                '*' => [
-//                    'class' => 'yii\i18n\PhpMessageSource',
-//                    'basePath' => '@frontend/messages',
-//                    'sourceLanguage' => 'en',
+
+        'language'=>'ru-RU',
+        'i18n' => [
+            'translations' => [
+                '*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@frontend/translations',
+//                    'sourceLanguage' => 'en-EN',
 //                    'fileMap' => [
-//                        //'main' => 'main.php',
+//                        'app' => 'app.php',
 //                    ],
-//                ],
-//            ],
-//        ],
+                ],
+            ],
+        ],
 
     ],
     'params' => $params,
