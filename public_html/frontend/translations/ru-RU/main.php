@@ -11,6 +11,8 @@
         'List of disputes' => 'Список споров',
         'Terms of agreement' => 'Условия соглашения',
         'My Account / Login / Register' => 'Мой Аккаунт / Вход / Регистрация',
+        'Cabinet' => 'Кабинет',
+        'Logout' => 'Выйти',
 
     ];
 

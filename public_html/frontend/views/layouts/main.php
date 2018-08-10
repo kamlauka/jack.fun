@@ -125,8 +125,8 @@ AppAsset::register($this);
                         <li><?= Html::a(Yii::t('main','Signup'),false,['id'=>'sign-up','onclick'=>"showForm('.popup__registration')"]) ?></li>
                         <li><?= Html::a(Yii::t('main','Login'),false, ['id'=>'sign-in','onclick'=>"showForm('.popup__login')"]) ?></li>
                     <?php } else { ?>
-                        <li><?= Html::a('Cabinet',Url::to(['/cabinet/index'])) ?></li>
-                        <li><?= Html::a('Logout('.Yii::$app->user->identity->username .')',Url::to(['/default/logout'])) ?></li>
+                        <li><?= Html::a(Yii::t('main','Cabinet'),Url::to(['/cabinet/index'])) ?></li>
+                        <li><?= Html::a(Yii::t('main','Logout').'('.Yii::$app->user->identity->username .')',Url::to(['/default/logout'])) ?></li>
 
                     <?php } ?>
                 </ul>
@@ -234,7 +234,7 @@ AppAsset::register($this);
                 <?php if (Yii::$app->user->isGuest) { ?>
                     <?= Html::a(Yii::t('main','My Account / Login / Register'),false,['class'=>'footer-block__link']) ?>
                 <?php } else { ?>
-                    <?= Html::a('Cabinet',Url::to(['/cabinet/index']),['class'=>'footer-block__link']) ?>
+                    <?= Html::a(Yii::t('main','Cabinet'),Url::to(['/cabinet/index']),['class'=>'footer-block__link']) ?>
                 <?php } ?>
             </div>
         </div>
