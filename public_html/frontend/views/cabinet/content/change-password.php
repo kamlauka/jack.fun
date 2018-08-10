@@ -31,7 +31,7 @@ $form = ActiveForm::begin([
     </div>
     <div class="form-group">
 
-        <a class="button button_dark button_several-nearby" href="/cabinet/editing" >Back</a>
+        <a class="button button_dark button_several-nearby" href="/cabinet/editing" ><?= Yii::t('cabinet','Back') ?></a>
         <?= \yii\helpers\Html::submitButton('Save', ['class' => 'button button_gold button_several-nearby']) ?>
     </div>
 

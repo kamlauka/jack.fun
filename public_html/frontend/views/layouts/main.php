@@ -116,6 +116,7 @@ AppAsset::register($this);
                 </label>
                 <ul>
                     <li><?= Html::a(Yii::t('main','Jackpot'),Url::to(['/jackpot/view'])) ?></li>
+                    <li><?= Html::a(Yii::t('main','Lottery'),Url::to(['/lottery/view'])) ?></li>
                     <li><?= Html::a(Yii::t('main','Disputes'),Url::to(['/dispute/index'])) ?></li>
                     <li><?= Html::a(Yii::t('main','Feedback'),Url::to(['/default/contact'])) ?></li>
                     <li><?= Html::a('clear-cache',Url::to(['/default/clear-cache'])) ?></li>
