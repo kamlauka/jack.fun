@@ -249,7 +249,8 @@ use yii\helpers\Url;
 
                  <?= Html::a('view more',Url::to(['/dispute/index']),['class'=>'popular__view-more button button_dark']) ?>
         </div>
-
+        </div>
+    </section>
 
 
 
