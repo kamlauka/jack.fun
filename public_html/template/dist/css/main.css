@@ -2181,6 +2181,35 @@ input#user-avatar {
 #change-password {
   margin-top: 83px; }
 
+.site-contact {
+  padding-top: 50px;
+  position: relative; }
+
+.stone-wrapper {
+  position: relative;
+  bottom: 0;
+  width: 46%;
+  margin: 0 auto;
+  padding: 5% 2% 145px;
+  z-index: 200;
+  background: url(../images/common/pattern.png) top repeat-x, url(../images/cabinet/stone.png) bottom no-repeat;
+  background-size: 5%, cover; }
+  @media (max-width: 1200px) {
+    .stone-wrapper {
+      font-size: 0.8em;
+      min-height: 380px;
+      height: 0; } }
+  @media (max-width: 768px) {
+    .stone-wrapper {
+      width: 100%;
+      margin: 0;
+      min-height: 480px;
+      height: 100%;
+      padding: 10% 0%;
+      font-size: 0.7em;
+      background: url("../images/cabinet/stone.png") bottom no-repeat;
+      background-size: cover; } }
+
 @font-face {
   font-family: IceAge;
   src: url(../fonts/IceAgeRUS.ttf) format("ttf"), url(../fonts/IceAgeRUS.woff) format("woff"), url(../fonts/IceAgeRUS.woff2) format("woff2"); }
