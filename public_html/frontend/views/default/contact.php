@@ -12,33 +12,33 @@ $this->title = 'Contact';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <section class="site-contact">
-    <div class="grass"></div>
+    <div class="grass grass__pillar"></div>
 <div class="container">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1 class="terms__title"><?= Html::encode($this->title) ?></h1>
 
-    <p>
+    <p class="feedback-text">
         If you have questions, please fill out the following form to contact us. Thank you.
     </p>
 
     <div class="stone-wrapper">
-        <div class="col-lg-5">
+
             <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
-<!--            name-->
+
             <div class="about-user-info__paragraph">
-            <?= $form->field($model, 'name')->textInput(['autofocus' => true, 'class'=>'label__input input-white'])->label('my email:',['class'=>'about-user-info__title']); ?>
+            <?= $form->field($model, 'name')->textInput(['autofocus' => true, 'class'=>'label__input input-white'])->label('name',['class'=>'about-user-info__title']); ?>
             </div>
-                <!--            email-->
+
             <div class="about-user-info__paragraph">
-            <?= $form->field($model, 'email')->textInput(['maxlength' => true, 'class'=>'label__input input-white'])->label('my email:',['class'=>'about-user-info__title']); ?>
+            <?= $form->field($model, 'email')->textInput(['maxlength' => true, 'class'=>'label__input input-white'])->label('email',['class'=>'about-user-info__title']); ?>
             </div>
-                <!--            subject-->
+
                 <div class="about-user-info__paragraph">
-            <?= $form->field($model, 'subject')->textInput(['maxlength' => true, 'class'=>'label__input input-white'])->label('my email:',['class'=>'about-user-info__title']); ?>
+            <?= $form->field($model, 'subject')->textInput(['maxlength' => true, 'class'=>'label__input input-white'])->label('subject',['class'=>'about-user-info__title']); ?>
                 </div>
-                    <!--            textarea-->
+
                     <div class="about-user-info__paragraph">
-            <?= $form->field($model, 'body')->textarea(['rows' => 15,'cols'=>'100', 'class'=>'label__input input-white'])->label('my email:',['class'=>'about-user-info__title']); ?>
+            <?= $form->field($model, 'body')->textarea(['rows' => 4,'cols'=>'1', 'class'=>'label__input input-white'])->label('message',['class'=>'about-user-info__title']); ?>
                     </div>
             <?php //echo $form->field($model, 'verifyCode')->widget(Captcha::className(), [
             //'template' => '<div class="row"><div class="col-lg-3">{image}</div><div class="col-lg-6">{input}</div></div>',
@@ -50,7 +50,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             <?php ActiveForm::end(); ?>
         </div>
-    </div>
+
 </div>
 
     <div class="clouds">

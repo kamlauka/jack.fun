@@ -219,6 +219,48 @@ use yii\helpers\Url;
 
     <section class="lazy disputes-main-page">
         <h2 class="disputes-main-page__title">Disputes</h2>
+        <div class="container">
+            <div class="infographic">
+                <div class="infographic__cloud">
+                    <div class="infographic__container">
+                        <img class="infographic__picture" src="../images/common/disputestone.png" alt="">
+                        <img class="infographic__picture dispute-door" src="../images/common/disputedoor.png" alt="">
+                    </div>
+
+                    <div class="infographic__container">
+                        <span class="infographic__text">create dispute</span>
+                        <span class="or">or</span>
+                        <span class="infographic__text">enter into an existing dispute</span>
+                    </div>
+                </div>
+                <img class="infographic__arrow infographic__arrow_rotate_first" src="../images/common/clarrow.png">
+
+                <div class="infographic__cloud infographic__cloud_top">
+                    <div class="infographic__container">
+                        <img class="infographic__picture" src="../images/common/man2.png" alt="">
+                        <img class="infographic__picture" src="../images/common/man1.png" alt="">
+                    </div>
+                    <div class="infographic__container">
+                        <span class="infographic__text">fulfill the condition</span>
+                        <span class="or">or</span>
+                        <span class="infographic__text">see how your conditions are fulfilled</span>
+                    </div>
+
+                </div>
+                <img class="infographic__arrow infographic__arrow_rotate_second" src="../images/common/clarrow2.png">
+                <div class="infographic__cloud">
+                    <div class="infographic__container">
+                        <img class="infographic__picture" src="../images/common/money.png" alt="">
+                    </div>
+                    <div class="infographic__container">
+                        <span class="infographic__text">when you fulfill the condition, you win money</span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
         <div class="how-its-work">
             <h3 class="disputes-main-page__subtitle">How it's work</h3>
             <div class="how-its-work__video-container">
@@ -249,7 +291,7 @@ use yii\helpers\Url;
                  <?= Html::a('view more',Url::to(['/dispute/index']),['class'=>'popular__view-more button button_dark']) ?>
         </div>
 
-
+        </div>
 
 
 
