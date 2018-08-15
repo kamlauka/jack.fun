@@ -29,7 +29,7 @@ use yii\helpers\Url;
                 <img src="/images/common/logo-mini.png" alt="" class="logo-mini__image hidden">
             </div>
 
-            <div class="clouds clouds_fixed">
+            <div class="clouds clouds_fixed clouds_all">
                 <div class="cloud-container cloud-container_left-big">
                     <canvas class="canvas canvas_middle"></canvas>
                 </div>
@@ -46,7 +46,7 @@ use yii\helpers\Url;
     <section class="lazy  first-page" data-loader="customLoaderName">
 
         <div class="first-page__container">
-            <div class="clouds">
+            <div class="clouds clouds_all">
                 <div class="cloud-container cloud-container_left-big">
                     <canvas class="canvas canvas_middle"></canvas>
                 </div>

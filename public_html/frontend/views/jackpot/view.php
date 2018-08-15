@@ -103,14 +103,27 @@
 
      <?php }else{echo 'Активных джекпотов не найдено';}?>
     </div>
-    <div class="clouds">
-        <div class="cloud-container cloud-container_center-center-medium">
-            <canvas class="canvas"></canvas>
-        </div>
+    <div class="clouds clouds_all">
         <div class="cloud-container cloud-container_center-page">
             <canvas class="canvas canvas_large"></canvas>
 
         </div>
+        <div class="cloud-container cloud-container_center-center-medium">
+            <canvas class="canvas"></canvas>
+        </div>
+<!---->
+<!--        <div class="cloud-container cloud-container_center-left-medium">-->
+<!--            <canvas class="canvas"></canvas>-->
+<!--        </div>-->
+<!--        <div class="cloud-container cloud-container_center-right-medium">-->
+<!--            <canvas class="canvas"></canvas>-->
+<!--        </div>-->
+<!--        <div class="cloud-container cloud-container_border-left-medium">-->
+<!--            <canvas class="canvas"></canvas>-->
+<!--        </div>-->
+<!--        <div class="cloud-container cloud-container_border-right-medium">-->
+<!--            <canvas class="canvas"></canvas>-->
+<!--        </div>-->
         <div class="cloud-container cloud-container_center-left-medium">
             <canvas class="canvas"></canvas>
         </div>

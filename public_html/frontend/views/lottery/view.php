@@ -65,16 +65,12 @@
             <p class="prize-page-without-clouds__text"><?php if(isset($lottery['text']->text))echo $lottery['text']->text  ?></p>
         </div>
     </div>
-    <div class="clouds">
+    <div class="clouds clouds_all">
         <div class="cloud-container cloud-container_center-center-medium">
             <canvas class="canvas"></canvas>
         </div>
         <div class="cloud-container cloud-container_center-page">
-<<<<<<< HEAD
-            <canvas class="canvas"></canvas>
-=======
             <canvas class="canvas canvas_large"></canvas>
->>>>>>> 707c4300b652bc688cedd71c7c8730ab4a1f2f6a
         </div>
         <div class="cloud-container cloud-container_center-left-medium">
             <canvas class="canvas"></canvas>

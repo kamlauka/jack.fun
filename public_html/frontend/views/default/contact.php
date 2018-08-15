@@ -53,7 +53,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
 </div>
 
-    <div class="clouds">
+    <div class="clouds  clouds_all">
+        <div class="cloud-container cloud-container_center-center-medium">
+            <canvas class="canvas"></canvas>
+        </div>
         <div class="cloud-container cloud-container_center-left-medium">
             <canvas class="canvas"></canvas>
         </div>

@@ -365,6 +365,21 @@ body {
       top: 0;
     }
   }
+
+  &_all {
+    @media (min-width: 1576px) {
+      top: -17vw;
+    }
+    @media (max-width: 1575px) {
+      top: -14vw;
+    }
+    @media (max-width: 1300px) {
+      top: -13vw;
+    }
+    //@media (max-width: 820px) {
+    //  top: -10%;
+    //}
+  }
 }
 //.cloud-container_bottom-scale {
 //  display: none;
@@ -495,46 +510,63 @@ body {
     display: none;
   }
   &_left-big {
-    left: -11%;
-    top: -7%;
+    //left: -11%;
+    //top: -7%;
+    //z-index: 8001;
+    left: -12%;
+    top: 7vw;
     z-index: 8001;
   }
 
   &_right-big {
-    left: 61%;
-    top: -7%;
+    //left: 61%;
+    //top: -7%;
+    //z-index: 8001;
+    left: 57%;
+    top: 7vw;
     z-index: 8001;
 
   }
   &_bottom-big {
-    width: 120%;
-    left: 18%;
-    top: -10%;
-    z-index: 0;
-    -webkit-animation: rotate 30s -1s infinite alternate linear;
-    -moz-animation: rotate 30s -1s infinite alternate linear;
-    animation: rotate 30s -1s infinite alternate linear;
+    //width: 120%;
+    //left: 18%;
+    //top: -10%;
+    //z-index: 0;
+    //-webkit-animation: rotate 30s -1s infinite alternate linear;
+    //-moz-animation: rotate 30s -1s infinite alternate linear;
+    //animation: rotate 30s -1s infinite alternate linear;
+
+    width: 132%;
+    left: 21vw;
+    top: 7vw;
+    z-index: -1;
   }
   &_left-small {
     width: 65%;
     left: -10%;
-    top: 17%;
+    //top: 17%;
     z-index: 7000;
+
+    top: 29vw;
   }
   &_second-small {
     width: 65%;
     left: 18%;
-    top: 17%;
+    //top: 17%;
+    top: 29vw;
   }
   &_third-small {
     width: 65%;
-    left: 41%;
-    top: 17%;
+    //left: 41%;
+    //top: 17%;
+    left: 45%;
+    top: 29vw;
   }
   &_right-small {
     width: 65%;
     right: -36%;
-    top: 18%;
+    //top: 18%;
+    top: 29vw;
     z-index: 7000;
     -webkit-animation: rotate 30s -7s infinite alternate linear;
     -moz-animation: rotate 30s -7s infinite alternate linear;
@@ -553,10 +585,73 @@ body {
     z-index: 0;
   }
   &_center-center-medium {
-    left: 9%;
+    //left: 33%;
+    ////top: -23%;
+    //width: 70%;
+    //z-index: 0;
+    //left: 24%;
+    //width: 110%;
+    //top: 0;
+    //opacity: 0.9;
+    left: 30%;
+    width: 70%;
+    z-index: 0;
+
+  }
+  &_center-left-medium {
+    //left: 15%;
+    ////top: -30%;
+    ////top: -229px;
+    //width: 70%;
+    //z-index: 0;
+
+    left: 10%;
+    width: 70%;
+    z-index: 0;
+  }
+  &_center-right-medium {
+    //left: 51%;
+    ////top: -30%;
+    ////top: -229px;
+    //width: 70%;
+    //z-index: 0;
+
+    left: 51%;
+    width: 68%;
+    z-index: 0;
+  }
+  &_border-left-medium {
+    //left: -19%;
+    ////top: -30%;
+    ////top: -229px;
+    //width: 70%;
+    //z-index: 0;
+    left: -19%;
+    width: 70%;
+    z-index: 0;
+  }
+  &_border-right-medium {
+    //left: 84%;
+    ////top: -24%;
+    ////top: -190px;
+    //width: 70%;
+    //z-index: 0;
+    left: 79%;
+    width: 70%;
+    z-index: 0;
+  }
+  &_center-page {
+
+    //left: 9%;
+    //    //bottom: 0;
+    //    //top: 22%;
+    //    //width: 164%;
+    //    //z-index: 0;
+
+    left: 3.5%;
     bottom: 0;
-    top: 22%;
-    width: 164%;
+    top: 500px;
+    width: 100%;
     z-index: 0;
     @media (max-width: $fourth-width) {
       left: 0%;
@@ -568,44 +663,6 @@ body {
     @media (max-width: $mobile-width) {
       display: block;
     }
-  }
-  &_center-left-medium {
-    left: 15%;
-    //top: -30%;
-    top: -229px;
-    width: 70%;
-    z-index: 0;
-  }
-  &_center-right-medium {
-    left: 51%;
-    //top: -30%;
-    top: -229px;
-    width: 70%;
-    z-index: 0;
-  }
-  &_border-left-medium {
-    left: -19%;
-    //top: -30%;
-    top: -229px;
-    width: 70%;
-    z-index: 0;
-  }
-  &_border-right-medium {
-    left: 84%;
-    //top: -24%;
-    top: -190px;
-    width: 70%;
-    z-index: 0;
-  }
-  &_center-page {
-    //left: 24%;
-    //width: 110%;
-    //top: 0;
-    //opacity: 0.9;
-    left: 33%;
-    top: -23%;
-    width: 70%;
-    z-index: 0;
   }
   &_left-bottom {
     left: -8%;
