@@ -6,14 +6,15 @@
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
+use frontend\widgets\PopupForm;
 
-$this->title = 'Registration';
+$this->title = PopupForm::t('messages','registration');
 ?>
 
 <div class="popup__registration popup__content" >
     <div class="popup__close"  onclick="closeForm()"></div>
     <h3 class="title-h3"><?= $this->title ?></h3>
-    <p class="popup__other-popup">or &nbsp;<span class="popup__other-popup-link" onclick="showForm('.popup__login')">login</span></p>
+    <p class="popup__other-popup"><?= PopupForm::t('messages','or &nbsp') ?><span class="popup__other-popup-link" onclick="showForm('.popup__login')"><?= Yii::t('messages','login') ?></span></p>
     <?php $form = ActiveForm::begin([
         'id' => 'form-signup',
         'action' => '/default/signup',
@@ -40,7 +41,7 @@ $this->title = 'Registration';
         <?= $form->field($model, 'agreement')->checkbox(['class'=>'label-for-checkbox__checkbox'])->label(null,['class'=>' input-hidden']) ?>
         <div class="label-for-checkbox__wrap">
             <a class="pseudo-checkbox" onclick="checkboxClick()"></a>
-            <span class="label-for-checkbox__name">I accept the &nbsp <a class="white-link-underlining"  target="_blank" href="/pages/agreement"> Terms of agreement</a></span>
+            <span class="label-for-checkbox__name"><?= PopupForm::t('messages','I accept the &nbsp ') ?><a class="white-link-underlining"  target="_blank" href="/pages/agreement"><?= PopupForm::t('messages','Terms of agreement') ?></a></span>
         </div>
     </label>
 

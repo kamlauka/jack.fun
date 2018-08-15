@@ -115,19 +115,18 @@ AppAsset::register($this);
                     </div>
                 </label>
                 <ul>
-                    <li><?= Html::a('Jackpot',Url::to(['/jackpot/view'])) ?></li>
-                    <li><?= Html::a('Lottery',Url::to(['/lottery/view'])) ?></li>
-
-                                      <li><?= Html::a('Disputes',Url::to(['/dispute/index'])) ?></li>
-                                      <li><?= Html::a('Contact',Url::to(['/default/contact'])) ?></li>
-                                      <li><?= Html::a('clear-cache',Url::to(['/default/clear-cache'])) ?></li>
+                    <li><?= Html::a(Yii::t('main','Jackpot'),Url::to(['/jackpot/view'])) ?></li>
+                    <li><?= Html::a(Yii::t('main','Lottery'),Url::to(['/lottery/view'])) ?></li>
+                    <li><?= Html::a(Yii::t('main','Disputes'),Url::to(['/dispute/index'])) ?></li>
+                    <li><?= Html::a(Yii::t('main','Feedback'),Url::to(['/default/contact'])) ?></li>
+                    <li><?= Html::a('clear-cache',Url::to(['/default/clear-cache'])) ?></li>
 
                     <?php if (Yii::$app->user->isGuest) { ?>
-                        <li><?= Html::a('Signup',false,['id'=>'sign-up','onclick'=>"showForm('.popup__registration')"]) ?></li>
-                        <li><?= Html::a('Login',false, ['id'=>'sign-in','onclick'=>"showForm('.popup__login')"]) ?></li>
+                        <li><?= Html::a(Yii::t('main','Signup'),false,['id'=>'sign-up','onclick'=>"showForm('.popup__registration')"]) ?></li>
+                        <li><?= Html::a(Yii::t('main','Login'),false, ['id'=>'sign-in','onclick'=>"showForm('.popup__login')"]) ?></li>
                     <?php } else { ?>
-                        <li><?= Html::a('Cabinet',Url::to(['/cabinet/index'])) ?></li>
-                        <li><?= Html::a('Logout('.Yii::$app->user->identity->username .')',Url::to(['/default/logout'])) ?></li>
+                        <li><?= Html::a(Yii::t('main','Cabinet'),Url::to(['/cabinet/index'])) ?></li>
+                        <li><?= Html::a(Yii::t('main','Logout').'('.Yii::$app->user->identity->username .')',Url::to(['/default/logout'])) ?></li>
 
                     <?php } ?>
                 </ul>
@@ -217,25 +216,25 @@ AppAsset::register($this);
         <div class="footer-block container  flex-gorizontal">
             <div class="footer-block__left-align-block">
 
-                <?= Html::a('Home page',Url::to([Yii::$app->homeUrl]),['class'=>'footer-block__link footer-block__link_first']) ?>
-                <?= Html::a('Lottery "Drawing of goods"',Url::to(['/lottery/view']),['class'=>'footer-block__link']) ?>
+                <?= Html::a(Yii::t('main', 'Home page'),Url::to([Yii::$app->homeUrl]),['class'=>'footer-block__link footer-block__link_first']) ?>
+                <?= Html::a(Yii::t('main', 'Lottery "Drawing of goods"'),Url::to(['/lottery/view']),['class'=>'footer-block__link']) ?>
 
             </div>
             <div class="footer-block__center-align-block">
 
-                <?= Html::a('Jackpot',Url::to(['/jackpot/view']),['class'=>'footer-block__link']) ?>
-                <?php //echo Html::a('List of disputes','#',['class'=>'footer-block__link']) ?>
+                <?= Html::a( Yii::t('main','Jackpot'),Url::to(['/jackpot/view']),['class'=>'footer-block__link']) ?>
+                <?= Html::a( Yii::t('main','List of disputes'),Url::to(['/dispute/index']),['class'=>'footer-block__link']) ?>
                 <?php //echo Html::a('The page of the dispute','#',['class'=>'footer-block__link']) ?>
 
             </div>
             <div class="footer-block__right-align-block">
 
-                <?= Html::a('Terms of agreement',Url::to(['/page/agreement']),['class'=>'footer-block__link']) ?>
+                <?= Html::a(Yii::t('main','Terms of agreement'),Url::to(['/page/agreement']),['class'=>'footer-block__link']) ?>
 
                 <?php if (Yii::$app->user->isGuest) { ?>
-                    <?= Html::a('My Account / Login / Register',Url::to(['/default/signup']),['class'=>'footer-block__link']) ?>
+                    <?= Html::a(Yii::t('main','My Account / Login / Register'),false,['class'=>'footer-block__link']) ?>
                 <?php } else { ?>
-                    <?= Html::a('Cabinet',Url::to(['/cabinet/index']),['class'=>'footer-block__link']) ?>
+                    <?= Html::a(Yii::t('main','Cabinet'),Url::to(['/cabinet/index']),['class'=>'footer-block__link']) ?>
                 <?php } ?>
             </div>
         </div>

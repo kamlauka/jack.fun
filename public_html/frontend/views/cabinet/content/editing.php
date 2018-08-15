@@ -58,8 +58,8 @@ use yii\widgets\ActiveForm;
 
             <div class="form-group">
 
-                <a class="button-link" href="/cabinet/change-password" id="edit-password" >Edit password</a>
-                <a class="button button_dark button_several-nearby" href="/cabinet/index" >Back</a>
+                <a class="button-link" href="/cabinet/change-password" id="edit-password" ><?= Yii::t('cabinet','Edit password') ?></a>
+                <a class="button button_dark button_several-nearby" href="/cabinet/index" ><?= Yii::t('cabinet','Back') ?></a>
                 <?= Html::submitButton('Save', ['class' => 'button button_gold button_several-nearby']) ?>
             </div>
 

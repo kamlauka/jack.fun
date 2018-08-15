@@ -4,6 +4,7 @@ namespace frontend\widgets;
 use yii\base\Widget;
 use common\models\Lottery;
 use common\models\Modification;
+use Yii;
 
 class PopupForm extends Widget {
 
@@ -14,6 +15,7 @@ class PopupForm extends Widget {
     {
 
         parent::init();
+        $this->registerTranslations();
 
          if($this->view === 'transaction'){
 
@@ -40,6 +42,24 @@ class PopupForm extends Widget {
 
             echo $this->render('popup-form/'.$this->view, ['model' => $this->model]);
         }
+    }
+
+    public function registerTranslations()
+    {
+        $i18n = Yii::$app->i18n;
+        $i18n->translations['widgets/*'] = [
+            'class'          => 'yii\i18n\PhpMessageSource',
+            'sourceLanguage' => 'en-US',
+            'basePath'       => '@frontend/widgets/messages',
+            'fileMap'        => [
+                'widgets/messages' => 'messages.php',
+            ],
+        ];
+    }
+
+    public static function t($category, $message, $params = [], $language = null)
+    {
+        return Yii::t('widgets/' . $category, $message, $params, $language);
     }
 
 }

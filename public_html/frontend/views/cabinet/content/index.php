@@ -1,12 +1,10 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\User */
 
-//$this->title = 'Editing';
 ?>
 
 <div class="user-info about-user-info__paragraph">
@@ -30,15 +28,15 @@ use yii\widgets\ActiveForm;
 </div>
 <?php if(isset($model->phone)){ ?>
     <div class="about-user-info__paragraph">
-        <p class="about-user-info__title">phone number:</p>
+        <p class="about-user-info__title"><?= Yii::t('cabinet','phone number:') ?></p>
         <p class="about-user-info__info"><?= $model->phone ?> </p>
     </div>
 <?php } ?>
 
 <?php  if(isset($model->email)){ ?>
     <div class="about-user-info__paragraph">
-        <p class="about-user-info__title">my email:</p>
+        <p class="about-user-info__title"><?= Yii::t('cabinet','my email:') ?></p>
         <p class="about-user-info__info"><?= $model->email ?> </p>
     </div>
 <?php } ?>
-<a class="button button_gold" href="/cabinet/editing" >Edit info</a>
+<a class="button button_gold" href="/cabinet/editing" ><?= Yii::t('cabinet','Edit info') ?></a>

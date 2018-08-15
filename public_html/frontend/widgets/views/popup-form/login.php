@@ -6,14 +6,15 @@
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
+use frontend\widgets\PopupForm;
 
-$this->title = 'Login';
+$this->title = PopupForm::t('messages','login');
 
 ?>
 <div class="popup__login popup__content" >
     <div class="popup__close" onclick="closeForm()"></div>
     <h3 class="title-h3"><?= Html::encode($this->title) ?></h3>
-    <p class="popup__other-popup">or &nbsp;<span class="popup__other-popup-link" onclick="showForm('.popup__registration')">registration</span></p>
+    <p class="popup__other-popup"><?= PopupForm::t('messages','or ') ?> &nbsp;<span class="popup__other-popup-link" onclick="showForm('.popup__registration')"><?= PopupForm::t('messages','registration') ?></span></p>
     <?php $form = ActiveForm::begin([
             'id' => 'login-form',
             'action' => '/default/login',
@@ -28,9 +29,9 @@ $this->title = 'Login';
         <?= $form->field($model, 'password')->passwordInput(['class'=>'input-text'])->label('password',['class'=>'label']) ?>
     </label>
 
-    <span class="popup__forgot-pass">If you forgot your password you can <a onclick="showForm('.popup__password-reset')">reset it</a></span>
+    <span class="popup__forgot-pass"><?= PopupForm::t('messages','If you forgot your password you can &nbsp') ?><a onclick="showForm('.popup__password-reset')"><?= PopupForm::t('messages','reset it') ?></a></span>
 
-    <?= Html::submitButton('Enter', ['class' => 'button button_gold button_little', 'name' => 'signup-button']) ?>
+    <?= Html::submitButton(PopupForm::t('messages','enter'), ['class' => 'button button_gold button_little', 'name' => 'signup-button']) ?>
 
     <?php ActiveForm::end(); ?>
 </div>

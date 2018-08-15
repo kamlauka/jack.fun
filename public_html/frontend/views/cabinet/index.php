@@ -21,7 +21,7 @@
         </div>
     </div>
     <div class="cabinet__disputes disputes mobile-border-gray">
-        <h1 class="disputes__title">Coming soon</h1>
+        <h1 class="disputes__title"><?= Yii::t('cabinet','Coming soon') ?></h1>
         <div class="disputes__image-container">
             <img class="disputes__notes note1" src="../../../images/cabinet/note-1.png" alt="">
             <img class="disputes__notes note2" src="../../../images/cabinet/note-1.png" alt="">

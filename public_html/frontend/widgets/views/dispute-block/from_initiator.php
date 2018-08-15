@@ -42,7 +42,7 @@
 
         <p class="dispute-description__description"><?= $disputeObject->description?></p>
 
-            <?= Html::a('watch',Url::to(['/dispute/view','id'=>$disputeObject->id]),['class'=>'dispute-description__watch  button button_gold']) ?>
+        <?= Html::a(\frontend\widgets\DisputeBlock::t('messages','watch'),Url::to(['/dispute/view','id'=>$disputeObject->id]),['class'=>'dispute-description__watch  button button_gold']) ?>
 
     </div>
 </div>

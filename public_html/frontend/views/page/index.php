@@ -4,21 +4,8 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 /* @var $this yii\web\View */
 
-//$this->title = 'My Yii Application';
 ?>
-<!--<div class="lazy" data-loader="customLoaderName"></div>-->
-<!--<div class="lazy" data-loader="customLoaderName"></div>-->
-<!--<div class="lazy" data-loader="customLoaderName"></div>-->
-<!--<div class="lazy" data-loader="customLoaderName"></div>-->
-<!--<img class="lazy" data-src="http://jquery.eisbehr.de/lazy/images/1.jpg?t=1533409355" />-->
-<!--<img class="lazy" data-src="http://jquery.eisbehr.de/lazy/images/1.jpg?t=1533409355" />-->
-<!--<div class="canvas-container">-->
-<!--    <canvas class="canvas" id="canvas"></canvas>-->
-<!--</div>-->
-<!--<div class="canvas-container">-->
-<!--    <canvas class="canvas"></canvas>-->
-<!--    <canvas class="canvas"></canvas>-->
-<!--</div>-->
+
 <div class="site-index">
 
     <?php if ($dd = Yii::$app->controller->route === 'page/index') { ?>
@@ -119,7 +106,7 @@ use yii\helpers\Url;
         <div class="orange-border orange-border_part"></div>
         <div class="awarding-prizes__container container flex-gorizontal flex-gorizontal_none-vertical flex-gorizontal_top">
             <div class="awarding-prizes__statue statue statue_image_gift"></div>
-            <div class="awarding-prizes__text">AWARDING PRIZES!</div>
+            <div class="awarding-prizes__text"><?= Yii::t('index','AWARDING PRIZES!') ?></div>
             <div class="awarding-prizes__statue statue statue_image_fan"></div>
         </div>
     </section>
@@ -140,14 +127,14 @@ use yii\helpers\Url;
                 <div class="scene-of-prize__empty-block"></div>
             </div>
             <section class="participate participate_border_dark">
-                <h3 class="participate__title">Lottery</h3>
+                <h3 class="participate__title"><?= Yii::t('index','Lottery') ?></h3>
                 <div class="container flex-gorizontal">
 
                     <p class="participate__text participate__text_image_apple flex-gorizontal"><?= isset($lottery['description']->text)?$lottery['description']->text:'' ?></p>
                 </div>
 
                     <?php if(!Yii::$app->user->isGuest && $lottery['user_transaction_hash'] != null ){
-                        echo ' <div class="prize-money participate__bet-money"><p class="participate__bet-subtitle" >Your bet is excepted</p> <p class="participate__bet-hash" >hash: <br>'. $lottery['user_transaction_hash']->hash.'</p></div>';
+                        echo ' <div class="prize-money participate__bet-money"><p class="participate__bet-subtitle" >'. Yii::t("index","Your bet is excepted") .'</p> <p class="participate__bet-hash" >hash: <br>'. $lottery['user_transaction_hash']->hash.'</p></div>';
                     }else{ ?>
 
 
@@ -157,10 +144,10 @@ use yii\helpers\Url;
                                  onclick="showForm('.popup__login')"
                             <?php } else { ?>
                                  onclick="showForm('.popup__transaction')"
-                            <?php } ?>>
-                        Participate</a>
+                            <?php } ?>><?= Yii::t('index','Participate') ?>
+                        </a>
                     <?php } ?>
-                    <?= Html::a('View details',Url::to(['/lottery/view']),['class'=>'button button_dark participate__button']) ?>
+                    <?= Html::a(Yii::t('index','View details'),Url::to(['/lottery/view']),['class'=>'button button_dark participate__button']) ?>
                 </div>
             </section>
         </section>
@@ -177,7 +164,7 @@ use yii\helpers\Url;
             <div class="jackpot__cloud-container"></div>
             <div class="jackpot__cloud jackpot__cloud_six"></div>
 
-            <div><h2 class="title-wih-pattern jackpot__title">JACKPOT</h2></div>
+            <div><h2 class="title-wih-pattern jackpot__title"><?= Yii::t('index','JACKPOT') ?></h2></div>
             <div class="jackpot__container flex-gorizontal">
                 <div class="jackpot__cloud jackpot__cloud_twenty"></div>
                 <div class="jackpot__image-block">
@@ -189,7 +176,7 @@ use yii\helpers\Url;
 
                         <h3 class="timer__days" data="<?php $datastart = explode(" ", $jackpot['data']->date_start);
                         echo $datastart[0] ?>">
-                            <span class="days timer__big-day-digit"></span> DAY
+                            <span class="days timer__big-day-digit"></span> <?= Yii::t('index','DAY') ?>
                         </h3>
                         <h3 class="timer__time" data="<?= $datastart[1] ?>">
                             <span class="hours timer__digit"></span> :
@@ -206,29 +193,31 @@ use yii\helpers\Url;
         <section class="lazy participate participate_border_dark" data-loader="customLoaderName">
             <div class="container">
 
-                <h3 class="participate__title">Jackpot</h3>
+                <h3 class="participate__title"><?= Yii::t('index','Jackpot') ?></h3>
                 <p class="participate__text participate__text_image_dollar flex-gorizontal"><?= $jackpot['description']->text ?></p>
 
             </div>
             <div class="participate__buttons container">
-                <?= Html::a('View details',Url::to(['/jackpot/view']),['class'=>'button button_dark participate__button']) ?>
+                <?= Html::a(Yii::t('index','View details'),Url::to(['/jackpot/view']),['class'=>'button button_dark participate__button']) ?>
             </div>
         </section>
 
     <?php } ?>
 
     <section class="lazy disputes-main-page">
-        <h2 class="disputes-main-page__title">Disputes</h2>
+        <h2 class="disputes-main-page__title"><?= Yii::t('index','Disputes') ?></h2>
         <div class="how-its-work">
-            <h3 class="disputes-main-page__subtitle">How it's work</h3>
-            <?= \frontend\widgets\Infographics::widget([]) ?>
+            <h3 class="disputes-main-page__subtitle"><?= Yii::t('index','How it\'s work?') ?></h3>
+            <?php echo \frontend\widgets\Infographics::widget([]) ?>
+            <br>
+            <?php // echo \frontend\widgets\menu\Menu::widget([]) ?>
             <div class="how-its-work__video-container">
                 <iframe class="lazy how-its-work__video" src="https://www.youtube.com/embed/GTUruS-lnEo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             </div>
         </div>
 
         <div class="popular">
-            <h3 class="popular__title">Most popular</h3>
+            <h3 class="popular__title"><?= Yii::t('index','Most popular') ?></h3>
             <div class="grass"></div>
             <div class="popular__container">
                 <div class="popular__main-block flex-gorizontal">
@@ -247,7 +236,7 @@ use yii\helpers\Url;
                 </div>
 
 
-                 <?= Html::a('view more',Url::to(['/dispute/index']),['class'=>'popular__view-more button button_dark']) ?>
+                 <?= Html::a(Yii::t('index','view more'),Url::to(['/dispute/index']),['class'=>'popular__view-more button button_dark']) ?>
         </div>
         </div>
     </section>

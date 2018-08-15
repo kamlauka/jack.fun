@@ -13,7 +13,7 @@ use yii\bootstrap\ActiveForm;
     <div class="popup__close" onclick="closeForm()"></div>
     <h3 class="title-h3"><?= Html::encode($this->title) ?></h3>
 
-    <p>Please fill out your email. A link to reset password will be sent there.</p>
+    <p><?= Yii::t('messages','Please fill out your email. A link to reset password will be sent there.') ?></p>
 
 
             <?php $form = ActiveForm::begin([
@@ -25,7 +25,7 @@ use yii\bootstrap\ActiveForm;
             <?= $form->field($model, 'email')->textInput(['autofocus' => true,'class'=>'label__input input-text'])->label('Email',['class'=>'label']) ?>
 
     <br> <br>
-                <?= Html::submitButton('Send', ['class' => 'button button_gold button_little']) ?>
+                <?= Html::submitButton(Yii::t('messages','Send'), ['class' => 'button button_gold button_little']) ?>
 
             <?php ActiveForm::end(); ?>
 
