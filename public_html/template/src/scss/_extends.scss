@@ -303,14 +303,18 @@
   top: 0;
   bottom: 0;
   &_small {
-    height: 21vw;
+    //height: 21vw;
+    height: 22vw;
   }
   &_middle {
-
+    height: 35vw;
   }
   &_large {
 
-    height: 47vw;
+    //height: 47vw;
+
+    width: 100vw;
+    height: 62vw;
   }
 }
 

@@ -105,6 +105,20 @@ input#user-avatar {
       z-index: 1;
     }
   }
+  &__pillar {
+    background: url(../images/common/grass.png) bottom no-repeat, url(../images/feedback/pillar.png) 20% bottom no-repeat;
+    @media (max-width: 1042px) {
+      background: url(../images/common/grass.png) bottom no-repeat;
+    }
+    @media (max-width: $mobile-width) {
+      height: 130px;
+      bottom: 0;
+      top: auto;
+      background: url(../images/common/grass.png) bottom no-repeat;
+      background-size: cover;
+      z-index: 15;
+    }
+  }
 
 }
 

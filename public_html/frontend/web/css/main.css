@@ -139,9 +139,12 @@
   top: 0;
   bottom: 0; }
   .canvas_small {
-    height: 21vw; }
+    height: 22vw; }
+  .canvas_middle {
+    height: 35vw; }
   .canvas_large {
-    height: 47vw; }
+    width: 100vw;
+    height: 62vw; }
 
 .canvas-container {
   position: absolute;
@@ -263,7 +266,7 @@
   width: 73%;
   min-width: 311px;
   margin: auto;
-  padding: 66px 0 25px 0;
+  padding: 3vw 0 0 0;
   background: url(../images/common/logo-substrate.png) no-repeat;
   background-size: contain;
   background-position: center -500px; }
@@ -2023,6 +2026,19 @@ input#user-avatar {
         background: url(../images/common/grass.png) bottom no-repeat;
         background-size: cover;
         z-index: 1; } }
+  .grass__pillar {
+    background: url(../images/common/grass.png) bottom no-repeat, url(../images/feedback/pillar.png) 20% bottom no-repeat; }
+    @media (max-width: 1042px) {
+      .grass__pillar {
+        background: url(../images/common/grass.png) bottom no-repeat; } }
+    @media (max-width: 768px) {
+      .grass__pillar {
+        height: 130px;
+        bottom: 0;
+        top: auto;
+        background: url(../images/common/grass.png) bottom no-repeat;
+        background-size: cover;
+        z-index: 15; } }
 
 .about-user-info {
   display: flex;
@@ -2180,6 +2196,148 @@ input#user-avatar {
 
 #change-password {
   margin-top: 83px; }
+
+.site-contact {
+  position: relative;
+  background: linear-gradient(to bottom, #44dffb 0%, #f9f9f9 73%); }
+
+.feedback-text {
+  width: 325px;
+  text-align: center;
+  margin: auto auto 30px; }
+  @media (max-width: 768px) {
+    .feedback-text {
+      width: 280px; } }
+
+.stone-wrapper {
+  position: relative;
+  bottom: 0;
+  width: 40%;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 5% 5% 93px 5%;
+  z-index: 200;
+  background: url(../images/common/pattern.png) top left repeat-x, url(../images/cabinet/stone.png) bottom no-repeat;
+  background-size: 6%, cover; }
+  @media (max-width: 1200px) {
+    .stone-wrapper {
+      font-size: 0.8em; } }
+  @media (max-width: 768px) {
+    .stone-wrapper {
+      width: 100%;
+      margin: 0;
+      font-size: 0.7em;
+      background: url(../images/cabinet/stone.png) bottom no-repeat;
+      background-size: 100% 100%; } }
+
+.infographic {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: row;
+  justify-content: center;
+  height: 430px; }
+  @media (min-width: 1601px) {
+    .infographic {
+      height: 394px; } }
+  @media (max-width: 1600px) {
+    .infographic {
+      height: 367px; } }
+  @media (max-width: 1300px) {
+    .infographic {
+      height: 310px; } }
+  @media (max-width: 1100px) {
+    .infographic {
+      height: 316px; } }
+  @media (max-width: 768px) {
+    .infographic {
+      display: flex;
+      justify-content: center;
+      align-items: baseline;
+      flex-direction: column;
+      height: auto; } }
+  .infographic__cloud {
+    background-image: url(../images/common/cl1.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 34%;
+    background-position: center bottom;
+    padding: 5px;
+    padding-bottom: 91px;
+    height: 12vw; }
+    @media (max-width: 1100px) {
+      .infographic__cloud {
+        padding-bottom: 102px; } }
+    @media (max-width: 768px) {
+      .infographic__cloud {
+        width: 100%;
+        padding-bottom: 24px;
+        height: 50vw; } }
+    .infographic__cloud_top {
+      align-self: flex-start; }
+  .infographic__arrow {
+    align-self: center;
+    position: absolute;
+    width: 12%; }
+    @media (max-width: 768px) {
+      .infographic__arrow {
+        width: 25vw;
+        position: relative; } }
+    .infographic__arrow_rotate_first {
+      left: 28%;
+      top: 44%; }
+      @media (max-width: 768px) {
+        .infographic__arrow_rotate_first {
+          transform: rotate(113deg);
+          left: auto;
+          top: -7vw; } }
+    .infographic__arrow_rotate_second {
+      right: 30%;
+      top: 42%; }
+      @media (max-width: 768px) {
+        .infographic__arrow_rotate_second {
+          transform: rotate(58deg);
+          right: auto;
+          top: -7vw; } }
+  .infographic__text {
+    display: inline-block;
+    vertical-align: top;
+    width: 45%;
+    z-index: 2; }
+    @media (max-width: 1100px) {
+      .infographic__text {
+        font-size: 0.8em; } }
+    @media (max-width: 768px) {
+      .infographic__text {
+        font-size: 1.3em;
+        width: 27vw; } }
+    @media (max-width: 600px) {
+      .infographic__text {
+        font-size: 1.1em;
+        width: 27vw; } }
+    @media (max-width: 480px) {
+      .infographic__text {
+        font-size: 0.6em;
+        width: 27vw; } }
+  .infographic__picture {
+    width: 50%; }
+    @media (max-width: 768px) {
+      .infographic__picture {
+        width: 46%; } }
+  .infographic__container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 80%;
+    margin: auto;
+    margin-bottom: 20px; }
+
+.or {
+  color: #626262;
+  font-size: 1.5em;
+  line-height: 0.8; }
+  @media (max-width: 768px) {
+    .or {
+      font-size: 1em; } }
 
 @font-face {
   font-family: IceAge;
@@ -2395,6 +2553,15 @@ body {
   @media (max-width: 1700px) {
     .clouds__cabinet {
       top: 0; } }
+  @media (min-width: 1576px) {
+    .clouds_all {
+      top: -17vw; } }
+  @media (max-width: 1575px) {
+    .clouds_all {
+      top: -14vw; } }
+  @media (max-width: 1300px) {
+    .clouds_all {
+      top: -13vw; } }
 
 .cloud-container {
   position: absolute;
@@ -2456,38 +2623,35 @@ body {
     z-index: 8001;
     display: none; }
   .cloud-container_left-big {
-    left: -11%;
-    top: -7%;
+    left: -12%;
+    top: 7vw;
     z-index: 8001; }
   .cloud-container_right-big {
-    left: 61%;
-    top: -7%;
+    left: 57%;
+    top: 7vw;
     z-index: 8001; }
   .cloud-container_bottom-big {
-    width: 120%;
-    left: 18%;
-    top: -10%;
-    z-index: 0;
-    -webkit-animation: rotate 30s -1s infinite alternate linear;
-    -moz-animation: rotate 30s -1s infinite alternate linear;
-    animation: rotate 30s -1s infinite alternate linear; }
+    width: 132%;
+    left: 21vw;
+    top: 7vw;
+    z-index: -1; }
   .cloud-container_left-small {
     width: 65%;
     left: -10%;
-    top: 17%;
-    z-index: 7000; }
+    z-index: 7000;
+    top: 29vw; }
   .cloud-container_second-small {
     width: 65%;
     left: 18%;
-    top: 17%; }
+    top: 29vw; }
   .cloud-container_third-small {
     width: 65%;
-    left: 41%;
-    top: 17%; }
+    left: 45%;
+    top: 29vw; }
   .cloud-container_right-small {
     width: 65%;
     right: -36%;
-    top: 18%;
+    top: 29vw;
     z-index: 7000;
     -webkit-animation: rotate 30s -7s infinite alternate linear;
     -moz-animation: rotate 30s -7s infinite alternate linear;
@@ -2503,46 +2667,41 @@ body {
     width: 70%;
     z-index: 0; }
   .cloud-container_center-center-medium {
-    left: 9%;
+    left: 30%;
+    width: 70%;
+    z-index: 0; }
+  .cloud-container_center-left-medium {
+    left: 10%;
+    width: 70%;
+    z-index: 0; }
+  .cloud-container_center-right-medium {
+    left: 51%;
+    width: 68%;
+    z-index: 0; }
+  .cloud-container_border-left-medium {
+    left: -19%;
+    width: 70%;
+    z-index: 0; }
+  .cloud-container_border-right-medium {
+    left: 79%;
+    width: 70%;
+    z-index: 0; }
+  .cloud-container_center-page {
+    left: 3.5%;
     bottom: 0;
-    top: 22%;
-    width: 164%;
+    top: 500px;
+    width: 100%;
     z-index: 0; }
     @media (max-width: 820px) {
-      .cloud-container_center-center-medium {
+      .cloud-container_center-page {
         left: 0%;
         bottom: 0;
         top: 8%;
         width: 200%;
         z-index: 0; } }
     @media (max-width: 768px) {
-      .cloud-container_center-center-medium {
+      .cloud-container_center-page {
         display: block; } }
-  .cloud-container_center-left-medium {
-    left: 15%;
-    top: -229px;
-    width: 70%;
-    z-index: 0; }
-  .cloud-container_center-right-medium {
-    left: 51%;
-    top: -229px;
-    width: 70%;
-    z-index: 0; }
-  .cloud-container_border-left-medium {
-    left: -19%;
-    top: -229px;
-    width: 70%;
-    z-index: 0; }
-  .cloud-container_border-right-medium {
-    left: 84%;
-    top: -190px;
-    width: 70%;
-    z-index: 0; }
-  .cloud-container_center-page {
-    left: 33%;
-    top: -23%;
-    width: 70%;
-    z-index: 0; }
   .cloud-container_left-bottom {
     left: -8%;
     top: 64%;

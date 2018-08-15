@@ -22,7 +22,7 @@ $this->title = 'Terms of agreement';
         </div>
     </div>
 
-    <div class="clouds">
+    <div class="clouds clouds_all">
         <div class="cloud-container cloud-container_center-left-medium">
             <canvas class="canvas"></canvas>
         </div>
